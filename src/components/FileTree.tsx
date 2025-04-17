@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FileTreeItem } from './FileTreeItem';
 
 interface FileNode {
@@ -23,16 +23,18 @@ export function FileTree({ items, onFileSelect, defaultSelectedFileId, defaultOp
   const [selectedFile, setSelectedFile] = useState<string | null>(defaultSelectedFileId || null);
 
   const toggleFolder = (folderId: string) => {
-    const newOpenFolders = new Set(openFolders);
-    if (newOpenFolders.has(folderId)) {
-      newOpenFolders.delete(folderId);
-    } else {
-      newOpenFolders.add(folderId);
-    }
-    setOpenFolders(newOpenFolders);
+    setOpenFolders(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(folderId)) {
+        newSet.delete(folderId);
+      } else {
+        newSet.add(folderId);
+      }
+      return newSet;
+    });
   };
 
-  const findFileById = (nodes: FileNode[], id: string): FileNode | null => {
+  const findFileById = useCallback((nodes: FileNode[], id: string): FileNode | null => {
     for (const node of nodes) {
       if (node.id === id) return node;
       if (node.children) {
@@ -41,21 +43,21 @@ export function FileTree({ items, onFileSelect, defaultSelectedFileId, defaultOp
       }
     }
     return null;
-  };
+  }, []);
 
-  const handleFileSelect = (fileId: string) => {
+  const handleFileSelect = useCallback((fileId: string) => {
     setSelectedFile(fileId);
     const file = findFileById(items, fileId);
     if (file && onFileSelect) {
       onFileSelect(file);
     }
-  };
+  }, [items, onFileSelect, findFileById]);
 
   useEffect(() => {
     if (defaultSelectedFileId) {
       handleFileSelect(defaultSelectedFileId);
     }
-  }, [defaultSelectedFileId]);
+  }, [defaultSelectedFileId, handleFileSelect]);
 
   const renderItems = (nodes: FileNode[], level: number = 0) => {
     return nodes.map(node => (

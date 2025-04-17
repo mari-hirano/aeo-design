@@ -31,12 +31,7 @@ export function ResizablePanelGroup({
 
   const onDrag = useCallback((e: MouseEvent) => {
     if (isDragging && containerRef.current && dragPosition !== null) {
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const containerSize = direction === "horizontal" ? containerRect.width : containerRect.height;
       const currentPosition = direction === "horizontal" ? e.clientX : e.clientY;
-      const delta = currentPosition - dragPosition;
-
-      // Update panel sizes here if needed
       setDragPosition(currentPosition);
     }
   }, [isDragging, dragPosition, direction]);

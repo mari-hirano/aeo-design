@@ -5,13 +5,9 @@ import LeftSidebar from "@/components/LeftSidebar";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { FileTree } from "@/components/FileTree";
 import { Preview } from "@/components/Preview";
-import { MoreHorizontal, ChevronLeft, Search, ChevronRight } from "lucide-react";
+import { MoreHorizontal, Search, ChevronRight } from "lucide-react";
 import { useState, useCallback, useRef } from 'react';
 import Editor from "@monaco-editor/react";
-
-interface LayoutContentProps {
-  children: React.ReactNode;
-}
 
 const fileStructure = [
   {
@@ -182,7 +178,7 @@ const fileStructure = [
   }
 ];
 
-export function LayoutContent({ children }: LayoutContentProps) {
+export function LayoutContent() {
   const [terminalHeight, setTerminalHeight] = useState(200);
   const [previewWidth, setPreviewWidth] = useState(0.5); // 50% of available space
   const isDraggingRef = useRef(false);
