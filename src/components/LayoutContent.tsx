@@ -5,9 +5,10 @@ import LeftSidebar from "@/components/LeftSidebar";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { FileTree } from "@/components/FileTree";
 import { Preview } from "@/components/Preview";
-import { MoreHorizontal, ChevronLeft, Search, ChevronRight, X, Sparkle } from "lucide-react";
-import { useState, useCallback, useRef } from 'react';
+import { MoreHorizontal, Search, ChevronRight, X, Sparkle } from "lucide-react";
+import { useState } from "react";
 import Editor from "@monaco-editor/react";
+import Image from "next/image";
 
 interface LayoutContentProps {
   children: React.ReactNode;
@@ -15,174 +16,174 @@ interface LayoutContentProps {
 
 const fileStructure = [
   {
-    id: 'src',
-    name: 'src',
-    type: 'folder' as const,
+    id: "src",
+    name: "src",
+    type: "folder" as const,
     children: [
       {
-        id: 'app',
-        name: 'app',
-        type: 'folder' as const,
+        id: "app",
+        name: "app",
+        type: "folder" as const,
         children: [
           {
-            id: 'page.tsx',
-            name: 'page.tsx',
-            type: 'file' as const,
-            content: '// Home page component'
+            id: "page.tsx",
+            name: "page.tsx",
+            type: "file" as const,
+            content: "// Home page component",
           },
           {
-            id: 'layout.tsx',
-            name: 'layout.tsx',
-            type: 'file' as const,
-            content: '// Root layout component'
+            id: "layout.tsx",
+            name: "layout.tsx",
+            type: "file" as const,
+            content: "// Root layout component",
           },
           {
-            id: 'globals.css',
-            name: 'globals.css',
-            type: 'file' as const,
-            content: '/* Global styles */'
-          }
-        ]
+            id: "globals.css",
+            name: "globals.css",
+            type: "file" as const,
+            content: "/* Global styles */",
+          },
+        ],
       },
       {
-        id: 'components',
-        name: 'components',
-        type: 'folder' as const,
+        id: "components",
+        name: "components",
+        type: "folder" as const,
         children: [
           {
-            id: 'ui',
-            name: 'ui',
-            type: 'folder' as const,
+            id: "ui",
+            name: "ui",
+            type: "folder" as const,
             children: [
               {
-                id: 'button.tsx',
-                name: 'button.tsx',
-                type: 'file' as const,
-                content: '// Button component'
+                id: "button.tsx",
+                name: "button.tsx",
+                type: "file" as const,
+                content: "// Button component",
               },
               {
-                id: 'card.tsx',
-                name: 'card.tsx',
-                type: 'file' as const,
-                content: '// Card component'
+                id: "card.tsx",
+                name: "card.tsx",
+                type: "file" as const,
+                content: "// Card component",
               },
               {
-                id: 'input.tsx',
-                name: 'input.tsx',
-                type: 'file' as const,
-                content: '// Input component'
-              }
-            ]
+                id: "input.tsx",
+                name: "input.tsx",
+                type: "file" as const,
+                content: "// Input component",
+              },
+            ],
           },
           {
-            id: 'features',
-            name: 'features',
-            type: 'folder' as const,
+            id: "features",
+            name: "features",
+            type: "folder" as const,
             children: [
               {
-                id: 'auth',
-                name: 'auth',
-                type: 'folder' as const,
+                id: "auth",
+                name: "auth",
+                type: "folder" as const,
                 children: [
                   {
-                    id: 'login-form.tsx',
-                    name: 'login-form.tsx',
-                    type: 'file' as const,
-                    content: '// Login form component'
+                    id: "login-form.tsx",
+                    name: "login-form.tsx",
+                    type: "file" as const,
+                    content: "// Login form component",
                   },
                   {
-                    id: 'signup-form.tsx',
-                    name: 'signup-form.tsx',
-                    type: 'file' as const,
-                    content: '// Signup form component'
-                  }
-                ]
+                    id: "signup-form.tsx",
+                    name: "signup-form.tsx",
+                    type: "file" as const,
+                    content: "// Signup form component",
+                  },
+                ],
               },
               {
-                id: 'dashboard',
-                name: 'dashboard',
-                type: 'folder' as const,
+                id: "dashboard",
+                name: "dashboard",
+                type: "folder" as const,
                 children: [
                   {
-                    id: 'stats-card.tsx',
-                    name: 'stats-card.tsx',
-                    type: 'file' as const,
-                    content: '// Dashboard stats component'
+                    id: "stats-card.tsx",
+                    name: "stats-card.tsx",
+                    type: "file" as const,
+                    content: "// Dashboard stats component",
                   },
                   {
-                    id: 'activity-feed.tsx',
-                    name: 'activity-feed.tsx',
-                    type: 'file' as const,
-                    content: '// Activity feed component'
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+                    id: "activity-feed.tsx",
+                    name: "activity-feed.tsx",
+                    type: "file" as const,
+                    content: "// Activity feed component",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
-        id: 'lib',
-        name: 'lib',
-        type: 'folder' as const,
+        id: "lib",
+        name: "lib",
+        type: "folder" as const,
         children: [
           {
-            id: 'utils.ts',
-            name: 'utils.ts',
-            type: 'file' as const,
-            content: '// Utility functions'
+            id: "utils.ts",
+            name: "utils.ts",
+            type: "file" as const,
+            content: "// Utility functions",
           },
           {
-            id: 'api.ts',
-            name: 'api.ts',
-            type: 'file' as const,
-            content: '// API client'
-          }
-        ]
-      }
-    ]
+            id: "api.ts",
+            name: "api.ts",
+            type: "file" as const,
+            content: "// API client",
+          },
+        ],
+      },
+    ],
   },
   {
-    id: 'public',
-    name: 'public',
-    type: 'folder' as const,
+    id: "public",
+    name: "public",
+    type: "folder" as const,
     children: [
       {
-        id: 'images',
-        name: 'images',
-        type: 'folder' as const,
+        id: "images",
+        name: "images",
+        type: "folder" as const,
         children: [
           {
-            id: 'logo.svg',
-            name: 'logo.svg',
-            type: 'file' as const,
-            content: '<!-- Logo SVG -->'
+            id: "logo.svg",
+            name: "logo.svg",
+            type: "file" as const,
+            content: "<!-- Logo SVG -->",
           },
           {
-            id: 'hero.png',
-            name: 'hero.png',
-            type: 'file' as const,
-            content: '// Hero image'
-          }
-        ]
-      }
-    ]
+            id: "hero.png",
+            name: "hero.png",
+            type: "file" as const,
+            content: "// Hero image",
+          },
+        ],
+      },
+    ],
   },
   {
-    id: 'package.json',
-    name: 'package.json',
-    type: 'file' as const,
-    content: '// Package configuration'
+    id: "package.json",
+    name: "package.json",
+    type: "file" as const,
+    content: "// Package configuration",
   },
   {
-    id: 'tsconfig.json',
-    name: 'tsconfig.json',
-    type: 'file' as const,
-    content: '// TypeScript configuration'
-  }
+    id: "tsconfig.json",
+    name: "tsconfig.json",
+    type: "file" as const,
+    content: "// TypeScript configuration",
+  },
 ];
 
-export function LayoutContent({ children }: LayoutContentProps) {
+export function LayoutContent({}: LayoutContentProps) {
   const [editorValue, setEditorValue] = useState(`interface User {
   id: string;
   name: string;
@@ -247,10 +248,10 @@ async function example() {
     <NavigatorProvider>
       <div className="h-screen w-screen flex flex-col overflow-hidden">
         <Navbar />
-        
+
         <div className="flex-1 flex min-h-0">
           <LeftSidebar />
-          
+
           {/* File Tree Panel */}
           <div className="w-[248px] border-r border-[#454545] bg-[#292929] flex flex-col min-h-0">
             {/* Navigator Header */}
@@ -277,25 +278,37 @@ async function example() {
 
             {/* File Tree */}
             <div className="flex-1 overflow-auto">
-              <FileTree 
-                items={fileStructure} 
-                defaultOpenFolders={['src', 'app']}
+              <FileTree
+                items={fileStructure}
+                defaultOpenFolders={["src", "app"]}
                 defaultSelectedFileId="page.tsx"
               />
             </div>
           </div>
 
           {/* Main Content Area */}
-          <div className={`flex-1 flex flex-col min-h-0 bg-[#1E1E1E] overflow-hidden transition-[margin] duration-300 ease-in-out ${
-            isAssistantOpen ? 'mr-[248px]' : 'mr-0'
-          }`}>
+          <div
+            className={`flex-1 flex flex-col min-h-0 bg-[#1E1E1E] overflow-hidden transition-[margin] duration-300 ease-in-out ${
+              isAssistantOpen ? "mr-[248px]" : "mr-0"
+            }`}
+          >
             {/* Top Section: Code Editor and Preview */}
-            <div className="flex min-h-0" style={{ height: 'calc(100% - 200px)' }}>
+            <div
+              className="flex min-h-0"
+              style={{ height: "calc(100% - 200px)" }}
+            >
               {/* Code Editor */}
-              <div style={{ width: '50%' }} className="flex flex-col min-h-0 border-r border-[#454545]">
+              <div
+                style={{ width: "50%" }}
+                className="flex flex-col min-h-0 border-r border-[#454545]"
+              >
                 <div className="h-[40px] flex-none border-b border-[#454545] flex items-center px-4 bg-[#292929]">
                   <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em] flex items-center">
-                    src <ChevronRight size={12} className="mx-1 text-[#808080]" /> app <ChevronRight size={12} className="mx-1 text-[#808080]" /> page.tsx
+                    src{" "}
+                    <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
+                    app{" "}
+                    <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
+                    page.tsx
                   </span>
                 </div>
                 <div className="flex-1 overflow-hidden">
@@ -322,20 +335,22 @@ async function example() {
               </div>
 
               {/* Preview Panel */}
-              <div style={{ width: '50%' }} className="flex flex-col min-h-0">
+              <div style={{ width: "50%" }} className="flex flex-col min-h-0">
                 <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between px-4 bg-[#292929]">
                   <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
                     Preview
                   </span>
                   {!isAssistantOpen && (
-                    <button 
+                    <button
                       onClick={() => setIsAssistantOpen(true)}
                       className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
                     >
-                      <img 
-                        src="/images/AssistantButton.png" 
-                        alt="Open Assistant" 
+                      <Image
+                        src="/images/AssistantButton.png"
+                        alt="Open Assistant"
                         className="w-6 h-6"
+                        width={24}
+                        height={24}
                       />
                     </button>
                   )}
@@ -347,8 +362,8 @@ async function example() {
             </div>
 
             {/* Bottom Section: Terminal */}
-            <div 
-              style={{ height: '200px' }}
+            <div
+              style={{ height: "200px" }}
               className="flex-none border-t border-[#454545] flex flex-col min-h-0"
             >
               <div className="h-[40px] flex-none border-b border-[#454545] flex items-center px-4 bg-[#292929]">
@@ -363,39 +378,53 @@ async function example() {
           </div>
 
           {/* Assistant Panel */}
-          <div 
+          <div
             className={`fixed top-[35px] right-0 bottom-0 w-[248px] border-l border-[#454545] bg-[#292929] flex flex-col transform transition-transform duration-300 ease-in-out ${
-              isAssistantOpen ? 'translate-x-0' : 'translate-x-full'
+              isAssistantOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
             {/* Assistant Header */}
-            <div className="h-[40px] flex-none flex items-center justify-between px-3 border-b border-[#454545]">
-              <div className="flex items-center gap-1">
-                <Sparkle size={16} strokeWidth={1} className="text-[#CCCCCC]" />
-                <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em] font-inter">
-                  Assistant
+            <div className="flex items-center justify-between p-3 border-b border-neutral-700 bg-neutral-800 rounded-t-lg">
+              <div className="flex items-center gap-2">
+                <Sparkle className="w-4 h-4 text-purple-400" />
+                <span className="text-sm font-medium text-neutral-200">
+                  AI Assistant
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <button className="w-[16px] h-[16px] flex items-center justify-center text-[#CCCCCC] hover:text-white">
-                  <MoreHorizontal size={16} />
-                </button>
-                <button 
-                  onClick={() => setIsAssistantOpen(false)}
-                  className="w-[16px] h-[16px] flex items-center justify-center text-[#CCCCCC] hover:text-white"
-                >
-                  <X size={16} />
-                </button>
-              </div>
+              <button
+                onClick={() => setIsAssistantOpen(false)}
+                className="text-neutral-400 hover:text-neutral-200"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
             {/* Assistant Content */}
-            <div className="flex-1 overflow-auto p-2">
-              {/* Assistant content will go here */}
+            <div className="flex-1 p-3 overflow-y-auto space-y-4">
+              {/* Example Chat Message */}
+              <div className="flex items-start gap-2.5">
+                <Image
+                  className="w-8 h-8 rounded-full"
+                  src="/images/ai-avatar.png"
+                  alt="AI Assistant avatar"
+                  width={32}
+                  height={32}
+                />
+                <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-3 border-gray-200 bg-neutral-700 rounded-e-xl rounded-es-xl">
+                  <div className="flex items-center space-x-2 rtl:space-x-reverse mb-1">
+                    <span className="text-sm font-semibold text-neutral-100">
+                      AI Assistant
+                    </span>
+                  </div>
+                  <div className="text-sm text-neutral-300">
+                    {/* Example chat message content */}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </NavigatorProvider>
   );
-} 
+}
