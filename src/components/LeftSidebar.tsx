@@ -20,7 +20,7 @@ const LeftSidebar = () => {
           <Image
             src="/images/leftIcons/Code Navigator24.svg"
             alt="Code Navigator"
-            width={26}
+            width={24}
             height={24}
           />
         </div>
