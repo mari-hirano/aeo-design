@@ -10,15 +10,11 @@ export const metadata: Metadata = {
   description: "AI-powered coding environment prototype",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout() {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LayoutContent>{children}</LayoutContent>
+        <LayoutContent />
       </body>
     </html>
   );

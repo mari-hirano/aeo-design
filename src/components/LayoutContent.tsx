@@ -14,6 +14,7 @@ interface LayoutContentProps {
   children: React.ReactNode;
 }
 
+
 const fileStructure = [
   {
     id: "src",
@@ -184,6 +185,7 @@ const fileStructure = [
 ];
 
 export function LayoutContent({}: LayoutContentProps) {
+
   const [editorValue, setEditorValue] = useState(`interface User {
   id: string;
   name: string;

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { FileTreeItem } from "./FileTreeItem";
 
+
 interface FileNode {
   id: string;
   name: string;
@@ -32,13 +33,15 @@ export function FileTree({
   );
 
   const toggleFolder = (folderId: string) => {
-    const newOpenFolders = new Set(openFolders);
-    if (newOpenFolders.has(folderId)) {
-      newOpenFolders.delete(folderId);
-    } else {
-      newOpenFolders.add(folderId);
-    }
-    setOpenFolders(newOpenFolders);
+    setOpenFolders(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(folderId)) {
+        newSet.delete(folderId);
+      } else {
+        newSet.add(folderId);
+      }
+      return newSet;
+    });
   };
 
   const findFileById = useCallback(

@@ -48,6 +48,7 @@ export function ResizablePanelGroup({
     [isDragging, dragPosition, direction]
   );
 
+
   useEffect(() => {
     if (isDragging) {
       window.addEventListener("mousemove", onDrag);
