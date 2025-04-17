@@ -11,9 +11,8 @@ import Editor from "@monaco-editor/react";
 import Image from "next/image";
 
 interface LayoutContentProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
-
 
 const fileStructure = [
   {
@@ -185,7 +184,6 @@ const fileStructure = [
 ];
 
 export function LayoutContent({}: LayoutContentProps) {
-
   const [editorValue, setEditorValue] = useState(`interface User {
   id: string;
   name: string;
