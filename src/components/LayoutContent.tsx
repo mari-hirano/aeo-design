@@ -5,7 +5,7 @@ import LeftSidebar from "@/components/LeftSidebar";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { FileTree } from "@/components/FileTree";
 import { Preview } from "@/components/Preview";
-import { MoreHorizontal, Search, ChevronRight, X, Sparkle } from "lucide-react";
+import { MoreHorizontal, Search, ChevronRight, X, Sparkle, Eye, EyeOff, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Editor from "@monaco-editor/react";
 import Image from "next/image";
@@ -239,6 +239,8 @@ async function example() {
   console.log('Created user:', user);
 }`);
   const [isAssistantOpen, setIsAssistantOpen] = useState(true);
+  const [isPreviewVisible, setIsPreviewVisible] = useState(true);
+  const [isTerminalExpanded, setIsTerminalExpanded] = useState(true);
 
   const handleEditorChange = (value: string | undefined) => {
     if (value !== undefined) {
@@ -297,21 +299,44 @@ async function example() {
             {/* Top Section: Code Editor and Preview */}
             <div
               className="flex min-h-0"
-              style={{ height: "calc(100% - 200px)" }}
+              style={{ height: `calc(100% - ${isTerminalExpanded ? "200px" : "40px"})` }}
             >
               {/* Code Editor */}
               <div
-                style={{ width: "50%" }}
-                className="flex flex-col min-h-0 border-r border-[#454545]"
+                style={{ width: isPreviewVisible ? "50%" : "100%" }}
+                className="flex flex-col min-h-0 border-r border-[#454545] transition-[width] duration-300"
               >
-                <div className="h-[40px] flex-none border-b border-[#454545] flex items-center px-4 bg-[#292929]">
+                <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between pl-4 pr-2 bg-[#292929]">
                   <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em] flex items-center">
-                    src{" "}
-                    <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
-                    app{" "}
-                    <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
-                    page.tsx
+                    src <ChevronRight size={12} className="mx-1 text-[#808080]" /> app{" "}
+                    <ChevronRight size={12} className="mx-1 text-[#808080]" /> page.tsx
                   </span>
+                  <div className="flex items-center gap-2">
+                    {!isPreviewVisible && (
+                      <>
+                        <button
+                          onClick={() => setIsPreviewVisible(true)}
+                          className="flex items-center text-[#CCCCCC] hover:text-white border border-[#454545] px-2 h-6 rounded"
+                        >
+                          <span className="text-[11.5px]">Show Preview</span>
+                        </button>
+                        {!isAssistantOpen && (
+                          <button
+                            onClick={() => setIsAssistantOpen(true)}
+                            className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
+                          >
+                            <Image
+                              src="/images/AssistantButton.png"
+                              alt="Open Assistant"
+                              className="w-6 h-6"
+                              width={24}
+                              height={24}
+                            />
+                          </button>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
                 <div className="flex-1 overflow-hidden">
                   <Editor
@@ -337,25 +362,37 @@ async function example() {
               </div>
 
               {/* Preview Panel */}
-              <div style={{ width: "50%" }} className="flex flex-col min-h-0">
-                <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between px-4 bg-[#292929]">
+              <div 
+                className={`flex flex-col min-h-0 transition-[width,opacity] duration-300 ${
+                  isPreviewVisible ? "opacity-100 w-1/2" : "opacity-0 w-0"
+                }`}
+              >
+                <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between pl-4 pr-2 bg-[#292929]">
                   <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
                     Preview
                   </span>
-                  {!isAssistantOpen && (
+                  <div className="flex items-center gap-2">
                     <button
-                      onClick={() => setIsAssistantOpen(true)}
-                      className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
+                      onClick={() => setIsPreviewVisible(false)}
+                      className="flex items-center text-[#CCCCCC] hover:text-white border border-[#454545] px-2 h-6 rounded"
                     >
-                      <Image
-                        src="/images/AssistantButton.png"
-                        alt="Open Assistant"
-                        className="w-6 h-6"
-                        width={24}
-                        height={24}
-                      />
+                      <span className="text-[11.5px]">Hide Preview</span>
                     </button>
-                  )}
+                    {!isAssistantOpen && (
+                      <button
+                        onClick={() => setIsAssistantOpen(true)}
+                        className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
+                      >
+                        <Image
+                          src="/images/AssistantButton.png"
+                          alt="Open Assistant"
+                          className="w-6 h-6"
+                          width={24}
+                          height={24}
+                        />
+                      </button>
+                    )}
+                  </div>
                 </div>
                 <div className="flex-1 overflow-hidden">
                   <Preview />
@@ -365,16 +402,64 @@ async function example() {
 
             {/* Bottom Section: Terminal */}
             <div
-              style={{ height: "200px" }}
-              className="flex-none border-t border-[#454545] flex flex-col min-h-0"
+              className={`flex-none border-t border-[#454545] flex flex-col min-h-0 transition-[height] duration-300 ease-in-out`}
+              style={{ height: isTerminalExpanded ? "200px" : "40px" }}
             >
-              <div className="h-[40px] flex-none border-b border-[#454545] flex items-center px-4 bg-[#292929]">
-                <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
-                  Terminal
-                </span>
-              </div>
-              <div className="flex-1 overflow-auto bg-[#1E1E1E] p-2">
-                {/* Terminal content will go here */}
+              <button 
+                onClick={() => setIsTerminalExpanded(!isTerminalExpanded)}
+                className="h-[40px] flex-none border-b border-[#454545] flex items-center px-4 bg-[#292929]"
+              >
+                <div className="flex items-center gap-1">
+                  <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
+                    Terminal
+                  </span>
+                  <ChevronDown 
+                    size={16} 
+                    className={`text-[#CCCCCC] transform transition-transform duration-200 ${isTerminalExpanded ? "" : "rotate-180"}`}
+                  />
+                </div>
+              </button>
+              <div className={`flex-1 overflow-auto bg-[#1E1E1E] p-2 [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F] ${isTerminalExpanded ? "" : "hidden"}`}>
+                <div style={{ fontFamily: '"Roboto Mono", Menlo, Monaco, "Courier New", monospace' }} className="text-[11.5px] leading-[20px] text-[#CCCCCC]">
+                  <div className="flex">
+                    <span className="text-[#4EC9B0]">➜</span>
+                    <span className="text-[#569CD6]">&nbsp;orion-prototype</span>
+                    <span className="text-[#CCCCCC]">&nbsp;git:(</span>
+                    <span className="text-[#CE9178]">main</span>
+                    <span className="text-[#CCCCCC]">)&nbsp;</span>
+                    <span className="text-[#CCCCCC]">npm install</span>
+                  </div>
+                  <div className="text-[#6A9955]">added 248 packages, and audited 1503 packages in 3s</div>
+                  <div className="text-[#6A9955]">125 packages are looking for funding</div>
+                  <div className="text-[#6A9955]">&nbsp;&nbsp;run `npm fund` for details</div>
+                  <div className="text-[#6A9955]">found 0 vulnerabilities</div>
+                  <div className="mt-2 flex">
+                    <span className="text-[#4EC9B0]">➜</span>
+                    <span className="text-[#569CD6]">&nbsp;orion-prototype</span>
+                    <span className="text-[#CCCCCC]">&nbsp;git:(</span>
+                    <span className="text-[#CE9178]">main</span>
+                    <span className="text-[#CCCCCC]">)&nbsp;</span>
+                    <span className="text-[#CCCCCC]">npm run dev</span>
+                  </div>
+                  <div className="text-[#CCCCCC]">{`>`} orion-prototype@0.1.0 dev</div>
+                  <div className="text-[#CCCCCC]">{`>`} next dev</div>
+                  <div className="mt-1">
+                    <span className="text-[#569CD6]">ready</span>
+                    <span className="text-[#CCCCCC]"> - started server on </span>
+                    <span className="text-[#CE9178]">0.0.0.0:3000</span>
+                    <span className="text-[#CCCCCC]">, url: </span>
+                    <span className="text-[#4EC9B0]">http://localhost:3000</span>
+                  </div>
+                  <div className="text-[#CCCCCC]">event - compiled client and server successfully in 188 ms (17 modules)</div>
+                  <div className="mt-2 flex">
+                    <span className="text-[#4EC9B0]">➜</span>
+                    <span className="text-[#569CD6]">&nbsp;orion-prototype</span>
+                    <span className="text-[#CCCCCC]">&nbsp;git:(</span>
+                    <span className="text-[#CE9178]">main</span>
+                    <span className="text-[#CCCCCC]">)&nbsp;</span>
+                    <span className="text-[#CCCCCC]">█</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
