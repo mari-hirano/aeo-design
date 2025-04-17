@@ -5,15 +5,9 @@ import LeftSidebar from "@/components/LeftSidebar";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { FileTree } from "@/components/FileTree";
 import { Preview } from "@/components/Preview";
-import {
-  MoreHorizontal,
-  Search,
-  ChevronRight,
-  X,
-  Sparkle,
-  ChevronDown,
-} from "lucide-react";
-import { useState } from "react";
+import { MoreHorizontal, Search, ChevronRight, X, Sparkle, Eye, EyeOff, ChevronDown, CornerDownLeft, Image as ImageIcon } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+
 import Editor from "@monaco-editor/react";
 import Image from "next/image";
 
@@ -246,12 +240,97 @@ async function example() {
   const [isAssistantOpen, setIsAssistantOpen] = useState(true);
   const [isPreviewVisible, setIsPreviewVisible] = useState(true);
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(true);
+  const [messageText, setMessageText] = useState("");
+  const [messages, setMessages] = useState<Array<{ text: string; type: 'user' | 'assistant' }>>([]);
+  const [streamingText, setStreamingText] = useState("");
+  const [isStreaming, setIsStreaming] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = '0';
+      const newHeight = Math.min(textarea.scrollHeight, 200); // Max height of 200px
+      textarea.style.height = `${newHeight}px`;
+    }
+  };
+
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMessageText(e.target.value);
+    adjustTextareaHeight();
+  };
 
   const handleEditorChange = (value: string | undefined) => {
     if (value !== undefined) {
       setEditorValue(value);
     }
   };
+
+  const simulateStreaming = (text: string) => {
+    setIsStreaming(true);
+    const words = text.split(/(\s+)/);
+    let currentIndex = 0;
+
+    const streamWord = () => {
+      if (currentIndex < words.length) {
+        setStreamingText(prev => prev + words[currentIndex]);
+        currentIndex++;
+        setTimeout(streamWord, 30); // Increased speed from 50ms to 30ms
+      } else {
+        setMessages(prev => [...prev, { type: 'assistant', text: text }]);
+        setStreamingText("");
+        setIsStreaming(false);
+      }
+    };
+
+    streamWord();
+  };
+
+  const handleSendMessage = () => {
+    if (messageText.trim()) {
+      setMessages(prev => [...prev, { text: messageText.trim(), type: 'user' }]);
+      setMessageText('');
+      if (textareaRef.current) {
+        textareaRef.current.style.height = '60px';
+      }
+      
+      // Add AI response after a short delay
+      setTimeout(() => {
+        const response = "I'll help you with your web development task. Here's what I can assist with:\n\n" +
+          "• React & Next.js\n" +
+          "  - Component architecture\n" +
+          "  - State management\n" +
+          "  - Server-side rendering\n\n" +
+          "• TypeScript\n" +
+          "  - Type definitions\n" +
+          "  - Best practices\n" +
+          "  - Migration strategies\n\n" +
+          "• Performance\n" +
+          "  - Code optimization\n" +
+          "  - Bundle size reduction\n" +
+          "  - Loading strategies\n\n" +
+          "What would you like help with?";
+        
+        simulateStreaming(response);
+      }, 1000);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, streamingText]);
 
   return (
     <NavigatorProvider>
@@ -298,7 +377,7 @@ async function example() {
           {/* Main Content Area */}
           <div
             className={`flex-1 flex flex-col min-h-0 bg-[#1E1E1E] overflow-hidden transition-[margin] duration-300 ease-in-out ${
-              isAssistantOpen ? "mr-[248px]" : "mr-0"
+              isAssistantOpen ? "mr-[288px]" : "mr-0"
             }`}
           >
             {/* Top Section: Code Editor and Preview */}
@@ -510,45 +589,98 @@ async function example() {
 
           {/* Assistant Panel */}
           <div
-            className={`fixed top-[35px] right-0 bottom-0 w-[248px] border-l border-[#454545] bg-[#292929] flex flex-col transform transition-transform duration-300 ease-in-out ${
+            className={`fixed top-[35px] right-0 bottom-0 w-[288px] border-l border-[#454545] bg-[#292929] flex flex-col transform transition-transform duration-300 ease-in-out ${
               isAssistantOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
             {/* Assistant Header */}
-            <div className="flex items-center justify-between p-3 border-b border-neutral-700 bg-neutral-800 rounded-t-lg">
+            <div className="h-[40px] flex-none flex items-center justify-between px-4 border-b border-[#454545] bg-[#292929]">
               <div className="flex items-center gap-2">
-                <Sparkle className="w-4 h-4 text-purple-400" />
-                <span className="text-sm font-medium text-neutral-200">
+                <Sparkle className="w-4 h-4 text-purple-400 stroke-[1px]" />
+                <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
                   AI Assistant
                 </span>
               </div>
               <button
                 onClick={() => setIsAssistantOpen(false)}
-                className="text-neutral-400 hover:text-neutral-200"
+                className="text-[#CCCCCC] hover:text-white"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Assistant Content */}
-            <div className="flex-1 p-3 overflow-y-auto space-y-4">
-              {/* Example Chat Message */}
-              <div className="flex items-start gap-2.5">
-                <Image
-                  className="w-8 h-8 rounded-full"
-                  src="/images/ai-avatar.png"
-                  alt="AI Assistant avatar"
-                  width={32}
-                  height={32}
-                />
-                <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-3 border-gray-200 bg-neutral-700 rounded-e-xl rounded-es-xl">
-                  <div className="flex items-center space-x-2 rtl:space-x-reverse mb-1">
-                    <span className="text-sm font-semibold text-neutral-100">
-                      AI Assistant
-                    </span>
+            <div className="flex-1 p-3 overflow-y-auto space-y-4 [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F]">
+              {messages.map((message, index) => (
+                message.type === 'user' ? (
+                  <div key={index} className="flex justify-end">
+                    <div className="w-full bg-[#353535] rounded-[8px] p-3">
+                      <div className="flex items-start gap-2">
+                        <Image
+                          src="/images/Avatar.png"
+                          alt="User avatar"
+                          width={24}
+                          height={24}
+                          className="w-6 h-6 rounded-full"
+                        />
+                        <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                          {message.text}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-sm text-neutral-300">
-                    {/* Example chat message content */}
+                ) : (
+                  <div key={index} className="flex">
+                    <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                      {message.text}
+                    </div>
+                  </div>
+                )
+              ))}
+              {isStreaming && (
+                <div className="flex">
+                  <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                    {streamingText}
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+
+            {/* Input Area */}
+            <div className="flex-none p-3">
+              <div className="border border-[#454545] bg-[#202020] rounded-[4px]">
+                <div className="flex flex-col">
+                  <textarea 
+                    ref={textareaRef}
+                    value={messageText}
+                    onChange={handleMessageChange}
+                    onKeyDown={handleKeyPress}
+                    className="w-full min-h-[60px] bg-[#1E1E1E] text-[#CCCCCC] resize-none p-2 focus:outline-none text-[13px] leading-[20px] font-inter font-normal"
+                    placeholder="Type your message..."
+                    style={{ 
+                      maxHeight: '200px',
+                      overflowY: messageText.split('\n').length > 1 ? 'auto' : 'hidden'
+                    }}
+                  />
+                  <div className="flex justify-between items-center px-2 py-2">
+                    <button 
+                      className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors"
+                    >
+                      <ImageIcon size={16} strokeWidth={1} />
+                    </button>
+                    <button 
+                      onClick={handleSendMessage}
+                      disabled={!messageText.trim()}
+                      className={`h-6 px-3 rounded flex items-center gap-2 transition-colors ${
+                        messageText.trim() 
+                          ? "bg-[#007ACC] hover:bg-[#1B8AE0] text-white" 
+                          : "bg-[#3C3C3C] text-[#848484] cursor-not-allowed"
+                      }`}
+                    >
+                      <span className="text-[11.5px]">Send</span>
+                      <CornerDownLeft size={16} strokeWidth={1} />
+                    </button>
                   </div>
                 </div>
               </div>
