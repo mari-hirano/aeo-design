@@ -8,6 +8,7 @@ import { Preview } from "@/components/Preview";
 import { MoreHorizontal, Search, ChevronRight } from "lucide-react";
 import { useState, useCallback, useRef } from 'react';
 import Editor from "@monaco-editor/react";
+import { AiChat } from "@/components/chat/ai-chat";
 
 const fileStructure = [
   {
@@ -181,6 +182,7 @@ const fileStructure = [
 export function LayoutContent() {
   const [terminalHeight, setTerminalHeight] = useState(200);
   const [previewWidth, setPreviewWidth] = useState(0.5); // 50% of available space
+  const [assistantWidth, setAssistantWidth] = useState(300); // Width for assistant panel
   const isDraggingRef = useRef(false);
   const startYRef = useRef(0);
   const startXRef = useRef(0);
@@ -303,6 +305,32 @@ async function example() {
     document.body.style.userSelect = 'none';
   }, [terminalHeight]);
 
+  const handleAssistantMouseDown = useCallback((e: React.MouseEvent) => {
+    isDraggingRef.current = true;
+    startXRef.current = e.clientX;
+    startWidthRef.current = assistantWidth;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDraggingRef.current) return;
+      
+      const deltaX = startXRef.current - e.clientX;
+      const newWidth = Math.max(250, Math.min(600, startWidthRef.current + deltaX));
+      
+      setAssistantWidth(newWidth);
+    };
+    
+    const handleMouseUp = () => {
+      isDraggingRef.current = false;
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.body.style.userSelect = '';
+    };
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    document.body.style.userSelect = 'none';
+  }, [assistantWidth]);
+
   return (
     <NavigatorProvider>
       <div className="h-screen w-screen flex flex-col">
@@ -416,6 +444,23 @@ async function example() {
               <div className="h-[calc(100%-40px)] overflow-auto bg-[#1E1E1E] p-2">
                 {/* Terminal content will go here */}
               </div>
+            </div>
+          </div>
+
+          {/* Assistant Panel */}
+          <div style={{ width: `${assistantWidth}px` }} className="relative border-l border-[#454545] bg-[#1E1E1E]">
+            {/* Assistant Resize Handle */}
+            <div
+              className="absolute top-0 bottom-0 left-0 w-1 cursor-col-resize bg-transparent hover:bg-[#007ACC] transition-colors"
+              onMouseDown={handleAssistantMouseDown}
+            />
+            <div className="h-[40px] border-b border-[#454545] flex items-center px-4 bg-[#292929]">
+              <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
+                Assistant
+              </span>
+            </div>
+            <div className="h-[calc(100%-40px)] overflow-hidden">
+              <AiChat />
             </div>
           </div>
         </div>
