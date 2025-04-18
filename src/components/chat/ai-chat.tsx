@@ -65,7 +65,7 @@ export function AiChat() {
             placeholder="Type your message..."
             className="flex-1 rounded-md border bg-background px-3 py-2"
           />
-          <Button onClick={handleSend}>Send</Button>
+          <Button onClick={handleSend}>Send.</Button>
         </div>
       </div>
     </div>
