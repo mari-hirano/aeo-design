@@ -14,6 +14,7 @@ import {
   ChevronDown,
   CornerDownLeft,
   Image as ImageIcon,
+  ArrowLeft,
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
@@ -358,7 +359,7 @@ async function example() {
           {/* File Tree Panel */}
           <div className="w-[248px] border-r border-[#454545] bg-[#292929] flex flex-col min-h-0">
             {/* Navigator Header */}
-            <div className="h-[40px] flex-none flex items-center justify-between px-3 border-b border-[#454545]">
+            <div className="h-[40px] flex-none flex items-center justify-between px-2 border-b border-[#454545]">
               <span className="font-semibold text-[13px] leading-[20px] text-white font-inter">
                 Navigator
               </span>
@@ -368,19 +369,22 @@ async function example() {
             </div>
 
             {/* Subheading */}
-            <div className="h-[32px] flex-none flex items-center px-3 border-b border-[#454545] bg-[#333333]">
-              <span className="text-[12px] leading-[16px] text-[#CCCCCC] font-inter">
-                Project Files
-              </span>
+            <div className="h-[32px] flex-none flex items-center px-2 border-b border-[#454545]">
+              <div className="flex items-center gap-1 text-[#CCCCCC] hover:text-white cursor-pointer">
+                <ArrowLeft size={14} />
+                <span className="text-[12px] leading-[16px] font-inter">
+                  Doggo training web app
+                </span>
+              </div>
             </div>
 
             {/* Search Box */}
-            <div className="flex-none px-3 py-2">
-              <div className="flex items-center h-[24px] bg-[#3C3C3C] rounded-sm px-2">
+            <div className="flex-none px-2 py-2">
+              <div className="flex items-center h-[24px] bg-[#212121] rounded-[4px] px-2 border border-[#464646]">
                 <Search size={12} className="text-[#CCCCCC]" />
                 <input
                   type="text"
-                  placeholder="Search"
+                  placeholder="Search code"
                   className="bg-transparent border-none text-[#CCCCCC] text-[12px] leading-[16px] px-2 w-full focus:outline-none placeholder-[#808080]"
                 />
               </div>
