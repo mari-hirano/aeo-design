@@ -3,9 +3,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { useNavigator } from '@/context/NavigatorContext';
+import { usePages } from '@/context/PagesContext';
 
 const LeftSidebar = () => {
   const { toggleNavigator } = useNavigator();
+  const { togglePages } = usePages();
 
   return (
     <div 
@@ -24,7 +26,10 @@ const LeftSidebar = () => {
             height={24}
           />
         </div>
-        <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
+        <div 
+          className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]"
+          onClick={togglePages}
+        >
           <Image
             src="/orion/images/leftIcons/PagePanel24.svg"
             alt="Page Panel"
@@ -32,7 +37,7 @@ const LeftSidebar = () => {
             height={24}
           />
         </div>
-        <div className="w-[35px] h-[35px] flex items-center justify-center">
+        <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
           <Image
             src="/orion/images/leftIcons/ThemePanel24.svg"
             alt="Theme Panel"

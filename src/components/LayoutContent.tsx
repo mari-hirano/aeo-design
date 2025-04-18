@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
 import { NavigatorProvider, useNavigator } from "@/context/NavigatorContext";
+import { PagesProvider, usePages } from "@/context/PagesContext";
 import { FileTree } from "@/components/FileTree";
 import { Preview } from "@/components/Preview";
 import {
@@ -22,6 +23,7 @@ import Editor from "@monaco-editor/react";
 import Image from "next/image";
 import { Assistant } from "@/components/Assistant";
 import { CodeEditor } from "@/components/CodeEditor";
+import { PagesPanel } from "@/components/PagesPanel";
 
 interface LayoutContentProps {
   children?: React.ReactNode;
@@ -198,10 +200,44 @@ const fileStructure = [
 
 function LayoutContentInner({}: LayoutContentProps) {
   const { isNavigatorOpen } = useNavigator();
+  const { isPagesOpen } = usePages();
   const [isAssistantOpen, setIsAssistantOpen] = useState(true);
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(false);
-  const [editorValue, setEditorValue] = useState("");
+  const [editorValue, setEditorValue] = useState(`import React from 'react';
+import { motion } from 'framer-motion';
+
+interface DogCardProps {
+  name: string;
+  breed: string;
+  age: number;
+  imageUrl: string;
+}
+
+export function DogCard({ name, breed, age, imageUrl }: DogCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-white rounded-lg shadow-lg overflow-hidden"
+    >
+      <img 
+        src={imageUrl} 
+        alt={name} 
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-4">
+        <h2 className="text-xl font-bold text-gray-800">{name}</h2>
+        <p className="text-gray-600">{breed}</p>
+        <p className="text-gray-500 text-sm">{age} years old</p>
+        
+        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+          View Training Progress
+        </button>
+      </div>
+    </motion.div>
+  );
+}`);
 
   const handleEditorChange = (value: string | undefined) => {
     setEditorValue(value || "");
@@ -260,6 +296,15 @@ function LayoutContentInner({}: LayoutContentProps) {
               defaultSelectedFileId="page.tsx"
             />
           </div>
+        </div>
+
+        {/* Pages Panel - Positioned absolutely */}
+        <div 
+          className={`absolute top-[35px] left-[35px] h-[calc(100%-35px)] z-50 bg-[#292929] ${
+            isPagesOpen ? "w-[248px] border-r border-[#454545]" : "w-0"
+          } overflow-hidden`}
+        >
+          <PagesPanel />
         </div>
 
         {/* Main Content Area */}
@@ -434,7 +479,9 @@ function LayoutContentInner({}: LayoutContentProps) {
 export function LayoutContent(props: LayoutContentProps) {
   return (
     <NavigatorProvider>
-      <LayoutContentInner {...props} />
+      <PagesProvider>
+        <LayoutContentInner {...props} />
+      </PagesProvider>
     </NavigatorProvider>
   );
 }
