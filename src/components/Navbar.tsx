@@ -2,15 +2,20 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from "react"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown, Code, Database, LineChart, ArrowLeft, SquareCode } from "lucide-react"
+import { ChevronDown, Code, Database, LineChart, ArrowLeft, SquareCode, Check, SquareMousePointer } from "lucide-react"
+
+type Mode = 'Design' | 'Build' | 'Develop'
 
 export function Navbar() {
+  const [selectedMode, setSelectedMode] = useState<Mode>('Develop')
+
   return (
     <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-inter text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
       {/* Left side */}
@@ -26,25 +31,56 @@ export function Navbar() {
           />
         </Link>
         
-        {/* Develop Dropdown */}
+        {/* Mode Dropdown */}
         <DropdownMenu>
-          <DropdownMenuTrigger className="flex items-center h-6 px-2 bg-[#3a3a3a] hover:bg-[#444444] rounded-[4px] ml-2">
-            <Code className="h-[16px] w-[16px] mr-1.5 opacity-70" />
-            <span>Develop</span>
+          <DropdownMenuTrigger className="flex items-center h-6 px-2 bg-[#3a3a3a] hover:bg-[#444444] rounded-[4px] ml-2 text-[11.5px] leading-4 focus:outline-none">
+            {selectedMode === 'Develop' ? (
+              <Code className="h-[16px] w-[16px] mr-1.5 opacity-70" />
+            ) : (
+              <SquareMousePointer className="h-[16px] w-[16px] mr-1.5 opacity-70" />
+            )}
+            <span>{selectedMode}</span>
             <ChevronDown className="h-[16px] w-[16px] opacity-50 ml-1" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-[#1a1a1a] border-[#2a2a2a] text-white">
-            <DropdownMenuItem className="focus:bg-[#2a2a2a] focus:text-white text-[11.5px] leading-4 tracking-[-0.01em]">
-              Designer
+          <DropdownMenuContent 
+            align="start"
+            className="w-[280px] bg-[#404040] rounded-[4px] border-0 text-white font-inter [&_*]:text-[11.5px] [&_*]:leading-4 [&_*]:tracking-[-0.01em] [&>*]:gap-0 px-0"
+          >
+            <DropdownMenuItem 
+              className="flex items-start py-[4px] px-[8px] focus:bg-[#4D4D4D] hover:bg-[#4D4D4D] focus:text-white cursor-pointer gap-0 rounded-none"
+              onClick={() => setSelectedMode('Design')}
+            >
+              <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
+                {selectedMode === 'Design' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+              </div>
+              <div className="ml-[4px]">
+                <div className="text-white">Design</div>
+                <div className="text-[#c0c0c0]">Style elements and build layouts</div>
+              </div>
             </DropdownMenuItem>
-            <DropdownMenuItem className="focus:bg-[#2a2a2a] focus:text-white text-[11.5px] leading-4 tracking-[-0.01em]">
-              Editor
+            <DropdownMenuItem 
+              className="flex items-start py-[4px] px-[8px] focus:bg-[#4D4D4D] hover:bg-[#4D4D4D] focus:text-white cursor-pointer gap-0 rounded-none"
+              onClick={() => setSelectedMode('Build')}
+            >
+              <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
+                {selectedMode === 'Build' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+              </div>
+              <div className="ml-[4px]">
+                <div className="text-white">Build</div>
+                <div className="text-[#c0c0c0]">Build pages with components and edit content</div>
+              </div>
             </DropdownMenuItem>
-            <DropdownMenuItem className="focus:bg-[#2a2a2a] focus:text-white text-[11.5px] leading-4 tracking-[-0.01em]">
-              Assets
-            </DropdownMenuItem>
-            <DropdownMenuItem className="focus:bg-[#2a2a2a] focus:text-white text-[11.5px] leading-4 tracking-[-0.01em]">
-              CMS Collections
+            <DropdownMenuItem 
+              className="flex items-start py-[4px] px-[8px] focus:bg-[#4D4D4D] hover:bg-[#4D4D4D] focus:text-white cursor-pointer gap-0 rounded-none"
+              onClick={() => setSelectedMode('Develop')}
+            >
+              <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
+                {selectedMode === 'Develop' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+              </div>
+              <div className="ml-[4px]">
+                <div className="text-white">Develop</div>
+                <div className="text-[#c0c0c0]">View and edit custom code on your site</div>
+              </div>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
