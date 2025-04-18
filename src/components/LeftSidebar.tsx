@@ -24,6 +24,14 @@ const LeftSidebar = () => {
             height={24}
           />
         </div>
+        <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
+          <Image
+            src="/orion/images/leftIcons/PagePanel24.svg"
+            alt="Page Panel"
+            width={24}
+            height={24}
+          />
+        </div>
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
             src="/orion/images/leftIcons/ThemePanel24.svg"
