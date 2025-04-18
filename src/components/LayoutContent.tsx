@@ -367,6 +367,13 @@ async function example() {
               </button>
             </div>
 
+            {/* Subheading */}
+            <div className="h-[32px] flex-none flex items-center px-3 border-b border-[#454545] bg-[#333333]">
+              <span className="text-[12px] leading-[16px] text-[#CCCCCC] font-inter">
+                Project Files
+              </span>
+            </div>
+
             {/* Search Box */}
             <div className="flex-none px-3 py-2">
               <div className="flex items-center h-[24px] bg-[#3C3C3C] rounded-sm px-2">
