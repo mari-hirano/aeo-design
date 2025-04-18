@@ -309,7 +309,7 @@ export function DogCard({ name, breed, age, imageUrl }: DogCardProps) {
 
         {/* Main Content Area */}
         <div
-          className={`flex-1 flex flex-col min-h-0 bg-[#1E1E1E] overflow-hidden transition-[margin] duration-300 ease-in-out ${
+          className={`flex-1 flex flex-col min-h-0 bg-[#292929] overflow-hidden transition-[margin] duration-300 ease-in-out ${
             isAssistantOpen ? "mr-[288px]" : "mr-0"
           }`}
         >
@@ -391,7 +391,7 @@ export function DogCard({ name, breed, age, imageUrl }: DogCardProps) {
               </div>
             </button>
             <div
-              className={`flex-1 overflow-auto bg-[#1E1E1E] p-2 [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F] ${
+              className={`flex-1 overflow-auto bg-[#292929] p-2 [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F] ${
                 isTerminalExpanded ? "" : "hidden"
               }`}
             >
