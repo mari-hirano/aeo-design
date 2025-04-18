@@ -21,6 +21,7 @@ import { useState, useRef, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import Image from "next/image";
 import { Assistant } from "@/components/Assistant";
+import { CodeEditor } from "@/components/CodeEditor";
 
 interface LayoutContentProps {
   children?: React.ReactNode;
@@ -199,28 +200,54 @@ export function LayoutContent({}: LayoutContentProps) {
   const [isAssistantOpen, setIsAssistantOpen] = useState(true);
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(false);
-  const [editorValue, setEditorValue] = useState(`interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: "user" | "admin";
+  const [editorValue, setEditorValue] = useState(`import { FC } from 'react';
+
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
 }
 
-function createUser(data: Partial<User>): User {
-  return {
-    id: crypto.randomUUID(),
-    name: data.name ?? "Anonymous",
-    email: data.email ?? "anonymous@example.com",
-    role: data.role ?? "user",
-  };
-}
+const FeatureCard: FC<FeatureCardProps> = ({ title, description, icon }) => (
+  <div className="p-6 bg-white rounded-lg shadow-md">
+    <div className="w-12 h-12 mb-4 text-blue-600">{icon}</div>
+    <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <p className="text-gray-600">{description}</p>
+  </div>
+);
 
-const user = createUser({
-  name: "John Doe",
-  email: "john@example.com",
-});
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-6">
+            Build Amazing Websites
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Create beautiful, responsive websites with our modern framework
+          </p>
+          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg">
+            Get Started
+          </button>
+        </div>
+      </section>
 
-console.log(user);`);
+      {/* Features Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-3 gap-8">
+          <FeatureCard
+            title="Modern Design"
+            description="Clean and modern design system for your next project"
+            icon={<svg />}
+          />
+          {/* Add more FeatureCards as needed */}
+        </div>
+      </section>
+    </div>
+  );
+}`);
 
   const handleEditorChange = (value: string | undefined) => {
     if (value !== undefined) {
@@ -294,67 +321,14 @@ console.log(user);`);
               }}
             >
               {/* Code Editor */}
-              <div
-                style={{ width: isPreviewVisible ? "50%" : "100%" }}
-                className="flex flex-col min-h-0 border-r border-[#454545] transition-[width] duration-300"
-              >
-                <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between pl-4 pr-2 bg-[#292929]">
-                  <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em] flex items-center">
-                    src{" "}
-                    <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
-                    app{" "}
-                    <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
-                    page.tsx
-                  </span>
-                  <div className="flex items-center gap-2">
-                    {!isPreviewVisible && (
-                      <>
-                        <button
-                          onClick={() => setIsPreviewVisible(true)}
-                          className="flex items-center text-[#CCCCCC] hover:text-white border border-[#454545] px-2 h-6 rounded"
-                        >
-                          <span className="text-[11.5px]">Show Preview</span>
-                        </button>
-                        {!isAssistantOpen && (
-                          <button
-                            onClick={() => setIsAssistantOpen(true)}
-                            className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
-                          >
-                            <Image
-                              src="/images/AssistantButton.png"
-                              alt="Open Assistant"
-                              className="w-6 h-6"
-                              width={24}
-                              height={24}
-                            />
-                          </button>
-                        )}
-                      </>
-                    )}
-                  </div>
-                </div>
-                <div className="flex-1 overflow-hidden">
-                  <Editor
-                    height="100%"
-                    defaultLanguage="typescript"
-                    defaultValue={editorValue}
-                    theme="vs-dark"
-                    onChange={handleEditorChange}
-                    options={{
-                      minimap: { enabled: false },
-                      fontSize: 11.5,
-                      lineHeight: 20,
-                      fontFamily: "Roboto Mono",
-                      fontLigatures: true,
-                      lineNumbers: "on",
-                      roundedSelection: false,
-                      scrollBeyondLastLine: false,
-                      readOnly: false,
-                      automaticLayout: true,
-                    }}
-                  />
-                </div>
-              </div>
+              <CodeEditor
+                isPreviewVisible={isPreviewVisible}
+                isAssistantOpen={isAssistantOpen}
+                editorValue={editorValue}
+                onEditorChange={handleEditorChange}
+                onPreviewToggle={() => setIsPreviewVisible(true)}
+                onAssistantToggle={() => setIsAssistantOpen(true)}
+              />
 
               {/* Preview Panel */}
               <div
