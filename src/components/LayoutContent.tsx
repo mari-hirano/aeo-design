@@ -5,7 +5,16 @@ import LeftSidebar from "@/components/LeftSidebar";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { FileTree } from "@/components/FileTree";
 import { Preview } from "@/components/Preview";
-import { MoreHorizontal, Search, ChevronRight, X, Sparkle, Eye, EyeOff, ChevronDown, CornerDownLeft, Image as ImageIcon } from "lucide-react";
+import {
+  MoreHorizontal,
+  Search,
+  ChevronRight,
+  X,
+  Sparkle,
+  ChevronDown,
+  CornerDownLeft,
+  Image as ImageIcon,
+} from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 import Editor from "@monaco-editor/react";
@@ -241,7 +250,9 @@ async function example() {
   const [isPreviewVisible, setIsPreviewVisible] = useState(true);
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(true);
   const [messageText, setMessageText] = useState("");
-  const [messages, setMessages] = useState<Array<{ text: string; type: 'user' | 'assistant' }>>([]);
+  const [messages, setMessages] = useState<
+    Array<{ text: string; type: "user" | "assistant" }>
+  >([]);
   const [streamingText, setStreamingText] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -250,7 +261,7 @@ async function example() {
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
     if (textarea) {
-      textarea.style.height = '0';
+      textarea.style.height = "0";
       const newHeight = Math.min(textarea.scrollHeight, 200); // Max height of 200px
       textarea.style.height = `${newHeight}px`;
     }
@@ -274,11 +285,11 @@ async function example() {
 
     const streamWord = () => {
       if (currentIndex < words.length) {
-        setStreamingText(prev => prev + words[currentIndex]);
+        setStreamingText((prev) => prev + words[currentIndex]);
         currentIndex++;
         setTimeout(streamWord, 30); // Increased speed from 50ms to 30ms
       } else {
-        setMessages(prev => [...prev, { type: 'assistant', text: text }]);
+        setMessages((prev) => [...prev, { type: "assistant", text: text }]);
         setStreamingText("");
         setIsStreaming(false);
       }
@@ -289,15 +300,19 @@ async function example() {
 
   const handleSendMessage = () => {
     if (messageText.trim()) {
-      setMessages(prev => [...prev, { text: messageText.trim(), type: 'user' }]);
-      setMessageText('');
+      setMessages((prev) => [
+        ...prev,
+        { text: messageText.trim(), type: "user" },
+      ]);
+      setMessageText("");
       if (textareaRef.current) {
-        textareaRef.current.style.height = '60px';
+        textareaRef.current.style.height = "60px";
       }
-      
+
       // Add AI response after a short delay
       setTimeout(() => {
-        const response = "I'll help you with your web development task. Here's what I can assist with:\n\n" +
+        const response =
+          "I'll help you with your web development task. Here's what I can assist with:\n\n" +
           "• React & Next.js\n" +
           "  - Component architecture\n" +
           "  - State management\n" +
@@ -311,14 +326,14 @@ async function example() {
           "  - Bundle size reduction\n" +
           "  - Loading strategies\n\n" +
           "What would you like help with?";
-        
+
         simulateStreaming(response);
       }, 1000);
     }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
@@ -611,8 +626,8 @@ async function example() {
 
             {/* Assistant Content */}
             <div className="flex-1 p-3 overflow-y-auto space-y-4 [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F]">
-              {messages.map((message, index) => (
-                message.type === 'user' ? (
+              {messages.map((message, index) =>
+                message.type === "user" ? (
                   <div key={index} className="flex justify-end">
                     <div className="w-full bg-[#353535] rounded-[8px] p-3">
                       <div className="flex items-start gap-2">
@@ -636,7 +651,7 @@ async function example() {
                     </div>
                   </div>
                 )
-              ))}
+              )}
               {isStreaming && (
                 <div className="flex">
                   <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
@@ -651,30 +666,29 @@ async function example() {
             <div className="flex-none p-3">
               <div className="border border-[#454545] bg-[#202020] rounded-[4px]">
                 <div className="flex flex-col">
-                  <textarea 
+                  <textarea
                     ref={textareaRef}
                     value={messageText}
                     onChange={handleMessageChange}
                     onKeyDown={handleKeyPress}
                     className="w-full min-h-[60px] bg-[#1E1E1E] text-[#CCCCCC] resize-none p-2 focus:outline-none text-[13px] leading-[20px] font-inter font-normal"
                     placeholder="Type your message..."
-                    style={{ 
-                      maxHeight: '200px',
-                      overflowY: messageText.split('\n').length > 1 ? 'auto' : 'hidden'
+                    style={{
+                      maxHeight: "200px",
+                      overflowY:
+                        messageText.split("\n").length > 1 ? "auto" : "hidden",
                     }}
                   />
                   <div className="flex justify-between items-center px-2 py-2">
-                    <button 
-                      className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors"
-                    >
+                    <button className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors">
                       <ImageIcon size={16} strokeWidth={1} />
                     </button>
-                    <button 
+                    <button
                       onClick={handleSendMessage}
                       disabled={!messageText.trim()}
                       className={`h-6 px-3 rounded flex items-center gap-2 transition-colors ${
-                        messageText.trim() 
-                          ? "bg-[#007ACC] hover:bg-[#1B8AE0] text-white" 
+                        messageText.trim()
+                          ? "bg-[#007ACC] hover:bg-[#1B8AE0] text-white"
                           : "bg-[#3C3C3C] text-[#848484] cursor-not-allowed"
                       }`}
                     >
