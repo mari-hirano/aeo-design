@@ -2,15 +2,21 @@
 
 import React, { useState } from 'react';
 import { FolderPlus, FilePlus, Search, ArrowLeft, ChevronRight, File, SquareCode } from 'lucide-react';
+import { usePages } from '@/context/PagesContext';
 
 export function PagesPanel() {
   const [isStaticPagesOpen, setIsStaticPagesOpen] = useState(true);
   const [isWebAppsOpen, setIsWebAppsOpen] = useState(true);
   const [isCmsOpen, setIsCmsOpen] = useState(true);
   const [isUtilityOpen, setIsUtilityOpen] = useState(true);
-  const [selectedPage, setSelectedPage] = useState("doggo-training");
+  const { selectedPage, setSelectedPage, togglePages } = usePages();
 
   const iconStyle = "text-white opacity-[0.67] [stroke-width:1.5px]";
+
+  const handlePageSelect = (page: string) => {
+    setSelectedPage(page);
+    togglePages();
+  };
 
   return (
     <div className="flex flex-col min-h-0 bg-[#292929]">
@@ -56,19 +62,47 @@ export function PagesPanel() {
             />
           </div>
           <div className={isStaticPagesOpen ? "" : "hidden"}>
-            <div className="px-2 py-1 text-[12px] leading-[16px] text-white opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
+            <div 
+              onClick={() => handlePageSelect("home")}
+              className={`px-2 py-1 text-[12px] leading-[16px] text-white cursor-pointer flex items-center gap-1 ${
+                selectedPage === "home" 
+                  ? "bg-[#3F3F3F] opacity-100" 
+                  : "opacity-80 hover:opacity-100"
+              }`}
+            >
               <File size={16} className={iconStyle} />
               Home
             </div>
-            <div className="px-2 py-1 text-[12px] leading-[16px] text-white opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
+            <div 
+              onClick={() => handlePageSelect("about")}
+              className={`px-2 py-1 text-[12px] leading-[16px] text-white cursor-pointer flex items-center gap-1 ${
+                selectedPage === "about" 
+                  ? "bg-[#3F3F3F] opacity-100" 
+                  : "opacity-80 hover:opacity-100"
+              }`}
+            >
               <File size={16} className={iconStyle} />
               About
             </div>
-            <div className="px-2 py-1 text-[12px] leading-[16px] text-white opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
+            <div 
+              onClick={() => handlePageSelect("services")}
+              className={`px-2 py-1 text-[12px] leading-[16px] text-white cursor-pointer flex items-center gap-1 ${
+                selectedPage === "services" 
+                  ? "bg-[#3F3F3F] opacity-100" 
+                  : "opacity-80 hover:opacity-100"
+              }`}
+            >
               <File size={16} className={iconStyle} />
               Services
             </div>
-            <div className="px-2 py-1 text-[12px] leading-[16px] text-white opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
+            <div 
+              onClick={() => handlePageSelect("contact")}
+              className={`px-2 py-1 text-[12px] leading-[16px] text-white cursor-pointer flex items-center gap-1 ${
+                selectedPage === "contact" 
+                  ? "bg-[#3F3F3F] opacity-100" 
+                  : "opacity-80 hover:opacity-100"
+              }`}
+            >
               <File size={16} className={iconStyle} />
               Contact
             </div>
@@ -89,6 +123,7 @@ export function PagesPanel() {
           </div>
           <div className={isWebAppsOpen ? "" : "hidden"}>
             <div 
+              onClick={() => handlePageSelect("doggo-training")}
               className={`px-2 py-1 text-[12px] leading-[16px] text-white cursor-pointer flex items-center gap-1 ${
                 selectedPage === "doggo-training" 
                   ? "bg-[#3F3F3F] opacity-100" 

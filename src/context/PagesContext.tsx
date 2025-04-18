@@ -5,19 +5,22 @@ import React, { createContext, useContext, useState } from 'react';
 interface PagesContextType {
   isPagesOpen: boolean;
   togglePages: () => void;
+  selectedPage: string;
+  setSelectedPage: (page: string) => void;
 }
 
 const PagesContext = createContext<PagesContextType | undefined>(undefined);
 
 export function PagesProvider({ children }: { children: React.ReactNode }) {
   const [isPagesOpen, setIsPagesOpen] = useState(false);
+  const [selectedPage, setSelectedPage] = useState("home");
 
   const togglePages = () => {
     setIsPagesOpen(!isPagesOpen);
   };
 
   return (
-    <PagesContext.Provider value={{ isPagesOpen, togglePages }}>
+    <PagesContext.Provider value={{ isPagesOpen, togglePages, selectedPage, setSelectedPage }}>
       {children}
     </PagesContext.Provider>
   );
