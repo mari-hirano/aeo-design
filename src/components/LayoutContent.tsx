@@ -343,7 +343,7 @@ export default function TodoList() {
         {/* Main Content Area */}
         <div
           className={`flex-1 flex flex-col min-h-0 bg-[#292929] overflow-hidden transition-[margin] duration-300 ease-in-out ${
-            isAssistantOpen ? "mr-[288px]" : "mr-0"
+            isAssistantOpen && mode !== 'Design' ? "mr-[288px]" : "mr-0"
           }`}
         >
           {mode === 'Design' ? (
@@ -510,10 +510,12 @@ export default function TodoList() {
           )}
         </div>
 
-        <Assistant 
-          isOpen={isAssistantOpen}
-          onClose={() => setIsAssistantOpen(false)}
-        />
+        {mode !== 'Design' && (
+          <Assistant 
+            isOpen={isAssistantOpen}
+            onClose={() => setIsAssistantOpen(false)}
+          />
+        )}
       </div>
     </div>
   );

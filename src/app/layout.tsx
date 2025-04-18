@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout() {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-[#1E1E1E]`}>
         <ModeProvider>
           <AssistantProvider>
             <LayoutContent />
