@@ -18,7 +18,7 @@ const LeftSidebar = () => {
           onClick={toggleNavigator}
         >
           <Image
-            src="/images/leftIcons/Code Navigator24.svg"
+            src="/orion/images/leftIcons/Code Navigator24.svg"
             alt="Code Navigator"
             width={24}
             height={24}
@@ -26,7 +26,7 @@ const LeftSidebar = () => {
         </div>
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
-            src="/images/leftIcons/ThemePanel24.svg"
+            src="/orion/images/leftIcons/ThemePanel24.svg"
             alt="Theme Panel"
             width={24}
             height={24}
@@ -34,7 +34,7 @@ const LeftSidebar = () => {
         </div>
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
-            src="/images/leftIcons/ComponentFill24.svg"
+            src="/orion/images/leftIcons/ComponentFill24.svg"
             alt="Component Fill"
             width={24}
             height={24}
@@ -42,7 +42,7 @@ const LeftSidebar = () => {
         </div>
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
-            src="/images/leftIcons/CapabilityVariable24.svg"
+            src="/orion/images/leftIcons/CapabilityVariable24.svg"
             alt="Capability Variable"
             width={24}
             height={24}
@@ -50,7 +50,7 @@ const LeftSidebar = () => {
         </div>
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
-            src="/images/leftIcons/Icons - 24.svg"
+            src="/orion/images/leftIcons/Icons - 24.svg"
             alt="Icons"
             width={24}
             height={24}
@@ -58,7 +58,7 @@ const LeftSidebar = () => {
         </div>
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
-            src="/images/leftIcons/AssetManager24.svg"
+            src="/orion/images/leftIcons/AssetManager24.svg"
             alt="Asset Manager"
             width={24}
             height={24}
@@ -66,7 +66,7 @@ const LeftSidebar = () => {
         </div>
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
-            src="/images/leftIcons/CapabilityApps24.svg"
+            src="/orion/images/leftIcons/CapabilityApps24.svg"
             alt="Capability Apps"
             width={24}
             height={24}
@@ -77,7 +77,7 @@ const LeftSidebar = () => {
       {/* Bottom Image */}
       <div className="absolute bottom-0 w-full">
         <Image
-          src="/images/LeftSidebarBottom.png"
+          src="/orion/images/LeftSidebarBottom.png"
           alt="Sidebar bottom"
           width={35}
           height={35}
