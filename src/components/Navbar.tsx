@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,11 +9,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { ChevronDown, Code, Database, LineChart, ArrowLeft, SquareCode, Check, SquareMousePointer } from "lucide-react"
-
-type Mode = 'Design' | 'Build' | 'Develop'
+import { useMode } from "@/context/ModeContext"
 
 export function Navbar() {
-  const [selectedMode, setSelectedMode] = useState<Mode>('Develop')
+  const { mode, setMode } = useMode();
 
   return (
     <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-inter text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
@@ -34,12 +32,12 @@ export function Navbar() {
         {/* Mode Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger className="flex items-center h-6 px-2 bg-[#3a3a3a] hover:bg-[#444444] rounded-[4px] ml-2 text-[11.5px] leading-4 focus:outline-none">
-            {selectedMode === 'Develop' ? (
+            {mode === 'Develop' ? (
               <Code className="h-[16px] w-[16px] mr-1.5 opacity-70" />
             ) : (
               <SquareMousePointer className="h-[16px] w-[16px] mr-1.5 opacity-70" />
             )}
-            <span>{selectedMode}</span>
+            <span>{mode}</span>
             <ChevronDown className="h-[16px] w-[16px] opacity-50 ml-1" />
           </DropdownMenuTrigger>
           <DropdownMenuContent 
@@ -48,10 +46,10 @@ export function Navbar() {
           >
             <DropdownMenuItem 
               className="flex items-start py-[4px] px-[8px] focus:bg-[#4D4D4D] hover:bg-[#4D4D4D] focus:text-white cursor-pointer gap-0 rounded-none"
-              onClick={() => setSelectedMode('Design')}
+              onClick={() => setMode('Design')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {selectedMode === 'Design' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+                {mode === 'Design' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Design</div>
@@ -60,10 +58,10 @@ export function Navbar() {
             </DropdownMenuItem>
             <DropdownMenuItem 
               className="flex items-start py-[4px] px-[8px] focus:bg-[#4D4D4D] hover:bg-[#4D4D4D] focus:text-white cursor-pointer gap-0 rounded-none"
-              onClick={() => setSelectedMode('Build')}
+              onClick={() => setMode('Build')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {selectedMode === 'Build' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+                {mode === 'Build' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Build</div>
@@ -72,10 +70,10 @@ export function Navbar() {
             </DropdownMenuItem>
             <DropdownMenuItem 
               className="flex items-start py-[4px] px-[8px] focus:bg-[#4D4D4D] hover:bg-[#4D4D4D] focus:text-white cursor-pointer gap-0 rounded-none"
-              onClick={() => setSelectedMode('Develop')}
+              onClick={() => setMode('Develop')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {selectedMode === 'Develop' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+                {mode === 'Develop' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Develop</div>
