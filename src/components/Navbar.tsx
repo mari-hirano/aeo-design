@@ -98,9 +98,8 @@ export function Navbar() {
 
       {/* Center - App Name */}
       <div className="flex items-center h-6 px-2 bg-[#007DF0]/25 text-[#A7D1FF] rounded-[4px] mx-auto">
-        <ArrowLeft className="h-[16px] w-[16px] mr-1.5" />
+        <SquareCode className="h-[16px] w-[16px] mr-1.5" />
         <span>Doggo training web app</span>
-        <SquareCode className="h-[16px] w-[16px] ml-1.5" />
       </div>
 
       {/* Right side */}

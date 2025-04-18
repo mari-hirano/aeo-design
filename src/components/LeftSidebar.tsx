@@ -4,10 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import { useNavigator } from '@/context/NavigatorContext';
 import { usePages } from '@/context/PagesContext';
+import { useMode } from '@/context/ModeContext';
 
 const LeftSidebar = () => {
   const { toggleNavigator } = useNavigator();
   const { togglePages } = usePages();
+  const { mode } = useMode();
 
   return (
     <div 
@@ -15,17 +17,15 @@ const LeftSidebar = () => {
     >
       {/* Top Icons */}
       <div className="flex flex-col pt-[8px]">
-        <div 
-          className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]"
-          onClick={toggleNavigator}
-        >
+        <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
           <Image
-            src="/orion/images/leftIcons/Code Navigator24.svg"
-            alt="Code Navigator"
+            src="/orion/images/leftIcons/AddPanel24.svg"
+            alt="Add Panel"
             width={24}
             height={24}
           />
         </div>
+
         <div 
           className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]"
           onClick={togglePages}
@@ -37,6 +37,33 @@ const LeftSidebar = () => {
             height={24}
           />
         </div>
+
+        <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
+          <Image
+            src="/orion/images/leftIcons/Navigator24.svg"
+            alt="Navigator"
+            width={24}
+            height={24}
+          />
+        </div>
+        
+        {mode === 'Design' && (
+          <div className="mx-auto w-[27px] h-[1px] bg-[#454545] my-[8px]" />
+        )}
+
+        {mode !== 'Design' && (
+          <div 
+            className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]"
+            onClick={toggleNavigator}
+          >
+            <Image
+              src="/orion/images/leftIcons/Code Navigator24.svg"
+              alt="Code Navigator"
+              width={24}
+              height={24}
+            />
+          </div>
+        )}
         <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
           <Image
             src="/orion/images/leftIcons/ThemePanel24.svg"
@@ -77,10 +104,22 @@ const LeftSidebar = () => {
             height={24}
           />
         </div>
+
+        <div className="mx-auto w-[27px] h-[1px] bg-[#454545] my-[8px]" />
+
         <div className="w-[35px] h-[35px] flex items-center justify-center">
           <Image
             src="/orion/images/leftIcons/CapabilityApps24.svg"
             alt="Capability Apps"
+            width={24}
+            height={24}
+          />
+        </div>
+
+        <div className="w-[35px] h-[35px] flex items-center justify-center">
+          <Image
+            src="/orion/images/leftIcons/ActivityLog24.svg"
+            alt="Activity Log"
             width={24}
             height={24}
           />
