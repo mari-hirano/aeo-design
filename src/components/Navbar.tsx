@@ -47,7 +47,8 @@ export function Navbar() {
 
   const getTitleClasses = () => {
     const isHomeInDesignMode = selectedPage === 'home' && mode === 'Design';
-    if (isHomeInDesignMode) {
+    const isHomeInDevelopMode = selectedPage === 'home' && mode === 'Develop';
+    if (isHomeInDesignMode || isHomeInDevelopMode) {
       return "flex items-center h-6 px-2 mx-auto text-white";
     }
     return "flex items-center h-6 px-2 bg-[#007DF0]/25 text-[#A7D1FF] rounded-[4px] mx-auto";
