@@ -8,11 +8,51 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown, Code, Database, LineChart, ArrowLeft, SquareCode, Check, SquareMousePointer } from "lucide-react"
+import { ChevronDown, Code, Database, LineChart, ArrowLeft, SquareCode, Check, SquareMousePointer, File } from "lucide-react"
 import { useMode } from "@/context/ModeContext"
+import { usePages } from "@/context/PagesContext"
 
 export function Navbar() {
   const { mode, setMode } = useMode();
+  const { selectedPage } = usePages();
+
+  const getPageTitle = () => {
+    switch (selectedPage) {
+      case 'home':
+        return 'Home';
+      case 'about':
+        return 'About';
+      case 'services':
+        return 'Services';
+      case 'contact':
+        return 'Contact';
+      case 'doggo-training':
+        return 'Doggo training web app';
+      default:
+        return 'Home';
+    }
+  };
+
+  const getPageIcon = () => {
+    const isHomeInDesignMode = selectedPage === 'home' && mode === 'Design';
+    
+    if (selectedPage === 'doggo-training') {
+      return <SquareCode className="h-[16px] w-[16px] mr-1.5" />;
+    }
+    if (isHomeInDesignMode) {
+      return <File className="h-[16px] w-[16px] mr-1.5 opacity-[0.67] [stroke-width:1.5px]" />;
+    }
+    return <File className="h-[16px] w-[16px] mr-1.5" />;
+  };
+
+  const getTitleClasses = () => {
+    const isHomeInDesignMode = selectedPage === 'home' && mode === 'Design';
+    const isHomeInDevelopMode = selectedPage === 'home' && mode === 'Develop';
+    if (isHomeInDesignMode || isHomeInDevelopMode) {
+      return "flex items-center h-6 px-2 mx-auto text-white";
+    }
+    return "flex items-center h-6 px-2 bg-[#007DF0]/25 text-[#A7D1FF] rounded-[4px] mx-auto";
+  };
 
   return (
     <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-inter text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
@@ -97,9 +137,9 @@ export function Navbar() {
       </div>
 
       {/* Center - App Name */}
-      <div className="flex items-center h-6 px-2 bg-[#007DF0]/25 text-[#A7D1FF] rounded-[4px] mx-auto">
-        <SquareCode className="h-[16px] w-[16px] mr-1.5" />
-        <span>Doggo training web app</span>
+      <div className={getTitleClasses()}>
+        {getPageIcon()}
+        <span>{getPageTitle()}</span>
       </div>
 
       {/* Right side */}
