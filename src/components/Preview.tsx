@@ -74,7 +74,7 @@ export function Preview({ className = "" }: PreviewProps) {
                 }
                 .button {
                   display: inline-block;
-                  padding: 0.5rem 1.5rem;
+                  padding: 0.5rem 1.1rem;
                   border-radius: 0.5rem;
                   color: white;
                   cursor: pointer;
