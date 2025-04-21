@@ -26,6 +26,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
   const [streamingText, setStreamingText] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
@@ -87,6 +88,20 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files?.length) return;
+
+    const file = files[0];
+    setMessageText((prev) => `${prev}[Attached file: ${file.name}]\n`);
+    
+    e.target.value = '';
+  };
+
+  const handleImageButtonClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <div
       className={`fixed top-[35px] right-0 bottom-0 w-[288px] bg-[#292929] flex flex-col transform transition-transform duration-300 ease-in-out ${
@@ -96,7 +111,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
       {/* Assistant Header */}
       <div className="h-[40px] flex-none flex items-center justify-between px-4 border-b border-[#454545] bg-[#292929]">
         <div className="flex items-center gap-2">
-          <Sparkle className="w-4 h-4 text-purple-400 stroke-[1px]" />
+          <Sparkle className="w-4 h-4 text-white stroke-[1px]" />
           <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
             AI Assistant
           </span>
@@ -111,38 +126,54 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
 
       {/* Assistant Content */}
       <div className="flex-1 p-3 overflow-y-auto space-y-4 [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F]">
-        {messages.map((message, index) =>
-          message.type === "user" ? (
-            <div key={index} className="flex justify-end">
-              <div className="w-full bg-[#353535] rounded-[8px] p-3">
-                <div className="flex items-start gap-2">
-                  <Image
-                    src="/images/Avatar.png"
-                    alt="User avatar"
-                    width={24}
-                    height={24}
-                    className="w-6 h-6 rounded-full"
-                  />
-                  <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+        {messages.length === 0 ? (
+          <div className="h-full flex flex-col items-center justify-center text-center px-4">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-b from-purple-600 to-blue-600 flex items-center justify-center mb-4">
+              <Sparkle className="w-6 h-6 text-white" />
+            </div>
+            <h2 className="text-white text-xl font-semibold mb-2">
+              What do you want to build?
+            </h2>
+            <p className="text-[#CCCCCC] text-sm">
+              Prompt, run, edit, and deploy full-stack apps within your Webflow site
+            </p>
+          </div>
+        ) : (
+          <>
+            {messages.map((message, index) =>
+              message.type === "user" ? (
+                <div key={index} className="flex justify-end">
+                  <div className="w-full bg-[#353535] rounded-[8px] p-3">
+                    <div className="flex items-start gap-2">
+                      <Image
+                        src="/images/Avatar.png"
+                        alt="User avatar"
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 rounded-full"
+                      />
+                      <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                        {message.text}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div key={index} className="flex">
+                  <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
                     {message.text}
                   </div>
                 </div>
+              )
+            )}
+            {isStreaming && (
+              <div className="flex">
+                <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                  {streamingText}
+                </div>
               </div>
-            </div>
-          ) : (
-            <div key={index} className="flex">
-              <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
-                {message.text}
-              </div>
-            </div>
-          )
-        )}
-        {isStreaming && (
-          <div className="flex">
-            <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
-              {streamingText}
-            </div>
-          </div>
+            )}
+          </>
         )}
         <div ref={messagesEndRef} />
       </div>
@@ -165,7 +196,17 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
               }}
             />
             <div className="flex justify-between items-center px-2 py-2">
-              <button className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors">
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileSelect}
+                accept="image/*"
+                className="hidden"
+              />
+              <button 
+                onClick={handleImageButtonClick}
+                className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors"
+              >
                 <ImageIcon size={16} strokeWidth={1} />
               </button>
               <button
