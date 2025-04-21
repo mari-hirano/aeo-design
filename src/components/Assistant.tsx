@@ -26,6 +26,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
   const [streamingText, setStreamingText] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
@@ -87,6 +88,20 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files?.length) return;
+
+    const file = files[0];
+    setMessageText((prev) => `${prev}[Attached file: ${file.name}]\n`);
+    
+    e.target.value = '';
+  };
+
+  const handleImageButtonClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <div
       className={`fixed top-[35px] right-0 bottom-0 w-[288px] bg-[#292929] flex flex-col transform transition-transform duration-300 ease-in-out ${
@@ -96,7 +111,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
       {/* Assistant Header */}
       <div className="h-[40px] flex-none flex items-center justify-between px-4 border-b border-[#454545] bg-[#292929]">
         <div className="flex items-center gap-2">
-          <Sparkle className="w-4 h-4 text-purple-400 stroke-[1px]" />
+          <Sparkle className="w-4 h-4 text-white stroke-[1px]" />
           <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
             AI Assistant
           </span>
@@ -165,7 +180,17 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
               }}
             />
             <div className="flex justify-between items-center px-2 py-2">
-              <button className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors">
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileSelect}
+                accept="image/*"
+                className="hidden"
+              />
+              <button 
+                onClick={handleImageButtonClick}
+                className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors"
+              >
                 <ImageIcon size={16} strokeWidth={1} />
               </button>
               <button
