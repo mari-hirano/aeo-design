@@ -126,38 +126,54 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
 
       {/* Assistant Content */}
       <div className="flex-1 p-3 overflow-y-auto space-y-4 [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F]">
-        {messages.map((message, index) =>
-          message.type === "user" ? (
-            <div key={index} className="flex justify-end">
-              <div className="w-full bg-[#353535] rounded-[8px] p-3">
-                <div className="flex items-start gap-2">
-                  <Image
-                    src="/images/Avatar.png"
-                    alt="User avatar"
-                    width={24}
-                    height={24}
-                    className="w-6 h-6 rounded-full"
-                  />
-                  <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+        {messages.length === 0 ? (
+          <div className="h-full flex flex-col items-center justify-center text-center px-4">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-b from-purple-600 to-blue-600 flex items-center justify-center mb-4">
+              <Sparkle className="w-6 h-6 text-white" />
+            </div>
+            <h2 className="text-white text-xl font-semibold mb-2">
+              What do you want to build?
+            </h2>
+            <p className="text-[#CCCCCC] text-sm">
+              Prompt, run, edit, and deploy full-stack apps within your Webflow site
+            </p>
+          </div>
+        ) : (
+          <>
+            {messages.map((message, index) =>
+              message.type === "user" ? (
+                <div key={index} className="flex justify-end">
+                  <div className="w-full bg-[#353535] rounded-[8px] p-3">
+                    <div className="flex items-start gap-2">
+                      <Image
+                        src="/images/Avatar.png"
+                        alt="User avatar"
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 rounded-full"
+                      />
+                      <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                        {message.text}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div key={index} className="flex">
+                  <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
                     {message.text}
                   </div>
                 </div>
+              )
+            )}
+            {isStreaming && (
+              <div className="flex">
+                <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                  {streamingText}
+                </div>
               </div>
-            </div>
-          ) : (
-            <div key={index} className="flex">
-              <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
-                {message.text}
-              </div>
-            </div>
-          )
-        )}
-        {isStreaming && (
-          <div className="flex">
-            <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
-              {streamingText}
-            </div>
-          </div>
+            )}
+          </>
         )}
         <div ref={messagesEndRef} />
       </div>
