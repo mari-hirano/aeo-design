@@ -1,17 +1,30 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Sparkle,
   X,
   ImageIcon,
   CornerDownLeft,
+  Loader2,
+  CheckCircle2,
+  ChevronDown,
+  Pause,
+  CircleStop,
 } from "lucide-react";
 
 interface Message {
   type: "user" | "assistant";
   text: string;
+}
+
+interface Step {
+  id: number;
+  text: string;
+  file?: string;
+  isStarted: boolean;
+  isCompleted: boolean;
 }
 
 interface AssistantProps {
@@ -24,9 +37,23 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [streamingText, setStreamingText] = useState("");
+  const [showInitializing, setShowInitializing] = useState(false);
+  const [showStructuredContent, setShowStructuredContent] = useState(false);
+  const [isContentExpanded, setIsContentExpanded] = useState(true);
+  const [steps, setSteps] = useState<Step[]>([
+    { id: 1, text: "Create", file: "package.json", isStarted: false, isCompleted: false },
+    { id: 2, text: "Create", file: "src/main.jsx", isStarted: false, isCompleted: false },
+    { id: 3, text: "Install dependencies", file: "npm install", isStarted: false, isCompleted: false },
+    { id: 4, text: "Create", file: "src/components.tsx", isStarted: false, isCompleted: false },
+    { id: 5, text: "Update", file: "src/app.tsx", isStarted: false, isCompleted: false },
+    { id: 6, text: "Start application", file: "npm run dev", isStarted: false, isCompleted: false },
+  ]);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isResponding, setIsResponding] = useState(false);
+  const [finalMessageStreaming, setFinalMessageStreaming] = useState(false);
+  const [finalMessageText, setFinalMessageText] = useState("");
 
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
@@ -41,27 +68,100 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
     adjustTextareaHeight();
   };
 
-  const simulateStreaming = (text: string) => {
-    setIsStreaming(true);
-    const words = text.split(" ");
+  const startNextStep = (currentStepId: number) => {
+    const nextStep = steps.find(step => step.id === currentStepId + 1);
+    if (nextStep) {
+      setTimeout(() => {
+        setSteps(prev => prev.map(step =>
+          step.id === nextStep.id ? { ...step, isStarted: true } : step
+        ));
+        setTimeout(() => {
+          setSteps(prev => prev.map(step =>
+            step.id === nextStep.id ? { ...step, isCompleted: true } : step
+          ));
+          startNextStep(nextStep.id);
+        }, 1000 + Math.random() * 2000); // Random time between 1-3 seconds
+      }, Math.random() * 1000); // Random time between 0-1 second
+    } else {
+      // All steps are complete
+      setTimeout(() => {
+        streamFinalMessage();
+      }, 1000);
+    }
+  };
+
+  const streamFinalMessage = () => {
+    const finalMessage = "The development server is now running and you can see your app. Feel free to customize the content, colors, or layout to better match your brand styles!";
+    setFinalMessageStreaming(true);
+    const words = finalMessage.split(' ');
     let currentIndex = 0;
 
     const streamWord = () => {
       if (currentIndex < words.length) {
-        setStreamingText((prev) =>
-          prev + (currentIndex === 0 ? "" : " ") + words[currentIndex]
-        );
+        const word = words[currentIndex];
+        const space = currentIndex < words.length - 1 ? ' ' : '';
+        setFinalMessageText((prev) => prev + word + space);
         currentIndex++;
-        setTimeout(streamWord, 50);
+        setTimeout(() => {
+          scrollToBottom();
+          streamWord();
+        }, 50);
       } else {
-        setIsStreaming(false);
-        setStreamingText("");
-        setMessages((prev) => [...prev, { type: "assistant", text }]);
+        setFinalMessageStreaming(false);
+        setIsResponding(false);
       }
     };
 
     streamWord();
   };
+
+  const simulateStreaming = (text: string) => {
+    setIsStreaming(true);
+    setIsResponding(true);
+    const words = text.split(' ');
+    let currentIndex = 0;
+
+    const streamWord = () => {
+      if (currentIndex < words.length) {
+        const word = words[currentIndex];
+        const space = currentIndex < words.length - 1 ? ' ' : '';
+        setStreamingText((prev) => prev + word + space);
+        currentIndex++;
+        setTimeout(() => {
+          scrollToBottom();
+          streamWord();
+        }, 50);
+      } else {
+        setIsStreaming(false);
+        setStreamingText("");
+        setMessages((prev) => [...prev, { type: "assistant", text }]);
+        setShowInitializing(true);
+        setTimeout(() => {
+          setShowInitializing(false);
+          setShowStructuredContent(true);
+          setTimeout(() => {
+            setSteps(prev => prev.map(step =>
+              step.id === 1 ? { ...step, isStarted: true } : step
+            ));
+            setTimeout(() => {
+              setSteps(prev => prev.map(step =>
+                step.id === 1 ? { ...step, isCompleted: true } : step
+              ));
+              startNextStep(1);
+            }, 2000);
+          }, 1000);
+        }, 3000);
+        scrollToBottom();
+      }
+    };
+
+    streamWord();
+  };
+
+  // Update useEffect to include finalMessageText in dependencies
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, streamingText, finalMessageText]);
 
   const handleSendMessage = () => {
     if (!messageText.trim()) return;
@@ -72,7 +172,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
 
     setTimeout(() => {
       simulateStreaming(
-        "I understand you want to create a new web application. I can help you with that. Let's start by setting up the basic structure and dependencies. What kind of features would you like to include?"
+        "I will help you create a Dog training checklist app.\nFirst, let's establish some key architectural decisions:\n\n1. Tech Stack\n   - Next.js with TypeScript\n   - Tailwind CSS for styling\n   - Mobile-first design approach\n\n2. Core Features\n   - Interactive training checklists\n   - Progress tracking & analytics\n   - Photo/video documentation\n   - Customizable templates\n\nLet's start by setting up the basic structure and initial UI components."
       );
     }, 1000);
   };
@@ -108,6 +208,36 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
+      <style jsx>{`
+        @keyframes shimmer {
+          0% { background-position: -100% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+        .shimmer-text {
+          background: linear-gradient(90deg, #666666 0%, #CCCCCC 50%, #666666 100%);
+          background-size: 200% auto;
+          color: transparent;
+          -webkit-background-clip: text;
+          background-clip: text;
+          animation: shimmer 2s linear infinite;
+        }
+        .expand-height {
+          transition: all 0.3s ease-out;
+        }
+        .content-section {
+          transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+          overflow: hidden;
+        }
+        .content-section.collapsed {
+          max-height: 0;
+          opacity: 0;
+        }
+        .content-section.expanded {
+          max-height: 500px;
+          opacity: 1;
+        }
+      `}</style>
+
       {/* Assistant Header */}
       <div className="h-[40px] flex-none flex items-center justify-between px-4 border-b border-[#454545] bg-[#292929]">
         <div className="flex items-center gap-2">
@@ -143,14 +273,16 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
             {messages.map((message, index) =>
               message.type === "user" ? (
                 <div key={index} className="flex justify-end">
-                  <div className="w-full bg-[#353535] rounded-[8px] p-3">
+                  <div className="w-full bg-[#353535] rounded-[8px] p-2">
                     <div className="flex items-start gap-2">
-                      <Image
-                        src="/images/Avatar.png"
+                      <img
+                        src="/orion/images/Avatar.png"
                         alt="User avatar"
-                        width={24}
-                        height={24}
-                        className="w-6 h-6 rounded-full"
+                        className="w-4 h-4 rounded-full m-0.5"
+                        onError={(e) => {
+                          console.error('Error loading avatar image');
+                          e.currentTarget.src = '/orion/images/Avatar.png';
+                        }}
                       />
                       <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
                         {message.text}
@@ -159,10 +291,50 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
                   </div>
                 </div>
               ) : (
-                <div key={index} className="flex">
+                <div key={index} className="flex flex-col gap-4">
                   <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
                     {message.text}
                   </div>
+                  {index === messages.length - 1 && showStructuredContent && (
+                    <div className={`w-full border border-[#454545] rounded-[4px] text-[11.5px] leading-[20px] text-[#CCCCCC] font-inter font-normal expand-height`}>
+                      <button 
+                        onClick={() => setIsContentExpanded(!isContentExpanded)}
+                        className={`w-full p-2 font-semibold bg-[#353535] flex items-center justify-between ${steps.some(step => step.isStarted) && isContentExpanded ? 'border-b border-[#454545]' : ''}`}
+                      >
+                        <span>Doggo training web app</span>
+                        <ChevronDown 
+                          className={`w-[14px] h-[14px] text-[#CCCCCC] transform transition-transform duration-300 ${isContentExpanded ? '' : '-rotate-90'}`}
+                          strokeWidth={2}
+                        />
+                      </button>
+                      {steps.some(step => step.isStarted) && (
+                        <div className={`content-section ${isContentExpanded ? 'expanded' : 'collapsed'}`}>
+                          <div className="p-2 pt-0 bg-[#292929]">
+                            {steps.map(step => step.isStarted && (
+                              <div key={step.id} className="flex items-center gap-1 mt-2">
+                                {step.isCompleted ? (
+                                  <CheckCircle2 className="w-[14px] h-[14px] text-[#79E09C]" strokeWidth={2} />
+                                ) : (
+                                  <Loader2 className="w-[14px] h-[14px] text-[#CCCCCC] animate-spin" strokeWidth={2} />
+                                )}
+                                <span className={!step.isCompleted ? 'shimmer-text' : ''}>
+                                  {step.text}
+                                </span>
+                                <span className="bg-[#404040] px-0.5 rounded text-[#C0C0C0]">
+                                  {step.file}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {index === messages.length - 1 && steps.every(step => step.isCompleted) && (
+                    <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                      {finalMessageText}
+                    </div>
+                  )}
                 </div>
               )
             )}
@@ -170,6 +342,13 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
               <div className="flex">
                 <div className="text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
                   {streamingText}
+                </div>
+              </div>
+            )}
+            {showInitializing && (
+              <div className="flex">
+                <div className="text-[11.5px] leading-[20px] whitespace-pre-wrap font-inter font-normal shimmer-text">
+                  Initializing...
                 </div>
               </div>
             )}
@@ -211,15 +390,23 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
               </button>
               <button
                 onClick={handleSendMessage}
-                disabled={!messageText.trim()}
-                className={`h-6 px-3 rounded flex items-center gap-2 transition-colors ${
-                  messageText.trim()
+                disabled={!messageText.trim() || isResponding}
+                className={`h-6 rounded flex items-center gap-1 ${!isResponding ? 'pr-1' : ''} transition-colors ${
+                  messageText.trim() && !isResponding
                     ? "bg-[#007ACC] hover:bg-[#1B8AE0] text-white"
                     : "bg-[#3C3C3C] text-[#848484] cursor-not-allowed"
                 }`}
               >
-                <span className="text-[11.5px]">Send</span>
-                <CornerDownLeft className="w-[14px] h-[14px] text-[#BDBDBD]" strokeWidth={2} />
+                {isResponding ? (
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <CircleStop className="w-[14px] h-[14px]" strokeWidth={2} />
+                  </div>
+                ) : (
+                  <>
+                    <span className="text-[11.5px] px-1">Send</span>
+                    <CornerDownLeft className="w-[14px] h-[14px]" strokeWidth={2} />
+                  </>
+                )}
               </button>
             </div>
           </div>

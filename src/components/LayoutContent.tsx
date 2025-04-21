@@ -373,11 +373,14 @@ export default function TodoList() {
 
   // Add this new useEffect to handle initial page selection
   useEffect(() => {
-    // If we're in develop mode and not on the home page, show the pages panel
+    // Only open the panel on mode changes when not on home page
     if (mode === 'Develop' && selectedPage !== 'home') {
-      setIsPagesOpen(true);
+      // Don't reopen the panel if it was manually closed
+      if (!isPagesOpen) {
+        setIsPagesOpen(true);
+      }
     }
-  }, [mode, selectedPage, setIsPagesOpen]);
+  }, [mode]); // Only run when mode changes
 
   const handleEditorChange = (value: string | undefined) => {
     setEditorValue(value || '');
@@ -409,16 +412,6 @@ export default function TodoList() {
                   <button className="w-[16px] h-[16px] flex items-center justify-center text-[#CCCCCC] hover:text-white">
                     <MoreHorizontal size={16} />
                   </button>
-                </div>
-
-                {/* Subheading */}
-                <div className="h-[32px] flex-none flex items-center px-2 border-b border-[#454545]">
-                  <div className="flex items-center gap-1 text-[#CCCCCC] hover:text-white cursor-pointer">
-                    <ArrowLeft size={14} />
-                    <span className="text-[12px] leading-[16px] font-inter">
-                      Doggo training web app
-                    </span>
-                  </div>
                 </div>
 
                 {/* Search Box */}
