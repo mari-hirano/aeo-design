@@ -7,6 +7,7 @@ interface PagesContextType {
   togglePages: () => void;
   selectedPage: string;
   setSelectedPage: (page: string) => void;
+  setIsPagesOpen: (isOpen: boolean) => void;
 }
 
 const PagesContext = createContext<PagesContextType | undefined>(undefined);
@@ -20,7 +21,7 @@ export function PagesProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <PagesContext.Provider value={{ isPagesOpen, togglePages, selectedPage, setSelectedPage }}>
+    <PagesContext.Provider value={{ isPagesOpen, togglePages, selectedPage, setSelectedPage, setIsPagesOpen }}>
       {children}
     </PagesContext.Provider>
   );

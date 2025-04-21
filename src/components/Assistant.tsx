@@ -111,7 +111,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
       {/* Assistant Header */}
       <div className="h-[40px] flex-none flex items-center justify-between px-4 border-b border-[#454545] bg-[#292929]">
         <div className="flex items-center gap-2">
-          <Sparkle className="w-4 h-4 text-white stroke-[1px]" />
+          <Sparkle className="w-[14px] h-[14px] text-[#C4AFFF]" strokeWidth={2} />
           <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
             AI Assistant
           </span>
@@ -120,7 +120,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
           onClick={onClose}
           className="text-[#CCCCCC] hover:text-white"
         >
-          <X className="w-4 h-4" />
+          <X className="w-[14px] h-[14px] text-[#BDBDBD]" strokeWidth={2} />
         </button>
       </div>
 
@@ -129,7 +129,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
         {messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-center px-4">
             <div className="w-12 h-12 rounded-full bg-gradient-to-b from-purple-600 to-blue-600 flex items-center justify-center mb-4">
-              <Sparkle className="w-6 h-6 text-white" />
+              <Sparkle className="w-6 h-6 text-[#C4AFFF]" />
             </div>
             <h2 className="text-white text-xl font-semibold mb-2">
               What do you want to build?
@@ -205,9 +205,9 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
               />
               <button 
                 onClick={handleImageButtonClick}
-                className="h-6 w-6 flex items-center justify-center rounded text-[#CCCCCC] hover:text-white transition-colors"
+                className="h-6 w-6 flex items-center justify-center rounded hover:text-white transition-colors"
               >
-                <ImageIcon size={16} strokeWidth={1} />
+                <ImageIcon className="w-[14px] h-[14px] text-[#BDBDBD]" strokeWidth={2} />
               </button>
               <button
                 onClick={handleSendMessage}
@@ -219,7 +219,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
                 }`}
               >
                 <span className="text-[11.5px]">Send</span>
-                <CornerDownLeft size={16} strokeWidth={1} />
+                <CornerDownLeft className="w-[14px] h-[14px] text-[#BDBDBD]" strokeWidth={2} />
               </button>
             </div>
           </div>

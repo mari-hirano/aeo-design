@@ -28,8 +28,8 @@ export function CodeEditor({
     >
       <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between pl-4 pr-2 bg-[#292929]">
         <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em] flex items-center">
-          src <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
-          app <ChevronRight size={12} className="mx-1 text-[#808080]" />{" "}
+          src <ChevronRight className="w-[14px] h-[14px] mx-1 text-white/67" strokeWidth={2} />{" "}
+          app <ChevronRight className="w-[14px] h-[14px] mx-1 text-white/67" strokeWidth={2} />{" "}
           page.tsx
         </span>
         <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ export function CodeEditor({
         <Editor
           height="100%"
           defaultLanguage="typescript"
-          defaultValue={editorValue}
+          value={editorValue}
           theme="vs-dark"
           onChange={onEditorChange}
           beforeMount={(monaco) => {

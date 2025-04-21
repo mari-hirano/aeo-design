@@ -37,12 +37,12 @@ export function FileTreeItem({
     >
       {isFolder ? (
         isOpen ? (
-          <FolderOpen className="w-4 h-4 text-[#b8b8b8] mr-1.5" strokeWidth={1} />
+          <FolderOpen className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
         ) : (
-          <Folder className="w-4 h-4 text-[#b8b8b8] mr-1.5" strokeWidth={1} />
+          <Folder className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
         )
       ) : (
-        <FileCode className="w-4 h-4 text-[#b8b8b8] mr-1.5" strokeWidth={1} />
+        <FileCode className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
       )}
       <span className={cn(
         "text-white",

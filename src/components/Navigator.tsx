@@ -97,12 +97,12 @@ export function Navigator() {
         >
           {hasChildren ? (
             isExpanded ? (
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className="w-[14px] h-[14px]" strokeWidth={2} />
             ) : (
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-[14px] h-[14px]" strokeWidth={2} />
             )
           ) : (
-            <File className="w-4 h-4" />
+            <File className="w-[14px] h-[14px]" strokeWidth={2} />
           )}
           <span>{node.name}</span>
         </div>
