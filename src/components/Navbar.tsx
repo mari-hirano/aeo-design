@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown, Code, Database, LineChart, ArrowLeft, SquareCode, Check, SquareMousePointer, File } from "lucide-react"
+import { ChevronDown, Code, Database, LineChart, SquareCode, Check, SquareMousePointer, File } from "lucide-react"
 import { useMode } from "@/context/ModeContext"
 import { usePages } from "@/context/PagesContext"
 
