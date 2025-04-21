@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Sparkle,
@@ -43,25 +43,34 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
 
   const simulateStreaming = (text: string) => {
     setIsStreaming(true);
-    const words = text.split(" ");
+    const words = text.split(' ');
     let currentIndex = 0;
 
     const streamWord = () => {
       if (currentIndex < words.length) {
-        setStreamingText((prev) =>
-          prev + (currentIndex === 0 ? "" : " ") + words[currentIndex]
-        );
+        const word = words[currentIndex];
+        const space = currentIndex < words.length - 1 ? ' ' : '';
+        setStreamingText((prev) => prev + word + space);
         currentIndex++;
-        setTimeout(streamWord, 50);
+        setTimeout(() => {
+          scrollToBottom();
+          streamWord();
+        }, 50);
       } else {
         setIsStreaming(false);
         setStreamingText("");
         setMessages((prev) => [...prev, { type: "assistant", text }]);
+        scrollToBottom();
       }
     };
 
     streamWord();
   };
+
+  // Add useEffect to scroll to bottom when messages change
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, streamingText]);
 
   const handleSendMessage = () => {
     if (!messageText.trim()) return;
@@ -72,7 +81,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
 
     setTimeout(() => {
       simulateStreaming(
-        "I understand you want to create a new web application. I can help you with that. Let's start by setting up the basic structure and dependencies. What kind of features would you like to include?"
+        "I will help you create a Dog training checklist app.\nFirst, let's establish some key architectural decisions:\n\n1. Tech Stack\n   - Next.js with TypeScript\n   - Tailwind CSS for styling\n   - Mobile-first design approach\n\n2. Core Features\n   - Interactive training checklists\n   - Progress tracking & analytics\n   - Photo/video documentation\n   - Customizable templates\n\nLet's start by setting up the basic structure and initial UI components."
       );
     }, 1000);
   };
