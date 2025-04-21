@@ -36,13 +36,13 @@ export function HomeNavigator() {
         >
           <div className="flex items-center pl-2">
             <ChevronRight 
-              className={`w-3.5 h-3.5 text-[#b8b8b8] mr-0.5 transition-transform ${openFolders.has('Site') ? 'rotate-90' : ''}`} 
+              className={`w-[14px] h-[14px] text-[#b8b8b8] mr-0.5 transition-transform ${openFolders.has('Site') ? 'rotate-90' : ''}`} 
               strokeWidth={2} 
             />
             {openFolders.has('Site') ? (
-              <PanelTop className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+              <PanelTop className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
             ) : (
-              <PanelTop className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+              <PanelTop className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
             )}
             <span>Site</span>
           </div>
@@ -53,13 +53,13 @@ export function HomeNavigator() {
           <div>
             <div className="flex items-center h-6 text-[11.5px] leading-4 tracking-[-0.01em] font-inter text-white hover:bg-[#383838]">
               <div className="flex items-center pl-[36px]">
-                <CodeXml className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+                <CodeXml className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
                 <span>Header</span>
               </div>
             </div>
             <div className="flex items-center h-6 text-[11.5px] leading-4 tracking-[-0.01em] font-inter text-white hover:bg-[#383838]">
               <div className="flex items-center pl-[36px]">
-                <CodeXml className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+                <CodeXml className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
                 <span>Footer</span>
               </div>
             </div>
@@ -73,13 +73,13 @@ export function HomeNavigator() {
         >
           <div className="flex items-center pl-2">
             <ChevronRight 
-              className={`w-3.5 h-3.5 text-[#b8b8b8] mr-0.5 transition-transform ${openFolders.has('Home') ? 'rotate-90' : ''}`} 
+              className={`w-[14px] h-[14px] text-[#b8b8b8] mr-0.5 transition-transform ${openFolders.has('Home') ? 'rotate-90' : ''}`} 
               strokeWidth={2} 
             />
             {openFolders.has('Home') ? (
-              <File className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+              <File className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
             ) : (
-              <File className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+              <File className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
             )}
             <span>Home</span>
           </div>
@@ -90,31 +90,31 @@ export function HomeNavigator() {
           <div>
             <div className="flex items-center h-6 text-[11.5px] leading-4 tracking-[-0.01em] font-inter text-white bg-[#383838]">
               <div className="flex items-center pl-[36px]">
-                <CodeXml className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+                <CodeXml className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
                 <span>Header</span>
               </div>
             </div>
             <div className="flex items-center h-6 text-[11.5px] leading-4 tracking-[-0.01em] font-inter text-white hover:bg-[#383838]">
               <div className="flex items-center pl-[36px]">
-                <SquareCode className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+                <SquareCode className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
                 <span>Embed</span>
               </div>
             </div>
             <div className="flex items-center h-6 text-[11.5px] leading-4 tracking-[-0.01em] font-inter text-white hover:bg-[#383838]">
               <div className="flex items-center pl-[36px]">
-                <SquareCode className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+                <SquareCode className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
                 <span>Custom embed</span>
               </div>
             </div>
             <div className="flex items-center h-6 text-[11.5px] leading-4 tracking-[-0.01em] font-inter text-white hover:bg-[#383838]">
               <div className="flex items-center pl-[36px]">
-                <SquareCode className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+                <SquareCode className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
                 <span>Code component</span>
               </div>
             </div>
             <div className="flex items-center h-6 text-[11.5px] leading-4 tracking-[-0.01em] font-inter text-white hover:bg-[#383838]">
               <div className="flex items-center pl-[36px]">
-                <CodeXml className="w-3.5 h-3.5 text-[#b8b8b8] mr-1.5" strokeWidth={2} />
+                <CodeXml className="w-[14px] h-[14px] text-[#b8b8b8] mr-1.5" strokeWidth={2} />
                 <span>Footer</span>
               </div>
             </div>

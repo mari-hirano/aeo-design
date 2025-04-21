@@ -11,11 +11,10 @@ export function PagesPanel() {
   const [isUtilityOpen, setIsUtilityOpen] = useState(true);
   const { selectedPage, setSelectedPage, togglePages } = usePages();
 
-  const iconStyle = "text-white opacity-[0.67] [stroke-width:1.5px]";
+  const iconStyle = "text-white opacity-[0.67] [stroke-width:2px]";
 
   const handlePageSelect = (page: string) => {
     setSelectedPage(page);
-    togglePages();
   };
 
   return (
@@ -27,10 +26,10 @@ export function PagesPanel() {
         </span>
         <div className="flex items-center gap-2">
           <button className="w-[16px] h-[16px] flex items-center justify-center hover:opacity-100">
-            <FilePlus size={16} className={iconStyle} />
+            <FilePlus className="w-[14px] h-[14px] text-white/67" strokeWidth={2} />
           </button>
           <button className="w-[16px] h-[16px] flex items-center justify-center hover:opacity-100">
-            <FolderPlus size={16} className={iconStyle} />
+            <FolderPlus className="w-[14px] h-[14px] text-white/67" strokeWidth={2} />
           </button>
         </div>
       </div>
@@ -38,7 +37,7 @@ export function PagesPanel() {
       {/* Search Box */}
       <div className="flex-none px-2 pb-2 border-b border-[#454545]">
         <div className="flex items-center h-[24px] bg-[#212121] rounded-[4px] px-2 border border-[#464646]">
-          <Search size={12} className={iconStyle} />
+          <Search className="w-[14px] h-[14px] text-white/50" strokeWidth={2} />
           <input
             type="text"
             placeholder="Search pages"
@@ -57,8 +56,8 @@ export function PagesPanel() {
           >
             <span>Static pages</span>
             <ChevronRight 
-              size={12} 
-              className={`transition-transform ${isStaticPagesOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              className={`w-[14px] h-[14px] transition-transform ${isStaticPagesOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              strokeWidth={2}
             />
           </div>
           <div className={isStaticPagesOpen ? "" : "hidden"}>
@@ -70,7 +69,7 @@ export function PagesPanel() {
                   : "opacity-80 hover:opacity-100"
               }`}
             >
-              <File size={16} className={iconStyle} />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               Home
             </div>
             <div 
@@ -81,7 +80,7 @@ export function PagesPanel() {
                   : "opacity-80 hover:opacity-100"
               }`}
             >
-              <File size={16} className={iconStyle} />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               About
             </div>
             <div 
@@ -92,7 +91,7 @@ export function PagesPanel() {
                   : "opacity-80 hover:opacity-100"
               }`}
             >
-              <File size={16} className={iconStyle} />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               Services
             </div>
             <div 
@@ -103,7 +102,7 @@ export function PagesPanel() {
                   : "opacity-80 hover:opacity-100"
               }`}
             >
-              <File size={16} className={iconStyle} />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               Contact
             </div>
           </div>
@@ -117,8 +116,8 @@ export function PagesPanel() {
           >
             <span>Web apps</span>
             <ChevronRight 
-              size={12} 
-              className={`transition-transform ${isWebAppsOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              className={`w-[14px] h-[14px] transition-transform ${isWebAppsOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              strokeWidth={2}
             />
           </div>
           <div className={isWebAppsOpen ? "" : "hidden"}>
@@ -130,7 +129,7 @@ export function PagesPanel() {
                   : "opacity-80 hover:opacity-100"
               }`}
             >
-              <SquareCode size={16} className={iconStyle} />
+              <SquareCode className="w-[14px] h-[14px]" strokeWidth={2} />
               Doggo training web app
             </div>
           </div>
@@ -144,17 +143,17 @@ export function PagesPanel() {
           >
             <span>CMS Collection pages</span>
             <ChevronRight 
-              size={12} 
-              className={`transition-transform ${isCmsOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              className={`w-[14px] h-[14px] transition-transform ${isCmsOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              strokeWidth={2}
             />
           </div>
           <div className={isCmsOpen ? "" : "hidden"}>
             <div className="px-2 py-1 text-[12px] leading-[16px] text-[#C4AFFF] opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
-              <File size={16} className="text-[#C4AFFF] opacity-[0.67] [stroke-width:1.5px]" />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               Blog Posts
             </div>
             <div className="px-2 py-1 text-[12px] leading-[16px] text-[#C4AFFF] opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
-              <File size={16} className="text-[#C4AFFF] opacity-[0.67] [stroke-width:1.5px]" />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               Products
             </div>
           </div>
@@ -168,17 +167,17 @@ export function PagesPanel() {
           >
             <span>Utility pages</span>
             <ChevronRight 
-              size={12} 
-              className={`transition-transform ${isUtilityOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              className={`w-[14px] h-[14px] transition-transform ${isUtilityOpen ? 'rotate-90' : 'rotate-0'} ${iconStyle}`}
+              strokeWidth={2}
             />
           </div>
           <div className={isUtilityOpen ? "" : "hidden"}>
             <div className="px-2 py-1 text-[12px] leading-[16px] text-white opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
-              <File size={16} className={iconStyle} />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               404 Not Found
             </div>
             <div className="px-2 py-1 text-[12px] leading-[16px] text-white opacity-80 hover:opacity-100 cursor-pointer flex items-center gap-1">
-              <File size={16} className={iconStyle} />
+              <File className="w-[14px] h-[14px]" strokeWidth={2} />
               Password Protected
             </div>
           </div>

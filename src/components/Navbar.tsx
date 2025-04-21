@@ -37,12 +37,12 @@ export function Navbar() {
     const isHomeInDesignMode = selectedPage === 'home' && mode === 'Design';
     
     if (selectedPage === 'doggo-training') {
-      return <SquareCode className="h-[16px] w-[16px] mr-1.5" />;
+      return <SquareCode className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />;
     }
     if (isHomeInDesignMode) {
-      return <File className="h-[16px] w-[16px] mr-1.5 opacity-[0.67] [stroke-width:1.5px]" />;
+      return <File className="w-[14px] h-[14px] mr-1.5 opacity-[0.67]" strokeWidth={2} />;
     }
-    return <File className="h-[16px] w-[16px] mr-1.5" />;
+    return <File className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />;
   };
 
   const getTitleClasses = () => {
@@ -73,12 +73,12 @@ export function Navbar() {
         <DropdownMenu>
           <DropdownMenuTrigger className="flex items-center h-6 px-2 bg-[#3a3a3a] hover:bg-[#444444] rounded-[4px] ml-2 text-[11.5px] leading-4 focus:outline-none">
             {mode === 'Develop' ? (
-              <Code className="h-[16px] w-[16px] mr-1.5 opacity-70" />
+              <Code className="w-[14px] h-[14px] mr-1.5 opacity-70" strokeWidth={2} />
             ) : (
-              <SquareMousePointer className="h-[16px] w-[16px] mr-1.5 opacity-70" />
+              <SquareMousePointer className="w-[14px] h-[14px] mr-1.5 opacity-70" strokeWidth={2} />
             )}
             <span>{mode}</span>
-            <ChevronDown className="h-[16px] w-[16px] opacity-50 ml-1" />
+            <ChevronDown className="w-[14px] h-[14px] opacity-50 ml-1" strokeWidth={2} />
           </DropdownMenuTrigger>
           <DropdownMenuContent 
             align="start"
@@ -89,7 +89,7 @@ export function Navbar() {
               onClick={() => setMode('Design')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {mode === 'Design' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+                {mode === 'Design' && <Check className="w-[14px] h-[14px] text-white" strokeWidth={2} />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Design</div>
@@ -101,7 +101,7 @@ export function Navbar() {
               onClick={() => setMode('Build')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {mode === 'Build' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+                {mode === 'Build' && <Check className="w-[14px] h-[14px] text-white" strokeWidth={2} />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Build</div>
@@ -113,7 +113,7 @@ export function Navbar() {
               onClick={() => setMode('Develop')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {mode === 'Develop' && <Check className="w-[16px] h-[16px] text-white stroke-[1px]" />}
+                {mode === 'Develop' && <Check className="w-[14px] h-[14px] text-white" strokeWidth={2} />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Develop</div>
@@ -125,13 +125,13 @@ export function Navbar() {
 
         {/* CMS Link */}
         <Link href="/cms" className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
-          <Database className="h-[16px] w-[16px] mr-1.5" />
+          <Database className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />
           CMS
         </Link>
 
         {/* Insights Link */}
         <Link href="/insights" className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
-          <LineChart className="h-[16px] w-[16px] mr-1.5" />
+          <LineChart className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />
           Insights
         </Link>
       </div>
@@ -149,7 +149,7 @@ export function Navbar() {
         </button>
         <button className="flex items-center h-6 px-2 bg-[#444444] text-white rounded-[4px] hover:bg-[#4f4f4f]">
           <span>Deploy</span>
-          <ChevronDown className="h-[16px] w-[16px] ml-1 opacity-50" />
+          <ChevronDown className="w-[14px] h-[14px] ml-1 opacity-50" strokeWidth={2} />
         </button>
       </div>
     </nav>

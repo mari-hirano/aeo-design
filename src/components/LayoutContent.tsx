@@ -17,7 +17,7 @@ import {
   Image as ImageIcon,
   ArrowLeft,
 } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 import Editor from "@monaco-editor/react";
 import Image from "next/image";
@@ -204,12 +204,102 @@ const fileStructure = [
 
 function LayoutContentInner({}: LayoutContentProps) {
   const { isNavigatorOpen } = useNavigator();
-  const { isPagesOpen, selectedPage } = usePages();
+  const { isPagesOpen, selectedPage, setIsPagesOpen } = usePages();
   const { isAssistantOpen, setIsAssistantOpen } = useAssistant();
   const { mode } = useMode();
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(false);
-  const [editorValue, setEditorValue] = useState(`import { useState } from 'react';
+
+  const getEditorContent = useCallback(() => {
+    if (mode === 'Develop' && selectedPage === 'home') {
+      return `import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
+
+// Initialize smooth scrolling
+const smoother = ScrollSmoother.create({
+  smooth: 1,
+  effects: true,
+});
+
+// Header animation setup
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.hero-header');
+  const splitText = new SplitText('.hero-title', { type: 'chars, words' });
+  const chars = splitText.chars;
+  
+  // Hero section timeline
+  const heroTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.hero-section',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1,
+      pin: true
+    }
+  });
+
+  // Animate hero elements
+  heroTl
+    .from(chars, {
+      opacity: 0,
+      y: 100,
+      rotateX: -90,
+      stagger: 0.02,
+      ease: 'back.out'
+    })
+    .from('.hero-subtitle', {
+      opacity: 0,
+      y: 50,
+      duration: 1
+    }, '-=0.5')
+    .from('.hero-cta', {
+      opacity: 0,
+      y: 30,
+      duration: 0.8
+    }, '-=0.3');
+
+  // Parallax background effect
+  gsap.to('.hero-bg', {
+    yPercent: 50,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero-section',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+});
+
+// Hero section markup
+const HeroSection = () => {
+  return (
+    <section className="hero-section min-h-screen relative overflow-hidden">
+      <div className="hero-bg absolute inset-0 bg-gradient-to-b from-purple-900 to-blue-900" />
+      <div className="container mx-auto px-4 h-screen flex flex-col justify-center items-center text-center relative z-10">
+        <h1 className="hero-title text-7xl font-bold text-white mb-6">
+          Create Something Amazing
+        </h1>
+        <p className="hero-subtitle text-xl text-gray-300 mb-8 max-w-2xl">
+          Transform your ideas into reality with powerful animations and seamless interactions
+        </p>
+        <button className="hero-cta px-8 py-4 bg-white text-purple-900 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all">
+          Get Started
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;`;
+    }
+
+    return `import { useState } from 'react';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([
@@ -269,7 +359,25 @@ export default function TodoList() {
         ))}
       </div>
     </div>
-  );`);
+  );`;
+  }, [mode, selectedPage]);
+
+  const [editorValue, setEditorValue] = useState(() => getEditorContent());
+
+  useEffect(() => {
+    const newContent = getEditorContent();
+    if (newContent !== editorValue) {
+      setEditorValue(newContent);
+    }
+  }, [selectedPage, mode, getEditorContent, editorValue]);
+
+  // Add this new useEffect to handle initial page selection
+  useEffect(() => {
+    // If we're in develop mode and not on the home page, show the pages panel
+    if (mode === 'Develop' && selectedPage !== 'home') {
+      setIsPagesOpen(true);
+    }
+  }, [mode, selectedPage, setIsPagesOpen]);
 
   const handleEditorChange = (value: string | undefined) => {
     setEditorValue(value || '');
