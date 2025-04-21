@@ -23,7 +23,7 @@ export function HomeNavigator() {
       {/* Header */}
       <div className="h-[40px] flex-none flex items-center justify-between px-2 border-b border-[#454545]">
         <span className="font-semibold text-[13px] leading-[20px] text-white font-inter whitespace-nowrap">
-          Home Page Files
+          Navigator
         </span>
       </div>
 

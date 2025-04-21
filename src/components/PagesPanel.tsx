@@ -9,12 +9,13 @@ export function PagesPanel() {
   const [isWebAppsOpen, setIsWebAppsOpen] = useState(true);
   const [isCmsOpen, setIsCmsOpen] = useState(true);
   const [isUtilityOpen, setIsUtilityOpen] = useState(true);
-  const { selectedPage, setSelectedPage, togglePages } = usePages();
+  const { selectedPage, setSelectedPage, togglePages, setIsPagesOpen } = usePages();
 
   const iconStyle = "text-white opacity-[0.67] [stroke-width:2px]";
 
   const handlePageSelect = (page: string) => {
     setSelectedPage(page);
+    setIsPagesOpen(false);
   };
 
   return (
