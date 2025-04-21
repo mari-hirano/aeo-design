@@ -1,22 +1,22 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import Image from "next/image";
 import {
   Sparkle,
   X,
-  ImageIcon,
+  Paperclip,
   CornerDownLeft,
   Loader2,
   CheckCircle2,
   ChevronDown,
-  Pause,
   CircleStop,
+  Square,
 } from "lucide-react";
 
 interface Message {
   type: "user" | "assistant";
   text: string;
+  attachments?: Attachment[];
 }
 
 interface Step {
@@ -25,6 +25,11 @@ interface Step {
   file?: string;
   isStarted: boolean;
   isCompleted: boolean;
+}
+
+interface Attachment {
+  id: string;
+  file: File;
 }
 
 interface AssistantProps {
@@ -54,6 +59,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
   const [isResponding, setIsResponding] = useState(false);
   const [finalMessageStreaming, setFinalMessageStreaming] = useState(false);
   const [finalMessageText, setFinalMessageText] = useState("");
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
 
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
@@ -164,10 +170,16 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
   }, [messages, streamingText, finalMessageText]);
 
   const handleSendMessage = () => {
-    if (!messageText.trim()) return;
+    if (!messageText.trim() && attachments.length === 0) return;
 
-    setMessages((prev) => [...prev, { type: "user", text: messageText }]);
+    setMessages((prev) => [...prev, { 
+      type: "user", 
+      text: messageText,
+      attachments: attachments.length > 0 ? [...attachments] : undefined
+    }]);
+    
     setMessageText("");
+    setAttachments([]);
     adjustTextareaHeight();
 
     setTimeout(() => {
@@ -192,15 +204,33 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
     const files = e.target.files;
     if (!files?.length) return;
 
-    const file = files[0];
-    setMessageText((prev) => `${prev}[Attached file: ${file.name}]\n`);
+    const newAttachments = Array.from(files).map(file => ({
+      id: Math.random().toString(36).substring(7),
+      file
+    }));
     
+    setAttachments(prev => [...prev, ...newAttachments]);
     e.target.value = '';
+  };
+
+  const handleRemoveAttachment = (id: string) => {
+    setAttachments(prev => prev.filter(attachment => attachment.id !== id));
   };
 
   const handleImageButtonClick = () => {
     fileInputRef.current?.click();
   };
+
+  useEffect(() => {
+    return () => {
+      // Cleanup object URLs when component unmounts
+      attachments.forEach(attachment => {
+        if (attachment.file.type.startsWith('image/')) {
+          URL.revokeObjectURL(URL.createObjectURL(attachment.file));
+        }
+      });
+    };
+  }, [attachments]);
 
   return (
     <div
@@ -274,18 +304,42 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
               message.type === "user" ? (
                 <div key={index} className="flex justify-end">
                   <div className="w-full bg-[#353535] rounded-[8px] p-2">
-                    <div className="flex items-start gap-2">
-                      <img
-                        src="/orion/images/Avatar.png"
-                        alt="User avatar"
-                        className="w-4 h-4 rounded-full m-0.5"
-                        onError={(e) => {
-                          console.error('Error loading avatar image');
-                          e.currentTarget.src = '/orion/images/Avatar.png';
-                        }}
-                      />
-                      <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
-                        {message.text}
+                    <div className="flex flex-col gap-2">
+                      {message.attachments && message.attachments.length > 0 && (
+                        <div className="flex gap-2 mb-1 overflow-x-auto">
+                          {message.attachments.map((attachment) => (
+                            <div
+                              key={attachment.id}
+                              className="flex-shrink-0"
+                            >
+                              <div className="w-10 h-10 bg-[#292929] rounded flex items-center justify-center overflow-hidden">
+                                {attachment.file.type.startsWith('image/') ? (
+                                  <img
+                                    src={URL.createObjectURL(attachment.file)}
+                                    alt={attachment.file.name}
+                                    className="w-full h-full object-cover"
+                                  />
+                                ) : (
+                                  <Square className="w-5 h-5 text-[#CCCCCC]" />
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      <div className="flex items-start gap-2">
+                        <img
+                          src="/orion/images/Avatar.png"
+                          alt="User avatar"
+                          className="w-4 h-4 rounded-full m-0.5"
+                          onError={(e) => {
+                            console.error('Error loading avatar image');
+                            e.currentTarget.src = '/orion/images/Avatar.png';
+                          }}
+                        />
+                        <div className="flex-1 text-[11.5px] leading-[20px] text-[#CCCCCC] whitespace-pre-wrap font-inter font-normal">
+                          {message.text}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -361,6 +415,38 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
       <div className="flex-none p-3">
         <div className="border border-[#454545] bg-[#202020] rounded-[4px]">
           <div className="flex flex-col">
+            {attachments.length > 0 && (
+              <div className="flex gap-2 p-2 border-b border-[#454545] overflow-x-auto">
+                {attachments.map((attachment) => (
+                  <div
+                    key={attachment.id}
+                    className="relative group flex-shrink-0"
+                  >
+                    <div className="w-10 h-10 bg-[#353535] rounded flex items-center justify-center overflow-hidden">
+                      {attachment.file.type.startsWith('image/') ? (
+                        <img
+                          src={URL.createObjectURL(attachment.file)}
+                          alt={attachment.file.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <Square className="w-5 h-5 text-[#CCCCCC]" />
+                      )}
+                    </div>
+                    <button
+                      onClick={() => handleRemoveAttachment(attachment.id)}
+                      className="absolute -top-1 -right-1 w-4 h-4 bg-[#454545] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <X className="w-3 h-3 text-[#CCCCCC]" />
+                    </button>
+                    <div className="absolute bottom-0 left-0 right-0 text-[10px] text-[#CCCCCC] truncate text-center px-1">
+                      {attachment.file.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            
             <textarea
               ref={textareaRef}
               value={messageText}
@@ -374,19 +460,21 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
                   messageText.split("\n").length > 1 ? "auto" : "hidden",
               }}
             />
+            
             <div className="flex justify-between items-center px-2 py-2">
               <input
                 type="file"
                 ref={fileInputRef}
                 onChange={handleFileSelect}
                 accept="image/*"
+                multiple
                 className="hidden"
               />
               <button 
                 onClick={handleImageButtonClick}
-                className="h-6 w-6 flex items-center justify-center rounded hover:text-white transition-colors"
+                className="h-6 w-6 flex items-center justify-center rounded text-[#BDBDBD] hover:text-white hover:bg-[#404040] active:bg-[#353535] transition-colors"
               >
-                <ImageIcon className="w-[14px] h-[14px] text-[#BDBDBD]" strokeWidth={2} />
+                <Paperclip className="w-[14px] h-[14px]" strokeWidth={2} />
               </button>
               <button
                 onClick={handleSendMessage}
