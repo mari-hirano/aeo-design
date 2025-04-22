@@ -16,6 +16,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Add a timestamp to prevent caching
+  const timestamp = Date.now()
+  
   const basicAuth = request.headers.get('authorization')
 
   if (basicAuth) {
@@ -26,10 +29,16 @@ export function middleware(request: NextRequest) {
       // Create the response
       const response = NextResponse.next()
       
-      // Add headers to prevent caching
-      response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+      // Add aggressive cache prevention headers
+      response.headers.set('Cache-Control', 'private, no-cache, no-store, must-revalidate, max-age=0')
       response.headers.set('Pragma', 'no-cache')
-      response.headers.set('Expires', '0')
+      response.headers.set('Expires', '-1')
+      response.headers.set('X-Auth-Timestamp', timestamp.toString())
+      
+      // Add Cloudflare-specific headers
+      response.headers.set('CDN-Cache-Control', 'no-store')
+      response.headers.set('Cloudflare-CDN-Cache-Control', 'no-store')
+      response.headers.set('Vary', '*')
       
       return response
     }
@@ -39,10 +48,14 @@ export function middleware(request: NextRequest) {
   return new NextResponse('Authentication required', {
     status: 401,
     headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"',
-      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'WWW-Authenticate': `Basic realm="Secure Area", charset="UTF-8"`,
+      'Cache-Control': 'private, no-cache, no-store, must-revalidate, max-age=0',
       'Pragma': 'no-cache',
-      'Expires': '0'
+      'Expires': '-1',
+      'X-Auth-Timestamp': timestamp.toString(),
+      'CDN-Cache-Control': 'no-store',
+      'Cloudflare-CDN-Cache-Control': 'no-store',
+      'Vary': '*'
     },
   })
 }
