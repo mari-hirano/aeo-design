@@ -8,7 +8,7 @@ function decodeBase64(str: string): string {
 
 // You can change these credentials - they will be hardcoded in the middleware
 const USERNAME = 'orion'
-const PASSWORD = 'orion2024'
+const PASSWORD = 'orionvibes'
 
 export function middleware(request: NextRequest) {
   // Skip auth in development
