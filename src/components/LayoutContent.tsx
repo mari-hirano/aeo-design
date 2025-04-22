@@ -491,7 +491,7 @@ export default function TodoList() {
                           className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
                         >
                           <Image
-                            src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/AssistantButton.png"}
+                            src="/orion/images/AssistantButton.png"
                             alt="Open Assistant"
                             className="w-6 h-6"
                             width={24}
