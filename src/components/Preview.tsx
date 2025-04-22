@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { useMode } from '@/context/ModeContext';
 import { usePages } from '@/context/PagesContext';
 
 interface PreviewProps {
@@ -9,7 +8,6 @@ interface PreviewProps {
 }
 
 export function Preview({ className = "" }: PreviewProps) {
-  const { mode } = useMode();
   const { selectedPage } = usePages();
 
   const getPreviewContent = () => {

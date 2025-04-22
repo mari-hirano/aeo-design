@@ -61,7 +61,7 @@ export function Navbar() {
         {/* Logo/Home */}
         <Link href="/" className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545]">
           <Image
-            src="/images/webflow-logo.png"
+            src="/orion/images/WebflowLogo.png"
             alt="Webflow"
             width={20}
             height={20}
@@ -123,17 +123,17 @@ export function Navbar() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        {/* CMS Link */}
-        <Link href="/cms" className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
+        {/* CMS Button */}
+        <button className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
           <Database className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />
           CMS
-        </Link>
+        </button>
 
-        {/* Insights Link */}
-        <Link href="/insights" className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
+        {/* Insights Button */}
+        <button className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
           <LineChart className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />
           Insights
-        </Link>
+        </button>
       </div>
 
       {/* Center - App Name */}

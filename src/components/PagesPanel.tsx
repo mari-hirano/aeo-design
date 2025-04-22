@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { FolderPlus, FilePlus, Search, ArrowLeft, ChevronRight, File, SquareCode } from 'lucide-react';
+import { FolderPlus, FilePlus, Search, ChevronRight, File, SquareCode } from 'lucide-react';
 import { usePages } from '@/context/PagesContext';
 
 export function PagesPanel() {
@@ -9,7 +9,7 @@ export function PagesPanel() {
   const [isWebAppsOpen, setIsWebAppsOpen] = useState(true);
   const [isCmsOpen, setIsCmsOpen] = useState(true);
   const [isUtilityOpen, setIsUtilityOpen] = useState(true);
-  const { selectedPage, setSelectedPage, togglePages, setIsPagesOpen } = usePages();
+  const { selectedPage, setSelectedPage, setIsPagesOpen } = usePages();
 
   const iconStyle = "text-white opacity-[0.67] [stroke-width:2px]";
 

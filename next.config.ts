@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   basePath: "/orion",
+  assetPrefix: "/orion/",
   async redirects() {
     return [
       {

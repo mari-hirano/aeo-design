@@ -9,17 +9,10 @@ import { Preview } from "@/components/Preview";
 import {
   MoreHorizontal,
   Search,
-  ChevronRight,
-  X,
-  Sparkle,
   ChevronDown,
-  CornerDownLeft,
-  Image as ImageIcon,
-  ArrowLeft,
 } from "lucide-react";
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-import Editor from "@monaco-editor/react";
 import Image from "next/image";
 import { Assistant } from "@/components/Assistant";
 import { CodeEditor } from "@/components/CodeEditor";

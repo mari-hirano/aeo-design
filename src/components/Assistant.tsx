@@ -57,7 +57,6 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isResponding, setIsResponding] = useState(false);
-  const [finalMessageStreaming, setFinalMessageStreaming] = useState(false);
   const [finalMessageText, setFinalMessageText] = useState("");
   const [attachments, setAttachments] = useState<Attachment[]>([]);
 
@@ -98,7 +97,6 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
 
   const streamFinalMessage = () => {
     const finalMessage = "The development server is now running and you can see your app. Feel free to customize the content, colors, or layout to better match your brand styles!";
-    setFinalMessageStreaming(true);
     const words = finalMessage.split(' ');
     let currentIndex = 0;
 
@@ -113,7 +111,6 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
           streamWord();
         }, 50);
       } else {
-        setFinalMessageStreaming(false);
         setIsResponding(false);
       }
     };
