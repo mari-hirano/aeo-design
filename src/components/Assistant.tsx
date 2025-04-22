@@ -260,7 +260,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
           opacity: 0;
         }
         .content-section.expanded {
-          max-height: 499px;
+          max-height: 501px;
           opacity: 1;
         }
       `}</style>
