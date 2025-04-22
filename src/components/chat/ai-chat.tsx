@@ -24,7 +24,7 @@ export function AiChat() {
     const newMessages: Message[] = [
       ...messages,
       { role: "user" as const, content: input },
-      { role: "assistant" as const, content: "I understand you want to work with this code. What specific help do you need?" }
+      { role: "assistant" as const, content: "I get you want to work with this code. What specific help do you need?" }
     ]
     setMessages(newMessages)
     setInput("")
