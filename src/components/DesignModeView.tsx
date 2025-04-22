@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { Square, Type, Image as ImageIcon, Layout } from 'lucide-react';
 import Image from 'next/image';
 import { usePages } from '@/context/PagesContext';
 

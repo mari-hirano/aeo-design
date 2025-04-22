@@ -9,7 +9,6 @@ interface PreviewProps {
 }
 
 export function Preview({ className = "" }: PreviewProps) {
-  const { mode } = useMode();
   const { selectedPage } = usePages();
 
   const getPreviewContent = () => {

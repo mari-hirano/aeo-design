@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { File, FolderOpen, ChevronRight, PanelTop, CodeXml, SquareCode } from 'lucide-react';
+import { File, ChevronRight, PanelTop, CodeXml, SquareCode } from 'lucide-react';
 
 export function HomeNavigator() {
   const [openFolders, setOpenFolders] = useState(new Set(['Site', 'Home']));
