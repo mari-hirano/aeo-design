@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { useMode } from '@/context/ModeContext';
 import { usePages } from '@/context/PagesContext';
 
 interface PreviewProps {
