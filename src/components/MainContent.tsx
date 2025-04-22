@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { CodeEditor } from './CodeEditor';
+import { SimpleCodeEditor } from './SimpleCodeEditor';
 
 interface FileNode {
   id: string;
@@ -25,7 +25,7 @@ export function MainContent({ selectedFile }: MainContentProps) {
 
   return (
     <div className="h-full w-full">
-      <CodeEditor
+      <SimpleCodeEditor
         content={selectedFile.content}
         language={selectedFile.name.endsWith('.tsx') ? 'typescript' : 'json'}
       />
