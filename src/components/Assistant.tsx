@@ -263,7 +263,7 @@ export function Assistant({ isOpen, onClose }: AssistantProps) {
           opacity: 0;
         }
         .content-section.expanded {
-          max-height: 500px;
+          max-height: 499px;
           opacity: 1;
         }
       `}</style>
