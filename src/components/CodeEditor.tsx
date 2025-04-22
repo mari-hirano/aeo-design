@@ -47,7 +47,7 @@ export function CodeEditor({
                   className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
                 >
                   <Image
-                    src="/images/AssistantButton.png"
+                    src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/AssistantButton.png"}
                     alt="Open Assistant"
                     className="w-6 h-6"
                     width={24}
