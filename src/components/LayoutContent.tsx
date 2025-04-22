@@ -6,6 +6,7 @@ import { NavigatorProvider, useNavigator } from "@/context/NavigatorContext";
 import { PagesProvider, usePages } from "@/context/PagesContext";
 import { FileTree } from "@/components/FileTree";
 import { Preview } from "@/components/Preview";
+import { PasswordScreen } from './PasswordScreen';
 import {
   MoreHorizontal,
   Search,
@@ -202,6 +203,12 @@ function LayoutContentInner({}: LayoutContentProps) {
   const { mode } = useMode();
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
   const [isTerminalExpanded, setIsTerminalExpanded] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('orion-auth') === 'true';
+    }
+    return false;
+  });
 
   const getEditorContent = useCallback(() => {
     if (mode === 'Develop' && selectedPage === 'home') {
@@ -380,245 +387,251 @@ export default function TodoList() {
   };
 
   return (
-    <div className="h-screen w-screen flex flex-col overflow-hidden">
-      <Navbar />
+    <>
+      {!isAuthenticated ? (
+        <PasswordScreen onCorrectPassword={() => setIsAuthenticated(true)} />
+      ) : (
+        <div className="h-screen w-screen flex flex-col overflow-hidden">
+          <Navbar />
 
-      <div className="flex-1 flex min-h-0">
-        <LeftSidebar />
+          <div className="flex-1 flex min-h-0">
+            <LeftSidebar />
 
-        {/* File Tree Panel - Only visible in Develop mode */}
-        {mode === 'Develop' && (
-          <div 
-            className={`flex flex-col min-h-0 bg-[#292929] border-r border-[#454545] ${
-              isNavigatorOpen ? "w-[248px]" : "w-0"
-            } overflow-hidden`}
-          >
-            {selectedPage === 'home' ? (
-              <HomeNavigator />
-            ) : (
-              <>
-                {/* Navigator Header */}
-                <div className="h-[40px] flex-none flex items-center justify-between px-2 border-b border-[#454545]">
-                  <span className="font-semibold text-[13px] leading-[20px] text-white font-inter whitespace-nowrap">
-                    Navigator
-                  </span>
-                  <button className="w-[16px] h-[16px] flex items-center justify-center text-[#CCCCCC] hover:text-white">
-                    <MoreHorizontal size={16} />
-                  </button>
-                </div>
+            {/* File Tree Panel - Only visible in Develop mode */}
+            {mode === 'Develop' && (
+              <div 
+                className={`flex flex-col min-h-0 bg-[#292929] border-r border-[#454545] ${
+                  isNavigatorOpen ? "w-[248px]" : "w-0"
+                } overflow-hidden`}
+              >
+                {selectedPage === 'home' ? (
+                  <HomeNavigator />
+                ) : (
+                  <>
+                    {/* Navigator Header */}
+                    <div className="h-[40px] flex-none flex items-center justify-between px-2 border-b border-[#454545]">
+                      <span className="font-semibold text-[13px] leading-[20px] text-white font-inter whitespace-nowrap">
+                        Navigator
+                      </span>
+                      <button className="w-[16px] h-[16px] flex items-center justify-center text-[#CCCCCC] hover:text-white">
+                        <MoreHorizontal size={16} />
+                      </button>
+                    </div>
 
-                {/* Search Box */}
-                <div className="flex-none px-2 py-2">
-                  <div className="flex items-center h-[24px] bg-[#212121] rounded-[4px] px-2 border border-[#464646]">
-                    <Search size={12} className="text-[#CCCCCC]" />
-                    <input
-                      type="text"
-                      placeholder="Search code"
-                      className="bg-transparent border-none text-[#CCCCCC] text-[12px] leading-[16px] px-2 w-full focus:outline-none placeholder-[#808080]"
+                    {/* Search Box */}
+                    <div className="flex-none px-2 py-2">
+                      <div className="flex items-center h-[24px] bg-[#212121] rounded-[4px] px-2 border border-[#464646]">
+                        <Search size={12} className="text-[#CCCCCC]" />
+                        <input
+                          type="text"
+                          placeholder="Search code"
+                          className="bg-transparent border-none text-[#CCCCCC] text-[12px] leading-[16px] px-2 w-full focus:outline-none placeholder-[#808080]"
+                        />
+                      </div>
+                    </div>
+
+                    {/* File Tree */}
+                    <div className="flex-1 overflow-auto">
+                      <FileTree
+                        items={fileStructure}
+                        defaultOpenFolders={["src", "app"]}
+                        defaultSelectedFileId="page.tsx"
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* Pages Panel - Positioned absolutely */}
+            <div 
+              className={`absolute top-[35px] left-[35px] h-[calc(100%-35px)] z-50 bg-[#292929] ${
+                isPagesOpen ? "w-[248px] border-r border-[#454545]" : "w-0"
+              } overflow-hidden`}
+            >
+              <PagesPanel />
+            </div>
+
+            {/* Main Content Area */}
+            <div
+              className={`flex-1 flex flex-col min-h-0 bg-[#292929] overflow-hidden transition-[margin] duration-300 ease-in-out ${
+                isAssistantOpen && mode !== 'Design' ? "mr-[288px]" : "mr-0"
+              }`}
+            >
+              {mode === 'Design' ? (
+                <DesignModeView />
+              ) : mode === 'Develop' ? (
+                <>
+                  {/* Top Section: Code Editor and Preview */}
+                  <div
+                    className="flex min-h-0"
+                    style={{
+                      height: `calc(100% - ${isTerminalExpanded ? "200px" : "40px"})`,
+                    }}
+                  >
+                    {/* Code Editor */}
+                    <CodeEditor
+                      isPreviewVisible={isPreviewVisible}
+                      isAssistantOpen={isAssistantOpen}
+                      editorValue={editorValue}
+                      onEditorChange={handleEditorChange}
+                      onPreviewToggle={() => setIsPreviewVisible(true)}
+                      onAssistantToggle={() => setIsAssistantOpen(true)}
                     />
-                  </div>
-                </div>
 
-                {/* File Tree */}
-                <div className="flex-1 overflow-auto">
-                  <FileTree
-                    items={fileStructure}
-                    defaultOpenFolders={["src", "app"]}
-                    defaultSelectedFileId="page.tsx"
-                  />
+                    {/* Preview Panel */}
+                    <div
+                      className={`flex flex-col min-h-0 transition-[width,opacity] duration-300 ${
+                        isPreviewVisible ? "opacity-100 w-1/2" : "opacity-0 w-0"
+                      }`}
+                    >
+                      <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between pl-4 pr-2 bg-[#292929]">
+                        <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
+                          Preview
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => setIsPreviewVisible(false)}
+                            className="flex items-center text-[#CCCCCC] hover:text-white border border-[#454545] px-2 h-6 rounded"
+                          >
+                            <span className="text-[11.5px]">Hide Preview</span>
+                          </button>
+                          {!isAssistantOpen && (
+                            <button
+                              onClick={() => setIsAssistantOpen(true)}
+                              className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
+                            >
+                              <Image
+                                src="/orion/images/AssistantButton.png"
+                                alt="Open Assistant"
+                                className="w-6 h-6"
+                                width={24}
+                                height={24}
+                              />
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex-1 overflow-hidden">
+                        <Preview />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Section: Terminal */}
+                  <div
+                    className={`flex-none border-t border-[#454545] flex flex-col min-h-0 transition-[height] duration-300 ease-in-out`}
+                    style={{ height: isTerminalExpanded ? "200px" : "40px" }}
+                  >
+                    <button
+                      onClick={() => setIsTerminalExpanded(!isTerminalExpanded)}
+                      className="h-[40px] flex-none border-b border-[#454545] flex items-center px-4 bg-[#292929]"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
+                          Terminal
+                        </span>
+                        <ChevronDown
+                          size={16}
+                          className={`text-[#CCCCCC] transform transition-transform duration-200 ${
+                            isTerminalExpanded ? "" : "rotate-180"
+                          }`}
+                        />
+                      </div>
+                    </button>
+                    <div
+                      className={`flex-1 overflow-auto bg-[#292929] p-2 [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F] ${
+                        isTerminalExpanded ? "" : "hidden"
+                      }`}
+                    >
+                      <div
+                        style={{
+                          fontFamily:
+                            '"Roboto Mono", Menlo, Monaco, "Courier New", monospace',
+                        }}
+                        className="text-[11.5px] leading-[20px] text-[#CCCCCC]"
+                      >
+                        <div className="flex">
+                          <span className="text-[#4EC9B0]">➜</span>
+                          <span className="text-[#569CD6]">
+                            &nbsp;orion-prototype
+                          </span>
+                          <span className="text-[#CCCCCC]">&nbsp;git:(</span>
+                          <span className="text-[#CE9178]">main</span>
+                          <span className="text-[#CCCCCC]">)&nbsp;</span>
+                          <span className="text-[#CCCCCC]">npm install</span>
+                        </div>
+                        <div className="text-[#6A9955]">
+                          added 248 packages, and audited 1503 packages in 3s
+                        </div>
+                        <div className="text-[#6A9955]">
+                          125 packages are looking for funding
+                        </div>
+                        <div className="text-[#6A9955]">
+                          &nbsp;&nbsp;run `npm fund` for details
+                        </div>
+                        <div className="text-[#6A9955]">found 0 vulnerabilities</div>
+                        <div className="mt-2 flex">
+                          <span className="text-[#4EC9B0]">➜</span>
+                          <span className="text-[#569CD6]">
+                            &nbsp;orion-prototype
+                          </span>
+                          <span className="text-[#CCCCCC]">&nbsp;git:(</span>
+                          <span className="text-[#CE9178]">main</span>
+                          <span className="text-[#CCCCCC]">)&nbsp;</span>
+                          <span className="text-[#CCCCCC]">npm run dev</span>
+                        </div>
+                        <div className="text-[#CCCCCC]">
+                          {`>`} orion-prototype@0.1.0 dev
+                        </div>
+                        <div className="text-[#CCCCCC]">{`>`} next dev</div>
+                        <div className="mt-1">
+                          <span className="text-[#569CD6]">ready</span>
+                          <span className="text-[#CCCCCC]">
+                            {" "}
+                            - started server on{" "}
+                          </span>
+                          <span className="text-[#CE9178]">0.0.0.0:3000</span>
+                          <span className="text-[#CCCCCC]">, url: </span>
+                          <span className="text-[#4EC9B0]">
+                            http://localhost:3000
+                          </span>
+                        </div>
+                        <div className="text-[#CCCCCC]">
+                          event - compiled client and server successfully in 188 ms
+                          (17 modules)
+                        </div>
+                        <div className="mt-2 flex">
+                          <span className="text-[#4EC9B0]">➜</span>
+                          <span className="text-[#569CD6]">
+                            &nbsp;orion-prototype
+                          </span>
+                          <span className="text-[#CCCCCC]">&nbsp;git:(</span>
+                          <span className="text-[#CE9178]">main</span>
+                          <span className="text-[#CCCCCC]">)&nbsp;</span>
+                          <span className="text-[#CCCCCC]">█</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="flex-1 flex items-center justify-center text-white text-lg">
+                  Build Mode View (Coming Soon)
                 </div>
-              </>
+              )}
+            </div>
+
+            {mode !== 'Design' && (
+              <Assistant 
+                isOpen={isAssistantOpen}
+                onClose={() => setIsAssistantOpen(false)}
+              />
             )}
           </div>
-        )}
-
-        {/* Pages Panel - Positioned absolutely */}
-        <div 
-          className={`absolute top-[35px] left-[35px] h-[calc(100%-35px)] z-50 bg-[#292929] ${
-            isPagesOpen ? "w-[248px] border-r border-[#454545]" : "w-0"
-          } overflow-hidden`}
-        >
-          <PagesPanel />
         </div>
-
-        {/* Main Content Area */}
-        <div
-          className={`flex-1 flex flex-col min-h-0 bg-[#292929] overflow-hidden transition-[margin] duration-300 ease-in-out ${
-            isAssistantOpen && mode !== 'Design' ? "mr-[288px]" : "mr-0"
-          }`}
-        >
-          {mode === 'Design' ? (
-            <DesignModeView />
-          ) : mode === 'Develop' ? (
-            <>
-              {/* Top Section: Code Editor and Preview */}
-              <div
-                className="flex min-h-0"
-                style={{
-                  height: `calc(100% - ${isTerminalExpanded ? "200px" : "40px"})`,
-                }}
-              >
-                {/* Code Editor */}
-                <CodeEditor
-                  isPreviewVisible={isPreviewVisible}
-                  isAssistantOpen={isAssistantOpen}
-                  editorValue={editorValue}
-                  onEditorChange={handleEditorChange}
-                  onPreviewToggle={() => setIsPreviewVisible(true)}
-                  onAssistantToggle={() => setIsAssistantOpen(true)}
-                />
-
-                {/* Preview Panel */}
-                <div
-                  className={`flex flex-col min-h-0 transition-[width,opacity] duration-300 ${
-                    isPreviewVisible ? "opacity-100 w-1/2" : "opacity-0 w-0"
-                  }`}
-                >
-                  <div className="h-[40px] flex-none border-b border-[#454545] flex items-center justify-between pl-4 pr-2 bg-[#292929]">
-                    <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
-                      Preview
-                    </span>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => setIsPreviewVisible(false)}
-                        className="flex items-center text-[#CCCCCC] hover:text-white border border-[#454545] px-2 h-6 rounded"
-                      >
-                        <span className="text-[11.5px]">Hide Preview</span>
-                      </button>
-                      {!isAssistantOpen && (
-                        <button
-                          onClick={() => setIsAssistantOpen(true)}
-                          className="w-6 h-6 flex items-center justify-center text-[#CCCCCC] hover:text-white"
-                        >
-                          <Image
-                            src="/orion/images/AssistantButton.png"
-                            alt="Open Assistant"
-                            className="w-6 h-6"
-                            width={24}
-                            height={24}
-                          />
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex-1 overflow-hidden">
-                    <Preview />
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Section: Terminal */}
-              <div
-                className={`flex-none border-t border-[#454545] flex flex-col min-h-0 transition-[height] duration-300 ease-in-out`}
-                style={{ height: isTerminalExpanded ? "200px" : "40px" }}
-              >
-                <button
-                  onClick={() => setIsTerminalExpanded(!isTerminalExpanded)}
-                  className="h-[40px] flex-none border-b border-[#454545] flex items-center px-4 bg-[#292929]"
-                >
-                  <div className="flex items-center gap-1">
-                    <span className="text-[11.5px] leading-[13px] text-[#CCCCCC] tracking-[-0.01em]">
-                      Terminal
-                    </span>
-                    <ChevronDown
-                      size={16}
-                      className={`text-[#CCCCCC] transform transition-transform duration-200 ${
-                        isTerminalExpanded ? "" : "rotate-180"
-                      }`}
-                    />
-                  </div>
-                </button>
-                <div
-                  className={`flex-1 overflow-auto bg-[#292929] p-2 [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-thumb]:bg-[#424242] [&::-webkit-scrollbar-thumb]:hover:bg-[#4F4F4F] ${
-                    isTerminalExpanded ? "" : "hidden"
-                  }`}
-                >
-                  <div
-                    style={{
-                      fontFamily:
-                        '"Roboto Mono", Menlo, Monaco, "Courier New", monospace',
-                    }}
-                    className="text-[11.5px] leading-[20px] text-[#CCCCCC]"
-                  >
-                    <div className="flex">
-                      <span className="text-[#4EC9B0]">➜</span>
-                      <span className="text-[#569CD6]">
-                        &nbsp;orion-prototype
-                      </span>
-                      <span className="text-[#CCCCCC]">&nbsp;git:(</span>
-                      <span className="text-[#CE9178]">main</span>
-                      <span className="text-[#CCCCCC]">)&nbsp;</span>
-                      <span className="text-[#CCCCCC]">npm install</span>
-                    </div>
-                    <div className="text-[#6A9955]">
-                      added 248 packages, and audited 1503 packages in 3s
-                    </div>
-                    <div className="text-[#6A9955]">
-                      125 packages are looking for funding
-                    </div>
-                    <div className="text-[#6A9955]">
-                      &nbsp;&nbsp;run `npm fund` for details
-                    </div>
-                    <div className="text-[#6A9955]">found 0 vulnerabilities</div>
-                    <div className="mt-2 flex">
-                      <span className="text-[#4EC9B0]">➜</span>
-                      <span className="text-[#569CD6]">
-                        &nbsp;orion-prototype
-                      </span>
-                      <span className="text-[#CCCCCC]">&nbsp;git:(</span>
-                      <span className="text-[#CE9178]">main</span>
-                      <span className="text-[#CCCCCC]">)&nbsp;</span>
-                      <span className="text-[#CCCCCC]">npm run dev</span>
-                    </div>
-                    <div className="text-[#CCCCCC]">
-                      {`>`} orion-prototype@0.1.0 dev
-                    </div>
-                    <div className="text-[#CCCCCC]">{`>`} next dev</div>
-                    <div className="mt-1">
-                      <span className="text-[#569CD6]">ready</span>
-                      <span className="text-[#CCCCCC]">
-                        {" "}
-                        - started server on{" "}
-                      </span>
-                      <span className="text-[#CE9178]">0.0.0.0:3000</span>
-                      <span className="text-[#CCCCCC]">, url: </span>
-                      <span className="text-[#4EC9B0]">
-                        http://localhost:3000
-                      </span>
-                    </div>
-                    <div className="text-[#CCCCCC]">
-                      event - compiled client and server successfully in 188 ms
-                      (17 modules)
-                    </div>
-                    <div className="mt-2 flex">
-                      <span className="text-[#4EC9B0]">➜</span>
-                      <span className="text-[#569CD6]">
-                        &nbsp;orion-prototype
-                      </span>
-                      <span className="text-[#CCCCCC]">&nbsp;git:(</span>
-                      <span className="text-[#CE9178]">main</span>
-                      <span className="text-[#CCCCCC]">)&nbsp;</span>
-                      <span className="text-[#CCCCCC]">█</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : (
-            <div className="flex-1 flex items-center justify-center text-white text-lg">
-              Build Mode View (Coming Soon)
-            </div>
-          )}
-        </div>
-
-        {mode !== 'Design' && (
-          <Assistant 
-            isOpen={isAssistantOpen}
-            onClose={() => setIsAssistantOpen(false)}
-          />
-        )}
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 
