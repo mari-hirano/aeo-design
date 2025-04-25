@@ -18,7 +18,7 @@ const LeftSidebar = () => {
         {mode === 'Design' && (
           <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
             <Image
-              src="/orion/images/leftIcons/AddPanel24.svg"
+              src="/spring/images/leftIcons/AddPanel24.svg"
               alt="Add Panel"
               width={24}
               height={24}
@@ -32,7 +32,7 @@ const LeftSidebar = () => {
             onClick={toggleNavigator}
           >
             <Image
-              src="/orion/images/leftIcons/Code Navigator24.svg"
+              src="/spring/images/leftIcons/Code Navigator24.svg"
               alt="Code Navigator"
               width={24}
               height={24}
@@ -42,7 +42,7 @@ const LeftSidebar = () => {
         
         <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
           <Image
-            src="/orion/images/leftIcons/ThemePanel24.svg"
+            src="/spring/images/leftIcons/ThemePanel24.svg"
             alt="Theme Panel"
             width={24}
             height={24}
@@ -53,7 +53,7 @@ const LeftSidebar = () => {
       {/* Bottom Image */}
       <div className="absolute bottom-0 w-full">
         <Image
-          src="/orion/images/LeftSidebarBottom.png"
+          src="/spring/images/LeftSidebarBottom.png"
           alt="Sidebar bottom"
           width={35}
           height={35}
