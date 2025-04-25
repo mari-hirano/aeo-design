@@ -3,13 +3,14 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { LayoutContent } from "@/components/LayoutContent";
 import { ModeProvider } from "@/context/ModeContext";
-import { AssistantProvider } from "@/context/AssistantContext";
+import { NavigatorProvider } from "@/context/NavigatorContext";
+import { PagesProvider } from "@/context/PagesContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Orion Prototype",
-  description: "AI-powered coding environment prototype",
+  title: "App Template",
+  description: "A clean template for building web applications",
 };
 
 export default function RootLayout() {
@@ -17,9 +18,11 @@ export default function RootLayout() {
     <html lang="en">
       <body className={`${inter.className} bg-[#1E1E1E]`}>
         <ModeProvider>
-          <AssistantProvider>
-            <LayoutContent />
-          </AssistantProvider>
+          <NavigatorProvider>
+            <PagesProvider>
+              <LayoutContent />
+            </PagesProvider>
+          </NavigatorProvider>
         </ModeProvider>
       </body>
     </html>

@@ -1,17 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/orion",
-  assetPrefix: "/orion/",
+  basePath: "/spring",
+  assetPrefix: "/spring/",
   images: {
     unoptimized: true,
-    path: "/orion/_next/image"
+    path: "/spring/_next/image"
   },
   async redirects() {
     return [
       {
         source: '/',
-        destination: '/orion',
+        destination: '/spring',
         permanent: true,
         basePath: false,
       },
