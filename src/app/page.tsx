@@ -1,10 +1,10 @@
 "use client";
 
-import { MainContent } from '@/components/MainContent';
-import { useNavigator } from '@/context/NavigatorContext';
-
 export default function Home() {
-  const { selectedFile } = useNavigator();
-
-  return <MainContent selectedFile={selectedFile} />;
+  return (
+    <div className="flex flex-col items-center justify-center h-full text-white">
+      <h1 className="text-2xl font-bold mb-4">Welcome to Your App</h1>
+      <p className="text-gray-400">Start building your application here</p>
+    </div>
+  );
 }

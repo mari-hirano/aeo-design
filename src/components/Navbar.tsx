@@ -8,51 +8,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown, Code, Database, LineChart, SquareCode, Check, SquareMousePointer, File } from "lucide-react"
+import { ChevronDown, Code, SquareMousePointer, Check } from "lucide-react"
 import { useMode } from "@/context/ModeContext"
-import { usePages } from "@/context/PagesContext"
 
 export function Navbar() {
   const { mode, setMode } = useMode();
-  const { selectedPage } = usePages();
-
-  const getPageTitle = () => {
-    switch (selectedPage) {
-      case 'home':
-        return 'Home';
-      case 'about':
-        return 'About';
-      case 'services':
-        return 'Services';
-      case 'contact':
-        return 'Contact';
-      case 'doggo-training':
-        return 'Doggo training web app';
-      default:
-        return 'Home';
-    }
-  };
-
-  const getPageIcon = () => {
-    const isHomeInDesignMode = selectedPage === 'home' && mode === 'Design';
-    
-    if (selectedPage === 'doggo-training') {
-      return <SquareCode className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />;
-    }
-    if (isHomeInDesignMode) {
-      return <File className="w-[14px] h-[14px] mr-1.5 opacity-[0.67]" strokeWidth={2} />;
-    }
-    return <File className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />;
-  };
-
-  const getTitleClasses = () => {
-    const isHomeInDesignMode = selectedPage === 'home' && mode === 'Design';
-    const isHomeInDevelopMode = selectedPage === 'home' && mode === 'Develop';
-    if (isHomeInDesignMode || isHomeInDevelopMode) {
-      return "flex items-center h-6 px-2 mx-auto text-white";
-    }
-    return "flex items-center h-6 px-2 bg-[#007DF0]/25 text-[#A7D1FF] rounded-[4px] mx-auto";
-  };
 
   return (
     <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-inter text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
@@ -62,7 +22,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545]">
           <Image
             src="/orion/images/WebflowLogo.png"
-            alt="Webflow"
+            alt="Logo"
             width={20}
             height={20}
             className="object-contain"
@@ -122,24 +82,11 @@ export function Navbar() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-
-        {/* CMS Button */}
-        <button className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
-          <Database className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />
-          CMS
-        </button>
-
-        {/* Insights Button */}
-        <button className="flex items-center px-3 py-1.5 hover:bg-[#1a1a1a] rounded-md opacity-70 hover:opacity-100">
-          <LineChart className="w-[14px] h-[14px] mr-1.5" strokeWidth={2} />
-          Insights
-        </button>
       </div>
 
-      {/* Center - App Name */}
-      <div className={getTitleClasses()}>
-        {getPageIcon()}
-        <span>{getPageTitle()}</span>
+      {/* Center - Title */}
+      <div className="flex items-center h-6 px-2 mx-auto text-white">
+        <span>My App</span>
       </div>
 
       {/* Right side */}
@@ -148,8 +95,7 @@ export function Navbar() {
           Share
         </button>
         <button className="flex items-center h-6 px-2 bg-[#444444] text-white rounded-[4px] hover:bg-[#4f4f4f]">
-          <span>Deploy</span>
-          <ChevronDown className="w-[14px] h-[14px] ml-1 opacity-50" strokeWidth={2} />
+          Deploy
         </button>
       </div>
     </nav>

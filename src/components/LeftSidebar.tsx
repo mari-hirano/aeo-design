@@ -3,12 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { useNavigator } from '@/context/NavigatorContext';
-import { usePages } from '@/context/PagesContext';
 import { useMode } from '@/context/ModeContext';
 
 const LeftSidebar = () => {
   const { toggleNavigator } = useNavigator();
-  const { togglePages } = usePages();
   const { mode } = useMode();
 
   return (
@@ -28,33 +26,6 @@ const LeftSidebar = () => {
           </div>
         )}
 
-        <div 
-          className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]"
-          onClick={togglePages}
-        >
-          <Image
-            src="/orion/images/leftIcons/PagePanel24.svg"
-            alt="Page Panel"
-            width={24}
-            height={24}
-          />
-        </div>
-
-        {mode === 'Design' && (
-          <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
-            <Image
-              src="/orion/images/leftIcons/Navigator24.svg"
-              alt="Navigator"
-              width={24}
-              height={24}
-            />
-          </div>
-        )}
-        
-        {mode === 'Design' && (
-          <div className="mx-auto w-[27px] h-[1px] bg-[#454545] my-[8px]" />
-        )}
-
         {mode !== 'Design' && (
           <div 
             className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]"
@@ -68,6 +39,7 @@ const LeftSidebar = () => {
             />
           </div>
         )}
+        
         <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
           <Image
             src="/orion/images/leftIcons/ThemePanel24.svg"
@@ -76,62 +48,6 @@ const LeftSidebar = () => {
             height={24}
           />
         </div>
-        <div className="w-[35px] h-[35px] flex items-center justify-center">
-          <Image
-            src="/orion/images/leftIcons/ComponentFill24.svg"
-            alt="Component Fill"
-            width={24}
-            height={24}
-          />
-        </div>
-        <div className="w-[35px] h-[35px] flex items-center justify-center">
-          <Image
-            src="/orion/images/leftIcons/CapabilityVariable24.svg"
-            alt="Capability Variable"
-            width={24}
-            height={24}
-          />
-        </div>
-        <div className="w-[35px] h-[35px] flex items-center justify-center">
-          <Image
-            src="/orion/images/leftIcons/Icons - 24.svg"
-            alt="Icons"
-            width={24}
-            height={24}
-          />
-        </div>
-        <div className="w-[35px] h-[35px] flex items-center justify-center">
-          <Image
-            src="/orion/images/leftIcons/AssetManager24.svg"
-            alt="Asset Manager"
-            width={24}
-            height={24}
-          />
-        </div>
-
-        {mode === 'Design' && (
-          <>
-            <div className="mx-auto w-[27px] h-[1px] bg-[#454545] my-[8px]" />
-
-            <div className="w-[35px] h-[35px] flex items-center justify-center">
-              <Image
-                src="/orion/images/leftIcons/CapabilityApps24.svg"
-                alt="Capability Apps"
-                width={24}
-                height={24}
-              />
-            </div>
-
-            <div className="w-[35px] h-[35px] flex items-center justify-center">
-              <Image
-                src="/orion/images/leftIcons/ActivityLog24.svg"
-                alt="Activity Log"
-                width={24}
-                height={24}
-              />
-            </div>
-          </>
-        )}
       </div>
 
       {/* Bottom Image */}
