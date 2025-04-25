@@ -8,6 +8,7 @@ import { useMode } from '@/context/ModeContext';
 const LeftSidebar = () => {
   const { toggleNavigator } = useNavigator();
   const { mode } = useMode();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   return (
     <div 
@@ -18,7 +19,7 @@ const LeftSidebar = () => {
         {mode === 'Design' && (
           <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
             <Image
-              src="/images/leftIcons/AddPanel24.svg"
+              src={`${basePath}/images/leftIcons/AddPanel24.svg`}
               alt="Add Panel"
               width={24}
               height={24}
@@ -33,7 +34,7 @@ const LeftSidebar = () => {
             onClick={toggleNavigator}
           >
             <Image
-              src="/images/leftIcons/Code Navigator24.svg"
+              src={`${basePath}/images/leftIcons/Code Navigator24.svg`}
               alt="Code Navigator"
               width={24}
               height={24}
@@ -44,7 +45,7 @@ const LeftSidebar = () => {
         
         <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[#353535]">
           <Image
-            src="/images/leftIcons/ThemePanel24.svg"
+            src={`${basePath}/images/leftIcons/ThemePanel24.svg`}
             alt="Theme Panel"
             width={24}
             height={24}
@@ -56,7 +57,7 @@ const LeftSidebar = () => {
       {/* Bottom Image */}
       <div className="absolute bottom-0 w-full">
         <Image
-          src="/images/LeftSidebarBottom.png"
+          src={`${basePath}/images/LeftSidebarBottom.png`}
           alt="Left Sidebar Bottom"
           width={35}
           height={35}

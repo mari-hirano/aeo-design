@@ -21,7 +21,7 @@ export function Navbar() {
         {/* Logo/Home */}
         <Link href="/" className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545]">
           <Image
-            src="/images/WebflowLogo.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/WebflowLogo.png`}
             alt="Logo"
             width={20}
             height={20}
