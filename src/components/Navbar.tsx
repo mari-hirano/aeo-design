@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { ChevronDown, Code, SquareMousePointer, Check } from "lucide-react"
 import { useMode } from "@/context/ModeContext"
+import { getImagePath } from "@/lib/utils"
 
 export function Navbar() {
   const { mode, setMode } = useMode();
@@ -21,7 +22,7 @@ export function Navbar() {
         {/* Logo/Home */}
         <Link href="/" className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545]">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/WebflowLogo.png`}
+            src={getImagePath("/images/WebflowLogo.png")}
             alt="Logo"
             width={20}
             height={20}
