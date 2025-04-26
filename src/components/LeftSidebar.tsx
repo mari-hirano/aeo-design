@@ -4,11 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import { useNavigator } from '@/context/NavigatorContext';
 import { useMode } from '@/context/ModeContext';
+import { BASE_PATH } from '@/config/paths';
 
 const LeftSidebar = () => {
   const { toggleNavigator } = useNavigator();
   const { mode } = useMode();
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const basePath = BASE_PATH;
 
   return (
     <div 

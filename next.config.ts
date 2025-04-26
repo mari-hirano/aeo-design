@@ -1,22 +1,20 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  basePath: "/spring",
-  assetPrefix: "/spring/",
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath: "/orion",
+  assetPrefix: "/orion/",
   images: {
-    unoptimized: true,
-    path: "/spring/_next/image"
+    loader: "custom",
+    path: "/orion/_next/image"
   },
-  async redirects() {
+  async rewrites() {
     return [
       {
         source: '/',
-        destination: '/spring',
-        permanent: true,
+        destination: '/orion',
         basePath: false,
       },
-    ];
+    ]
   },
-};
+}
 
-export default nextConfig;
+module.exports = nextConfig

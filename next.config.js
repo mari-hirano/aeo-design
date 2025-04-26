@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/spring',
+  basePath: '/orion',
   images: {
     unoptimized: false,
   },
