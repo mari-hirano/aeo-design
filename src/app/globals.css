@@ -121,6 +121,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans text-[0.72rem] leading-[13px] tracking-[-0.01em] font-normal;
   }
+}
+
+/* Base body typography class for reuse */
+.body-text {
+  @apply font-sans text-[0.72rem] leading-[13px] tracking-[-0.01em] font-normal;
 }

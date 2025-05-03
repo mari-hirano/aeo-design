@@ -16,7 +16,7 @@ export function Navbar() {
   const { mode, setMode } = useMode();
 
   return (
-    <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-inter text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
+    <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-sans text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
       {/* Left side */}
       <div className="flex items-center">
         {/* Logo/Home */}
@@ -43,7 +43,7 @@ export function Navbar() {
           </DropdownMenuTrigger>
           <DropdownMenuContent 
             align="start"
-            className="w-[280px] bg-[#404040] rounded-[4px] border-0 text-white font-inter [&_*]:text-[11.5px] [&_*]:leading-4 [&_*]:tracking-[-0.01em] [&>*]:gap-0 px-0"
+            className="w-[280px] bg-[#404040] rounded-[4px] border-0 text-white font-sans [&_*]:text-[11.5px] [&_*]:leading-4 [&_*]:tracking-[-0.01em] [&>*]:gap-0 px-0"
           >
             <DropdownMenuItem 
               className="flex items-start py-[4px] px-[8px] focus:bg-[#4D4D4D] hover:bg-[#4D4D4D] focus:text-white cursor-pointer gap-0 rounded-none"
