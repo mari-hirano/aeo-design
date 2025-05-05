@@ -41,3 +41,7 @@ export const GridRowFlexIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 GridRowFlexIcon.category = 'Style Panel';
+
+
+GridRowFlexIcon.displayName = 'GridRowFlexIcon';
+

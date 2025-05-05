@@ -40,3 +40,7 @@ export const FlowsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 FlowsIcon.tags = ['arrow', 'logic', 'right'];
 
 FlowsIcon.category = 'General Icons';
+
+
+FlowsIcon.displayName = 'FlowsIcon';
+

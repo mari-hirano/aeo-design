@@ -42,3 +42,7 @@ export const VideoTutorialsPanel24Icon = React.forwardRef<
 VideoTutorialsPanel24Icon.tags = ['camera', 'educate', 'teach'];
 
 VideoTutorialsPanel24Icon.category = 'General Icons';
+
+
+VideoTutorialsPanel24Icon.displayName = 'VideoTutorialsPanel24Icon';
+

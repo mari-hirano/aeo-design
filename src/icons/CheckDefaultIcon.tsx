@@ -38,3 +38,7 @@ export const CheckDefaultIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CheckDefaultIcon.tags = ['confirm', 'mark', 'yes'];
 
 CheckDefaultIcon.category = 'General Icons';
+
+
+CheckDefaultIcon.displayName = 'CheckDefaultIcon';
+

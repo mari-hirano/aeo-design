@@ -40,3 +40,7 @@ export const LogoutIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LogoutIcon.tags = ['arrow', 'square', 'bracket'];
 
 LogoutIcon.category = 'General Icons';
+
+
+LogoutIcon.displayName = 'LogoutIcon';
+

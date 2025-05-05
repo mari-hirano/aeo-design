@@ -49,3 +49,7 @@ export const FolderDefaultProtectedIcon = React.forwardRef<
 FolderDefaultProtectedIcon.tags = ['file'];
 
 FolderDefaultProtectedIcon.category = 'General Icons';
+
+
+FolderDefaultProtectedIcon.displayName = 'FolderDefaultProtectedIcon';
+

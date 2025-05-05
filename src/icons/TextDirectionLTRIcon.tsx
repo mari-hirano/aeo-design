@@ -37,3 +37,7 @@ export const TextDirectionLTRIcon = React.forwardRef<
 }) as IconComponent;
 
 TextDirectionLTRIcon.category = 'Typography';
+
+
+TextDirectionLTRIcon.displayName = 'TextDirectionLTRIcon';
+

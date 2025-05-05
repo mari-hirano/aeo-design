@@ -37,3 +37,7 @@ export const HelpShortcutsIcon = React.forwardRef<
 }) as IconComponent;
 
 HelpShortcutsIcon.category = 'Layout';
+
+
+HelpShortcutsIcon.displayName = 'HelpShortcutsIcon';
+

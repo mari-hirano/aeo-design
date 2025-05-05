@@ -57,3 +57,7 @@ export const ElementCollectionListIcon = React.forwardRef<
 ElementCollectionListIcon.tags = ['collection', 'collection list', 'list'];
 
 ElementCollectionListIcon.category = 'Navigator';
+
+
+ElementCollectionListIcon.displayName = 'ElementCollectionListIcon';
+

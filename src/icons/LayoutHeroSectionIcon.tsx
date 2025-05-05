@@ -42,3 +42,7 @@ export const LayoutHeroSectionIcon = React.forwardRef<
 }) as IconComponent;
 
 LayoutHeroSectionIcon.category = '64x64 (Add panel)';
+
+
+LayoutHeroSectionIcon.displayName = 'LayoutHeroSectionIcon';
+

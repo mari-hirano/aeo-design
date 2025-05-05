@@ -33,3 +33,7 @@ export const FontWeightIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FontWeightIcon.category = 'Typography';
+
+
+FontWeightIcon.displayName = 'FontWeightIcon';
+

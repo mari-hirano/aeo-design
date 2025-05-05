@@ -47,3 +47,7 @@ export const HelpCircleIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 HelpCircleIcon.tags = ['question', 'support'];
 
 HelpCircleIcon.category = 'General Icons';
+
+
+HelpCircleIcon.displayName = 'HelpCircleIcon';
+

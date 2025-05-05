@@ -36,3 +36,7 @@ export const Users3Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 Users3Icon.category = 'General Icons';
+
+
+Users3Icon.displayName = 'Users3Icon';
+

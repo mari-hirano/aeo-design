@@ -36,3 +36,7 @@ export const FolderDeleteIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FolderDeleteIcon.category = 'General Icons';
+
+
+FolderDeleteIcon.displayName = 'FolderDeleteIcon';
+

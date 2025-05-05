@@ -51,3 +51,7 @@ export const EmptyLibraries64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyLibraries64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyLibraries64Icon.displayName = 'EmptyLibraries64Icon';
+

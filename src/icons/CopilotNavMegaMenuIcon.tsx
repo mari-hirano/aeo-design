@@ -48,3 +48,7 @@ export const CopilotNavMegaMenuIcon = React.forwardRef<
 CopilotNavMegaMenuIcon.tags = ['site'];
 
 CopilotNavMegaMenuIcon.category = 'General Icons';
+
+
+CopilotNavMegaMenuIcon.displayName = 'CopilotNavMegaMenuIcon';
+

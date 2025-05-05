@@ -52,3 +52,7 @@ export const AssetManagerIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 AssetManagerIcon.tags = ['photo', 'picture'];
 
 AssetManagerIcon.category = 'General Icons';
+
+
+AssetManagerIcon.displayName = 'AssetManagerIcon';
+

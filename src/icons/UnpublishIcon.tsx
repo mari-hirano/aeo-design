@@ -38,3 +38,7 @@ export const UnpublishIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UnpublishIcon.tags = ['rocket', 'ghost', 'launch', 'nose'];
 
 UnpublishIcon.category = 'General Icons';
+
+
+UnpublishIcon.displayName = 'UnpublishIcon';
+

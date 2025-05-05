@@ -42,3 +42,7 @@ export const AlignSelfBaselineColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfBaselineColumnIcon.category = 'Layout';
+
+
+AlignSelfBaselineColumnIcon.displayName = 'AlignSelfBaselineColumnIcon';
+

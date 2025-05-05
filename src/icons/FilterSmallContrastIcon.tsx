@@ -37,3 +37,7 @@ export const FilterSmallContrastIcon = React.forwardRef<
 }) as IconComponent;
 
 FilterSmallContrastIcon.category = 'Style Panel';
+
+
+FilterSmallContrastIcon.displayName = 'FilterSmallContrastIcon';
+

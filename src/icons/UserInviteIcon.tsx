@@ -44,3 +44,7 @@ export const UserInviteIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 UserInviteIcon.category = 'General Icons';
+
+
+UserInviteIcon.displayName = 'UserInviteIcon';
+

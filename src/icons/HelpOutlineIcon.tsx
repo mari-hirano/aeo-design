@@ -40,3 +40,7 @@ export const HelpOutlineIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 HelpOutlineIcon.tags = ['question', 'support'];
 
 HelpOutlineIcon.category = 'General Icons';
+
+
+HelpOutlineIcon.displayName = 'HelpOutlineIcon';
+

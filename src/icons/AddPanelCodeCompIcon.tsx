@@ -37,3 +37,7 @@ export const AddPanelCodeCompIcon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelCodeCompIcon.category = '64x64 (Add panel)';
+
+
+AddPanelCodeCompIcon.displayName = 'AddPanelCodeCompIcon';
+

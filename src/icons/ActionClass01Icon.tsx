@@ -37,3 +37,7 @@ export const ActionClass01Icon = React.forwardRef<
 }) as IconComponent;
 
 ActionClass01Icon.category = 'Style Panel';
+
+
+ActionClass01Icon.displayName = 'ActionClass01Icon';
+

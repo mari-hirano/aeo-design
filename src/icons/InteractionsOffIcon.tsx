@@ -45,3 +45,7 @@ export const InteractionsOffIcon = React.forwardRef<
 InteractionsOffIcon.tags = ['lightning', 'bolt'];
 
 InteractionsOffIcon.category = 'General Icons';
+
+
+InteractionsOffIcon.displayName = 'InteractionsOffIcon';
+

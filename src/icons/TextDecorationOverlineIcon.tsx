@@ -37,3 +37,7 @@ export const TextDecorationOverlineIcon = React.forwardRef<
 }) as IconComponent;
 
 TextDecorationOverlineIcon.category = 'Typography';
+
+
+TextDecorationOverlineIcon.displayName = 'TextDecorationOverlineIcon';
+

@@ -54,3 +54,7 @@ export const TextDirectionIcon = React.forwardRef<
 TextDirectionIcon.tags = ['arrows', 'left', 'right'];
 
 TextDirectionIcon.category = 'General Icons';
+
+
+TextDirectionIcon.displayName = 'TextDirectionIcon';
+

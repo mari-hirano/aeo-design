@@ -39,3 +39,7 @@ export const DisplayFlexHorizontalStartIcon = React.forwardRef<
 DisplayFlexHorizontalStartIcon.tags = ['DisplayFlexHorizontalStart'];
 
 DisplayFlexHorizontalStartIcon.category = 'Layout';
+
+
+DisplayFlexHorizontalStartIcon.displayName = 'DisplayFlexHorizontalStartIcon';
+

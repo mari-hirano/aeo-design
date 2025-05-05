@@ -43,3 +43,7 @@ export const AddPanelFormRadio64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelFormRadio64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelFormRadio64Icon.displayName = 'AddPanelFormRadio64Icon';
+

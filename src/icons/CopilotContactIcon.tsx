@@ -44,3 +44,7 @@ export const CopilotContactIcon = React.forwardRef<
 CopilotContactIcon.tags = ['site'];
 
 CopilotContactIcon.category = 'General Icons';
+
+
+CopilotContactIcon.displayName = 'CopilotContactIcon';
+

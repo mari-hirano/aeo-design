@@ -36,3 +36,7 @@ export const TabNewIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 TabNewIcon.tags = ['arrow', 'right', 'diagonal', 'box', 'external', 'link'];
 
 TabNewIcon.category = 'General Icons';
+
+
+TabNewIcon.displayName = 'TabNewIcon';
+

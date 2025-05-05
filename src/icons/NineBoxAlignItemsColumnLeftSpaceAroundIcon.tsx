@@ -44,3 +44,7 @@ export const NineBoxAlignItemsColumnLeftSpaceAroundIcon = React.forwardRef<
 }) as IconComponent;
 
 NineBoxAlignItemsColumnLeftSpaceAroundIcon.category = 'Layout';
+
+
+NineBoxAlignItemsColumnLeftSpaceAroundIcon.displayName = 'NineBoxAlignItemsColumnLeftSpaceAroundIcon';
+

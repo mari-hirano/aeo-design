@@ -43,3 +43,7 @@ export const ElementSelectIcon = React.forwardRef<
 ElementSelectIcon.tags = ['select'];
 
 ElementSelectIcon.category = 'Navigator';
+
+
+ElementSelectIcon.displayName = 'ElementSelectIcon';
+

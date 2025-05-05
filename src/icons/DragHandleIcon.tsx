@@ -42,3 +42,7 @@ export const DragHandleIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DragHandleIcon.category = 'Misc.';
+
+
+DragHandleIcon.displayName = 'DragHandleIcon';
+

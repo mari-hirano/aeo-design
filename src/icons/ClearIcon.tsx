@@ -40,3 +40,7 @@ export const ClearIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ClearIcon.category = 'Tags';
+
+
+ClearIcon.displayName = 'ClearIcon';
+

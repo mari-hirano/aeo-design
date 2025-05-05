@@ -36,3 +36,7 @@ export const BorderAllIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 BorderAllIcon.category = 'Layout';
+
+
+BorderAllIcon.displayName = 'BorderAllIcon';
+

@@ -44,3 +44,7 @@ export const InteractionsCircleIcon = React.forwardRef<
 InteractionsCircleIcon.tags = ['circle', 'lightning', 'bold'];
 
 InteractionsCircleIcon.category = 'General Icons';
+
+
+InteractionsCircleIcon.displayName = 'InteractionsCircleIcon';
+

@@ -49,3 +49,7 @@ export const AddPanelFormTextarea64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelFormTextarea64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelFormTextarea64Icon.displayName = 'AddPanelFormTextarea64Icon';
+

@@ -36,3 +36,7 @@ export const ShippingIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ShippingIcon.category = 'Ecommerce';
+
+
+ShippingIcon.displayName = 'ShippingIcon';
+

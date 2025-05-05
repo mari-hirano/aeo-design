@@ -46,3 +46,7 @@ export const AddPanelSection64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelSection64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelSection64Icon.displayName = 'AddPanelSection64Icon';
+

@@ -38,3 +38,7 @@ export const BranchDefaultIcon = React.forwardRef<
 BranchDefaultIcon.tags = ['point', 'arrow', 'update'];
 
 BranchDefaultIcon.category = 'General Icons';
+
+
+BranchDefaultIcon.displayName = 'BranchDefaultIcon';
+

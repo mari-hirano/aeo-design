@@ -37,3 +37,7 @@ export const TextDecorationStrikeIcon = React.forwardRef<
 }) as IconComponent;
 
 TextDecorationStrikeIcon.category = 'Typography';
+
+
+TextDecorationStrikeIcon.displayName = 'TextDecorationStrikeIcon';
+

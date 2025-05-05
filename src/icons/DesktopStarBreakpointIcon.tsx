@@ -45,3 +45,7 @@ DesktopStarBreakpointIcon.tags = [
 ];
 
 DesktopStarBreakpointIcon.category = 'General Icons';
+
+
+DesktopStarBreakpointIcon.displayName = 'DesktopStarBreakpointIcon';
+

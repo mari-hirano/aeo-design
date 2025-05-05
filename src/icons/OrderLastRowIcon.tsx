@@ -56,3 +56,7 @@ export const OrderLastRowIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 OrderLastRowIcon.category = 'Layout';
+
+
+OrderLastRowIcon.displayName = 'OrderLastRowIcon';
+

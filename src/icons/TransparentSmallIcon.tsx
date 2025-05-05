@@ -42,3 +42,7 @@ export const TransparentSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 TransparentSmallIcon.category = 'Style Panel';
+
+
+TransparentSmallIcon.displayName = 'TransparentSmallIcon';
+

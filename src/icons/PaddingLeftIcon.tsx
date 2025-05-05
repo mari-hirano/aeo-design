@@ -43,3 +43,7 @@ export const PaddingLeftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PaddingLeftIcon.category = 'Layout';
+
+
+PaddingLeftIcon.displayName = 'PaddingLeftIcon';
+

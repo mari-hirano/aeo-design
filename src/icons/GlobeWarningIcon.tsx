@@ -44,3 +44,7 @@ export const GlobeWarningIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 GlobeWarningIcon.tags = ['globe', 'warning', 'insecure'];
 
 GlobeWarningIcon.category = 'General Icons';
+
+
+GlobeWarningIcon.displayName = 'GlobeWarningIcon';
+

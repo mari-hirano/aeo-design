@@ -43,3 +43,7 @@ export const DeviceTabletPortrait24Icon = React.forwardRef<
 DeviceTabletPortrait24Icon.tags = ['tablet', 'ipad', 'breakpoint'];
 
 DeviceTabletPortrait24Icon.category = 'General Icons';
+
+
+DeviceTabletPortrait24Icon.displayName = 'DeviceTabletPortrait24Icon';
+

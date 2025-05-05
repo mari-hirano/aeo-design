@@ -37,3 +37,7 @@ export const ElementOverriddenCurrentIcon = React.forwardRef<
 }) as IconComponent;
 
 ElementOverriddenCurrentIcon.category = 'General Icons';
+
+
+ElementOverriddenCurrentIcon.displayName = 'ElementOverriddenCurrentIcon';
+

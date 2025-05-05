@@ -43,3 +43,7 @@ export const TextTransformSentenceIcon = React.forwardRef<
 }) as IconComponent;
 
 TextTransformSentenceIcon.category = 'Typography';
+
+
+TextTransformSentenceIcon.displayName = 'TextTransformSentenceIcon';
+

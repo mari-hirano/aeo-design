@@ -35,3 +35,7 @@ export const FlexGrowColumnLargeIcon = React.forwardRef<
 }) as IconComponent;
 
 FlexGrowColumnLargeIcon.category = 'Layout';
+
+
+FlexGrowColumnLargeIcon.displayName = 'FlexGrowColumnLargeIcon';
+

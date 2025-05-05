@@ -37,3 +37,7 @@ export const FontSourceGoogleIcon = React.forwardRef<
 }) as IconComponent;
 
 FontSourceGoogleIcon.category = 'Typography';
+
+
+FontSourceGoogleIcon.displayName = 'FontSourceGoogleIcon';
+

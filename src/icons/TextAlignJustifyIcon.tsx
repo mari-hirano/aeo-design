@@ -34,3 +34,7 @@ export const TextAlignJustifyIcon = React.forwardRef<
 }) as IconComponent;
 
 TextAlignJustifyIcon.category = 'Typography';
+
+
+TextAlignJustifyIcon.displayName = 'TextAlignJustifyIcon';
+

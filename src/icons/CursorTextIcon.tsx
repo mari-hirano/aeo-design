@@ -34,3 +34,7 @@ export const CursorTextIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CursorTextIcon.category = 'Cursors';
+
+
+CursorTextIcon.displayName = 'CursorTextIcon';
+

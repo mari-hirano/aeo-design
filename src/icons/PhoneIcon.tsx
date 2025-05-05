@@ -36,3 +36,7 @@ export const PhoneIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PhoneIcon.tags = ['cell', 'mobile', 'contact', 'support', 'number'];
 
 PhoneIcon.category = 'General Icons';
+
+
+PhoneIcon.displayName = 'PhoneIcon';
+

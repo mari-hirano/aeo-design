@@ -38,3 +38,7 @@ export const CleanupIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CleanupIcon.tags = ['phone', 'cell', 'device'];
 
 CleanupIcon.category = 'General Icons';
+
+
+CleanupIcon.displayName = 'CleanupIcon';
+

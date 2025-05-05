@@ -35,3 +35,7 @@ export const OrderedListIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 OrderedListIcon.category = 'Tags';
+
+
+OrderedListIcon.displayName = 'OrderedListIcon';
+

@@ -42,3 +42,7 @@ export const AtMentionIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AtMentionIcon.category = 'General Icons';
+
+
+AtMentionIcon.displayName = 'AtMentionIcon';
+

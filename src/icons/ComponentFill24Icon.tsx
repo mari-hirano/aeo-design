@@ -49,3 +49,7 @@ export const ComponentFill24Icon = React.forwardRef<
 ComponentFill24Icon.tags = ['3D', 'cube', 'change'];
 
 ComponentFill24Icon.category = 'General Icons';
+
+
+ComponentFill24Icon.displayName = 'ComponentFill24Icon';
+

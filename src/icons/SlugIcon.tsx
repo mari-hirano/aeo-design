@@ -36,3 +36,7 @@ export const SlugIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SlugIcon.tags = ['star', 'asterisk', 'symbol', 'note', 'url'];
 
 SlugIcon.category = 'General Icons';
+
+
+SlugIcon.displayName = 'SlugIcon';
+

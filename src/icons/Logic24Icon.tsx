@@ -55,3 +55,7 @@ Logic24Icon.tags = [
 ];
 
 Logic24Icon.category = 'General Icons';
+
+
+Logic24Icon.displayName = 'Logic24Icon';
+

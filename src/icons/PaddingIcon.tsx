@@ -40,3 +40,7 @@ export const PaddingIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PaddingIcon.tags = ['square', 'lines', 'outline', 'boundary'];
 
 PaddingIcon.category = 'General Icons';
+
+
+PaddingIcon.displayName = 'PaddingIcon';
+

@@ -43,3 +43,7 @@ export const TransformOriginXIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformOriginXIcon.category = 'Style Panel';
+
+
+TransformOriginXIcon.displayName = 'TransformOriginXIcon';
+

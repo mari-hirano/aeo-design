@@ -34,3 +34,7 @@ export const GrabbingIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 GrabbingIcon.category = 'Cursors';
+
+
+GrabbingIcon.displayName = 'GrabbingIcon';
+

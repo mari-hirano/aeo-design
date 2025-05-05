@@ -38,3 +38,7 @@ export const ElementMaskIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementMaskIcon.tags = ['mask'];
 
 ElementMaskIcon.category = 'Navigator';
+
+
+ElementMaskIcon.displayName = 'ElementMaskIcon';
+

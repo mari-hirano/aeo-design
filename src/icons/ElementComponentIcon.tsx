@@ -39,3 +39,7 @@ export const ElementComponentIcon = React.forwardRef<
 ElementComponentIcon.tags = ['Component'];
 
 ElementComponentIcon.category = 'Navigator';
+
+
+ElementComponentIcon.displayName = 'ElementComponentIcon';
+

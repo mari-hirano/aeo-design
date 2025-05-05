@@ -43,3 +43,7 @@ export const Ecommerce24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 Ecommerce24Icon.tags = ['shop', 'shopping', 'cart', 'buy', 'pay', 'checkout'];
 
 Ecommerce24Icon.category = 'General Icons';
+
+
+Ecommerce24Icon.displayName = 'Ecommerce24Icon';
+

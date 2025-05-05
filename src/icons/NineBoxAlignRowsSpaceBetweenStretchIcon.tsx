@@ -37,3 +37,7 @@ export const NineBoxAlignRowsSpaceBetweenStretchIcon = React.forwardRef<
 }) as IconComponent;
 
 NineBoxAlignRowsSpaceBetweenStretchIcon.category = 'Layout';
+
+
+NineBoxAlignRowsSpaceBetweenStretchIcon.displayName = 'NineBoxAlignRowsSpaceBetweenStretchIcon';
+

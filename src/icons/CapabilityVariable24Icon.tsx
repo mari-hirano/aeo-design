@@ -44,3 +44,7 @@ export const CapabilityVariable24Icon = React.forwardRef<
 }) as IconComponent;
 
 CapabilityVariable24Icon.category = 'General Icons';
+
+
+CapabilityVariable24Icon.displayName = 'CapabilityVariable24Icon';
+

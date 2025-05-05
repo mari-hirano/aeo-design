@@ -47,3 +47,7 @@ export const InfoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 InfoIcon.tags = ['help', 'circle'];
 
 InfoIcon.category = 'General Icons';
+
+
+InfoIcon.displayName = 'InfoIcon';
+

@@ -44,3 +44,7 @@ export const TransformSmallPerspectiveIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformSmallPerspectiveIcon.category = 'Style Panel';
+
+
+TransformSmallPerspectiveIcon.displayName = 'TransformSmallPerspectiveIcon';
+

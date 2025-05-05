@@ -37,3 +37,7 @@ export const AddPanelQuickStack64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelQuickStack64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelQuickStack64Icon.displayName = 'AddPanelQuickStack64Icon';
+

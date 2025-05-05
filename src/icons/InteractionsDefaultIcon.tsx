@@ -37,3 +37,7 @@ export const InteractionsDefaultIcon = React.forwardRef<
 InteractionsDefaultIcon.tags = ['lightning', 'bolt'];
 
 InteractionsDefaultIcon.category = 'General Icons';
+
+
+InteractionsDefaultIcon.displayName = 'InteractionsDefaultIcon';
+

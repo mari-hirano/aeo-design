@@ -42,3 +42,7 @@ export const AddPanelFormCheckbox64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelFormCheckbox64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelFormCheckbox64Icon.displayName = 'AddPanelFormCheckbox64Icon';
+

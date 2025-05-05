@@ -49,3 +49,7 @@ export const ElementSliderDefaultIcon = React.forwardRef<
 ElementSliderDefaultIcon.tags = ['slider'];
 
 ElementSliderDefaultIcon.category = 'Navigator';
+
+
+ElementSliderDefaultIcon.displayName = 'ElementSliderDefaultIcon';
+

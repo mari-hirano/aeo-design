@@ -41,3 +41,7 @@ export const FieldColorSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 FieldColorSmallIcon.category = 'Color & Background';
+
+
+FieldColorSmallIcon.displayName = 'FieldColorSmallIcon';
+

@@ -39,3 +39,7 @@ export const ActionTriggerIcon = React.forwardRef<
 ActionTriggerIcon.tags = ['bolt', 'lightning'];
 
 ActionTriggerIcon.category = 'General Icons';
+
+
+ActionTriggerIcon.displayName = 'ActionTriggerIcon';
+

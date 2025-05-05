@@ -38,3 +38,7 @@ export const NestIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 NestIcon.tags = ['arrow', 'right'];
 
 NestIcon.category = 'General Icons';
+
+
+NestIcon.displayName = 'NestIcon';
+

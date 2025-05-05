@@ -40,3 +40,7 @@ export const CssPreviewIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CssPreviewIcon.tags = ['book', 'how to', 'instructions'];
 
 CssPreviewIcon.category = 'General Icons';
+
+
+CssPreviewIcon.displayName = 'CssPreviewIcon';
+

@@ -42,3 +42,7 @@ export const VisibleIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 VisibleIcon.tags = ['eye', 'show'];
 
 VisibleIcon.category = 'General Icons';
+
+
+VisibleIcon.displayName = 'VisibleIcon';
+

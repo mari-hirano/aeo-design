@@ -42,3 +42,7 @@ export const AiHelpSearchCircleIcon = React.forwardRef<
 }) as IconComponent;
 
 AiHelpSearchCircleIcon.category = 'General Icons';
+
+
+AiHelpSearchCircleIcon.displayName = 'AiHelpSearchCircleIcon';
+

@@ -35,3 +35,7 @@ export const BorderRadiusSingleIcon = React.forwardRef<
 }) as IconComponent;
 
 BorderRadiusSingleIcon.category = 'Layout';
+
+
+BorderRadiusSingleIcon.displayName = 'BorderRadiusSingleIcon';
+

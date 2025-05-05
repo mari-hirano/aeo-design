@@ -39,3 +39,7 @@ export const DisplayFlexVerticalStartIcon = React.forwardRef<
 DisplayFlexVerticalStartIcon.tags = ['DisplayFlexVerticalStart'];
 
 DisplayFlexVerticalStartIcon.category = 'Layout';
+
+
+DisplayFlexVerticalStartIcon.displayName = 'DisplayFlexVerticalStartIcon';
+

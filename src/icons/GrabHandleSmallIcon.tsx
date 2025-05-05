@@ -55,3 +55,7 @@ export const GrabHandleSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 GrabHandleSmallIcon.category = 'Style Panel';
+
+
+GrabHandleSmallIcon.displayName = 'GrabHandleSmallIcon';
+

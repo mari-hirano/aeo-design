@@ -34,3 +34,7 @@ export const CloudCodeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CloudCodeIcon.category = 'General Icons';
+
+
+CloudCodeIcon.displayName = 'CloudCodeIcon';
+

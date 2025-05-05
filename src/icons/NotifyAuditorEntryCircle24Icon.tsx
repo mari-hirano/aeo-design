@@ -42,3 +42,7 @@ export const NotifyAuditorEntryCircle24Icon = React.forwardRef<
 }) as IconComponent;
 
 NotifyAuditorEntryCircle24Icon.category = 'General Icons';
+
+
+NotifyAuditorEntryCircle24Icon.displayName = 'NotifyAuditorEntryCircle24Icon';
+

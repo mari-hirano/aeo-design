@@ -39,3 +39,7 @@ export const SearchDefaultIcon = React.forwardRef<
 SearchDefaultIcon.tags = ['magnifying glass', 'look', 'quick', 'find'];
 
 SearchDefaultIcon.category = 'General Icons';
+
+
+SearchDefaultIcon.displayName = 'SearchDefaultIcon';
+

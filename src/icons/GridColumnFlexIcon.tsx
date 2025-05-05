@@ -42,3 +42,7 @@ export const GridColumnFlexIcon = React.forwardRef<
 }) as IconComponent;
 
 GridColumnFlexIcon.category = 'Style Panel';
+
+
+GridColumnFlexIcon.displayName = 'GridColumnFlexIcon';
+

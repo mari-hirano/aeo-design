@@ -35,3 +35,7 @@ export const ExpandDefaultIcon = React.forwardRef<
 ExpandDefaultIcon.tags = ['enlarge', 'arrow', 'caret', 'diagonal '];
 
 ExpandDefaultIcon.category = 'General Icons';
+
+
+ExpandDefaultIcon.displayName = 'ExpandDefaultIcon';
+

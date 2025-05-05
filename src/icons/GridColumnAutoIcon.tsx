@@ -41,3 +41,7 @@ export const GridColumnAutoIcon = React.forwardRef<
 }) as IconComponent;
 
 GridColumnAutoIcon.category = 'Style Panel';
+
+
+GridColumnAutoIcon.displayName = 'GridColumnAutoIcon';
+

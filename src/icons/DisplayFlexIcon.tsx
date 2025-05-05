@@ -36,3 +36,7 @@ export const DisplayFlexIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DisplayFlexIcon.category = 'Layout';
+
+
+DisplayFlexIcon.displayName = 'DisplayFlexIcon';
+

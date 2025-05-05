@@ -48,3 +48,7 @@ export const CopilotNavDropdownIcon = React.forwardRef<
 CopilotNavDropdownIcon.tags = ['site'];
 
 CopilotNavDropdownIcon.category = 'General Icons';
+
+
+CopilotNavDropdownIcon.displayName = 'CopilotNavDropdownIcon';
+

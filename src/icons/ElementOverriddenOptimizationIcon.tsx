@@ -37,3 +37,7 @@ export const ElementOverriddenOptimizationIcon = React.forwardRef<
 }) as IconComponent;
 
 ElementOverriddenOptimizationIcon.category = 'General Icons';
+
+
+ElementOverriddenOptimizationIcon.displayName = 'ElementOverriddenOptimizationIcon';
+

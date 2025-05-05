@@ -51,3 +51,7 @@ export const TransformOriginCenterIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformOriginCenterIcon.category = 'Layout';
+
+
+TransformOriginCenterIcon.displayName = 'TransformOriginCenterIcon';
+

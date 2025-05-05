@@ -44,3 +44,7 @@ export const TransformTranslateXIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformTranslateXIcon.category = 'Layout';
+
+
+TransformTranslateXIcon.displayName = 'TransformTranslateXIcon';
+

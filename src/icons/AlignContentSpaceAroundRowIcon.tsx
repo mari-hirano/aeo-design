@@ -49,3 +49,7 @@ export const AlignContentSpaceAroundRowIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignContentSpaceAroundRowIcon.category = 'Layout';
+
+
+AlignContentSpaceAroundRowIcon.displayName = 'AlignContentSpaceAroundRowIcon';
+

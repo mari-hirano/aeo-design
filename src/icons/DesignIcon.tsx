@@ -36,3 +36,7 @@ export const DesignIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DesignIcon.category = 'General Icons';
+
+
+DesignIcon.displayName = 'DesignIcon';
+

@@ -39,3 +39,7 @@ export const EyedropperMediumIcon = React.forwardRef<
 }) as IconComponent;
 
 EyedropperMediumIcon.category = 'Color & Background';
+
+
+EyedropperMediumIcon.displayName = 'EyedropperMediumIcon';
+

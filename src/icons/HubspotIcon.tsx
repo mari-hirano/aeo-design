@@ -41,3 +41,7 @@ export const HubspotIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 HubspotIcon.category = 'General Icons';
+
+
+HubspotIcon.displayName = 'HubspotIcon';
+

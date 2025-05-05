@@ -48,3 +48,7 @@ export const BackgroundLinearGradientIcon = React.forwardRef<
 }) as IconComponent;
 
 BackgroundLinearGradientIcon.category = 'Color & Background';
+
+
+BackgroundLinearGradientIcon.displayName = 'BackgroundLinearGradientIcon';
+

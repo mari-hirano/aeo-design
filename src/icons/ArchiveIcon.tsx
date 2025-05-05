@@ -39,3 +39,7 @@ export const ArchiveIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ArchiveIcon.tags = ['file', 'box', 'storage'];
 
 ArchiveIcon.category = 'General Icons';
+
+
+ArchiveIcon.displayName = 'ArchiveIcon';
+

@@ -46,3 +46,7 @@ export const CopilotBlogBodyIcon = React.forwardRef<
 CopilotBlogBodyIcon.tags = ['site'];
 
 CopilotBlogBodyIcon.category = 'General Icons';
+
+
+CopilotBlogBodyIcon.displayName = 'CopilotBlogBodyIcon';
+

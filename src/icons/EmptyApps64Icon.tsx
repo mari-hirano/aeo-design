@@ -60,3 +60,7 @@ export const EmptyApps64Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 EmptyApps64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyApps64Icon.displayName = 'EmptyApps64Icon';
+

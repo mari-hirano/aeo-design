@@ -65,3 +65,7 @@ export const StyleManager24Icon = React.forwardRef<
 StyleManager24Icon.tags = ['rain', 'drops', 'water', 'drip'];
 
 StyleManager24Icon.category = 'General Icons';
+
+
+StyleManager24Icon.displayName = 'StyleManager24Icon';
+

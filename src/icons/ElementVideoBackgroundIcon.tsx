@@ -49,3 +49,7 @@ ElementVideoBackgroundIcon.tags = [
 ];
 
 ElementVideoBackgroundIcon.category = 'Navigator';
+
+
+ElementVideoBackgroundIcon.displayName = 'ElementVideoBackgroundIcon';
+

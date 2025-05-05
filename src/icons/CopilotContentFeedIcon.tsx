@@ -46,3 +46,7 @@ export const CopilotContentFeedIcon = React.forwardRef<
 CopilotContentFeedIcon.tags = ['site'];
 
 CopilotContentFeedIcon.category = 'General Icons';
+
+
+CopilotContentFeedIcon.displayName = 'CopilotContentFeedIcon';
+

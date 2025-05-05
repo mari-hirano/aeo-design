@@ -54,3 +54,7 @@ export const EmojiAddIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 EmojiAddIcon.category = 'General Icons';
+
+
+EmojiAddIcon.displayName = 'EmojiAddIcon';
+

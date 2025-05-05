@@ -49,3 +49,7 @@ CMSManageIcon.tags = [
 ];
 
 CMSManageIcon.category = 'General Icons';
+
+
+CMSManageIcon.displayName = 'CMSManageIcon';
+

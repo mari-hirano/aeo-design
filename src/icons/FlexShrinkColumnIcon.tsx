@@ -45,3 +45,7 @@ export const FlexShrinkColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 FlexShrinkColumnIcon.category = 'Layout';
+
+
+FlexShrinkColumnIcon.displayName = 'FlexShrinkColumnIcon';
+

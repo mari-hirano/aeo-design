@@ -50,3 +50,7 @@ export const UnlinkIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UnlinkIcon.tags = ['disconnect', 'break', 'stop'];
 
 UnlinkIcon.category = 'General Icons';
+
+
+UnlinkIcon.displayName = 'UnlinkIcon';
+

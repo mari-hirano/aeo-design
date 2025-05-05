@@ -43,3 +43,7 @@ export const VariableTextSizeIcon = React.forwardRef<
 }) as IconComponent;
 
 VariableTextSizeIcon.category = 'General Icons';
+
+
+VariableTextSizeIcon.displayName = 'VariableTextSizeIcon';
+

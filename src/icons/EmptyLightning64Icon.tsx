@@ -54,3 +54,7 @@ export const EmptyLightning64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyLightning64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyLightning64Icon.displayName = 'EmptyLightning64Icon';
+

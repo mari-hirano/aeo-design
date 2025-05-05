@@ -39,3 +39,7 @@ export const ElementEmphasisIcon = React.forwardRef<
 ElementEmphasisIcon.tags = ['emphasis', 'italics'];
 
 ElementEmphasisIcon.category = 'Navigator';
+
+
+ElementEmphasisIcon.displayName = 'ElementEmphasisIcon';
+

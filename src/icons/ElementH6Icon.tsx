@@ -39,3 +39,7 @@ export const ElementH6Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementH6Icon.tags = ['heading', 'h6'];
 
 ElementH6Icon.category = 'Navigator';
+
+
+ElementH6Icon.displayName = 'ElementH6Icon';
+

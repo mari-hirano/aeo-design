@@ -36,3 +36,7 @@ export const DiscountsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DiscountsIcon.category = 'Ecommerce';
+
+
+DiscountsIcon.displayName = 'DiscountsIcon';
+

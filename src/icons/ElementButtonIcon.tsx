@@ -37,3 +37,7 @@ export const ElementButtonIcon = React.forwardRef<
 ElementButtonIcon.tags = ['button'];
 
 ElementButtonIcon.category = 'Navigator';
+
+
+ElementButtonIcon.displayName = 'ElementButtonIcon';
+

@@ -42,3 +42,7 @@ export const AlignSelfBaselineRowIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfBaselineRowIcon.category = 'Layout';
+
+
+AlignSelfBaselineRowIcon.displayName = 'AlignSelfBaselineRowIcon';
+

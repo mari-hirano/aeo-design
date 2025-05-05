@@ -41,3 +41,7 @@ export const JustifyContentSpaceAroundRowIcon = React.forwardRef<
 }) as IconComponent;
 
 JustifyContentSpaceAroundRowIcon.category = 'Layout';
+
+
+JustifyContentSpaceAroundRowIcon.displayName = 'JustifyContentSpaceAroundRowIcon';
+

@@ -36,3 +36,7 @@ export const ShareIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ShareIcon.tags = ['arrow', 'send', 'box', 'right'];
 
 ShareIcon.category = 'General Icons';
+
+
+ShareIcon.displayName = 'ShareIcon';
+

@@ -38,3 +38,7 @@ export const MotionIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 MotionIcon.tags = ['move', 'ekg', 'heartbeat', 'line', 'graph'];
 
 MotionIcon.category = 'General Icons';
+
+
+MotionIcon.displayName = 'MotionIcon';
+

@@ -41,3 +41,7 @@ export const CopilotEventHeaderIcon = React.forwardRef<
 CopilotEventHeaderIcon.tags = ['site'];
 
 CopilotEventHeaderIcon.category = 'General Icons';
+
+
+CopilotEventHeaderIcon.displayName = 'CopilotEventHeaderIcon';
+

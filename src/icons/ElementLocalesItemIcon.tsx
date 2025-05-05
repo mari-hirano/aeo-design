@@ -44,3 +44,7 @@ ElementLocalesItemIcon.tags = [
 ];
 
 ElementLocalesItemIcon.category = 'Navigator';
+
+
+ElementLocalesItemIcon.displayName = 'ElementLocalesItemIcon';
+

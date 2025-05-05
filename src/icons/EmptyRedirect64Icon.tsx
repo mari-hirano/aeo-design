@@ -46,3 +46,7 @@ export const EmptyRedirect64Icon = React.forwardRef<
 EmptyRedirect64Icon.tags = ['MergeCellBottom'];
 
 EmptyRedirect64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyRedirect64Icon.displayName = 'EmptyRedirect64Icon';
+

@@ -38,3 +38,7 @@ export const UpdatesIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UpdatesIcon.tags = ['announce', 'megaphone', 'new'];
 
 UpdatesIcon.category = 'General Icons';
+
+
+UpdatesIcon.displayName = 'UpdatesIcon';
+

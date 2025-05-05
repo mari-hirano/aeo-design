@@ -40,3 +40,7 @@ export const MobileBreakpointIcon = React.forwardRef<
 MobileBreakpointIcon.tags = ['phone', 'cell', 'device'];
 
 MobileBreakpointIcon.category = 'General Icons';
+
+
+MobileBreakpointIcon.displayName = 'MobileBreakpointIcon';
+

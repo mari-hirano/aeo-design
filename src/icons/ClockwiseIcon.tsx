@@ -36,3 +36,7 @@ export const ClockwiseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ClockwiseIcon.tags = ['arrow', 'forward', 'turn', 'circle'];
 
 ClockwiseIcon.category = 'General Icons';
+
+
+ClockwiseIcon.displayName = 'ClockwiseIcon';
+

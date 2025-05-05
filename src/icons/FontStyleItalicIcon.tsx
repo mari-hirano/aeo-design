@@ -37,3 +37,7 @@ export const FontStyleItalicIcon = React.forwardRef<
 }) as IconComponent;
 
 FontStyleItalicIcon.category = 'Typography';
+
+
+FontStyleItalicIcon.displayName = 'FontStyleItalicIcon';
+

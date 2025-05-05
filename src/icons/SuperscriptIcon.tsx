@@ -36,3 +36,7 @@ export const SuperscriptIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SuperscriptIcon.category = 'General Icons';
+
+
+SuperscriptIcon.displayName = 'SuperscriptIcon';
+

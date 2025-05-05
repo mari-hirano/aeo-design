@@ -33,3 +33,7 @@ export const ElementSpanIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementSpanIcon.tags = ['text', 'text block', 'span'];
 
 ElementSpanIcon.category = 'Navigator';
+
+
+ElementSpanIcon.displayName = 'ElementSpanIcon';
+

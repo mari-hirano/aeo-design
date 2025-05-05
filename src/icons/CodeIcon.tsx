@@ -38,3 +38,7 @@ export const CodeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CodeIcon.tags = ['bracket', 'build'];
 
 CodeIcon.category = 'General Icons';
+
+
+CodeIcon.displayName = 'CodeIcon';
+

@@ -36,3 +36,7 @@ export const NotAllowedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 NotAllowedIcon.category = 'Style Panel';
+
+
+NotAllowedIcon.displayName = 'NotAllowedIcon';
+

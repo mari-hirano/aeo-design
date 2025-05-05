@@ -43,3 +43,7 @@ export const AIWand24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AIWand24Icon.category = 'General Icons';
+
+
+AIWand24Icon.displayName = 'AIWand24Icon';
+

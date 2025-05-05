@@ -36,3 +36,7 @@ export const ArrowLeftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ArrowLeftIcon.tags = ['ArrowLeft'];
 
 ArrowLeftIcon.category = 'Arrows';
+
+
+ArrowLeftIcon.displayName = 'ArrowLeftIcon';
+

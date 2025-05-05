@@ -51,3 +51,7 @@ ContinuousEventIcon.tags = [
 ];
 
 ContinuousEventIcon.category = 'General Icons';
+
+
+ContinuousEventIcon.displayName = 'ContinuousEventIcon';
+

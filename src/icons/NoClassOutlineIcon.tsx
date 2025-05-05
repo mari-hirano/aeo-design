@@ -39,3 +39,7 @@ export const NoClassOutlineIcon = React.forwardRef<
 NoClassOutlineIcon.tags = ['square', 'box', 'stop'];
 
 NoClassOutlineIcon.category = 'General Icons';
+
+
+NoClassOutlineIcon.displayName = 'NoClassOutlineIcon';
+

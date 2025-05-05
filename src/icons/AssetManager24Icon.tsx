@@ -57,3 +57,7 @@ export const AssetManager24Icon = React.forwardRef<
 AssetManager24Icon.tags = ['photo', 'picture'];
 
 AssetManager24Icon.category = 'General Icons';
+
+
+AssetManager24Icon.displayName = 'AssetManager24Icon';
+

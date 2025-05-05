@@ -32,3 +32,7 @@ export const BorderStyleSolidIcon = React.forwardRef<
 }) as IconComponent;
 
 BorderStyleSolidIcon.category = 'Layout';
+
+
+BorderStyleSolidIcon.displayName = 'BorderStyleSolidIcon';
+

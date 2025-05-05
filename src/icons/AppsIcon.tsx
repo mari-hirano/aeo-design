@@ -54,3 +54,7 @@ export const AppsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 AppsIcon.tags = ['puzzle', 'piece'];
 
 AppsIcon.category = 'General Icons';
+
+
+AppsIcon.displayName = 'AppsIcon';
+

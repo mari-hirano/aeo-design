@@ -41,3 +41,7 @@ export const AddPanelPaypal64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelPaypal64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelPaypal64Icon.displayName = 'AddPanelPaypal64Icon';
+

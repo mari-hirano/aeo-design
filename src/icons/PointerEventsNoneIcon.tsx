@@ -52,3 +52,7 @@ PointerEventsNoneIcon.tags = [
 ];
 
 PointerEventsNoneIcon.category = 'Navigator';
+
+
+PointerEventsNoneIcon.displayName = 'PointerEventsNoneIcon';
+

@@ -35,3 +35,7 @@ export const CursorTextVerticalIcon = React.forwardRef<
 }) as IconComponent;
 
 CursorTextVerticalIcon.category = 'Cursors';
+
+
+CursorTextVerticalIcon.displayName = 'CursorTextVerticalIcon';
+

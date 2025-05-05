@@ -37,3 +37,7 @@ export const ElementGoogleIcon = React.forwardRef<
 }) as IconComponent;
 
 ElementGoogleIcon.category = 'Navigator';
+
+
+ElementGoogleIcon.displayName = 'ElementGoogleIcon';
+

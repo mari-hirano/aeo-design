@@ -40,3 +40,7 @@ export const RefreshIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 RefreshIcon.tags = ['arrows', 'circle', 'recycle'];
 
 RefreshIcon.category = 'General Icons';
+
+
+RefreshIcon.displayName = 'RefreshIcon';
+

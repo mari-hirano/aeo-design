@@ -40,3 +40,7 @@ export const FillIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FillIcon.category = 'Color & Background';
+
+
+FillIcon.displayName = 'FillIcon';
+

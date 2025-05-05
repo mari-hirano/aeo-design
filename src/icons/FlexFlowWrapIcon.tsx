@@ -45,3 +45,7 @@ export const FlexFlowWrapIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 FlexFlowWrapIcon.tags = ['FlexFlowWrap'];
 
 FlexFlowWrapIcon.category = 'Layout';
+
+
+FlexFlowWrapIcon.displayName = 'FlexFlowWrapIcon';
+

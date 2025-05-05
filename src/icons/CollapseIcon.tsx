@@ -38,3 +38,7 @@ export const CollapseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CollapseIcon.tags = ['caret', 'arrows', 'ducks', 'kiss'];
 
 CollapseIcon.category = 'General Icons';
+
+
+CollapseIcon.displayName = 'CollapseIcon';
+

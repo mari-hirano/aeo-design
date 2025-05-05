@@ -36,3 +36,7 @@ export const EyeDashedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 EyeDashedIcon.category = 'General Icons';
+
+
+EyeDashedIcon.displayName = 'EyeDashedIcon';
+

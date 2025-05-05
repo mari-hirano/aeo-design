@@ -51,3 +51,7 @@ export const EmptyNoAnimation64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyNoAnimation64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyNoAnimation64Icon.displayName = 'EmptyNoAnimation64Icon';
+

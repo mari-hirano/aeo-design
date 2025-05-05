@@ -52,3 +52,7 @@ export const ToolbarLearningAssistant24Icon = React.forwardRef<
 }) as IconComponent;
 
 ToolbarLearningAssistant24Icon.category = 'General Icons';
+
+
+ToolbarLearningAssistant24Icon.displayName = 'ToolbarLearningAssistant24Icon';
+

@@ -38,3 +38,7 @@ export const DropIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 DropIcon.tags = ['arrow', 'down', 'move'];
 
 DropIcon.category = 'General Icons';
+
+
+DropIcon.displayName = 'DropIcon';
+

@@ -43,3 +43,7 @@ export const TextAlignIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TextAlignIcon.category = 'Layout';
+
+
+TextAlignIcon.displayName = 'TextAlignIcon';
+

@@ -37,3 +37,7 @@ export const FilterSmallBrightnessIcon = React.forwardRef<
 }) as IconComponent;
 
 FilterSmallBrightnessIcon.category = 'Style Panel';
+
+
+FilterSmallBrightnessIcon.displayName = 'FilterSmallBrightnessIcon';
+

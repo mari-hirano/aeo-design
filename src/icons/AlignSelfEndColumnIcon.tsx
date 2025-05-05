@@ -35,3 +35,7 @@ export const AlignSelfEndColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfEndColumnIcon.category = 'Layout';
+
+
+AlignSelfEndColumnIcon.displayName = 'AlignSelfEndColumnIcon';
+

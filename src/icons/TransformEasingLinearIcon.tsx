@@ -37,3 +37,7 @@ export const TransformEasingLinearIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformEasingLinearIcon.category = 'Cursors';
+
+
+TransformEasingLinearIcon.displayName = 'TransformEasingLinearIcon';
+

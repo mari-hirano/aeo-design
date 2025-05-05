@@ -40,3 +40,7 @@ export const Interactions24Icon = React.forwardRef<
 }) as IconComponent;
 
 Interactions24Icon.category = 'General Icons';
+
+
+Interactions24Icon.displayName = 'Interactions24Icon';
+

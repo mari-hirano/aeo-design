@@ -38,3 +38,7 @@ export const EasingPlayIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 EasingPlayIcon.tags = ['circle', 'button', 'arrow'];
 
 EasingPlayIcon.category = 'General Icons';
+
+
+EasingPlayIcon.displayName = 'EasingPlayIcon';
+

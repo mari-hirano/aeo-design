@@ -39,3 +39,7 @@ export const TimeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 TimeIcon.tags = ['clock', 'circle', 'minutes', 'hours'];
 
 TimeIcon.category = 'General Icons';
+
+
+TimeIcon.displayName = 'TimeIcon';
+

@@ -38,3 +38,7 @@ export const UnlockIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UnlockIcon.tags = ['security', 'tool', 'open'];
 
 UnlockIcon.category = 'General Icons';
+
+
+UnlockIcon.displayName = 'UnlockIcon';
+

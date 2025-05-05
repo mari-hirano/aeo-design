@@ -38,3 +38,7 @@ export const FieldMap24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldMap24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldMap24Icon.displayName = 'FieldMap24Icon';
+

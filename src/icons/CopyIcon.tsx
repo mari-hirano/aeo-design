@@ -34,3 +34,7 @@ export const CopyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CopyIcon.category = 'Cursors';
+
+
+CopyIcon.displayName = 'CopyIcon';
+

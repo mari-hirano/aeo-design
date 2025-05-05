@@ -44,3 +44,7 @@ export const OrderFirstRowReverseIcon = React.forwardRef<
 }) as IconComponent;
 
 OrderFirstRowReverseIcon.category = 'Layout';
+
+
+OrderFirstRowReverseIcon.displayName = 'OrderFirstRowReverseIcon';
+

@@ -38,3 +38,7 @@ export const AddPanelSpline64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelSpline64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelSpline64Icon.displayName = 'AddPanelSpline64Icon';
+

@@ -43,3 +43,7 @@ export const GridRowFixedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 GridRowFixedIcon.category = 'Style Panel';
+
+
+GridRowFixedIcon.displayName = 'GridRowFixedIcon';
+

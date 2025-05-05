@@ -38,3 +38,7 @@ export const Menu24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 Menu24Icon.tags = ['hamburger', 'lines', 'stack'];
 
 Menu24Icon.category = 'General Icons';
+
+
+Menu24Icon.displayName = 'Menu24Icon';
+

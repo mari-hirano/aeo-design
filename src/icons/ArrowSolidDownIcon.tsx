@@ -32,3 +32,7 @@ export const ArrowSolidDownIcon = React.forwardRef<
 }) as IconComponent;
 
 ArrowSolidDownIcon.category = 'Cursors';
+
+
+ArrowSolidDownIcon.displayName = 'ArrowSolidDownIcon';
+

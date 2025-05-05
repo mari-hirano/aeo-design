@@ -37,3 +37,7 @@ export const MenuSmallChevronIcon = React.forwardRef<
 }) as IconComponent;
 
 MenuSmallChevronIcon.category = 'General Icons';
+
+
+MenuSmallChevronIcon.displayName = 'MenuSmallChevronIcon';
+

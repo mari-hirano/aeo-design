@@ -43,3 +43,7 @@ export const DuplicateOutlineIcon = React.forwardRef<
 DuplicateOutlineIcon.tags = ['copy', 'squares', 'overlap', 'paste'];
 
 DuplicateOutlineIcon.category = 'General Icons';
+
+
+DuplicateOutlineIcon.displayName = 'DuplicateOutlineIcon';
+

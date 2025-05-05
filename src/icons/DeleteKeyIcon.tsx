@@ -38,3 +38,7 @@ export const DeleteKeyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 DeleteKeyIcon.tags = ['arrow', 'x', 'tab', 'left', 'tag'];
 
 DeleteKeyIcon.category = 'General Icons';
+
+
+DeleteKeyIcon.displayName = 'DeleteKeyIcon';
+

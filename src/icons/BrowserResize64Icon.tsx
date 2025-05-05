@@ -37,3 +37,7 @@ export const BrowserResize64Icon = React.forwardRef<
 }) as IconComponent;
 
 BrowserResize64Icon.category = '64x64 (Field illustrations)';
+
+
+BrowserResize64Icon.displayName = 'BrowserResize64Icon';
+

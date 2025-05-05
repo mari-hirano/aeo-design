@@ -38,3 +38,7 @@ export const TranslateIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 TranslateIcon.tags = ['translate', 'language', 'localization'];
 
 TranslateIcon.category = 'General Icons';
+
+
+TranslateIcon.displayName = 'TranslateIcon';
+

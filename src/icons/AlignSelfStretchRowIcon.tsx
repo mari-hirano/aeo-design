@@ -35,3 +35,7 @@ export const AlignSelfStretchRowIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfStretchRowIcon.category = 'Layout';
+
+
+AlignSelfStretchRowIcon.displayName = 'AlignSelfStretchRowIcon';
+

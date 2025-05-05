@@ -53,3 +53,7 @@ export const OptimizationTestIcon = React.forwardRef<
 }) as IconComponent;
 
 OptimizationTestIcon.category = 'General Icons';
+
+
+OptimizationTestIcon.displayName = 'OptimizationTestIcon';
+

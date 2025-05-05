@@ -36,3 +36,7 @@ export const AddPanelSocialFacebook64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelSocialFacebook64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelSocialFacebook64Icon.displayName = 'AddPanelSocialFacebook64Icon';
+

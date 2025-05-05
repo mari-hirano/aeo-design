@@ -43,3 +43,7 @@ export const DisplayBlockIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DisplayBlockIcon.category = 'Layout';
+
+
+DisplayBlockIcon.displayName = 'DisplayBlockIcon';
+

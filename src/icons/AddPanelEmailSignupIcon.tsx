@@ -54,3 +54,7 @@ export const AddPanelEmailSignupIcon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelEmailSignupIcon.category = '64x64 (Add panel)';
+
+
+AddPanelEmailSignupIcon.displayName = 'AddPanelEmailSignupIcon';
+

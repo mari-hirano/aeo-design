@@ -45,3 +45,7 @@ export const ElementTabsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementTabsIcon.tags = ['tabs', 'tab'];
 
 ElementTabsIcon.category = 'Navigator';
+
+
+ElementTabsIcon.displayName = 'ElementTabsIcon';
+

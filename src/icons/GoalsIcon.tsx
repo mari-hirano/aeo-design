@@ -49,3 +49,7 @@ export const GoalsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 GoalsIcon.category = 'Layout';
+
+
+GoalsIcon.displayName = 'GoalsIcon';
+

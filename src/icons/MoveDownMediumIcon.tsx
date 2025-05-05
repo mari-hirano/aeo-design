@@ -42,3 +42,7 @@ export const MoveDownMediumIcon = React.forwardRef<
 }) as IconComponent;
 
 MoveDownMediumIcon.category = 'Layout';
+
+
+MoveDownMediumIcon.displayName = 'MoveDownMediumIcon';
+

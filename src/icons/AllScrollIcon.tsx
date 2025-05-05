@@ -34,3 +34,7 @@ export const AllScrollIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AllScrollIcon.category = 'Cursors';
+
+
+AllScrollIcon.displayName = 'AllScrollIcon';
+

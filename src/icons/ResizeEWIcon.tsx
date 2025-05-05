@@ -34,3 +34,7 @@ export const ResizeEWIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ResizeEWIcon.category = 'Cursors';
+
+
+ResizeEWIcon.displayName = 'ResizeEWIcon';
+

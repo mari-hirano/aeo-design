@@ -34,3 +34,4 @@ export const XIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 XIcon.category = 'Social';
+XIcon.displayName = 'XIcon';

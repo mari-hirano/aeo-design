@@ -37,3 +37,7 @@ export const BorderStyleDashedIcon = React.forwardRef<
 }) as IconComponent;
 
 BorderStyleDashedIcon.category = 'Layout';
+
+
+BorderStyleDashedIcon.displayName = 'BorderStyleDashedIcon';
+

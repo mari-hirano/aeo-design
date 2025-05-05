@@ -39,3 +39,7 @@ export const DisplayFlexVerticalCenterIcon = React.forwardRef<
 DisplayFlexVerticalCenterIcon.tags = ['DisplayFlexVerticalCenter'];
 
 DisplayFlexVerticalCenterIcon.category = 'Layout';
+
+
+DisplayFlexVerticalCenterIcon.displayName = 'DisplayFlexVerticalCenterIcon';
+

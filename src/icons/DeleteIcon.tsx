@@ -38,3 +38,7 @@ export const DeleteIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 DeleteIcon.tags = ['trash', 'garbage', 'can'];
 
 DeleteIcon.category = 'General Icons';
+
+
+DeleteIcon.displayName = 'DeleteIcon';
+

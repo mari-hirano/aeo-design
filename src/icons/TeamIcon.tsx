@@ -36,3 +36,7 @@ export const TeamIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 TeamIcon.tags = ['building', 'agency', 'place'];
 
 TeamIcon.category = 'General Icons';
+
+
+TeamIcon.displayName = 'TeamIcon';
+

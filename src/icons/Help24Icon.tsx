@@ -45,3 +45,7 @@ export const Help24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 Help24Icon.category = 'General Icons';
+
+
+Help24Icon.displayName = 'Help24Icon';
+

@@ -38,3 +38,7 @@ export const SyncFailedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SyncFailedIcon.tags = ['network', 'error', 'wifi'];
 
 SyncFailedIcon.category = 'General Icons';
+
+
+SyncFailedIcon.displayName = 'SyncFailedIcon';
+

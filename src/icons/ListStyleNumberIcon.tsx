@@ -37,3 +37,7 @@ export const ListStyleNumberIcon = React.forwardRef<
 }) as IconComponent;
 
 ListStyleNumberIcon.category = 'Typography';
+
+
+ListStyleNumberIcon.displayName = 'ListStyleNumberIcon';
+

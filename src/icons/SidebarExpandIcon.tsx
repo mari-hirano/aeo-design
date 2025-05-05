@@ -37,3 +37,7 @@ export const SidebarExpandIcon = React.forwardRef<
 }) as IconComponent;
 
 SidebarExpandIcon.category = 'Layout';
+
+
+SidebarExpandIcon.displayName = 'SidebarExpandIcon';
+

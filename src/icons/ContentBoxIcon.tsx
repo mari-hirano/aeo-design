@@ -43,3 +43,7 @@ export const ContentBoxIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ContentBoxIcon.category = 'Layout';
+
+
+ContentBoxIcon.displayName = 'ContentBoxIcon';
+

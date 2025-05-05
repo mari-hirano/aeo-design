@@ -34,3 +34,7 @@ export const ResizeNWSEIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ResizeNWSEIcon.category = 'Cursors';
+
+
+ResizeNWSEIcon.displayName = 'ResizeNWSEIcon';
+

@@ -43,3 +43,7 @@ export const InitialActionGroupIcon = React.forwardRef<
 InitialActionGroupIcon.tags = ['arrow', 'caret', 'left'];
 
 InitialActionGroupIcon.category = 'General Icons';
+
+
+InitialActionGroupIcon.displayName = 'InitialActionGroupIcon';
+

@@ -46,3 +46,7 @@ export const LineDottedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LineDottedIcon.category = 'General Icons';
+
+
+LineDottedIcon.displayName = 'LineDottedIcon';
+

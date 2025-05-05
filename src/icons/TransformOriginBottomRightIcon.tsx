@@ -43,3 +43,7 @@ export const TransformOriginBottomRightIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformOriginBottomRightIcon.category = 'Layout';
+
+
+TransformOriginBottomRightIcon.displayName = 'TransformOriginBottomRightIcon';
+

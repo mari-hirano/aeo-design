@@ -41,3 +41,7 @@ export const TransitionSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 TransitionSmallIcon.category = 'Style Panel';
+
+
+TransitionSmallIcon.displayName = 'TransitionSmallIcon';
+

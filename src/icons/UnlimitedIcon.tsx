@@ -38,3 +38,7 @@ export const UnlimitedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UnlimitedIcon.tags = ['infinity', '8'];
 
 UnlimitedIcon.category = 'General Icons';
+
+
+UnlimitedIcon.displayName = 'UnlimitedIcon';
+

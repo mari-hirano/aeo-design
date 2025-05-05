@@ -46,3 +46,7 @@ export const ElementCodeBlockIcon = React.forwardRef<
 ElementCodeBlockIcon.tags = ['code', 'code block'];
 
 ElementCodeBlockIcon.category = 'Navigator';
+
+
+ElementCodeBlockIcon.displayName = 'ElementCodeBlockIcon';
+

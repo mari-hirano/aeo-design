@@ -40,3 +40,7 @@ export const PerformanceIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PerformanceIcon.tags = ['timer', 'needle', 'track', 'analytics', 'measure'];
 
 PerformanceIcon.category = 'General Icons';
+
+
+PerformanceIcon.displayName = 'PerformanceIcon';
+

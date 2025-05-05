@@ -39,3 +39,7 @@ export const DisplayFlexVerticalEndIcon = React.forwardRef<
 DisplayFlexVerticalEndIcon.tags = ['DisplayFlexVerticalEnd'];
 
 DisplayFlexVerticalEndIcon.category = 'Layout';
+
+
+DisplayFlexVerticalEndIcon.displayName = 'DisplayFlexVerticalEndIcon';
+

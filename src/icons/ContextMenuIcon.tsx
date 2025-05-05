@@ -34,3 +34,7 @@ export const ContextMenuIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ContextMenuIcon.category = 'Cursors';
+
+
+ContextMenuIcon.displayName = 'ContextMenuIcon';
+

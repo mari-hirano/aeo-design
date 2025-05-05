@@ -39,3 +39,7 @@ export const AlignSelfCenterColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfCenterColumnIcon.category = 'Layout';
+
+
+AlignSelfCenterColumnIcon.displayName = 'AlignSelfCenterColumnIcon';
+

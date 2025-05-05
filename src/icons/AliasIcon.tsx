@@ -34,3 +34,7 @@ export const AliasIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AliasIcon.category = 'Cursors';
+
+
+AliasIcon.displayName = 'AliasIcon';
+

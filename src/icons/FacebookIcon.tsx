@@ -34,3 +34,7 @@ export const FacebookIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FacebookIcon.category = 'Social';
+
+
+FacebookIcon.displayName = 'FacebookIcon';
+

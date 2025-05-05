@@ -34,3 +34,7 @@ export const VariableSizeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 VariableSizeIcon.category = 'General Icons';
+
+
+VariableSizeIcon.displayName = 'VariableSizeIcon';
+

@@ -42,3 +42,7 @@ export const MoveLeftMediumIcon = React.forwardRef<
 }) as IconComponent;
 
 MoveLeftMediumIcon.category = 'Layout';
+
+
+MoveLeftMediumIcon.displayName = 'MoveLeftMediumIcon';
+

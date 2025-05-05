@@ -68,3 +68,7 @@ export const EmptyOptimzationEdit64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyOptimzationEdit64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyOptimzationEdit64Icon.displayName = 'EmptyOptimzationEdit64Icon';
+

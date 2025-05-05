@@ -40,3 +40,7 @@ export const UploadIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UploadIcon.tags = ['cloud', 'arrow', 'share '];
 
 UploadIcon.category = 'General Icons';
+
+
+UploadIcon.displayName = 'UploadIcon';
+

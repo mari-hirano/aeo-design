@@ -41,3 +41,7 @@ export const ExpandVerticalIcon = React.forwardRef<
 ExpandVerticalIcon.tags = ['enlarge', 'arrow', 'caret '];
 
 ExpandVerticalIcon.category = 'General Icons';
+
+
+ExpandVerticalIcon.displayName = 'ExpandVerticalIcon';
+

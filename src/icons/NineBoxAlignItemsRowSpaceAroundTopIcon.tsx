@@ -41,3 +41,7 @@ export const NineBoxAlignItemsRowSpaceAroundTopIcon = React.forwardRef<
 }) as IconComponent;
 
 NineBoxAlignItemsRowSpaceAroundTopIcon.category = 'Layout';
+
+
+NineBoxAlignItemsRowSpaceAroundTopIcon.displayName = 'NineBoxAlignItemsRowSpaceAroundTopIcon';
+

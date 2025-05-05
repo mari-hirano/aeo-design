@@ -38,3 +38,7 @@ export const StarFilledIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 StarFilledIcon.tags = ['star'];
 
 StarFilledIcon.category = 'General Icons';
+
+
+StarFilledIcon.displayName = 'StarFilledIcon';
+

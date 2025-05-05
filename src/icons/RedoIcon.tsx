@@ -36,3 +36,7 @@ export const RedoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 RedoIcon.tags = ['arrow', 'right'];
 
 RedoIcon.category = 'General Icons';
+
+
+RedoIcon.displayName = 'RedoIcon';
+

@@ -40,3 +40,7 @@ export const AccountIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AccountIcon.category = 'General Icons';
+
+
+AccountIcon.displayName = 'AccountIcon';
+

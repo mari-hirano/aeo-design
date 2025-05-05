@@ -35,3 +35,7 @@ export const FlexGrowRowLargeIcon = React.forwardRef<
 }) as IconComponent;
 
 FlexGrowRowLargeIcon.category = 'Layout';
+
+
+FlexGrowRowLargeIcon.displayName = 'FlexGrowRowLargeIcon';
+

@@ -41,3 +41,7 @@ export const DeviceLaptopStar24Icon = React.forwardRef<
 DeviceLaptopStar24Icon.tags = ['laptop', 'breakpoint'];
 
 DeviceLaptopStar24Icon.category = 'General Icons';
+
+
+DeviceLaptopStar24Icon.displayName = 'DeviceLaptopStar24Icon';
+

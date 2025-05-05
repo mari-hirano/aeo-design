@@ -36,3 +36,7 @@ export const NoClassFillIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 NoClassFillIcon.tags = ['square', 'box', 'stop'];
 
 NoClassFillIcon.category = 'General Icons';
+
+
+NoClassFillIcon.displayName = 'NoClassFillIcon';
+

@@ -43,3 +43,7 @@ export const PushDownIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PushDownIcon.category = 'Typography';
+
+
+PushDownIcon.displayName = 'PushDownIcon';
+

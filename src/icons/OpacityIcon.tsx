@@ -53,3 +53,7 @@ export const OpacityIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 OpacityIcon.category = 'Color & Background';
+
+
+OpacityIcon.displayName = 'OpacityIcon';
+

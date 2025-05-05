@@ -51,3 +51,7 @@ WarningCircleIcon.tags = [
 ];
 
 WarningCircleIcon.category = 'General Icons';
+
+
+WarningCircleIcon.displayName = 'WarningCircleIcon';
+

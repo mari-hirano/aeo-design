@@ -37,3 +37,7 @@ export const FieldSwitch24Icon = React.forwardRef<
 }) as IconComponent;
 
 FieldSwitch24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldSwitch24Icon.displayName = 'FieldSwitch24Icon';
+

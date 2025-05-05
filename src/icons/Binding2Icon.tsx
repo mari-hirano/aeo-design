@@ -40,3 +40,7 @@ export const Binding2Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 Binding2Icon.tags = ['connection', 'link', 'bound'];
 
 Binding2Icon.category = 'General Icons';
+
+
+Binding2Icon.displayName = 'Binding2Icon';
+

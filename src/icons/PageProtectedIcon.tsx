@@ -39,3 +39,7 @@ export const PageProtectedIcon = React.forwardRef<
 PageProtectedIcon.tags = ['paper', 'protected'];
 
 PageProtectedIcon.category = 'General Icons';
+
+
+PageProtectedIcon.displayName = 'PageProtectedIcon';
+

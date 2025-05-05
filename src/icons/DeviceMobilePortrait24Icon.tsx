@@ -38,3 +38,7 @@ export const DeviceMobilePortrait24Icon = React.forwardRef<
 }) as IconComponent;
 
 DeviceMobilePortrait24Icon.category = 'General Icons';
+
+
+DeviceMobilePortrait24Icon.displayName = 'DeviceMobilePortrait24Icon';
+

@@ -39,3 +39,7 @@ export const IDIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 IDIcon.tags = ['proof', 'verify'];
 
 IDIcon.category = 'General Icons';
+
+
+IDIcon.displayName = 'IDIcon';
+

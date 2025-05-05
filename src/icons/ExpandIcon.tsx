@@ -38,3 +38,7 @@ export const ExpandIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ExpandIcon.tags = ['size'];
 
 ExpandIcon.category = 'General Icons';
+
+
+ExpandIcon.displayName = 'ExpandIcon';
+

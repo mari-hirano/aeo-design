@@ -39,3 +39,7 @@ export const JustifyContentSpaceBetweenRowReverseIcon = React.forwardRef<
 }) as IconComponent;
 
 JustifyContentSpaceBetweenRowReverseIcon.category = 'Layout';
+
+
+JustifyContentSpaceBetweenRowReverseIcon.displayName = 'JustifyContentSpaceBetweenRowReverseIcon';
+

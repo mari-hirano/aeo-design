@@ -37,3 +37,7 @@ export const PlaylistPrev24Icon = React.forwardRef<
 }) as IconComponent;
 
 PlaylistPrev24Icon.category = 'General Icons';
+
+
+PlaylistPrev24Icon.displayName = 'PlaylistPrev24Icon';
+

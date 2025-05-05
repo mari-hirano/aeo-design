@@ -38,3 +38,7 @@ export const ResetLocalIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ResetLocalIcon.tags = ['globe', 'earth', 'language'];
 
 ResetLocalIcon.category = 'General Icons';
+
+
+ResetLocalIcon.displayName = 'ResetLocalIcon';
+

@@ -38,3 +38,7 @@ export const BlockquoteIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 BlockquoteIcon.category = 'Tags';
+
+
+BlockquoteIcon.displayName = 'BlockquoteIcon';
+

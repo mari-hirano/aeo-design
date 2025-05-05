@@ -34,3 +34,7 @@ export const CrosshairIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CrosshairIcon.category = 'Cursors';
+
+
+CrosshairIcon.displayName = 'CrosshairIcon';
+

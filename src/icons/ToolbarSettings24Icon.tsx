@@ -41,3 +41,7 @@ export const ToolbarSettings24Icon = React.forwardRef<
 }) as IconComponent;
 
 ToolbarSettings24Icon.category = 'General Icons';
+
+
+ToolbarSettings24Icon.displayName = 'ToolbarSettings24Icon';
+

@@ -38,3 +38,7 @@ export const HomeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 HomeIcon.tags = ['house'];
 
 HomeIcon.category = 'General Icons';
+
+
+HomeIcon.displayName = 'HomeIcon';
+

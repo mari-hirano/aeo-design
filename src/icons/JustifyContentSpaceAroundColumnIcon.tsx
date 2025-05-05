@@ -41,3 +41,7 @@ export const JustifyContentSpaceAroundColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 JustifyContentSpaceAroundColumnIcon.category = 'Layout';
+
+
+JustifyContentSpaceAroundColumnIcon.displayName = 'JustifyContentSpaceAroundColumnIcon';
+

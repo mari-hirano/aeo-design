@@ -49,3 +49,7 @@ export const WebflowBadgeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 WebflowBadgeIcon.tags = ['blue', 'square', 'label', 'brand'];
 
 WebflowBadgeIcon.category = 'General Icons';
+
+
+WebflowBadgeIcon.displayName = 'WebflowBadgeIcon';
+

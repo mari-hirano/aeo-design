@@ -49,3 +49,7 @@ export const BackgroundRadialGradientIcon = React.forwardRef<
 }) as IconComponent;
 
 BackgroundRadialGradientIcon.category = 'Color & Background';
+
+
+BackgroundRadialGradientIcon.displayName = 'BackgroundRadialGradientIcon';
+

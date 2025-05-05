@@ -42,3 +42,7 @@ export const ShowcaseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ShowcaseIcon.tags = ['store', 'sell', 'display'];
 
 ShowcaseIcon.category = 'General Icons';
+
+
+ShowcaseIcon.displayName = 'ShowcaseIcon';
+

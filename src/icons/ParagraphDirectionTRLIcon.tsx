@@ -44,3 +44,7 @@ export const ParagraphDirectionTRLIcon = React.forwardRef<
 }) as IconComponent;
 
 ParagraphDirectionTRLIcon.category = 'Typography';
+
+
+ParagraphDirectionTRLIcon.displayName = 'ParagraphDirectionTRLIcon';
+

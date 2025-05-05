@@ -36,3 +36,7 @@ export const BranchIndentIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BranchIndentIcon.tags = ['drop', 'arrow'];
 
 BranchIndentIcon.category = 'General Icons';
+
+
+BranchIndentIcon.displayName = 'BranchIndentIcon';
+

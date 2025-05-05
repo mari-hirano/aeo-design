@@ -35,3 +35,7 @@ export const TileYIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TileYIcon.category = 'Misc.';
+
+
+TileYIcon.displayName = 'TileYIcon';
+

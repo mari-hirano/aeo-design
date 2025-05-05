@@ -41,3 +41,7 @@ export const GoToParentIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 GoToParentIcon.category = 'General Icons';
+
+
+GoToParentIcon.displayName = 'GoToParentIcon';
+

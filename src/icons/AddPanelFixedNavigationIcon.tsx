@@ -53,3 +53,7 @@ export const AddPanelFixedNavigationIcon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelFixedNavigationIcon.category = '64x64 (Add panel)';
+
+
+AddPanelFixedNavigationIcon.displayName = 'AddPanelFixedNavigationIcon';
+

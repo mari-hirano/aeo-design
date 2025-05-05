@@ -41,3 +41,7 @@ export const CopilotTestimonialIcon = React.forwardRef<
 CopilotTestimonialIcon.tags = ['site'];
 
 CopilotTestimonialIcon.category = 'General Icons';
+
+
+CopilotTestimonialIcon.displayName = 'CopilotTestimonialIcon';
+

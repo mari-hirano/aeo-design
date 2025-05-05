@@ -34,3 +34,7 @@ export const ResizeNESWIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ResizeNESWIcon.category = 'Cursors';
+
+
+ResizeNESWIcon.displayName = 'ResizeNESWIcon';
+

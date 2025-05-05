@@ -38,3 +38,7 @@ export const OAuthArrowIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 OAuthArrowIcon.category = 'General Icons';
+
+
+OAuthArrowIcon.displayName = 'OAuthArrowIcon';
+

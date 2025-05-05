@@ -38,3 +38,7 @@ export const StageBranchIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 StageBranchIcon.tags = ['thumbtack', 'needle', 'nail'];
 
 StageBranchIcon.category = 'General Icons';
+
+
+StageBranchIcon.displayName = 'StageBranchIcon';
+

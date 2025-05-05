@@ -38,3 +38,7 @@ export const LikeOutlineIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LikeOutlineIcon.tags = ['sponsor', 'love', 'heart'];
 
 LikeOutlineIcon.category = 'General Icons';
+
+
+LikeOutlineIcon.displayName = 'LikeOutlineIcon';
+

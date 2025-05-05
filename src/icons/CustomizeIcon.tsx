@@ -38,3 +38,7 @@ export const CustomizeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CustomizeIcon.tags = ['wrench', 'tool', 'fix'];
 
 CustomizeIcon.category = 'General Icons';
+
+
+CustomizeIcon.displayName = 'CustomizeIcon';
+

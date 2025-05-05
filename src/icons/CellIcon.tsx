@@ -34,3 +34,7 @@ export const CellIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CellIcon.category = 'Cursors';
+
+
+CellIcon.displayName = 'CellIcon';
+

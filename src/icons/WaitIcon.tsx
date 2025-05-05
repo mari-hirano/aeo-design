@@ -69,3 +69,7 @@ export const WaitIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 WaitIcon.category = 'Cursors';
+
+
+WaitIcon.displayName = 'WaitIcon';
+

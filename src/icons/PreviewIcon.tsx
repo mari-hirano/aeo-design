@@ -38,3 +38,7 @@ export const PreviewIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PreviewIcon.tags = ['eye', 'show'];
 
 PreviewIcon.category = 'General Icons';
+
+
+PreviewIcon.displayName = 'PreviewIcon';
+

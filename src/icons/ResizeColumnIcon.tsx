@@ -34,3 +34,7 @@ export const ResizeColumnIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ResizeColumnIcon.category = 'Cursors';
+
+
+ResizeColumnIcon.displayName = 'ResizeColumnIcon';
+

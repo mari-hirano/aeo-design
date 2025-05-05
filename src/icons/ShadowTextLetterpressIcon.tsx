@@ -36,3 +36,7 @@ export const ShadowTextLetterpressIcon = React.forwardRef<
 }) as IconComponent;
 
 ShadowTextLetterpressIcon.category = 'Typography';
+
+
+ShadowTextLetterpressIcon.displayName = 'ShadowTextLetterpressIcon';
+

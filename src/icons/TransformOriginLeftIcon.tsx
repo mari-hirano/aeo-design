@@ -47,3 +47,7 @@ export const TransformOriginLeftIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformOriginLeftIcon.category = 'Layout';
+
+
+TransformOriginLeftIcon.displayName = 'TransformOriginLeftIcon';
+

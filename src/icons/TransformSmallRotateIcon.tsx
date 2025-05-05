@@ -39,3 +39,7 @@ export const TransformSmallRotateIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformSmallRotateIcon.category = 'Style Panel';
+
+
+TransformSmallRotateIcon.displayName = 'TransformSmallRotateIcon';
+

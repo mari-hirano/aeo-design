@@ -37,3 +37,7 @@ export const TextAlignLeftIcon = React.forwardRef<
 }) as IconComponent;
 
 TextAlignLeftIcon.category = 'Typography';
+
+
+TextAlignLeftIcon.displayName = 'TextAlignLeftIcon';
+

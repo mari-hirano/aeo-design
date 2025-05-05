@@ -40,3 +40,7 @@ export const TabletBreakpointIcon = React.forwardRef<
 TabletBreakpointIcon.tags = ['square', 'box', 'mobile', 'computer'];
 
 TabletBreakpointIcon.category = 'General Icons';
+
+
+TabletBreakpointIcon.displayName = 'TabletBreakpointIcon';
+

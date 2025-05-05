@@ -45,3 +45,7 @@ export const TextColumnGapIcon = React.forwardRef<
 }) as IconComponent;
 
 TextColumnGapIcon.category = 'Layout';
+
+
+TextColumnGapIcon.displayName = 'TextColumnGapIcon';
+

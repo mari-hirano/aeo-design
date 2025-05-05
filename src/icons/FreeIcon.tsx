@@ -38,3 +38,7 @@ export const FreeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 FreeIcon.tags = ['gift', 'present'];
 
 FreeIcon.category = 'General Icons';
+
+
+FreeIcon.displayName = 'FreeIcon';
+

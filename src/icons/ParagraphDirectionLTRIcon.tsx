@@ -44,3 +44,7 @@ export const ParagraphDirectionLTRIcon = React.forwardRef<
 }) as IconComponent;
 
 ParagraphDirectionLTRIcon.category = 'Typography';
+
+
+ParagraphDirectionLTRIcon.displayName = 'ParagraphDirectionLTRIcon';
+

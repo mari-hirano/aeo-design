@@ -33,3 +33,7 @@ export const ShadowTextHighlightIcon = React.forwardRef<
 }) as IconComponent;
 
 ShadowTextHighlightIcon.category = 'Typography';
+
+
+ShadowTextHighlightIcon.displayName = 'ShadowTextHighlightIcon';
+

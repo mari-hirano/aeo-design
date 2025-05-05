@@ -69,3 +69,7 @@ export const LayoutFooterIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LayoutFooterIcon.category = '64x64 (Add panel)';
+
+
+LayoutFooterIcon.displayName = 'LayoutFooterIcon';
+

@@ -38,3 +38,7 @@ export const SiteIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SiteIcon.tags = ['site'];
 
 SiteIcon.category = 'General Icons';
+
+
+SiteIcon.displayName = 'SiteIcon';
+

@@ -43,3 +43,7 @@ export const CopilotNavbarIcon = React.forwardRef<
 CopilotNavbarIcon.tags = ['site'];
 
 CopilotNavbarIcon.category = 'General Icons';
+
+
+CopilotNavbarIcon.displayName = 'CopilotNavbarIcon';
+

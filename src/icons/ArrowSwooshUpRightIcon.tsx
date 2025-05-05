@@ -37,3 +37,7 @@ export const ArrowSwooshUpRightIcon = React.forwardRef<
 ArrowSwooshUpRightIcon.tags = ['ArrowSwooshUpRight'];
 
 ArrowSwooshUpRightIcon.category = 'Arrows';
+
+
+ArrowSwooshUpRightIcon.displayName = 'ArrowSwooshUpRightIcon';
+

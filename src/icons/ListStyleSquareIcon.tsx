@@ -37,3 +37,7 @@ export const ListStyleSquareIcon = React.forwardRef<
 }) as IconComponent;
 
 ListStyleSquareIcon.category = 'General Icons';
+
+
+ListStyleSquareIcon.displayName = 'ListStyleSquareIcon';
+

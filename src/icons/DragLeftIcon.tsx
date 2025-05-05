@@ -35,3 +35,7 @@ export const DragLeftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 DragLeftIcon.tags = ['arrow', 'lines', 'triangle', 'caret', 'move'];
 
 DragLeftIcon.category = 'General Icons';
+
+
+DragLeftIcon.displayName = 'DragLeftIcon';
+

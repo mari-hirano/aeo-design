@@ -49,3 +49,7 @@ ElementYouTubeIcon.tags = [
 ];
 
 ElementYouTubeIcon.category = 'Navigator';
+
+
+ElementYouTubeIcon.displayName = 'ElementYouTubeIcon';
+

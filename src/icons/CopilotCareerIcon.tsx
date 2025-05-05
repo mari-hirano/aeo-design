@@ -46,3 +46,7 @@ export const CopilotCareerIcon = React.forwardRef<
 CopilotCareerIcon.tags = ['site'];
 
 CopilotCareerIcon.category = 'General Icons';
+
+
+CopilotCareerIcon.displayName = 'CopilotCareerIcon';
+

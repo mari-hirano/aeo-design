@@ -78,3 +78,7 @@ export const DisplayFlexVerticalEndWrapIcon = React.forwardRef<
 DisplayFlexVerticalEndWrapIcon.tags = ['DisplayFlexVerticalEndWrap'];
 
 DisplayFlexVerticalEndWrapIcon.category = 'Layout';
+
+
+DisplayFlexVerticalEndWrapIcon.displayName = 'DisplayFlexVerticalEndWrapIcon';
+

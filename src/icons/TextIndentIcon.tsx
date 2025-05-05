@@ -36,3 +36,7 @@ export const TextIndentIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TextIndentIcon.category = 'Layout';
+
+
+TextIndentIcon.displayName = 'TextIndentIcon';
+

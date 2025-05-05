@@ -43,3 +43,7 @@ export const SidebarIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SidebarIcon.category = 'Layout';
+
+
+SidebarIcon.displayName = 'SidebarIcon';
+

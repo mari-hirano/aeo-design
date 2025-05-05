@@ -39,3 +39,7 @@ export const CheckCircleFillIcon = React.forwardRef<
 CheckCircleFillIcon.tags = ['confirm', 'mark', 'yes'];
 
 CheckCircleFillIcon.category = 'General Icons';
+
+
+CheckCircleFillIcon.displayName = 'CheckCircleFillIcon';
+

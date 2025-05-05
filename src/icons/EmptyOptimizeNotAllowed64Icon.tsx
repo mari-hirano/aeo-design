@@ -62,3 +62,7 @@ export const EmptyOptimizeNotAllowed64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyOptimizeNotAllowed64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyOptimizeNotAllowed64Icon.displayName = 'EmptyOptimizeNotAllowed64Icon';
+

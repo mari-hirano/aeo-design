@@ -38,3 +38,7 @@ export const ElementVideoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementVideoIcon.tags = ['video', 'videos', 'play', 'player'];
 
 ElementVideoIcon.category = 'Navigator';
+
+
+ElementVideoIcon.displayName = 'ElementVideoIcon';
+

@@ -39,3 +39,7 @@ export const JustifyContentCenterRowReverseIcon = React.forwardRef<
 }) as IconComponent;
 
 JustifyContentCenterRowReverseIcon.category = 'Layout';
+
+
+JustifyContentCenterRowReverseIcon.displayName = 'JustifyContentCenterRowReverseIcon';
+

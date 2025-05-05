@@ -37,3 +37,7 @@ export const BorderStyleDottedIcon = React.forwardRef<
 }) as IconComponent;
 
 BorderStyleDottedIcon.category = 'Layout';
+
+
+BorderStyleDottedIcon.displayName = 'BorderStyleDottedIcon';
+

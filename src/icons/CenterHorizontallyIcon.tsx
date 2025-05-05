@@ -44,3 +44,7 @@ export const CenterHorizontallyIcon = React.forwardRef<
 }) as IconComponent;
 
 CenterHorizontallyIcon.category = 'Layout';
+
+
+CenterHorizontallyIcon.displayName = 'CenterHorizontallyIcon';
+

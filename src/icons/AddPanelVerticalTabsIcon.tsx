@@ -48,3 +48,7 @@ export const AddPanelVerticalTabsIcon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelVerticalTabsIcon.category = '64x64 (Add panel)';
+
+
+AddPanelVerticalTabsIcon.displayName = 'AddPanelVerticalTabsIcon';
+

@@ -47,3 +47,7 @@ export const LayoutCardsSectionIcon = React.forwardRef<
 }) as IconComponent;
 
 LayoutCardsSectionIcon.category = '64x64 (Add panel)';
+
+
+LayoutCardsSectionIcon.displayName = 'LayoutCardsSectionIcon';
+

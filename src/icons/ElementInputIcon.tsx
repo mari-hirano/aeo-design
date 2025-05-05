@@ -45,3 +45,7 @@ export const ElementInputIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementInputIcon.tags = ['input', 'form input'];
 
 ElementInputIcon.category = 'Navigator';
+
+
+ElementInputIcon.displayName = 'ElementInputIcon';
+

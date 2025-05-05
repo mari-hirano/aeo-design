@@ -37,3 +37,7 @@ export const PositionRelativeIcon = React.forwardRef<
 }) as IconComponent;
 
 PositionRelativeIcon.category = 'Layout';
+
+
+PositionRelativeIcon.displayName = 'PositionRelativeIcon';
+

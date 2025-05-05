@@ -38,3 +38,7 @@ export const WebflowIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 WebflowIcon.tags = ['W', 'label', 'brand'];
 
 WebflowIcon.category = 'General Icons';
+
+
+WebflowIcon.displayName = 'WebflowIcon';
+

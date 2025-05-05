@@ -45,3 +45,7 @@ export const ListSmallIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ListSmallIcon.category = 'Style Panel';
+
+
+ListSmallIcon.displayName = 'ListSmallIcon';
+

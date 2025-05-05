@@ -49,3 +49,7 @@ export const EmptyNoComponentStyleVariants64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyNoComponentStyleVariants64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyNoComponentStyleVariants64Icon.displayName = 'EmptyNoComponentStyleVariants64Icon';
+

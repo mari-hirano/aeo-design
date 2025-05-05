@@ -40,3 +40,7 @@ export const CheckoutIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CheckoutIcon.category = 'Ecommerce';
+
+
+CheckoutIcon.displayName = 'CheckoutIcon';
+

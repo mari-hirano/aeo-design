@@ -35,3 +35,7 @@ export const AlignItemsStartColumnReverseIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignItemsStartColumnReverseIcon.category = 'Layout';
+
+
+AlignItemsStartColumnReverseIcon.displayName = 'AlignItemsStartColumnReverseIcon';
+

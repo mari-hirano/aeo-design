@@ -36,3 +36,7 @@ export const PageDraftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PageDraftIcon.category = 'General Icons';
+
+
+PageDraftIcon.displayName = 'PageDraftIcon';
+

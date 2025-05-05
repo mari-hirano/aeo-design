@@ -70,3 +70,7 @@ export const ProgressIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ProgressIcon.category = 'Cursors';
+
+
+ProgressIcon.displayName = 'ProgressIcon';
+

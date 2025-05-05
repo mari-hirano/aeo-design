@@ -44,3 +44,7 @@ export const CopilotPricingIcon = React.forwardRef<
 CopilotPricingIcon.tags = ['site'];
 
 CopilotPricingIcon.category = 'General Icons';
+
+
+CopilotPricingIcon.displayName = 'CopilotPricingIcon';
+

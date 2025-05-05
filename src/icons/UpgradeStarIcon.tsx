@@ -36,3 +36,7 @@ export const UpgradeStarIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 UpgradeStarIcon.category = 'General Icons';
+
+
+UpgradeStarIcon.displayName = 'UpgradeStarIcon';
+

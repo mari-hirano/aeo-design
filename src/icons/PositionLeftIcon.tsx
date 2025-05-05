@@ -41,3 +41,7 @@ export const PositionLeftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PositionLeftIcon.category = 'Layout';
+
+
+PositionLeftIcon.displayName = 'PositionLeftIcon';
+

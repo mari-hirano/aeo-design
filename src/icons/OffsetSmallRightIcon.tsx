@@ -43,3 +43,7 @@ export const OffsetSmallRightIcon = React.forwardRef<
 }) as IconComponent;
 
 OffsetSmallRightIcon.category = 'Style Panel';
+
+
+OffsetSmallRightIcon.displayName = 'OffsetSmallRightIcon';
+

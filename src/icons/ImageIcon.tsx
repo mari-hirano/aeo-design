@@ -42,3 +42,7 @@ export const ImageIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ImageIcon.tags = ['photo', 'picture'];
 
 ImageIcon.category = 'General Icons';
+
+
+ImageIcon.displayName = 'ImageIcon';
+

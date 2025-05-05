@@ -38,3 +38,7 @@ export const BranchUpdateIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 BranchUpdateIcon.category = 'General Icons';
+
+
+BranchUpdateIcon.displayName = 'BranchUpdateIcon';
+

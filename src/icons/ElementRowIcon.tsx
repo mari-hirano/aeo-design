@@ -45,3 +45,7 @@ export const ElementRowIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementRowIcon.tags = ['row', 'rows'];
 
 ElementRowIcon.category = 'Navigator';
+
+
+ElementRowIcon.displayName = 'ElementRowIcon';
+

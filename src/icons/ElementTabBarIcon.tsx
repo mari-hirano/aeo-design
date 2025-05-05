@@ -46,3 +46,7 @@ export const ElementTabBarIcon = React.forwardRef<
 ElementTabBarIcon.tags = ['tab', 'tabs', 'tab bar'];
 
 ElementTabBarIcon.category = 'Navigator';
+
+
+ElementTabBarIcon.displayName = 'ElementTabBarIcon';
+

@@ -38,3 +38,7 @@ export const ElementDivIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementDivIcon.tags = ['div', 'div block'];
 
 ElementDivIcon.category = 'Navigator';
+
+
+ElementDivIcon.displayName = 'ElementDivIcon';
+

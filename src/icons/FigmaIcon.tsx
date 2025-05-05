@@ -36,3 +36,7 @@ export const FigmaIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FigmaIcon.category = 'General Icons';
+
+
+FigmaIcon.displayName = 'FigmaIcon';
+

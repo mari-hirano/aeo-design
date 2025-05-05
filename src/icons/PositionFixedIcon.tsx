@@ -44,3 +44,7 @@ export const PositionFixedIcon = React.forwardRef<
 }) as IconComponent;
 
 PositionFixedIcon.category = 'Layout';
+
+
+PositionFixedIcon.displayName = 'PositionFixedIcon';
+

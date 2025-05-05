@@ -41,3 +41,7 @@ export const MarginAutoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 MarginAutoIcon.tags = ['arrows', 'box', 'square '];
 
 MarginAutoIcon.category = 'General Icons';
+
+
+MarginAutoIcon.displayName = 'MarginAutoIcon';
+

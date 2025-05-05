@@ -53,3 +53,7 @@ export const AddPanelHeroImageOverlayIcon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelHeroImageOverlayIcon.category = '64x64 (Add panel)';
+
+
+AddPanelHeroImageOverlayIcon.displayName = 'AddPanelHeroImageOverlayIcon';
+

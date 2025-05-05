@@ -40,3 +40,7 @@ export const GridRowAutoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 GridRowAutoIcon.category = 'Style Panel';
+
+
+GridRowAutoIcon.displayName = 'GridRowAutoIcon';
+

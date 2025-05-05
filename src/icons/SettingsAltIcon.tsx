@@ -34,3 +34,7 @@ export const SettingsAltIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SettingsAltIcon.category = 'General Icons';
+
+
+SettingsAltIcon.displayName = 'SettingsAltIcon';
+

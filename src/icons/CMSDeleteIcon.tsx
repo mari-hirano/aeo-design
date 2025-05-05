@@ -38,3 +38,7 @@ export const CMSDeleteIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CMSDeleteIcon.tags = ['collection', 'coins', 'stack'];
 
 CMSDeleteIcon.category = 'General Icons';
+
+
+CMSDeleteIcon.displayName = 'CMSDeleteIcon';
+

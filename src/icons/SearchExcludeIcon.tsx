@@ -43,3 +43,7 @@ export const SearchExcludeIcon = React.forwardRef<
 SearchExcludeIcon.tags = ['magnifying glass', 'look', 'quick', 'find', 'hide'];
 
 SearchExcludeIcon.category = 'General Icons';
+
+
+SearchExcludeIcon.displayName = 'SearchExcludeIcon';
+

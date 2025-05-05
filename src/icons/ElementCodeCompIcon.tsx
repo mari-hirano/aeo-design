@@ -44,3 +44,7 @@ ElementCodeCompIcon.tags = [
 ];
 
 ElementCodeCompIcon.category = 'Navigator';
+
+
+ElementCodeCompIcon.displayName = 'ElementCodeCompIcon';
+

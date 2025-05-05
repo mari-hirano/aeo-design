@@ -35,3 +35,7 @@ export const AddPanelSearch64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelSearch64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelSearch64Icon.displayName = 'AddPanelSearch64Icon';
+

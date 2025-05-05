@@ -44,3 +44,7 @@ export const TransformSmallSkewIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformSmallSkewIcon.category = 'Style Panel';
+
+
+TransformSmallSkewIcon.displayName = 'TransformSmallSkewIcon';
+

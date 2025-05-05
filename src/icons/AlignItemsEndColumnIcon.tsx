@@ -35,3 +35,7 @@ export const AlignItemsEndColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignItemsEndColumnIcon.category = 'Layout';
+
+
+AlignItemsEndColumnIcon.displayName = 'AlignItemsEndColumnIcon';
+

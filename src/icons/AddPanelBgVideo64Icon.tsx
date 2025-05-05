@@ -42,3 +42,7 @@ export const AddPanelBgVideo64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelBgVideo64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelBgVideo64Icon.displayName = 'AddPanelBgVideo64Icon';
+

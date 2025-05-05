@@ -38,3 +38,7 @@ export const PositionAllIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PositionAllIcon.category = 'Color & Background';
+
+
+PositionAllIcon.displayName = 'PositionAllIcon';
+

@@ -36,3 +36,7 @@ export const FieldNumberIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldNumberIcon.category = 'CMS Fields';
+
+
+FieldNumberIcon.displayName = 'FieldNumberIcon';
+

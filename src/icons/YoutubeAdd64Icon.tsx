@@ -43,3 +43,7 @@ export const YoutubeAdd64Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 YoutubeAdd64Icon.category = '64x64 (Add panel)';
+
+
+YoutubeAdd64Icon.displayName = 'YoutubeAdd64Icon';
+

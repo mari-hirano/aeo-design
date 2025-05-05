@@ -46,3 +46,7 @@ export const CertifiedPartnerIcon = React.forwardRef<
 CertifiedPartnerIcon.tags = ['certify', 'success', 'partner'];
 
 CertifiedPartnerIcon.category = 'General Icons';
+
+
+CertifiedPartnerIcon.displayName = 'CertifiedPartnerIcon';
+

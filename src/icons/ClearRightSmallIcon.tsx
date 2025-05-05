@@ -47,3 +47,7 @@ export const ClearRightSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 ClearRightSmallIcon.category = 'Layout';
+
+
+ClearRightSmallIcon.displayName = 'ClearRightSmallIcon';
+

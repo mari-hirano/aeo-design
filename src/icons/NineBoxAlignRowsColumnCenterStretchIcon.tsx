@@ -37,3 +37,7 @@ export const NineBoxAlignRowsColumnCenterStretchIcon = React.forwardRef<
 }) as IconComponent;
 
 NineBoxAlignRowsColumnCenterStretchIcon.category = 'Layout';
+
+
+NineBoxAlignRowsColumnCenterStretchIcon.displayName = 'NineBoxAlignRowsColumnCenterStretchIcon';
+

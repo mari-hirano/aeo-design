@@ -38,3 +38,7 @@ export const MergeCellBottomIcon = React.forwardRef<
 MergeCellBottomIcon.tags = ['MergeCellBottom'];
 
 MergeCellBottomIcon.category = 'Arrows';
+
+
+MergeCellBottomIcon.displayName = 'MergeCellBottomIcon';
+

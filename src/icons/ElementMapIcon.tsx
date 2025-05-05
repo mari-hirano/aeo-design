@@ -42,3 +42,7 @@ export const ElementMapIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementMapIcon.tags = ['map', 'pin'];
 
 ElementMapIcon.category = 'Navigator';
+
+
+ElementMapIcon.displayName = 'ElementMapIcon';
+

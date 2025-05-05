@@ -36,3 +36,7 @@ export const UndoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UndoIcon.tags = ['arrow', 'left', 'go back'];
 
 UndoIcon.category = 'General Icons';
+
+
+UndoIcon.displayName = 'UndoIcon';
+

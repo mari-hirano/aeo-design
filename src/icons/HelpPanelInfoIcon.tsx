@@ -44,3 +44,7 @@ export const HelpPanelInfoIcon = React.forwardRef<
 }) as IconComponent;
 
 HelpPanelInfoIcon.category = '24x24 (Field illustrations)';
+
+
+HelpPanelInfoIcon.displayName = 'HelpPanelInfoIcon';
+

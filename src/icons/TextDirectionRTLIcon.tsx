@@ -37,3 +37,7 @@ export const TextDirectionRTLIcon = React.forwardRef<
 }) as IconComponent;
 
 TextDirectionRTLIcon.category = 'Typography';
+
+
+TextDirectionRTLIcon.displayName = 'TextDirectionRTLIcon';
+

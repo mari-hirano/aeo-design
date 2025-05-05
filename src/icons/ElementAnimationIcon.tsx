@@ -49,3 +49,7 @@ ElementAnimationIcon.tags = [
 ];
 
 ElementAnimationIcon.category = 'Navigator';
+
+
+ElementAnimationIcon.displayName = 'ElementAnimationIcon';
+

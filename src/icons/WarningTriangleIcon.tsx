@@ -51,3 +51,7 @@ WarningTriangleIcon.tags = [
 ];
 
 WarningTriangleIcon.category = 'General Icons';
+
+
+WarningTriangleIcon.displayName = 'WarningTriangleIcon';
+

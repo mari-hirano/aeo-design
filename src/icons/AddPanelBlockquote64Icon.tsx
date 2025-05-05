@@ -50,3 +50,7 @@ export const AddPanelBlockquote64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelBlockquote64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelBlockquote64Icon.displayName = 'AddPanelBlockquote64Icon';
+

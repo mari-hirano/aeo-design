@@ -46,3 +46,7 @@ export const DisplayInlineIcon = React.forwardRef<
 }) as IconComponent;
 
 DisplayInlineIcon.category = 'Layout';
+
+
+DisplayInlineIcon.displayName = 'DisplayInlineIcon';
+

@@ -36,3 +36,7 @@ export const CMSImportIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CMSImportIcon.category = 'General Icons';
+
+
+CMSImportIcon.displayName = 'CMSImportIcon';
+

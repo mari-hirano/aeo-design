@@ -40,3 +40,7 @@ export const CopilotComingSoonIcon = React.forwardRef<
 CopilotComingSoonIcon.tags = ['site'];
 
 CopilotComingSoonIcon.category = 'General Icons';
+
+
+CopilotComingSoonIcon.displayName = 'CopilotComingSoonIcon';
+

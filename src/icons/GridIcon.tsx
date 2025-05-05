@@ -36,3 +36,7 @@ export const GridIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 GridIcon.category = 'Style Panel';
+
+
+GridIcon.displayName = 'GridIcon';
+

@@ -36,3 +36,7 @@ export const Column2Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 Column2Icon.category = 'Layout';
+
+
+Column2Icon.displayName = 'Column2Icon';
+

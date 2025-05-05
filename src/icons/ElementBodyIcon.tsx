@@ -38,3 +38,7 @@ export const ElementBodyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementBodyIcon.tags = ['body'];
 
 ElementBodyIcon.category = 'Navigator';
+
+
+ElementBodyIcon.displayName = 'ElementBodyIcon';
+

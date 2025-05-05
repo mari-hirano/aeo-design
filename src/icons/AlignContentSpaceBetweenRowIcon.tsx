@@ -39,3 +39,7 @@ export const AlignContentSpaceBetweenRowIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignContentSpaceBetweenRowIcon.category = 'Layout';
+
+
+AlignContentSpaceBetweenRowIcon.displayName = 'AlignContentSpaceBetweenRowIcon';
+

@@ -36,3 +36,7 @@ export const SubscriptIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SubscriptIcon.category = 'General Icons';
+
+
+SubscriptIcon.displayName = 'SubscriptIcon';
+

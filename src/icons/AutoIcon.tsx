@@ -34,3 +34,7 @@ export const AutoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AutoIcon.category = 'Cursors';
+
+
+AutoIcon.displayName = 'AutoIcon';
+

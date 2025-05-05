@@ -34,3 +34,7 @@ export const FieldTextIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldTextIcon.category = 'CMS Fields';
+
+
+FieldTextIcon.displayName = 'FieldTextIcon';
+

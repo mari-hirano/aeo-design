@@ -44,3 +44,7 @@ export const OverflowScrollIcon = React.forwardRef<
 }) as IconComponent;
 
 OverflowScrollIcon.category = 'Layout';
+
+
+OverflowScrollIcon.displayName = 'OverflowScrollIcon';
+

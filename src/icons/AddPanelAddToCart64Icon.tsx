@@ -37,3 +37,7 @@ export const AddPanelAddToCart64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelAddToCart64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelAddToCart64Icon.displayName = 'AddPanelAddToCart64Icon';
+

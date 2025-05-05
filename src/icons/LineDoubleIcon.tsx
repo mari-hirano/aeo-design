@@ -36,3 +36,7 @@ export const LineDoubleIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LineDoubleIcon.category = 'General Icons';
+
+
+LineDoubleIcon.displayName = 'LineDoubleIcon';
+

@@ -36,3 +36,7 @@ export const FieldLink24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldLink24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldLink24Icon.displayName = 'FieldLink24Icon';
+

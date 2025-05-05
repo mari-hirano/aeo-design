@@ -38,3 +38,7 @@ export const FlagIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 FlagIcon.tags = ['note', 'alert'];
 
 FlagIcon.category = 'General Icons';
+
+
+FlagIcon.displayName = 'FlagIcon';
+

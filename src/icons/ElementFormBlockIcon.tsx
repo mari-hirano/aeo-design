@@ -39,3 +39,7 @@ export const ElementFormBlockIcon = React.forwardRef<
 ElementFormBlockIcon.tags = ['form', 'form block'];
 
 ElementFormBlockIcon.category = 'Navigator';
+
+
+ElementFormBlockIcon.displayName = 'ElementFormBlockIcon';
+

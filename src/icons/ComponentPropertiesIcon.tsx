@@ -37,3 +37,7 @@ export const ComponentPropertiesIcon = React.forwardRef<
 }) as IconComponent;
 
 ComponentPropertiesIcon.category = 'General Icons';
+
+
+ComponentPropertiesIcon.displayName = 'ComponentPropertiesIcon';
+

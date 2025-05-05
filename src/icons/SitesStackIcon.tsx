@@ -37,3 +37,7 @@ export const SitesStackIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SitesStackIcon.category = 'General Icons';
+
+
+SitesStackIcon.displayName = 'SitesStackIcon';
+

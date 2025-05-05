@@ -37,3 +37,7 @@ export const HelpPanelPreviewIcon = React.forwardRef<
 }) as IconComponent;
 
 HelpPanelPreviewIcon.category = '24x24 (Field illustrations)';
+
+
+HelpPanelPreviewIcon.displayName = 'HelpPanelPreviewIcon';
+

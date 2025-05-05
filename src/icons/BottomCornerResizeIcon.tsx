@@ -32,3 +32,7 @@ export const BottomCornerResizeIcon = React.forwardRef<
 }) as IconComponent;
 
 BottomCornerResizeIcon.category = 'Misc.';
+
+
+BottomCornerResizeIcon.displayName = 'BottomCornerResizeIcon';
+

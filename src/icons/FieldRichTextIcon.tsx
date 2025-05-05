@@ -40,3 +40,7 @@ export const FieldRichTextIcon = React.forwardRef<
 }) as IconComponent;
 
 FieldRichTextIcon.category = 'CMS Fields';
+
+
+FieldRichTextIcon.displayName = 'FieldRichTextIcon';
+

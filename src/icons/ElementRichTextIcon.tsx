@@ -42,3 +42,7 @@ export const ElementRichTextIcon = React.forwardRef<
 ElementRichTextIcon.tags = ['rich', 'rich text', 'rtb', 'rte'];
 
 ElementRichTextIcon.category = 'Navigator';
+
+
+ElementRichTextIcon.displayName = 'ElementRichTextIcon';
+

@@ -43,3 +43,7 @@ export const ComponentEditMainIcon = React.forwardRef<
 ComponentEditMainIcon.tags = ['3D', 'cube', 'pencil', 'change'];
 
 ComponentEditMainIcon.category = 'General Icons';
+
+
+ComponentEditMainIcon.displayName = 'ComponentEditMainIcon';
+

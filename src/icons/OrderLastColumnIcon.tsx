@@ -57,3 +57,7 @@ export const OrderLastColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 OrderLastColumnIcon.category = 'Layout';
+
+
+OrderLastColumnIcon.displayName = 'OrderLastColumnIcon';
+

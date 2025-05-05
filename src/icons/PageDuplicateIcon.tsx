@@ -43,3 +43,7 @@ export const PageDuplicateIcon = React.forwardRef<
 PageDuplicateIcon.tags = ['paper', 'copy'];
 
 PageDuplicateIcon.category = 'General Icons';
+
+
+PageDuplicateIcon.displayName = 'PageDuplicateIcon';
+

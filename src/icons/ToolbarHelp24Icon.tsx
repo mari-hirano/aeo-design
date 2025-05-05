@@ -46,3 +46,7 @@ export const ToolbarHelp24Icon = React.forwardRef<
 }) as IconComponent;
 
 ToolbarHelp24Icon.category = 'General Icons';
+
+
+ToolbarHelp24Icon.displayName = 'ToolbarHelp24Icon';
+

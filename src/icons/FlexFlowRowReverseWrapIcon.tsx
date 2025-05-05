@@ -46,3 +46,7 @@ export const FlexFlowRowReverseWrapIcon = React.forwardRef<
 FlexFlowRowReverseWrapIcon.tags = ['FlexFlowRowReverseWrap'];
 
 FlexFlowRowReverseWrapIcon.category = 'Layout';
+
+
+FlexFlowRowReverseWrapIcon.displayName = 'FlexFlowRowReverseWrapIcon';
+

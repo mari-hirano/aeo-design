@@ -61,3 +61,7 @@ export const FlexBasisRowIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FlexBasisRowIcon.category = 'Misc.';
+
+
+FlexBasisRowIcon.displayName = 'FlexBasisRowIcon';
+

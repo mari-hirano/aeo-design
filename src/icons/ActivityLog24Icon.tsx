@@ -39,3 +39,7 @@ export const ActivityLog24Icon = React.forwardRef<
 ActivityLog24Icon.tags = ['move', 'ekg', 'heartbeat', 'line', 'graph'];
 
 ActivityLog24Icon.category = 'General Icons';
+
+
+ActivityLog24Icon.displayName = 'ActivityLog24Icon';
+

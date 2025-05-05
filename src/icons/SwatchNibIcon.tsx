@@ -36,3 +36,7 @@ export const SwatchNibIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SwatchNibIcon.category = 'Style Panel';
+
+
+SwatchNibIcon.displayName = 'SwatchNibIcon';
+

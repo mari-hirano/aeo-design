@@ -43,3 +43,7 @@ export const OffsetSmallUpIcon = React.forwardRef<
 }) as IconComponent;
 
 OffsetSmallUpIcon.category = 'Style Panel';
+
+
+OffsetSmallUpIcon.displayName = 'OffsetSmallUpIcon';
+

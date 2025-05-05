@@ -37,3 +37,7 @@ export const EditGridTemplateIcon = React.forwardRef<
 }) as IconComponent;
 
 EditGridTemplateIcon.category = 'General Icons';
+
+
+EditGridTemplateIcon.displayName = 'EditGridTemplateIcon';
+

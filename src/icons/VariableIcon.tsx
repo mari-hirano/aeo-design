@@ -43,3 +43,7 @@ export const VariableIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 VariableIcon.category = 'General Icons';
+
+
+VariableIcon.displayName = 'VariableIcon';
+

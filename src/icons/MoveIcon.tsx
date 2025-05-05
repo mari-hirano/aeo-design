@@ -34,3 +34,7 @@ export const MoveIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 MoveIcon.category = 'Cursors';
+
+
+MoveIcon.displayName = 'MoveIcon';
+

@@ -45,3 +45,7 @@ export const DisplayBlockSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 DisplayBlockSmallIcon.category = 'Layout';
+
+
+DisplayBlockSmallIcon.displayName = 'DisplayBlockSmallIcon';
+

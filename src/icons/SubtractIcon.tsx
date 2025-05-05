@@ -38,3 +38,7 @@ export const SubtractIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SubtractIcon.tags = ['minus', 'remove'];
 
 SubtractIcon.category = 'General Icons';
+
+
+SubtractIcon.displayName = 'SubtractIcon';
+

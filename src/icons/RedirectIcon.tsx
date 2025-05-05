@@ -44,3 +44,7 @@ export const RedirectIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 RedirectIcon.tags = ['MergeCellBottom'];
 
 RedirectIcon.category = 'General Icons';
+
+
+RedirectIcon.displayName = 'RedirectIcon';
+

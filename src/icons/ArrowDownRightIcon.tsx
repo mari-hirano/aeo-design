@@ -37,3 +37,7 @@ export const ArrowDownRightIcon = React.forwardRef<
 ArrowDownRightIcon.tags = ['ArrowDownRight'];
 
 ArrowDownRightIcon.category = 'Arrows';
+
+
+ArrowDownRightIcon.displayName = 'ArrowDownRightIcon';
+

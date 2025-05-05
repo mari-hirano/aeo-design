@@ -36,3 +36,7 @@ export const StatusPausedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 StatusPausedIcon.category = 'General Icons';
+
+
+StatusPausedIcon.displayName = 'StatusPausedIcon';
+

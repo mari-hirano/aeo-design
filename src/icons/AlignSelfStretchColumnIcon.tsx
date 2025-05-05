@@ -32,3 +32,7 @@ export const AlignSelfStretchColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfStretchColumnIcon.category = 'Layout';
+
+
+AlignSelfStretchColumnIcon.displayName = 'AlignSelfStretchColumnIcon';
+

@@ -45,3 +45,7 @@ CollapseDefaultIcon.tags = [
 ];
 
 CollapseDefaultIcon.category = 'General Icons';
+
+
+CollapseDefaultIcon.displayName = 'CollapseDefaultIcon';
+

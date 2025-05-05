@@ -36,3 +36,7 @@ export const DropletLargeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DropletLargeIcon.category = 'Color & Background';
+
+
+DropletLargeIcon.displayName = 'DropletLargeIcon';
+

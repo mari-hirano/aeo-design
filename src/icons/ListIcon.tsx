@@ -36,3 +36,7 @@ export const ListIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ListIcon.category = 'General Icons';
+
+
+ListIcon.displayName = 'ListIcon';
+

@@ -37,3 +37,7 @@ export const ColumnFullWidthIcon = React.forwardRef<
 }) as IconComponent;
 
 ColumnFullWidthIcon.category = 'Layout';
+
+
+ColumnFullWidthIcon.displayName = 'ColumnFullWidthIcon';
+

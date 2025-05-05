@@ -37,3 +37,7 @@ export const FilterSmallRotateHueIcon = React.forwardRef<
 }) as IconComponent;
 
 FilterSmallRotateHueIcon.category = 'Style Panel';
+
+
+FilterSmallRotateHueIcon.displayName = 'FilterSmallRotateHueIcon';
+

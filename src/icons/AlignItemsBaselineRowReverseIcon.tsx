@@ -37,3 +37,7 @@ export const AlignItemsBaselineRowReverseIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignItemsBaselineRowReverseIcon.category = 'Layout';
+
+
+AlignItemsBaselineRowReverseIcon.displayName = 'AlignItemsBaselineRowReverseIcon';
+

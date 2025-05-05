@@ -43,3 +43,7 @@ export const PagePanel24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PagePanel24Icon.tags = ['paper'];
 
 PagePanel24Icon.category = 'General Icons';
+
+
+PagePanel24Icon.displayName = 'PagePanel24Icon';
+

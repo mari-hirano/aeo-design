@@ -38,3 +38,7 @@ export const FilterIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 FilterIcon.tags = ['funnel', 'cup'];
 
 FilterIcon.category = 'General Icons';
+
+
+FilterIcon.displayName = 'FilterIcon';
+

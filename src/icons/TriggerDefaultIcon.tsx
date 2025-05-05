@@ -37,3 +37,7 @@ export const TriggerDefaultIcon = React.forwardRef<
 }) as IconComponent;
 
 TriggerDefaultIcon.category = 'General Icons';
+
+
+TriggerDefaultIcon.displayName = 'TriggerDefaultIcon';
+

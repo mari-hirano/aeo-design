@@ -38,3 +38,7 @@ export const ElementLinkIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementLinkIcon.tags = ['link'];
 
 ElementLinkIcon.category = 'Navigator';
+
+
+ElementLinkIcon.displayName = 'ElementLinkIcon';
+

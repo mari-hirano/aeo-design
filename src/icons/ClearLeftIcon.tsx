@@ -51,3 +51,7 @@ export const ClearLeftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ClearLeftIcon.category = 'Layout';
+
+
+ClearLeftIcon.displayName = 'ClearLeftIcon';
+

@@ -44,3 +44,7 @@ export const FieldMultiref24Icon = React.forwardRef<
 }) as IconComponent;
 
 FieldMultiref24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldMultiref24Icon.displayName = 'FieldMultiref24Icon';
+

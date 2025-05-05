@@ -52,3 +52,7 @@ export const UpgradeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UpgradeIcon.tags = ['arrow', 'circle'];
 
 UpgradeIcon.category = 'General Icons';
+
+
+UpgradeIcon.displayName = 'UpgradeIcon';
+

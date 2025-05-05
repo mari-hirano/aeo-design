@@ -37,3 +37,7 @@ export const TransformEasingEaseOutIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformEasingEaseOutIcon.category = 'Cursors';
+
+
+TransformEasingEaseOutIcon.displayName = 'TransformEasingEaseOutIcon';
+

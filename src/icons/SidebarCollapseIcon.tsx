@@ -37,3 +37,7 @@ export const SidebarCollapseIcon = React.forwardRef<
 }) as IconComponent;
 
 SidebarCollapseIcon.category = 'Layout';
+
+
+SidebarCollapseIcon.displayName = 'SidebarCollapseIcon';
+

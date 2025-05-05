@@ -42,3 +42,7 @@ export const AddPanelSocialGoogleplus64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelSocialGoogleplus64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelSocialGoogleplus64Icon.displayName = 'AddPanelSocialGoogleplus64Icon';
+

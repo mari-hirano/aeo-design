@@ -46,3 +46,7 @@ export const TransformTranslateZIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformTranslateZIcon.category = 'Layout';
+
+
+TransformTranslateZIcon.displayName = 'TransformTranslateZIcon';
+

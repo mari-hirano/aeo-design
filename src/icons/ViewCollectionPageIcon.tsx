@@ -39,3 +39,7 @@ export const ViewCollectionPageIcon = React.forwardRef<
 ViewCollectionPageIcon.tags = ['paper', 'plus'];
 
 ViewCollectionPageIcon.category = 'General Icons';
+
+
+ViewCollectionPageIcon.displayName = 'ViewCollectionPageIcon';
+

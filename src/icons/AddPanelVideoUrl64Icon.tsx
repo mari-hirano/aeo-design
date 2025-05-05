@@ -37,3 +37,7 @@ export const AddPanelVideoUrl64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelVideoUrl64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelVideoUrl64Icon.displayName = 'AddPanelVideoUrl64Icon';
+

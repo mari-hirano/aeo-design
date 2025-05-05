@@ -38,3 +38,7 @@ export const PageTemplateIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PageTemplateIcon.tags = ['paper', 'page', 'template'];
 
 PageTemplateIcon.category = 'General Icons';
+
+
+PageTemplateIcon.displayName = 'PageTemplateIcon';
+

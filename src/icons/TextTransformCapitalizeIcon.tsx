@@ -37,3 +37,7 @@ export const TextTransformCapitalizeIcon = React.forwardRef<
 }) as IconComponent;
 
 TextTransformCapitalizeIcon.category = 'Typography';
+
+
+TextTransformCapitalizeIcon.displayName = 'TextTransformCapitalizeIcon';
+

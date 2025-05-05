@@ -38,3 +38,7 @@ export const LocationIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LocationIcon.tags = ['globe', 'earth'];
 
 LocationIcon.category = 'General Icons';
+
+
+LocationIcon.displayName = 'LocationIcon';
+

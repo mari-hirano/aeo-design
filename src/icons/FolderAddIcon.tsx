@@ -40,3 +40,7 @@ export const FolderAddIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 FolderAddIcon.tags = ['file'];
 
 FolderAddIcon.category = 'General Icons';
+
+
+FolderAddIcon.displayName = 'FolderAddIcon';
+

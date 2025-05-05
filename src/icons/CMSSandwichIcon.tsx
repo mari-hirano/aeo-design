@@ -51,3 +51,7 @@ export const CMSSandwichIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CMSSandwichIcon.tags = ['collection', 'coins', 'stack', 'caret', 'data'];
 
 CMSSandwichIcon.category = 'General Icons';
+
+
+CMSSandwichIcon.displayName = 'CMSSandwichIcon';
+

@@ -40,3 +40,7 @@ export const KeyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 KeyIcon.category = 'General Icons';
+
+
+KeyIcon.displayName = 'KeyIcon';
+

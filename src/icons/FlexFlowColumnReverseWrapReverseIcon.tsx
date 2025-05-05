@@ -48,3 +48,7 @@ FlexFlowColumnReverseWrapReverseIcon.tags = [
 ];
 
 FlexFlowColumnReverseWrapReverseIcon.category = 'Layout';
+
+
+FlexFlowColumnReverseWrapReverseIcon.displayName = 'FlexFlowColumnReverseWrapReverseIcon';
+

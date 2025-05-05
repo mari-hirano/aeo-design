@@ -44,3 +44,7 @@ export const LoginLogoutUserIcon = React.forwardRef<
 }) as IconComponent;
 
 LoginLogoutUserIcon.category = '64x64 (Add panel)';
+
+
+LoginLogoutUserIcon.displayName = 'LoginLogoutUserIcon';
+

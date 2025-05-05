@@ -52,3 +52,7 @@ export const UserAccessIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UserAccessIcon.tags = ['writer', 'pencil', 'person'];
 
 UserAccessIcon.category = 'General Icons';
+
+
+UserAccessIcon.displayName = 'UserAccessIcon';
+

@@ -37,3 +37,7 @@ export const AddPanelWebPayment64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelWebPayment64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelWebPayment64Icon.displayName = 'AddPanelWebPayment64Icon';
+

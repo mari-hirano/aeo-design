@@ -38,3 +38,7 @@ export const ElementEmbedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementEmbedIcon.tags = ['embed'];
 
 ElementEmbedIcon.category = 'Navigator';
+
+
+ElementEmbedIcon.displayName = 'ElementEmbedIcon';
+

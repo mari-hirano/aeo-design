@@ -44,3 +44,7 @@ export const UserDeleteIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 UserDeleteIcon.category = 'General Icons';
+
+
+UserDeleteIcon.displayName = 'UserDeleteIcon';
+

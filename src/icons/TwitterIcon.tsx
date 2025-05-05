@@ -34,3 +34,7 @@ export const TwitterIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TwitterIcon.category = 'Social';
+
+
+TwitterIcon.displayName = 'TwitterIcon';
+

@@ -42,3 +42,7 @@ export const HideIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 HideIcon.tags = ['eye', 'exclude'];
 
 HideIcon.category = 'General Icons';
+
+
+HideIcon.displayName = 'HideIcon';
+

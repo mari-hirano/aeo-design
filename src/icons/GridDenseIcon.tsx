@@ -45,3 +45,7 @@ export const GridDenseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 GridDenseIcon.tags = ['dense', 'grid', 'flex', 'layout'];
 
 GridDenseIcon.category = 'Style Panel';
+
+
+GridDenseIcon.displayName = 'GridDenseIcon';
+

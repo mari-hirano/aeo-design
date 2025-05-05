@@ -37,3 +37,7 @@ export const VariableColorIcon = React.forwardRef<
 }) as IconComponent;
 
 VariableColorIcon.category = 'General Icons';
+
+
+VariableColorIcon.displayName = 'VariableColorIcon';
+

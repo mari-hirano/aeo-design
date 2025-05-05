@@ -41,3 +41,7 @@ export const MainDocsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 MainDocsIcon.tags = ['paper'];
 
 MainDocsIcon.category = 'General Icons';
+
+
+MainDocsIcon.displayName = 'MainDocsIcon';
+

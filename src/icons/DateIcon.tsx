@@ -38,3 +38,7 @@ export const DateIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 DateIcon.tags = ['calendar', 'time'];
 
 DateIcon.category = 'General Icons';
+
+
+DateIcon.displayName = 'DateIcon';
+

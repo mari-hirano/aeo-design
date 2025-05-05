@@ -43,3 +43,7 @@ export const CartModalIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CartModalIcon.category = 'Ecommerce';
+
+
+CartModalIcon.displayName = 'CartModalIcon';
+

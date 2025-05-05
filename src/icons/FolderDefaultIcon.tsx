@@ -39,3 +39,7 @@ export const FolderDefaultIcon = React.forwardRef<
 FolderDefaultIcon.tags = ['file'];
 
 FolderDefaultIcon.category = 'General Icons';
+
+
+FolderDefaultIcon.displayName = 'FolderDefaultIcon';
+

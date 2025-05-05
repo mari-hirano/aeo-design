@@ -34,3 +34,7 @@ export const ZoomInIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ZoomInIcon.category = 'Cursors';
+
+
+ZoomInIcon.displayName = 'ZoomInIcon';
+

@@ -46,3 +46,7 @@ export const SortAZDownIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SortAZDownIcon.tags = ['alphabetical', 'sort', 'order'];
 
 SortAZDownIcon.category = 'General Icons';
+
+
+SortAZDownIcon.displayName = 'SortAZDownIcon';
+

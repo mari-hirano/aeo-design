@@ -36,3 +36,7 @@ export const AddIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 AddIcon.tags = ['plus', 'more'];
 
 AddIcon.category = 'General Icons';
+
+
+AddIcon.displayName = 'AddIcon';
+

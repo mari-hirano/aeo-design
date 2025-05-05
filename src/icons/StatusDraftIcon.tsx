@@ -62,3 +62,7 @@ export const StatusDraftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 StatusDraftIcon.category = 'General Icons';
+
+
+StatusDraftIcon.displayName = 'StatusDraftIcon';
+

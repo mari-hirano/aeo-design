@@ -37,3 +37,7 @@ export const ImageAlignCenterIcon = React.forwardRef<
 }) as IconComponent;
 
 ImageAlignCenterIcon.category = 'Layout';
+
+
+ImageAlignCenterIcon.displayName = 'ImageAlignCenterIcon';
+

@@ -39,3 +39,7 @@ export const ElementDiscountIcon = React.forwardRef<
 ElementDiscountIcon.tags = ['discount'];
 
 ElementDiscountIcon.category = 'Navigator';
+
+
+ElementDiscountIcon.displayName = 'ElementDiscountIcon';
+

@@ -44,3 +44,7 @@ export const AnalyzePageIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 AnalyzePageIcon.tags = ['plus', 'more'];
 
 AnalyzePageIcon.category = 'General Icons';
+
+
+AnalyzePageIcon.displayName = 'AnalyzePageIcon';
+

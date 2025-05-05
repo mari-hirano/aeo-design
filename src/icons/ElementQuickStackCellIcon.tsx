@@ -52,3 +52,7 @@ ElementQuickStackCellIcon.tags = [
 ];
 
 ElementQuickStackCellIcon.category = 'Navigator';
+
+
+ElementQuickStackCellIcon.displayName = 'ElementQuickStackCellIcon';
+

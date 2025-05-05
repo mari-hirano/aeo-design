@@ -39,3 +39,7 @@ export const OverflowHiddenIcon = React.forwardRef<
 }) as IconComponent;
 
 OverflowHiddenIcon.category = 'Layout';
+
+
+OverflowHiddenIcon.displayName = 'OverflowHiddenIcon';
+

@@ -34,3 +34,7 @@ export const TikTokIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TikTokIcon.category = 'Social';
+
+
+TikTokIcon.displayName = 'TikTokIcon';
+

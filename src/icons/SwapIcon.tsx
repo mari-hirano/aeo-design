@@ -40,3 +40,7 @@ export const SwapIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SwapIcon.tags = ['arrows', 'horizontal', 'exchange'];
 
 SwapIcon.category = 'General Icons';
+
+
+SwapIcon.displayName = 'SwapIcon';
+

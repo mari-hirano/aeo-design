@@ -38,3 +38,7 @@ export const CodeBlockIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CodeBlockIcon.tags = ['code', 'code block'];
 
 CodeBlockIcon.category = 'Navigator';
+
+
+CodeBlockIcon.displayName = 'CodeBlockIcon';
+

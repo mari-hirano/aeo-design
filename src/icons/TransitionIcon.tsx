@@ -42,3 +42,7 @@ export const TransitionIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 TransitionIcon.tags = ['clock', 'circle', 'minutes', 'hours', 'change'];
 
 TransitionIcon.category = 'General Icons';
+
+
+TransitionIcon.displayName = 'TransitionIcon';
+

@@ -44,3 +44,7 @@ export const GlobeCheckIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 GlobeCheckIcon.tags = ['globe', 'secure', 'check'];
 
 GlobeCheckIcon.category = 'General Icons';
+
+
+GlobeCheckIcon.displayName = 'GlobeCheckIcon';
+

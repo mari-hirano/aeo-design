@@ -38,3 +38,7 @@ export const StarOutlineIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 StarOutlineIcon.tags = ['star'];
 
 StarOutlineIcon.category = 'General Icons';
+
+
+StarOutlineIcon.displayName = 'StarOutlineIcon';
+

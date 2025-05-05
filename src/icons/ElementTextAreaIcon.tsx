@@ -40,3 +40,7 @@ export const ElementTextAreaIcon = React.forwardRef<
 ElementTextAreaIcon.tags = ['text area', 'textarea', 'area'];
 
 ElementTextAreaIcon.category = 'Navigator';
+
+
+ElementTextAreaIcon.displayName = 'ElementTextAreaIcon';
+

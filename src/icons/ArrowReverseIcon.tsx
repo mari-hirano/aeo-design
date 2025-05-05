@@ -36,3 +36,7 @@ export const ArrowReverseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ArrowReverseIcon.category = 'Layout';
+
+
+ArrowReverseIcon.displayName = 'ArrowReverseIcon';
+

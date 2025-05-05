@@ -37,3 +37,7 @@ export const AlignContentSpaceAroundColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignContentSpaceAroundColumnIcon.category = 'Layout';
+
+
+AlignContentSpaceAroundColumnIcon.displayName = 'AlignContentSpaceAroundColumnIcon';
+

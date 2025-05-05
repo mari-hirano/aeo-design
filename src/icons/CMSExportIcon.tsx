@@ -42,3 +42,7 @@ export const CMSExportIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CMSExportIcon.tags = ['collection', 'coins', 'stack', 'arrow'];
 
 CMSExportIcon.category = 'General Icons';
+
+
+CMSExportIcon.displayName = 'CMSExportIcon';
+

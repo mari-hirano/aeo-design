@@ -38,3 +38,7 @@ export const CsvImportIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CsvImportIcon.category = 'General Icons';
+
+
+CsvImportIcon.displayName = 'CsvImportIcon';
+

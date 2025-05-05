@@ -46,3 +46,7 @@ export const FlexShrinkRowSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 FlexShrinkRowSmallIcon.category = 'Layout';
+
+
+FlexShrinkRowSmallIcon.displayName = 'FlexShrinkRowSmallIcon';
+

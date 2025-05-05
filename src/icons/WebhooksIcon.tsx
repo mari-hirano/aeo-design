@@ -34,3 +34,7 @@ export const WebhooksIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 WebhooksIcon.category = 'General Icons';
+
+
+WebhooksIcon.displayName = 'WebhooksIcon';
+

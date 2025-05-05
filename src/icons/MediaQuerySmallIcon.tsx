@@ -37,3 +37,7 @@ export const MediaQuerySmallIcon = React.forwardRef<
 }) as IconComponent;
 
 MediaQuerySmallIcon.category = 'Layout';
+
+
+MediaQuerySmallIcon.displayName = 'MediaQuerySmallIcon';
+

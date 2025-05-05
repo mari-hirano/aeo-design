@@ -37,3 +37,7 @@ export const DeviceDesktopLarge24Icon = React.forwardRef<
 }) as IconComponent;
 
 DeviceDesktopLarge24Icon.category = 'General Icons';
+
+
+DeviceDesktopLarge24Icon.displayName = 'DeviceDesktopLarge24Icon';
+

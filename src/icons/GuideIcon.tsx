@@ -38,3 +38,7 @@ export const GuideIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 GuideIcon.tags = ['book', 'how to', 'instructions', 'library'];
 
 GuideIcon.category = 'General Icons';
+
+
+GuideIcon.displayName = 'GuideIcon';
+

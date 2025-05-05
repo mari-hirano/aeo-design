@@ -43,3 +43,7 @@ export const ThumbDownIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ThumbDownIcon.category = 'General Icons';
+
+
+ThumbDownIcon.displayName = 'ThumbDownIcon';
+

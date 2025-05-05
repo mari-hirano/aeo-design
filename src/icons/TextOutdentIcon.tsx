@@ -36,3 +36,7 @@ export const TextOutdentIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TextOutdentIcon.category = 'Layout';
+
+
+TextOutdentIcon.displayName = 'TextOutdentIcon';
+

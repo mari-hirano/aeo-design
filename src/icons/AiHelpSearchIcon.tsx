@@ -36,3 +36,7 @@ export const AiHelpSearchIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AiHelpSearchIcon.category = 'General Icons';
+
+
+AiHelpSearchIcon.displayName = 'AiHelpSearchIcon';
+

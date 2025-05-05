@@ -42,3 +42,7 @@ export const AddPanelLottie64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelLottie64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelLottie64Icon.displayName = 'AddPanelLottie64Icon';
+

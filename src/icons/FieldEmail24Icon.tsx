@@ -36,3 +36,7 @@ export const FieldEmail24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldEmail24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldEmail24Icon.displayName = 'FieldEmail24Icon';
+

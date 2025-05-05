@@ -45,3 +45,7 @@ DesktopLargeBreakpointIcon.tags = [
 ];
 
 DesktopLargeBreakpointIcon.category = 'General Icons';
+
+
+DesktopLargeBreakpointIcon.displayName = 'DesktopLargeBreakpointIcon';
+

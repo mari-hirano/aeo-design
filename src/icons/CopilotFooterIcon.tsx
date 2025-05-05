@@ -48,3 +48,7 @@ export const CopilotFooterIcon = React.forwardRef<
 CopilotFooterIcon.tags = ['site'];
 
 CopilotFooterIcon.category = 'General Icons';
+
+
+CopilotFooterIcon.displayName = 'CopilotFooterIcon';
+

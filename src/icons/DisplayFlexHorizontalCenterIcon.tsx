@@ -39,3 +39,7 @@ export const DisplayFlexHorizontalCenterIcon = React.forwardRef<
 DisplayFlexHorizontalCenterIcon.tags = ['DisplayFlexHorizontalCenter'];
 
 DisplayFlexHorizontalCenterIcon.category = 'Layout';
+
+
+DisplayFlexHorizontalCenterIcon.displayName = 'DisplayFlexHorizontalCenterIcon';
+

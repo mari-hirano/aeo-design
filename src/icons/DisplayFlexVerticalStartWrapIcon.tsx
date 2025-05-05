@@ -78,3 +78,7 @@ export const DisplayFlexVerticalStartWrapIcon = React.forwardRef<
 DisplayFlexVerticalStartWrapIcon.tags = ['DisplayFlexVerticalStartWrap'];
 
 DisplayFlexVerticalStartWrapIcon.category = 'Layout';
+
+
+DisplayFlexVerticalStartWrapIcon.displayName = 'DisplayFlexVerticalStartWrapIcon';
+

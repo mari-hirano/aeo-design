@@ -46,3 +46,7 @@ export const UnmergeCellIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 UnmergeCellIcon.category = 'General Icons';
+
+
+UnmergeCellIcon.displayName = 'UnmergeCellIcon';
+

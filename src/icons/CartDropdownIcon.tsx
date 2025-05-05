@@ -40,3 +40,7 @@ export const CartDropdownIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CartDropdownIcon.category = 'Ecommerce';
+
+
+CartDropdownIcon.displayName = 'CartDropdownIcon';
+

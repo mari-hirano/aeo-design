@@ -40,3 +40,7 @@ export const SpeakerHighIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SpeakerHighIcon.category = 'General Icons';
+
+
+SpeakerHighIcon.displayName = 'SpeakerHighIcon';
+

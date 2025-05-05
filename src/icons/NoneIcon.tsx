@@ -34,3 +34,7 @@ export const NoneIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 NoneIcon.category = 'Cursors';
+
+
+NoneIcon.displayName = 'NoneIcon';
+

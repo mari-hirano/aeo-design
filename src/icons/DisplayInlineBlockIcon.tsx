@@ -41,3 +41,7 @@ export const DisplayInlineBlockIcon = React.forwardRef<
 }) as IconComponent;
 
 DisplayInlineBlockIcon.category = 'Layout';
+
+
+DisplayInlineBlockIcon.displayName = 'DisplayInlineBlockIcon';
+

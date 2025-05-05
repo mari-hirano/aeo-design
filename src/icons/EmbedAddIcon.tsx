@@ -42,3 +42,7 @@ export const EmbedAddIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 EmbedAddIcon.tags = ['arrow', 'triangle', 'caret', 'insert', 'caret'];
 
 EmbedAddIcon.category = 'General Icons';
+
+
+EmbedAddIcon.displayName = 'EmbedAddIcon';
+

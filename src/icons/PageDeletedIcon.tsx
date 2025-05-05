@@ -38,3 +38,7 @@ export const PageDeletedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PageDeletedIcon.tags = ['paper'];
 
 PageDeletedIcon.category = 'General Icons';
+
+
+PageDeletedIcon.displayName = 'PageDeletedIcon';
+

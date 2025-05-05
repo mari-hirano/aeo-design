@@ -37,3 +37,7 @@ export const NineBoxAlignItemsSpaceBetweenStretchIcon = React.forwardRef<
 }) as IconComponent;
 
 NineBoxAlignItemsSpaceBetweenStretchIcon.category = 'Layout';
+
+
+NineBoxAlignItemsSpaceBetweenStretchIcon.displayName = 'NineBoxAlignItemsSpaceBetweenStretchIcon';
+

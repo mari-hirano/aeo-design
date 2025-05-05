@@ -37,3 +37,7 @@ export const AlignItemsBaselineColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignItemsBaselineColumnIcon.category = 'Layout';
+
+
+AlignItemsBaselineColumnIcon.displayName = 'AlignItemsBaselineColumnIcon';
+

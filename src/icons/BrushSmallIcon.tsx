@@ -38,3 +38,7 @@ export const BrushSmallIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 BrushSmallIcon.category = 'Style Panel';
+
+
+BrushSmallIcon.displayName = 'BrushSmallIcon';
+

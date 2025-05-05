@@ -33,3 +33,7 @@ export const TextDecorationUnderlineIcon = React.forwardRef<
 }) as IconComponent;
 
 TextDecorationUnderlineIcon.category = 'Typography';
+
+
+TextDecorationUnderlineIcon.displayName = 'TextDecorationUnderlineIcon';
+

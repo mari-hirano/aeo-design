@@ -40,3 +40,7 @@ export const CopilotGalleryIcon = React.forwardRef<
 CopilotGalleryIcon.tags = ['site'];
 
 CopilotGalleryIcon.category = 'General Icons';
+
+
+CopilotGalleryIcon.displayName = 'CopilotGalleryIcon';
+

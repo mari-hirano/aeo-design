@@ -51,3 +51,7 @@ export const EmptyComments64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyComments64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyComments64Icon.displayName = 'EmptyComments64Icon';
+

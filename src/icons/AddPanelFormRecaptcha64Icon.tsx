@@ -45,3 +45,7 @@ export const AddPanelFormRecaptcha64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelFormRecaptcha64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelFormRecaptcha64Icon.displayName = 'AddPanelFormRecaptcha64Icon';
+

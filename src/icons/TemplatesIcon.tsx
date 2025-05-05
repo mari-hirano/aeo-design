@@ -36,3 +36,7 @@ export const TemplatesIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TemplatesIcon.category = 'General Icons';
+
+
+TemplatesIcon.displayName = 'TemplatesIcon';
+

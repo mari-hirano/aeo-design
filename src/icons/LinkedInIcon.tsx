@@ -36,3 +36,7 @@ export const LinkedInIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LinkedInIcon.category = 'Social';
+
+
+LinkedInIcon.displayName = 'LinkedInIcon';
+

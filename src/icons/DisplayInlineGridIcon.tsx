@@ -41,3 +41,7 @@ export const DisplayInlineGridIcon = React.forwardRef<
 }) as IconComponent;
 
 DisplayInlineGridIcon.category = 'Layout';
+
+
+DisplayInlineGridIcon.displayName = 'DisplayInlineGridIcon';
+

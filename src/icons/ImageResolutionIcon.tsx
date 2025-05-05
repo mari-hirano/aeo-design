@@ -37,3 +37,7 @@ export const ImageResolutionIcon = React.forwardRef<
 }) as IconComponent;
 
 ImageResolutionIcon.category = 'Style Panel';
+
+
+ImageResolutionIcon.displayName = 'ImageResolutionIcon';
+

@@ -43,3 +43,7 @@ export const PaddingTopIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PaddingTopIcon.category = 'Layout';
+
+
+PaddingTopIcon.displayName = 'PaddingTopIcon';
+

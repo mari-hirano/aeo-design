@@ -36,3 +36,7 @@ export const TargetIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TargetIcon.category = 'Layout';
+
+
+TargetIcon.displayName = 'TargetIcon';
+

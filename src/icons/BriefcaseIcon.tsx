@@ -38,3 +38,7 @@ export const BriefcaseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BriefcaseIcon.tags = ['business', 'job', 'apply'];
 
 BriefcaseIcon.category = 'General Icons';
+
+
+BriefcaseIcon.displayName = 'BriefcaseIcon';
+

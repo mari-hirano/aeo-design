@@ -54,3 +54,7 @@ ProductOptionsIcon.tags = [
 ];
 
 ProductOptionsIcon.category = 'General Icons';
+
+
+ProductOptionsIcon.displayName = 'ProductOptionsIcon';
+

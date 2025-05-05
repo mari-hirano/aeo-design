@@ -56,3 +56,7 @@ export const AddPanelContactFormIcon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelContactFormIcon.category = '64x64 (Add panel)';
+
+
+AddPanelContactFormIcon.displayName = 'AddPanelContactFormIcon';
+

@@ -37,3 +37,7 @@ export const FilterSmallInteractionIcon = React.forwardRef<
 }) as IconComponent;
 
 FilterSmallInteractionIcon.category = 'Style Panel';
+
+
+FilterSmallInteractionIcon.displayName = 'FilterSmallInteractionIcon';
+

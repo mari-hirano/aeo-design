@@ -34,3 +34,7 @@ export const PaymentIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PaymentIcon.category = 'Ecommerce';
+
+
+PaymentIcon.displayName = 'PaymentIcon';
+

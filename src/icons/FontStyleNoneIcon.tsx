@@ -37,3 +37,7 @@ export const FontStyleNoneIcon = React.forwardRef<
 }) as IconComponent;
 
 FontStyleNoneIcon.category = 'Typography';
+
+
+FontStyleNoneIcon.displayName = 'FontStyleNoneIcon';
+

@@ -42,3 +42,7 @@ export const CapabilityEditor24Icon = React.forwardRef<
 }) as IconComponent;
 
 CapabilityEditor24Icon.category = 'General Icons';
+
+
+CapabilityEditor24Icon.displayName = 'CapabilityEditor24Icon';
+

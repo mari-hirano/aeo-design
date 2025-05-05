@@ -57,3 +57,7 @@ export const OrderFirstRowIcon = React.forwardRef<
 }) as IconComponent;
 
 OrderFirstRowIcon.category = 'Layout';
+
+
+OrderFirstRowIcon.displayName = 'OrderFirstRowIcon';
+

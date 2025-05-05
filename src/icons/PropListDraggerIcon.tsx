@@ -32,3 +32,7 @@ export const PropListDraggerIcon = React.forwardRef<
 }) as IconComponent;
 
 PropListDraggerIcon.category = 'Misc.';
+
+
+PropListDraggerIcon.displayName = 'PropListDraggerIcon';
+

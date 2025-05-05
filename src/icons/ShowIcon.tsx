@@ -42,3 +42,7 @@ export const ShowIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ShowIcon.tags = ['eye', 'preview'];
 
 ShowIcon.category = 'General Icons';
+
+
+ShowIcon.displayName = 'ShowIcon';
+

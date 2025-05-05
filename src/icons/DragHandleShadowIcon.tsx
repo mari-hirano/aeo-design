@@ -43,3 +43,7 @@ export const DragHandleShadowIcon = React.forwardRef<
 }) as IconComponent;
 
 DragHandleShadowIcon.category = 'Misc.';
+
+
+DragHandleShadowIcon.displayName = 'DragHandleShadowIcon';
+

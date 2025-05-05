@@ -51,3 +51,7 @@ export const ClearRightIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ClearRightIcon.category = 'Layout';
+
+
+ClearRightIcon.displayName = 'ClearRightIcon';
+

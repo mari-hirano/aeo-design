@@ -37,3 +37,7 @@ export const CustomClassNameIcon = React.forwardRef<
 }) as IconComponent;
 
 CustomClassNameIcon.category = 'General Icons';
+
+
+CustomClassNameIcon.displayName = 'CustomClassNameIcon';
+

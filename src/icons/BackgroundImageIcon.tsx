@@ -41,3 +41,7 @@ export const BackgroundImageIcon = React.forwardRef<
 }) as IconComponent;
 
 BackgroundImageIcon.category = 'Color & Background';
+
+
+BackgroundImageIcon.displayName = 'BackgroundImageIcon';
+

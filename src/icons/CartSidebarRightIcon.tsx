@@ -44,3 +44,7 @@ export const CartSidebarRightIcon = React.forwardRef<
 }) as IconComponent;
 
 CartSidebarRightIcon.category = 'Ecommerce';
+
+
+CartSidebarRightIcon.displayName = 'CartSidebarRightIcon';
+

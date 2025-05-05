@@ -48,3 +48,7 @@ export const ElementListDefaultIcon = React.forwardRef<
 ElementListDefaultIcon.tags = ['list'];
 
 ElementListDefaultIcon.category = 'Navigator';
+
+
+ElementListDefaultIcon.displayName = 'ElementListDefaultIcon';
+

@@ -38,3 +38,7 @@ export const CommentIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CommentIcon.tags = ['chat', 'bubble', 'reply'];
 
 CommentIcon.category = 'General Icons';
+
+
+CommentIcon.displayName = 'CommentIcon';
+

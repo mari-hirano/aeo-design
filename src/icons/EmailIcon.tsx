@@ -38,3 +38,7 @@ export const EmailIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 EmailIcon.tags = ['envelope', 'send', 'contact'];
 
 EmailIcon.category = 'General Icons';
+
+
+EmailIcon.displayName = 'EmailIcon';
+

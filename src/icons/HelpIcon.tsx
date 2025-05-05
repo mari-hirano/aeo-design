@@ -34,3 +34,7 @@ export const HelpIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 HelpIcon.category = 'Cursors';
+
+
+HelpIcon.displayName = 'HelpIcon';
+

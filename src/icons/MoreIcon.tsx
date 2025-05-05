@@ -54,3 +54,7 @@ MoreIcon.tags = [
 ];
 
 MoreIcon.category = 'General Icons';
+
+
+MoreIcon.displayName = 'MoreIcon';
+

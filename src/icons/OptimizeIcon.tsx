@@ -56,3 +56,7 @@ export const OptimizeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 OptimizeIcon.category = 'General Icons';
+
+
+OptimizeIcon.displayName = 'OptimizeIcon';
+

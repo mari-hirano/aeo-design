@@ -36,3 +36,7 @@ export const PinFilledIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PinFilledIcon.tags = ['thumbtack', 'needle', 'nail'];
 
 PinFilledIcon.category = 'General Icons';
+
+
+PinFilledIcon.displayName = 'PinFilledIcon';
+

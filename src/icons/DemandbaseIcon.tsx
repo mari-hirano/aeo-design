@@ -39,3 +39,7 @@ export const DemandbaseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DemandbaseIcon.category = 'General Icons';
+
+
+DemandbaseIcon.displayName = 'DemandbaseIcon';
+

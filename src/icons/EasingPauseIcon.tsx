@@ -38,3 +38,7 @@ export const EasingPauseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 EasingPauseIcon.tags = ['circle', 'button'];
 
 EasingPauseIcon.category = 'General Icons';
+
+
+EasingPauseIcon.displayName = 'EasingPauseIcon';
+

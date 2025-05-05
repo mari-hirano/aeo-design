@@ -34,3 +34,7 @@ export const StatusLiveIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 StatusLiveIcon.category = 'General Icons';
+
+
+StatusLiveIcon.displayName = 'StatusLiveIcon';
+

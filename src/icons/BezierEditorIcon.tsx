@@ -39,3 +39,7 @@ export const BezierEditorIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 BezierEditorIcon.category = 'Layout';
+
+
+BezierEditorIcon.displayName = 'BezierEditorIcon';
+

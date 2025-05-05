@@ -43,3 +43,7 @@ export const FontSizeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FontSizeIcon.category = 'Typography';
+
+
+FontSizeIcon.displayName = 'FontSizeIcon';
+

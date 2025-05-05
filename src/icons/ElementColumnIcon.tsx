@@ -39,3 +39,7 @@ export const ElementColumnIcon = React.forwardRef<
 ElementColumnIcon.tags = ['column'];
 
 ElementColumnIcon.category = 'Navigator';
+
+
+ElementColumnIcon.displayName = 'ElementColumnIcon';
+

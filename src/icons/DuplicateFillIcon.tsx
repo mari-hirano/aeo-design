@@ -43,3 +43,7 @@ export const DuplicateFillIcon = React.forwardRef<
 DuplicateFillIcon.tags = ['copy', 'squares', 'overlap', 'paste'];
 
 DuplicateFillIcon.category = 'General Icons';
+
+
+DuplicateFillIcon.displayName = 'DuplicateFillIcon';
+

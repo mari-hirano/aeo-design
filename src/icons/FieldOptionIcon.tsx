@@ -40,3 +40,7 @@ export const FieldOptionIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldOptionIcon.category = 'CMS Fields';
+
+
+FieldOptionIcon.displayName = 'FieldOptionIcon';
+

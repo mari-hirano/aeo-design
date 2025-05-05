@@ -37,3 +37,7 @@ export const FilterSmallSaturateIcon = React.forwardRef<
 }) as IconComponent;
 
 FilterSmallSaturateIcon.category = 'Style Panel';
+
+
+FilterSmallSaturateIcon.displayName = 'FilterSmallSaturateIcon';
+

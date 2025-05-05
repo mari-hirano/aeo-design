@@ -38,3 +38,7 @@ export const DisplayFlexHorizontalEndWrapIcon = React.forwardRef<
 DisplayFlexHorizontalEndWrapIcon.tags = ['DisplayFlexHorizontalEndWrap'];
 
 DisplayFlexHorizontalEndWrapIcon.category = 'Layout';
+
+
+DisplayFlexHorizontalEndWrapIcon.displayName = 'DisplayFlexHorizontalEndWrapIcon';
+

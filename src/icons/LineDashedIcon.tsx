@@ -33,3 +33,7 @@ export const LineDashedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LineDashedIcon.category = 'General Icons';
+
+
+LineDashedIcon.displayName = 'LineDashedIcon';
+

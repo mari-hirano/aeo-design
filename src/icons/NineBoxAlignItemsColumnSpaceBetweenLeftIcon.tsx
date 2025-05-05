@@ -37,3 +37,7 @@ export const NineBoxAlignItemsColumnSpaceBetweenLeftIcon = React.forwardRef<
 }) as IconComponent;
 
 NineBoxAlignItemsColumnSpaceBetweenLeftIcon.category = 'Layout';
+
+
+NineBoxAlignItemsColumnSpaceBetweenLeftIcon.displayName = 'NineBoxAlignItemsColumnSpaceBetweenLeftIcon';
+

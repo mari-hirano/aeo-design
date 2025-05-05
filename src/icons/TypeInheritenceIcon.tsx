@@ -37,3 +37,7 @@ export const TypeInheritenceIcon = React.forwardRef<
 }) as IconComponent;
 
 TypeInheritenceIcon.category = 'Typography';
+
+
+TypeInheritenceIcon.displayName = 'TypeInheritenceIcon';
+

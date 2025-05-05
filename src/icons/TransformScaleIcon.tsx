@@ -53,3 +53,7 @@ export const TransformScaleIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformScaleIcon.category = 'Layout';
+
+
+TransformScaleIcon.displayName = 'TransformScaleIcon';
+

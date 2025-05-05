@@ -44,3 +44,7 @@ export const TransformTranslateYIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformTranslateYIcon.category = 'Layout';
+
+
+TransformTranslateYIcon.displayName = 'TransformTranslateYIcon';
+

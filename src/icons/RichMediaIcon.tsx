@@ -38,3 +38,7 @@ export const RichMediaIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 RichMediaIcon.tags = ['note', 'location', 'music'];
 
 RichMediaIcon.category = 'General Icons';
+
+
+RichMediaIcon.displayName = 'RichMediaIcon';
+

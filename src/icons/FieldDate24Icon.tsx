@@ -50,3 +50,7 @@ export const FieldDate24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldDate24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldDate24Icon.displayName = 'FieldDate24Icon';
+

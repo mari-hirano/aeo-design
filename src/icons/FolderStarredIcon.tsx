@@ -39,3 +39,7 @@ export const FolderStarredIcon = React.forwardRef<
 FolderStarredIcon.tags = ['file'];
 
 FolderStarredIcon.category = 'General Icons';
+
+
+FolderStarredIcon.displayName = 'FolderStarredIcon';
+

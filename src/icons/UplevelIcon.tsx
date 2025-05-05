@@ -38,3 +38,7 @@ export const UplevelIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 UplevelIcon.tags = ['arrow'];
 
 UplevelIcon.category = 'General Icons';
+
+
+UplevelIcon.displayName = 'UplevelIcon';
+

@@ -37,3 +37,7 @@ export const ConditionalRuleIcon = React.forwardRef<
 }) as IconComponent;
 
 ConditionalRuleIcon.category = 'General Icons';
+
+
+ConditionalRuleIcon.displayName = 'ConditionalRuleIcon';
+

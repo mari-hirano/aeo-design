@@ -42,3 +42,7 @@ export const ToolbarSearch24Icon = React.forwardRef<
 }) as IconComponent;
 
 ToolbarSearch24Icon.category = 'General Icons';
+
+
+ToolbarSearch24Icon.displayName = 'ToolbarSearch24Icon';
+

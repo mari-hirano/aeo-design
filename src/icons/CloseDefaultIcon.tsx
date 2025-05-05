@@ -38,3 +38,7 @@ export const CloseDefaultIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CloseDefaultIcon.tags = ['x', 'cancel', 'dismiss', 'no'];
 
 CloseDefaultIcon.category = 'General Icons';
+
+
+CloseDefaultIcon.displayName = 'CloseDefaultIcon';
+

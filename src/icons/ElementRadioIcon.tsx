@@ -42,3 +42,7 @@ export const ElementRadioIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementRadioIcon.tags = ['radio'];
 
 ElementRadioIcon.category = 'Navigator';
+
+
+ElementRadioIcon.displayName = 'ElementRadioIcon';
+

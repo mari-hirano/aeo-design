@@ -39,3 +39,7 @@ export const ChevronLargeDownIcon = React.forwardRef<
 ChevronLargeDownIcon.tags = ['ChevronLargeDown'];
 
 ChevronLargeDownIcon.category = 'Carets & Chevrons';
+
+
+ChevronLargeDownIcon.displayName = 'ChevronLargeDownIcon';
+

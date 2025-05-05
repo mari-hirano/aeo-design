@@ -42,3 +42,7 @@ export const MarketoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 MarketoIcon.category = 'General Icons';
+
+
+MarketoIcon.displayName = 'MarketoIcon';
+

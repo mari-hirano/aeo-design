@@ -36,3 +36,7 @@ export const DisplayGridIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 DisplayGridIcon.category = 'Layout';
+
+
+DisplayGridIcon.displayName = 'DisplayGridIcon';
+

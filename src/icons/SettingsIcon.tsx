@@ -38,3 +38,7 @@ export const SettingsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SettingsIcon.tags = ['cog'];
 
 SettingsIcon.category = 'General Icons';
+
+
+SettingsIcon.displayName = 'SettingsIcon';
+

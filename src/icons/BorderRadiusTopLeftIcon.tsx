@@ -44,3 +44,7 @@ export const BorderRadiusTopLeftIcon = React.forwardRef<
 }) as IconComponent;
 
 BorderRadiusTopLeftIcon.category = 'Layout';
+
+
+BorderRadiusTopLeftIcon.displayName = 'BorderRadiusTopLeftIcon';
+

@@ -37,3 +37,7 @@ export const AddPanelFormFileUpload64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelFormFileUpload64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelFormFileUpload64Icon.displayName = 'AddPanelFormFileUpload64Icon';
+

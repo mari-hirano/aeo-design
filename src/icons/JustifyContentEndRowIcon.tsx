@@ -39,3 +39,7 @@ export const JustifyContentEndRowIcon = React.forwardRef<
 }) as IconComponent;
 
 JustifyContentEndRowIcon.category = 'Layout';
+
+
+JustifyContentEndRowIcon.displayName = 'JustifyContentEndRowIcon';
+

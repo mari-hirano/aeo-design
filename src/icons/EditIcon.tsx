@@ -45,3 +45,7 @@ export const EditIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 EditIcon.tags = ['pencil', 'change', 'settings'];
 
 EditIcon.category = 'General Icons';
+
+
+EditIcon.displayName = 'EditIcon';
+

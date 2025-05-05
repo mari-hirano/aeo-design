@@ -41,3 +41,7 @@ export const DisplayInlineFlexIcon = React.forwardRef<
 }) as IconComponent;
 
 DisplayInlineFlexIcon.category = 'Layout';
+
+
+DisplayInlineFlexIcon.displayName = 'DisplayInlineFlexIcon';
+

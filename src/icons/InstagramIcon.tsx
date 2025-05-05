@@ -46,3 +46,7 @@ export const InstagramIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 InstagramIcon.category = 'Social';
+
+
+InstagramIcon.displayName = 'InstagramIcon';
+

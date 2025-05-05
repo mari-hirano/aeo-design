@@ -47,3 +47,7 @@ export const GridAreaMediumIcon = React.forwardRef<
 }) as IconComponent;
 
 GridAreaMediumIcon.category = 'Layout';
+
+
+GridAreaMediumIcon.displayName = 'GridAreaMediumIcon';
+

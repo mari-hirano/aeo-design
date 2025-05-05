@@ -38,3 +38,7 @@ export const CMSUpdateIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CMSUpdateIcon.tags = ['collection', 'coins', 'stack'];
 
 CMSUpdateIcon.category = 'General Icons';
+
+
+CMSUpdateIcon.displayName = 'CMSUpdateIcon';
+

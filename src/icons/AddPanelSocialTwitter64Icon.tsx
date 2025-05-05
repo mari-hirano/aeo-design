@@ -35,3 +35,7 @@ export const AddPanelSocialTwitter64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelSocialTwitter64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelSocialTwitter64Icon.displayName = 'AddPanelSocialTwitter64Icon';
+

@@ -46,3 +46,7 @@ export const TopbarCheckCircleIcon = React.forwardRef<
 TopbarCheckCircleIcon.tags = ['confirm', 'mark', 'yes'];
 
 TopbarCheckCircleIcon.category = 'General Icons';
+
+
+TopbarCheckCircleIcon.displayName = 'TopbarCheckCircleIcon';
+

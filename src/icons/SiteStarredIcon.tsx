@@ -38,3 +38,7 @@ export const SiteStarredIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SiteStarredIcon.tags = ['Site', 'starred', 'favorite'];
 
 SiteStarredIcon.category = 'General Icons';
+
+
+SiteStarredIcon.displayName = 'SiteStarredIcon';
+

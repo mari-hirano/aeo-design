@@ -48,3 +48,7 @@ export const CategoriesIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CategoriesIcon.category = 'Ecommerce';
+
+
+CategoriesIcon.displayName = 'CategoriesIcon';
+

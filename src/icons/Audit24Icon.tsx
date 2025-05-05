@@ -43,3 +43,7 @@ export const Audit24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 Audit24Icon.category = 'General Icons';
+
+
+Audit24Icon.displayName = 'Audit24Icon';
+

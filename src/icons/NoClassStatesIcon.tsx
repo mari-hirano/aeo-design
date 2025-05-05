@@ -37,3 +37,7 @@ export const NoClassStatesIcon = React.forwardRef<
 NoClassStatesIcon.tags = ['hand', 'point', 'up', 'fingers', 'index'];
 
 NoClassStatesIcon.category = 'General Icons';
+
+
+NoClassStatesIcon.displayName = 'NoClassStatesIcon';
+

@@ -42,3 +42,7 @@ export const PositionRightIcon = React.forwardRef<
 }) as IconComponent;
 
 PositionRightIcon.category = 'Layout';
+
+
+PositionRightIcon.displayName = 'PositionRightIcon';
+

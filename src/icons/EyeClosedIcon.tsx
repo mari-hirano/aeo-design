@@ -36,3 +36,7 @@ export const EyeClosedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 EyeClosedIcon.category = 'General Icons';
+
+
+EyeClosedIcon.displayName = 'EyeClosedIcon';
+

@@ -37,3 +37,7 @@ export const VideoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 VideoIcon.category = 'CMS Fields';
+
+
+VideoIcon.displayName = 'VideoIcon';
+

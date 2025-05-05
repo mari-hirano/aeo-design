@@ -34,3 +34,7 @@ export const PointerIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PointerIcon.category = 'Cursors';
+
+
+PointerIcon.displayName = 'PointerIcon';
+

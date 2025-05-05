@@ -34,3 +34,7 @@ export const ResizeNSIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ResizeNSIcon.category = 'Cursors';
+
+
+ResizeNSIcon.displayName = 'ResizeNSIcon';
+

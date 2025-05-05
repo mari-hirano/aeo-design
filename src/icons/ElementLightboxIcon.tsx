@@ -39,3 +39,7 @@ export const ElementLightboxIcon = React.forwardRef<
 ElementLightboxIcon.tags = ['lightbox', 'gallery'];
 
 ElementLightboxIcon.category = 'Navigator';
+
+
+ElementLightboxIcon.displayName = 'ElementLightboxIcon';
+

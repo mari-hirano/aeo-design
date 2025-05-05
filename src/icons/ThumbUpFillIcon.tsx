@@ -38,3 +38,7 @@ export const ThumbUpFillIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ThumbUpFillIcon.category = 'General Icons';
+
+
+ThumbUpFillIcon.displayName = 'ThumbUpFillIcon';
+

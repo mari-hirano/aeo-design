@@ -65,3 +65,7 @@ export const FigmaToWebflowVariables64Icon = React.forwardRef<
 }) as IconComponent;
 
 FigmaToWebflowVariables64Icon.category = '64x64 (Figma plugin illustrations)';
+
+
+FigmaToWebflowVariables64Icon.displayName = 'FigmaToWebflowVariables64Icon';
+

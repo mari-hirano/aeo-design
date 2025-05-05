@@ -44,3 +44,7 @@ export const PaddingBottomIcon = React.forwardRef<
 }) as IconComponent;
 
 PaddingBottomIcon.category = 'Layout';
+
+
+PaddingBottomIcon.displayName = 'PaddingBottomIcon';
+

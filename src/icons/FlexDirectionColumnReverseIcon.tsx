@@ -37,3 +37,7 @@ export const FlexDirectionColumnReverseIcon = React.forwardRef<
 }) as IconComponent;
 
 FlexDirectionColumnReverseIcon.category = 'Layout';
+
+
+FlexDirectionColumnReverseIcon.displayName = 'FlexDirectionColumnReverseIcon';
+

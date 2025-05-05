@@ -39,3 +39,7 @@ export const ElementBlockQuoteIcon = React.forwardRef<
 ElementBlockQuoteIcon.tags = ['blockquote'];
 
 ElementBlockQuoteIcon.category = 'Navigator';
+
+
+ElementBlockQuoteIcon.displayName = 'ElementBlockQuoteIcon';
+

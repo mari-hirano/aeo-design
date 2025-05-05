@@ -39,3 +39,7 @@ export const ElementStrongIcon = React.forwardRef<
 ElementStrongIcon.tags = ['strong', 'bold'];
 
 ElementStrongIcon.category = 'Navigator';
+
+
+ElementStrongIcon.displayName = 'ElementStrongIcon';
+

@@ -38,3 +38,7 @@ export const ElementPIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementPIcon.tags = ['paragraph', 'p'];
 
 ElementPIcon.category = 'Navigator';
+
+
+ElementPIcon.displayName = 'ElementPIcon';
+

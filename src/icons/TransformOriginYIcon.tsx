@@ -43,3 +43,7 @@ export const TransformOriginYIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformOriginYIcon.category = 'Style Panel';
+
+
+TransformOriginYIcon.displayName = 'TransformOriginYIcon';
+

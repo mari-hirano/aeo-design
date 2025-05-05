@@ -35,3 +35,7 @@ export const AlignSelfStartColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfStartColumnIcon.category = 'Layout';
+
+
+AlignSelfStartColumnIcon.displayName = 'AlignSelfStartColumnIcon';
+

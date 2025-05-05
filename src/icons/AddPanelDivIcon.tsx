@@ -36,3 +36,7 @@ export const AddPanelDivIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AddPanelDivIcon.category = '64x64 (Add panel)';
+
+
+AddPanelDivIcon.displayName = 'AddPanelDivIcon';
+

@@ -36,3 +36,7 @@ export const MenuIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 MenuIcon.category = 'General Icons';
+
+
+MenuIcon.displayName = 'MenuIcon';
+

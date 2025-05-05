@@ -40,3 +40,7 @@ export const PageAddIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PageAddIcon.tags = ['paper', 'plus'];
 
 PageAddIcon.category = 'General Icons';
+
+
+PageAddIcon.displayName = 'PageAddIcon';
+

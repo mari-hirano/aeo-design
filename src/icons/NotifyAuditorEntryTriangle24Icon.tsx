@@ -42,3 +42,7 @@ export const NotifyAuditorEntryTriangle24Icon = React.forwardRef<
 }) as IconComponent;
 
 NotifyAuditorEntryTriangle24Icon.category = 'General Icons';
+
+
+NotifyAuditorEntryTriangle24Icon.displayName = 'NotifyAuditorEntryTriangle24Icon';
+

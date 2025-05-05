@@ -34,3 +34,7 @@ export const ArrowSolidUpIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ArrowSolidUpIcon.category = 'Cursors';
+
+
+ArrowSolidUpIcon.displayName = 'ArrowSolidUpIcon';
+

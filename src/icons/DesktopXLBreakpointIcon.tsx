@@ -45,3 +45,7 @@ DesktopXLBreakpointIcon.tags = [
 ];
 
 DesktopXLBreakpointIcon.category = 'General Icons';
+
+
+DesktopXLBreakpointIcon.displayName = 'DesktopXLBreakpointIcon';
+

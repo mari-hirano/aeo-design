@@ -44,3 +44,7 @@ ElementWebPaymentIcon.tags = [
 ];
 
 ElementWebPaymentIcon.category = 'Navigator';
+
+
+ElementWebPaymentIcon.displayName = 'ElementWebPaymentIcon';
+

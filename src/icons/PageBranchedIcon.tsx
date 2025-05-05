@@ -40,3 +40,7 @@ export const PageBranchedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PageBranchedIcon.tags = ['paper', 'split'];
 
 PageBranchedIcon.category = 'General Icons';
+
+
+PageBranchedIcon.displayName = 'PageBranchedIcon';
+

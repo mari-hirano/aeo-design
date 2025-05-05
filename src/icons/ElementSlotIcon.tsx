@@ -38,3 +38,7 @@ export const ElementSlotIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementSlotIcon.tags = ['slot'];
 
 ElementSlotIcon.category = 'Navigator';
+
+
+ElementSlotIcon.displayName = 'ElementSlotIcon';
+

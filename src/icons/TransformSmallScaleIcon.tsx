@@ -53,3 +53,7 @@ export const TransformSmallScaleIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformSmallScaleIcon.category = 'Style Panel';
+
+
+TransformSmallScaleIcon.displayName = 'TransformSmallScaleIcon';
+

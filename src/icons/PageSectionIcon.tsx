@@ -40,3 +40,7 @@ export const PageSectionIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PageSectionIcon.tags = ['paper', 'plus', 'in page linking', 'page section'];
 
 PageSectionIcon.category = 'General Icons';
+
+
+PageSectionIcon.displayName = 'PageSectionIcon';
+

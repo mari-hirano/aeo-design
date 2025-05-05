@@ -43,3 +43,7 @@ export const PushUpIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PushUpIcon.category = 'Typography';
+
+
+PushUpIcon.displayName = 'PushUpIcon';
+

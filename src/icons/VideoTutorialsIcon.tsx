@@ -39,3 +39,7 @@ export const VideoTutorialsIcon = React.forwardRef<
 VideoTutorialsIcon.tags = ['camera', 'educate', 'teach'];
 
 VideoTutorialsIcon.category = 'General Icons';
+
+
+VideoTutorialsIcon.displayName = 'VideoTutorialsIcon';
+

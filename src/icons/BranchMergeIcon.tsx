@@ -40,3 +40,7 @@ export const BranchMergeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BranchMergeIcon.tags = ['arrow', 'join'];
 
 BranchMergeIcon.category = 'General Icons';
+
+
+BranchMergeIcon.displayName = 'BranchMergeIcon';
+

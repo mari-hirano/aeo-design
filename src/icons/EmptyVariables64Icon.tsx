@@ -58,3 +58,7 @@ export const EmptyVariables64Icon = React.forwardRef<
 }) as IconComponent;
 
 EmptyVariables64Icon.category = '64x64 (Field illustrations)';
+
+
+EmptyVariables64Icon.displayName = 'EmptyVariables64Icon';
+

@@ -39,3 +39,7 @@ export const CopilotNewChatIcon = React.forwardRef<
 CopilotNewChatIcon.tags = ['edit', 'compose', 'new'];
 
 CopilotNewChatIcon.category = 'General Icons';
+
+
+CopilotNewChatIcon.displayName = 'CopilotNewChatIcon';
+

@@ -38,3 +38,7 @@ export const AnalyzeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 AnalyzeIcon.tags = ['plus', 'more'];
 
 AnalyzeIcon.category = 'General Icons';
+
+
+AnalyzeIcon.displayName = 'AnalyzeIcon';
+

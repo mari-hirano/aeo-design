@@ -39,3 +39,7 @@ export const ElementQuickStackIcon = React.forwardRef<
 ElementQuickStackIcon.tags = ['quick stack', 'stack'];
 
 ElementQuickStackIcon.category = 'Navigator';
+
+
+ElementQuickStackIcon.displayName = 'ElementQuickStackIcon';
+

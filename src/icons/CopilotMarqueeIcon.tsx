@@ -41,3 +41,7 @@ export const CopilotMarqueeIcon = React.forwardRef<
 CopilotMarqueeIcon.tags = ['site'];
 
 CopilotMarqueeIcon.category = 'General Icons';
+
+
+CopilotMarqueeIcon.displayName = 'CopilotMarqueeIcon';
+

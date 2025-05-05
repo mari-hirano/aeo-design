@@ -38,3 +38,7 @@ export const PageDefaultIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PageDefaultIcon.tags = ['paper'];
 
 PageDefaultIcon.category = 'General Icons';
+
+
+PageDefaultIcon.displayName = 'PageDefaultIcon';
+

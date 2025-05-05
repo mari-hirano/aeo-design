@@ -38,3 +38,7 @@ export const LikeFillIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LikeFillIcon.tags = ['sponsor', 'love', 'like'];
 
 LikeFillIcon.category = 'General Icons';
+
+
+LikeFillIcon.displayName = 'LikeFillIcon';
+

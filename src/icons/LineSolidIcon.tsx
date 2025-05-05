@@ -38,3 +38,7 @@ export const LineSolidIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LineSolidIcon.tags = ['minus', 'remove'];
 
 LineSolidIcon.category = 'General Icons';
+
+
+LineSolidIcon.displayName = 'LineSolidIcon';
+

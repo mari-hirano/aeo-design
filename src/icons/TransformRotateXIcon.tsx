@@ -37,3 +37,7 @@ export const TransformRotateXIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformRotateXIcon.category = 'Layout';
+
+
+TransformRotateXIcon.displayName = 'TransformRotateXIcon';
+

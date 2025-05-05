@@ -38,3 +38,7 @@ export const ElementRiveIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementRiveIcon.tags = ['rive'];
 
 ElementRiveIcon.category = 'Navigator';
+
+
+ElementRiveIcon.displayName = 'ElementRiveIcon';
+

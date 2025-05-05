@@ -43,3 +43,7 @@ export const OffsetScrollBottomIcon = React.forwardRef<
 }) as IconComponent;
 
 OffsetScrollBottomIcon.category = 'Layout';
+
+
+OffsetScrollBottomIcon.displayName = 'OffsetScrollBottomIcon';
+

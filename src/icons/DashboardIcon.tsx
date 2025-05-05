@@ -38,3 +38,7 @@ export const DashboardIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 DashboardIcon.tags = ['window', 'boxes', 'squares', 'grid'];
 
 DashboardIcon.category = 'General Icons';
+
+
+DashboardIcon.displayName = 'DashboardIcon';
+

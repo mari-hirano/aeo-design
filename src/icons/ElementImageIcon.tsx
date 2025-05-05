@@ -42,3 +42,7 @@ export const ElementImageIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementImageIcon.tags = ['image', 'img', 'picture'];
 
 ElementImageIcon.category = 'Navigator';
+
+
+ElementImageIcon.displayName = 'ElementImageIcon';
+

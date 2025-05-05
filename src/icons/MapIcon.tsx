@@ -42,3 +42,7 @@ export const MapIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 MapIcon.tags = ['location', 'point', 'drop pin'];
 
 MapIcon.category = 'General Icons';
+
+
+MapIcon.displayName = 'MapIcon';
+

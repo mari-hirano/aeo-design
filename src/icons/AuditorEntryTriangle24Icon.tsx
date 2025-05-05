@@ -42,3 +42,7 @@ export const AuditorEntryTriangle24Icon = React.forwardRef<
 }) as IconComponent;
 
 AuditorEntryTriangle24Icon.category = 'General Icons';
+
+
+AuditorEntryTriangle24Icon.displayName = 'AuditorEntryTriangle24Icon';
+

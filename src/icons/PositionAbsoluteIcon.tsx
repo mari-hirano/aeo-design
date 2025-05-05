@@ -44,3 +44,7 @@ export const PositionAbsoluteIcon = React.forwardRef<
 }) as IconComponent;
 
 PositionAbsoluteIcon.category = 'Layout';
+
+
+PositionAbsoluteIcon.displayName = 'PositionAbsoluteIcon';
+

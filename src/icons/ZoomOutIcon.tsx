@@ -34,3 +34,7 @@ export const ZoomOutIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ZoomOutIcon.category = 'Cursors';
+
+
+ZoomOutIcon.displayName = 'ZoomOutIcon';
+

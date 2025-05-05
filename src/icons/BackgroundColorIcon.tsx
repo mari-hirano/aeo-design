@@ -35,3 +35,7 @@ export const BackgroundColorIcon = React.forwardRef<
 }) as IconComponent;
 
 BackgroundColorIcon.category = 'Color & Background';
+
+
+BackgroundColorIcon.displayName = 'BackgroundColorIcon';
+

@@ -44,3 +44,7 @@ export const LinkIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LinkIcon.tags = ['url'];
 
 LinkIcon.category = 'General Icons';
+
+
+LinkIcon.displayName = 'LinkIcon';
+

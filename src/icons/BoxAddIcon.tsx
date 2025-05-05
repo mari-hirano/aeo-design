@@ -43,3 +43,7 @@ export const BoxAddIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BoxAddIcon.tags = ['plus', 'more', 'square'];
 
 BoxAddIcon.category = 'General Icons';
+
+
+BoxAddIcon.displayName = 'BoxAddIcon';
+

@@ -36,3 +36,7 @@ export const YouTubeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 YouTubeIcon.category = 'Social';
+
+
+YouTubeIcon.displayName = 'YouTubeIcon';
+

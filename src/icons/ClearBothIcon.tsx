@@ -38,3 +38,7 @@ export const ClearBothIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ClearBothIcon.category = 'Layout';
+
+
+ClearBothIcon.displayName = 'ClearBothIcon';
+

@@ -37,3 +37,7 @@ export const FloatRightIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FloatRightIcon.category = 'Layout';
+
+
+FloatRightIcon.displayName = 'FloatRightIcon';
+

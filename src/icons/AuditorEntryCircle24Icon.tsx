@@ -42,3 +42,7 @@ export const AuditorEntryCircle24Icon = React.forwardRef<
 }) as IconComponent;
 
 AuditorEntryCircle24Icon.category = 'General Icons';
+
+
+AuditorEntryCircle24Icon.displayName = 'AuditorEntryCircle24Icon';
+

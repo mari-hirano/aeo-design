@@ -36,3 +36,7 @@ export const CaretBothIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CaretBothIcon.category = 'Carets & Chevrons';
+
+
+CaretBothIcon.displayName = 'CaretBothIcon';
+

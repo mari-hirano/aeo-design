@@ -36,3 +36,7 @@ export const AddOnsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AddOnsIcon.category = 'General Icons';
+
+
+AddOnsIcon.displayName = 'AddOnsIcon';
+

@@ -35,3 +35,7 @@ export const Navigator24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 Navigator24Icon.tags = ['hamburger', 'lines', 'stack'];
 
 Navigator24Icon.category = 'General Icons';
+
+
+Navigator24Icon.displayName = 'Navigator24Icon';
+

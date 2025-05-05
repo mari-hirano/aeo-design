@@ -45,3 +45,7 @@ export const PageBuildingIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PageBuildingIcon.tags = ['cursor', 'design', 'drag', 'drop'];
 
 PageBuildingIcon.category = 'General Icons';
+
+
+PageBuildingIcon.displayName = 'PageBuildingIcon';
+

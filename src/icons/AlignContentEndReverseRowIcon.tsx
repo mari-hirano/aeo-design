@@ -43,3 +43,7 @@ export const AlignContentEndReverseRowIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignContentEndReverseRowIcon.category = 'Layout';
+
+
+AlignContentEndReverseRowIcon.displayName = 'AlignContentEndReverseRowIcon';
+

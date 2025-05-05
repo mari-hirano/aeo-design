@@ -78,3 +78,7 @@ export const DisplayFlexVerticalCenterWrapIcon = React.forwardRef<
 DisplayFlexVerticalCenterWrapIcon.tags = ['DisplayFlexVerticalCenterWrap'];
 
 DisplayFlexVerticalCenterWrapIcon.category = 'Layout';
+
+
+DisplayFlexVerticalCenterWrapIcon.displayName = 'DisplayFlexVerticalCenterWrapIcon';
+

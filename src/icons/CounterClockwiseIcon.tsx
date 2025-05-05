@@ -37,3 +37,7 @@ export const CounterClockwiseIcon = React.forwardRef<
 CounterClockwiseIcon.tags = ['arrow', 'backward', 'turn'];
 
 CounterClockwiseIcon.category = 'General Icons';
+
+
+CounterClockwiseIcon.displayName = 'CounterClockwiseIcon';
+

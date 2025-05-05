@@ -44,3 +44,7 @@ export const CloseCircleRedIcon = React.forwardRef<
 CloseCircleRedIcon.tags = ['button', 'x', 'cancel', 'dismiss', 'no'];
 
 CloseCircleRedIcon.category = 'General Icons';
+
+
+CloseCircleRedIcon.displayName = 'CloseCircleRedIcon';
+

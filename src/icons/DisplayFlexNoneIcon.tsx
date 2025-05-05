@@ -42,3 +42,7 @@ export const DisplayFlexNoneIcon = React.forwardRef<
 DisplayFlexNoneIcon.tags = ['DisplayFlexNone'];
 
 DisplayFlexNoneIcon.category = 'Layout';
+
+
+DisplayFlexNoneIcon.displayName = 'DisplayFlexNoneIcon';
+

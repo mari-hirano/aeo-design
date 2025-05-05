@@ -44,3 +44,7 @@ export const NineBoxAlignRowsSpaceBetweenSpaceAroundIcon = React.forwardRef<
 }) as IconComponent;
 
 NineBoxAlignRowsSpaceBetweenSpaceAroundIcon.category = 'Layout';
+
+
+NineBoxAlignRowsSpaceBetweenSpaceAroundIcon.displayName = 'NineBoxAlignRowsSpaceBetweenSpaceAroundIcon';
+

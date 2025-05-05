@@ -34,3 +34,7 @@ export const TextAlignCenterIcon = React.forwardRef<
 }) as IconComponent;
 
 TextAlignCenterIcon.category = 'Typography';
+
+
+TextAlignCenterIcon.displayName = 'TextAlignCenterIcon';
+

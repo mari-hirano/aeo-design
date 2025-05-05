@@ -50,3 +50,7 @@ export const ThemePanel24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ThemePanel24Icon.category = '24x24 (Field illustrations)';
+
+
+ThemePanel24Icon.displayName = 'ThemePanel24Icon';
+

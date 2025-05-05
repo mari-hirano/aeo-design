@@ -39,3 +39,7 @@ export const SixthsenseIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SixthsenseIcon.category = 'General Icons';
+
+
+SixthsenseIcon.displayName = 'SixthsenseIcon';
+

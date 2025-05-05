@@ -43,3 +43,7 @@ export const FieldColor24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FieldColor24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldColor24Icon.displayName = 'FieldColor24Icon';
+

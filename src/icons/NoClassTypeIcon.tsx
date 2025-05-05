@@ -31,3 +31,7 @@ export const NoClassTypeIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 NoClassTypeIcon.category = 'Typography';
+
+
+NoClassTypeIcon.displayName = 'NoClassTypeIcon';
+

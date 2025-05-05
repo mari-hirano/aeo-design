@@ -39,3 +39,7 @@ export const AllBreakpointIcon = React.forwardRef<
 AllBreakpointIcon.tags = ['monitor', 'tv', 'computer', 'display', 'device'];
 
 AllBreakpointIcon.category = 'General Icons';
+
+
+AllBreakpointIcon.displayName = 'AllBreakpointIcon';
+

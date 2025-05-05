@@ -49,3 +49,7 @@ export const LibraryIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LibraryIcon.category = 'General Icons';
+
+
+LibraryIcon.displayName = 'LibraryIcon';
+

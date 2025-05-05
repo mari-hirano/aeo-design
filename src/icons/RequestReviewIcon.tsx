@@ -37,3 +37,7 @@ export const RequestReviewIcon = React.forwardRef<
 }) as IconComponent;
 
 RequestReviewIcon.category = 'General Icons';
+
+
+RequestReviewIcon.displayName = 'RequestReviewIcon';
+

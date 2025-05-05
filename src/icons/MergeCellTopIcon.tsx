@@ -37,3 +37,7 @@ export const MergeCellTopIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 MergeCellTopIcon.tags = ['MergeCellTop'];
 
 MergeCellTopIcon.category = 'Arrows';
+
+
+MergeCellTopIcon.displayName = 'MergeCellTopIcon';
+

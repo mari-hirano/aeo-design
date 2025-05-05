@@ -37,3 +37,7 @@ export const ArrowSwooshShareIcon = React.forwardRef<
 ArrowSwooshShareIcon.tags = ['ArrowSwooshShare'];
 
 ArrowSwooshShareIcon.category = 'Arrows';
+
+
+ArrowSwooshShareIcon.displayName = 'ArrowSwooshShareIcon';
+

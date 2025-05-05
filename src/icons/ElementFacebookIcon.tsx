@@ -38,3 +38,7 @@ export const ElementFacebookIcon = React.forwardRef<
 ElementFacebookIcon.tags = ['facebook', 'fb'];
 
 ElementFacebookIcon.category = 'Navigator';
+
+
+ElementFacebookIcon.displayName = 'ElementFacebookIcon';
+

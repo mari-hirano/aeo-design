@@ -44,3 +44,7 @@ export const TransformSkewIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformSkewIcon.category = 'Layout';
+
+
+TransformSkewIcon.displayName = 'TransformSkewIcon';
+

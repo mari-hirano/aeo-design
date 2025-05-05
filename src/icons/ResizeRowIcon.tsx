@@ -34,3 +34,7 @@ export const ResizeRowIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ResizeRowIcon.category = 'Cursors';
+
+
+ResizeRowIcon.displayName = 'ResizeRowIcon';
+

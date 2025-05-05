@@ -39,3 +39,7 @@ export const ChevronSmallLeftIcon = React.forwardRef<
 ChevronSmallLeftIcon.tags = ['ChevronSmallLeft'];
 
 ChevronSmallLeftIcon.category = 'Carets & Chevrons';
+
+
+ChevronSmallLeftIcon.displayName = 'ChevronSmallLeftIcon';
+

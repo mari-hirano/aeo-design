@@ -38,3 +38,7 @@ export const CMSDefaultIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CMSDefaultIcon.tags = ['collection', 'coins', 'stack'];
 
 CMSDefaultIcon.category = 'General Icons';
+
+
+CMSDefaultIcon.displayName = 'CMSDefaultIcon';
+

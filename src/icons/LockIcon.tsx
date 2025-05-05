@@ -38,3 +38,7 @@ export const LockIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LockIcon.tags = ['security', 'tool', 'close'];
 
 LockIcon.category = 'General Icons';
+
+
+LockIcon.displayName = 'LockIcon';
+

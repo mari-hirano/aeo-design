@@ -36,3 +36,7 @@ export const FontSourceTypekitIcon = React.forwardRef<
 }) as IconComponent;
 
 FontSourceTypekitIcon.category = 'Layout';
+
+
+FontSourceTypekitIcon.displayName = 'FontSourceTypekitIcon';
+

@@ -43,3 +43,7 @@ export const TextTransformLowercaseIcon = React.forwardRef<
 }) as IconComponent;
 
 TextTransformLowercaseIcon.category = 'Typography';
+
+
+TextTransformLowercaseIcon.displayName = 'TextTransformLowercaseIcon';
+

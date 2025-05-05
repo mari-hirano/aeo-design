@@ -34,3 +34,7 @@ export const OverflowVisibleIcon = React.forwardRef<
 }) as IconComponent;
 
 OverflowVisibleIcon.category = 'Layout';
+
+
+OverflowVisibleIcon.displayName = 'OverflowVisibleIcon';
+

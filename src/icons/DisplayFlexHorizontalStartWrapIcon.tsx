@@ -38,3 +38,7 @@ export const DisplayFlexHorizontalStartWrapIcon = React.forwardRef<
 DisplayFlexHorizontalStartWrapIcon.tags = ['DisplayFlexHorizontalStartWrap'];
 
 DisplayFlexHorizontalStartWrapIcon.category = 'Layout';
+
+
+DisplayFlexHorizontalStartWrapIcon.displayName = 'DisplayFlexHorizontalStartWrapIcon';
+

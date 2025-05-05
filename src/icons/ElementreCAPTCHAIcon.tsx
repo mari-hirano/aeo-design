@@ -45,3 +45,7 @@ export const ElementreCAPTCHAIcon = React.forwardRef<
 ElementreCAPTCHAIcon.tags = ['captcha'];
 
 ElementreCAPTCHAIcon.category = 'Navigator';
+
+
+ElementreCAPTCHAIcon.displayName = 'ElementreCAPTCHAIcon';
+

@@ -37,3 +37,7 @@ export const FilterSmallBlurIcon = React.forwardRef<
 }) as IconComponent;
 
 FilterSmallBlurIcon.category = 'Style Panel';
+
+
+FilterSmallBlurIcon.displayName = 'FilterSmallBlurIcon';
+

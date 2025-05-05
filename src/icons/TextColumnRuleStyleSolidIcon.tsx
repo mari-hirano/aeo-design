@@ -32,3 +32,7 @@ export const TextColumnRuleStyleSolidIcon = React.forwardRef<
 }) as IconComponent;
 
 TextColumnRuleStyleSolidIcon.category = 'Layout';
+
+
+TextColumnRuleStyleSolidIcon.displayName = 'TextColumnRuleStyleSolidIcon';
+

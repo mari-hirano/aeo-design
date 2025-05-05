@@ -35,3 +35,7 @@ export const AlignSelfEndRowIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignSelfEndRowIcon.category = 'Layout';
+
+
+AlignSelfEndRowIcon.displayName = 'AlignSelfEndRowIcon';
+

@@ -37,3 +37,7 @@ export const ViewEdgesIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ViewEdgesIcon.tags = ['box', 'square', 'arrow', 'show'];
 
 ViewEdgesIcon.category = 'General Icons';
+
+
+ViewEdgesIcon.displayName = 'ViewEdgesIcon';
+

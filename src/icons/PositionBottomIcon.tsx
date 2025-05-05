@@ -42,3 +42,7 @@ export const PositionBottomIcon = React.forwardRef<
 }) as IconComponent;
 
 PositionBottomIcon.category = 'Layout';
+
+
+PositionBottomIcon.displayName = 'PositionBottomIcon';
+

@@ -42,3 +42,7 @@ export const TextWordSpacingIcon = React.forwardRef<
 }) as IconComponent;
 
 TextWordSpacingIcon.category = 'Typography';
+
+
+TextWordSpacingIcon.displayName = 'TextWordSpacingIcon';
+

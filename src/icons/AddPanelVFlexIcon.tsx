@@ -37,3 +37,7 @@ export const AddPanelVFlexIcon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelVFlexIcon.category = '64x64 (Add panel)';
+
+
+AddPanelVFlexIcon.displayName = 'AddPanelVFlexIcon';
+

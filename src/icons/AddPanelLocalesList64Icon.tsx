@@ -44,3 +44,7 @@ export const AddPanelLocalesList64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelLocalesList64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelLocalesList64Icon.displayName = 'AddPanelLocalesList64Icon';
+

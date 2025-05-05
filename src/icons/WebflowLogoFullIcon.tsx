@@ -71,3 +71,7 @@ export const WebflowLogoFullIcon = React.forwardRef<
 }) as IconComponent;
 
 WebflowLogoFullIcon.category = 'General Icons';
+
+
+WebflowLogoFullIcon.displayName = 'WebflowLogoFullIcon';
+

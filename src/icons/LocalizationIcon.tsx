@@ -38,3 +38,7 @@ export const LocalizationIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 LocalizationIcon.tags = ['globe', 'earth', 'language'];
 
 LocalizationIcon.category = 'General Icons';
+
+
+LocalizationIcon.displayName = 'LocalizationIcon';
+

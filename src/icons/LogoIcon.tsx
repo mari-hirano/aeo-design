@@ -36,3 +36,7 @@ export const LogoIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LogoIcon.category = 'General Icons';
+
+
+LogoIcon.displayName = 'LogoIcon';
+

@@ -36,3 +36,7 @@ export const UserUpdateIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 UserUpdateIcon.category = 'General Icons';
+
+
+UserUpdateIcon.displayName = 'UserUpdateIcon';
+

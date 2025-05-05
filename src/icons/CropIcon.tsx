@@ -36,3 +36,7 @@ export const CropIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CropIcon.category = 'General Icons';
+
+
+CropIcon.displayName = 'CropIcon';
+

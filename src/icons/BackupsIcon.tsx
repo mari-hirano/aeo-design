@@ -36,3 +36,7 @@ export const BackupsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BackupsIcon.tags = ['reverse', 'arrow', 'clock', 'time'];
 
 BackupsIcon.category = 'General Icons';
+
+
+BackupsIcon.displayName = 'BackupsIcon';
+

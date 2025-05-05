@@ -44,3 +44,7 @@ export const DisplayContentsIcon = React.forwardRef<
 }) as IconComponent;
 
 DisplayContentsIcon.category = 'Layout';
+
+
+DisplayContentsIcon.displayName = 'DisplayContentsIcon';
+

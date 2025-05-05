@@ -42,3 +42,7 @@ export const AddPanelFormInput64Icon = React.forwardRef<
 }) as IconComponent;
 
 AddPanelFormInput64Icon.category = '64x64 (Add panel)';
+
+
+AddPanelFormInput64Icon.displayName = 'AddPanelFormInput64Icon';
+

@@ -42,3 +42,7 @@ export const MarginRightIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 MarginRightIcon.category = 'Layout';
+
+
+MarginRightIcon.displayName = 'MarginRightIcon';
+

@@ -48,3 +48,7 @@ export const UsersIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 UsersIcon.category = 'General Icons';
+
+
+UsersIcon.displayName = 'UsersIcon';
+

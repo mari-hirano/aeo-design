@@ -37,3 +37,7 @@ export const VideoTutorialsListItemIcon = React.forwardRef<
 }) as IconComponent;
 
 VideoTutorialsListItemIcon.category = 'General Icons';
+
+
+VideoTutorialsListItemIcon.displayName = 'VideoTutorialsListItemIcon';
+

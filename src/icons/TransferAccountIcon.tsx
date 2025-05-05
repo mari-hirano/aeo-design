@@ -47,3 +47,7 @@ export const TransferAccountIcon = React.forwardRef<
 TransferAccountIcon.tags = ['arrow', 'person', 'people', 'share', 'send'];
 
 TransferAccountIcon.category = 'General Icons';
+
+
+TransferAccountIcon.displayName = 'TransferAccountIcon';
+

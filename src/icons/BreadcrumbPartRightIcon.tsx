@@ -52,3 +52,7 @@ export const BreadcrumbPartRightIcon = React.forwardRef<
 }) as IconComponent;
 
 BreadcrumbPartRightIcon.category = 'Misc.';
+
+
+BreadcrumbPartRightIcon.displayName = 'BreadcrumbPartRightIcon';
+

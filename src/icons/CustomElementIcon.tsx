@@ -48,3 +48,7 @@ CustomElementIcon.tags = [
 ];
 
 CustomElementIcon.category = 'Navigator';
+
+
+CustomElementIcon.displayName = 'CustomElementIcon';
+

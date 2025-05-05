@@ -36,3 +36,7 @@ export const IntegrationsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 IntegrationsIcon.category = 'Ecommerce';
+
+
+IntegrationsIcon.displayName = 'IntegrationsIcon';
+

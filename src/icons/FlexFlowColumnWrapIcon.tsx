@@ -46,3 +46,7 @@ export const FlexFlowColumnWrapIcon = React.forwardRef<
 FlexFlowColumnWrapIcon.tags = ['FlexFlowColumnWrap'];
 
 FlexFlowColumnWrapIcon.category = 'Layout';
+
+
+FlexFlowColumnWrapIcon.displayName = 'FlexFlowColumnWrapIcon';
+

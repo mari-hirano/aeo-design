@@ -41,3 +41,7 @@ export const MoveUpMediumIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 MoveUpMediumIcon.category = 'Layout';
+
+
+MoveUpMediumIcon.displayName = 'MoveUpMediumIcon';
+

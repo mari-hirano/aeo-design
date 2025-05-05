@@ -36,3 +36,7 @@ export const LogicPreviewIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LogicPreviewIcon.category = 'General Icons';
+
+
+LogicPreviewIcon.displayName = 'LogicPreviewIcon';
+

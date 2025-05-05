@@ -31,3 +31,7 @@ export const ElementATCIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ElementATCIcon.category = 'Navigator';
+
+
+ElementATCIcon.displayName = 'ElementATCIcon';
+

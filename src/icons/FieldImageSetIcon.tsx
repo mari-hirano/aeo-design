@@ -45,3 +45,7 @@ export const FieldImageSetIcon = React.forwardRef<
 }) as IconComponent;
 
 FieldImageSetIcon.category = 'CMS Fields';
+
+
+FieldImageSetIcon.displayName = 'FieldImageSetIcon';
+

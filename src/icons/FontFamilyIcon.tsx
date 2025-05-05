@@ -36,3 +36,7 @@ export const FontFamilyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FontFamilyIcon.category = 'Typography';
+
+
+FontFamilyIcon.displayName = 'FontFamilyIcon';
+

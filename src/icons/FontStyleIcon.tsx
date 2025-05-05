@@ -42,3 +42,7 @@ export const FontStyleIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FontStyleIcon.category = 'Typography';
+
+
+FontStyleIcon.displayName = 'FontStyleIcon';
+

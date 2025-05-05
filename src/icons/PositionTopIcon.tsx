@@ -41,3 +41,7 @@ export const PositionTopIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PositionTopIcon.category = 'Layout';
+
+
+PositionTopIcon.displayName = 'PositionTopIcon';
+

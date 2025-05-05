@@ -37,3 +37,7 @@ export const NotificationsOffIcon = React.forwardRef<
 }) as IconComponent;
 
 NotificationsOffIcon.category = 'Ecommerce';
+
+
+NotificationsOffIcon.displayName = 'NotificationsOffIcon';
+

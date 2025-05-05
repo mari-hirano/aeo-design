@@ -38,3 +38,7 @@ export const CMSSearchIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CMSSearchIcon.tags = ['collection', 'coins', 'stack'];
 
 CMSSearchIcon.category = 'General Icons';
+
+
+CMSSearchIcon.displayName = 'CMSSearchIcon';
+

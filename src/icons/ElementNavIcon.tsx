@@ -38,3 +38,7 @@ export const ElementNavIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ElementNavIcon.tags = ['nav', 'navigation'];
 
 ElementNavIcon.category = 'Navigator';
+
+
+ElementNavIcon.displayName = 'ElementNavIcon';
+

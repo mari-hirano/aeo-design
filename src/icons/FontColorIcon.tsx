@@ -38,3 +38,7 @@ export const FontColorIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 FontColorIcon.category = 'Typography';
+
+
+FontColorIcon.displayName = 'FontColorIcon';
+

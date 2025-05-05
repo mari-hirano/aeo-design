@@ -34,3 +34,7 @@ export const PercentageIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PercentageIcon.category = 'General Icons';
+
+
+PercentageIcon.displayName = 'PercentageIcon';
+

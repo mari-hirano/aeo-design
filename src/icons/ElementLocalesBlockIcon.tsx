@@ -39,3 +39,7 @@ export const ElementLocalesBlockIcon = React.forwardRef<
 ElementLocalesBlockIcon.tags = ['locales', 'locales block'];
 
 ElementLocalesBlockIcon.category = 'Navigator';
+
+
+ElementLocalesBlockIcon.displayName = 'ElementLocalesBlockIcon';
+

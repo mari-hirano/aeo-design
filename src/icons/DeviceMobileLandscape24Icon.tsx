@@ -38,3 +38,7 @@ export const DeviceMobileLandscape24Icon = React.forwardRef<
 }) as IconComponent;
 
 DeviceMobileLandscape24Icon.category = 'General Icons';
+
+
+DeviceMobileLandscape24Icon.displayName = 'DeviceMobileLandscape24Icon';
+

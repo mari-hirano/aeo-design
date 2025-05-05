@@ -46,3 +46,7 @@ export const ElementCheckboxIcon = React.forwardRef<
 ElementCheckboxIcon.tags = ['checkbox'];
 
 ElementCheckboxIcon.category = 'Navigator';
+
+
+ElementCheckboxIcon.displayName = 'ElementCheckboxIcon';
+

@@ -45,3 +45,7 @@ export const GridAreaSmallIcon = React.forwardRef<
 }) as IconComponent;
 
 GridAreaSmallIcon.category = 'Style Panel';
+
+
+GridAreaSmallIcon.displayName = 'GridAreaSmallIcon';
+

@@ -36,3 +36,7 @@ export const AddPanel24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 AddPanel24Icon.category = 'General Icons';
+
+
+AddPanel24Icon.displayName = 'AddPanel24Icon';
+

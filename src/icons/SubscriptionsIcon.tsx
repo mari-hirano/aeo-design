@@ -41,3 +41,7 @@ export const SubscriptionsIcon = React.forwardRef<
 SubscriptionsIcon.tags = ['arrow', 'money', 'dollar', 'sign'];
 
 SubscriptionsIcon.category = 'General Icons';
+
+
+SubscriptionsIcon.displayName = 'SubscriptionsIcon';
+

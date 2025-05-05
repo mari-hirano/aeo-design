@@ -43,3 +43,7 @@ export const BorderLeftIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 BorderLeftIcon.category = 'Layout';
+
+
+BorderLeftIcon.displayName = 'BorderLeftIcon';
+

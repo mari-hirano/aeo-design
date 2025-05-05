@@ -36,3 +36,7 @@ export const PlansIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PlansIcon.tags = ['star'];
 
 PlansIcon.category = 'General Icons';
+
+
+PlansIcon.displayName = 'PlansIcon';
+

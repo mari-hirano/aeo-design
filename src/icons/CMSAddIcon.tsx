@@ -42,3 +42,7 @@ export const CMSAddIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CMSAddIcon.tags = ['collection', 'coins', 'stack'];
 
 CMSAddIcon.category = 'General Icons';
+
+
+CMSAddIcon.displayName = 'CMSAddIcon';
+

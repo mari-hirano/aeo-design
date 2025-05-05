@@ -37,3 +37,7 @@ export const ImageAlignLeftIcon = React.forwardRef<
 }) as IconComponent;
 
 ImageAlignLeftIcon.category = 'Layout';
+
+
+ImageAlignLeftIcon.displayName = 'ImageAlignLeftIcon';
+

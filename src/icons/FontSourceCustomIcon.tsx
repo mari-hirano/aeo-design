@@ -36,3 +36,7 @@ export const FontSourceCustomIcon = React.forwardRef<
 }) as IconComponent;
 
 FontSourceCustomIcon.category = 'Typography';
+
+
+FontSourceCustomIcon.displayName = 'FontSourceCustomIcon';
+

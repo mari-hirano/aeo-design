@@ -40,3 +40,7 @@ export const DownloadIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 DownloadIcon.tags = ['arrow', 'save'];
 
 DownloadIcon.category = 'General Icons';
+
+
+DownloadIcon.displayName = 'DownloadIcon';
+

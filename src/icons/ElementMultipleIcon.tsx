@@ -41,3 +41,7 @@ export const ElementMultipleIcon = React.forwardRef<
 }) as IconComponent;
 
 ElementMultipleIcon.category = 'Navigator';
+
+
+ElementMultipleIcon.displayName = 'ElementMultipleIcon';
+

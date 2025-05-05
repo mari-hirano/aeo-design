@@ -42,3 +42,7 @@ export const FolderOpenIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 FolderOpenIcon.tags = ['file'];
 
 FolderOpenIcon.category = 'General Icons';
+
+
+FolderOpenIcon.displayName = 'FolderOpenIcon';
+

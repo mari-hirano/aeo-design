@@ -40,3 +40,7 @@ export const MarginBottomIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 MarginBottomIcon.category = 'Layout';
+
+
+MarginBottomIcon.displayName = 'MarginBottomIcon';
+

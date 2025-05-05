@@ -39,3 +39,7 @@ export const Libraries24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 Libraries24Icon.tags = ['book', 'how to', 'instructions', 'library'];
 
 Libraries24Icon.category = 'General Icons';
+
+
+Libraries24Icon.displayName = 'Libraries24Icon';
+

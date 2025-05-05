@@ -37,3 +37,7 @@ export const AwaitingReviewIcon = React.forwardRef<
 }) as IconComponent;
 
 AwaitingReviewIcon.category = 'General Icons';
+
+
+AwaitingReviewIcon.displayName = 'AwaitingReviewIcon';
+

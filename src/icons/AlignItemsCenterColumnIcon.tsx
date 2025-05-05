@@ -43,3 +43,7 @@ export const AlignItemsCenterColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 AlignItemsCenterColumnIcon.category = 'Layout';
+
+
+AlignItemsCenterColumnIcon.displayName = 'AlignItemsCenterColumnIcon';
+

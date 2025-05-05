@@ -38,3 +38,7 @@ export const AttachmentIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 AttachmentIcon.tags = ['paperclip', 'attach'];
 
 AttachmentIcon.category = 'General Icons';
+
+
+AttachmentIcon.displayName = 'AttachmentIcon';
+

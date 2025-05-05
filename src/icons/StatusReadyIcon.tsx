@@ -36,3 +36,7 @@ export const StatusReadyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 StatusReadyIcon.category = 'General Icons';
+
+
+StatusReadyIcon.displayName = 'StatusReadyIcon';
+

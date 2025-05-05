@@ -45,3 +45,7 @@ export const CheckboxIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CheckboxIcon.tags = ['confirm', 'yes', 'mark', 'square'];
 
 CheckboxIcon.category = 'General Icons';
+
+
+CheckboxIcon.displayName = 'CheckboxIcon';
+

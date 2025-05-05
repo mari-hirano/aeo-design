@@ -50,3 +50,7 @@ export const SortIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 SortIcon.tags = ['arrows', 'horizontal', 'exchange'];
 
 SortIcon.category = 'General Icons';
+
+
+SortIcon.displayName = 'SortIcon';
+

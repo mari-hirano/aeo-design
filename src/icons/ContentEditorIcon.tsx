@@ -47,3 +47,7 @@ export const ContentEditorIcon = React.forwardRef<
 ContentEditorIcon.tags = ['writer', 'pencil', 'person'];
 
 ContentEditorIcon.category = 'General Icons';
+
+
+ContentEditorIcon.displayName = 'ContentEditorIcon';
+

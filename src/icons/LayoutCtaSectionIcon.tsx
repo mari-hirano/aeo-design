@@ -47,3 +47,7 @@ export const LayoutCtaSectionIcon = React.forwardRef<
 }) as IconComponent;
 
 LayoutCtaSectionIcon.category = '64x64 (Add panel)';
+
+
+LayoutCtaSectionIcon.displayName = 'LayoutCtaSectionIcon';
+

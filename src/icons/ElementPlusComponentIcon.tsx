@@ -45,3 +45,7 @@ ElementPlusComponentIcon.tags = [
 ];
 
 ElementPlusComponentIcon.category = 'Navigator';
+
+
+ElementPlusComponentIcon.displayName = 'ElementPlusComponentIcon';
+

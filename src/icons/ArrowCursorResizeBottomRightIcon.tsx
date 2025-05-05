@@ -35,3 +35,7 @@ export const ArrowCursorResizeBottomRightIcon = React.forwardRef<
 }) as IconComponent;
 
 ArrowCursorResizeBottomRightIcon.category = 'Cursors';
+
+
+ArrowCursorResizeBottomRightIcon.displayName = 'ArrowCursorResizeBottomRightIcon';
+

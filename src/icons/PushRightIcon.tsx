@@ -43,3 +43,7 @@ export const PushRightIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 PushRightIcon.category = 'Typography';
+
+
+PushRightIcon.displayName = 'PushRightIcon';
+

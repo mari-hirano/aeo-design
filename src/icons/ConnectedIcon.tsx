@@ -44,3 +44,7 @@ export const ConnectedIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ConnectedIcon.tags = ['link', 'zap', 'lightning'];
 
 ConnectedIcon.category = 'General Icons';
+
+
+ConnectedIcon.displayName = 'ConnectedIcon';
+

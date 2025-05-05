@@ -37,3 +37,7 @@ export const FieldNumber24Icon = React.forwardRef<
 }) as IconComponent;
 
 FieldNumber24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldNumber24Icon.displayName = 'FieldNumber24Icon';
+

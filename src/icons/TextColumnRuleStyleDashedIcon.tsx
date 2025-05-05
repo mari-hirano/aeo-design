@@ -36,3 +36,7 @@ export const TextColumnRuleStyleDashedIcon = React.forwardRef<
 }) as IconComponent;
 
 TextColumnRuleStyleDashedIcon.category = 'Misc.';
+
+
+TextColumnRuleStyleDashedIcon.displayName = 'TextColumnRuleStyleDashedIcon';
+

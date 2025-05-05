@@ -40,3 +40,7 @@ export const ReportIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 ReportIcon.category = 'General Icons';
+
+
+ReportIcon.displayName = 'ReportIcon';
+

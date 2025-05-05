@@ -38,3 +38,7 @@ export const CornerNibIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 CornerNibIcon.category = 'Misc.';
+
+
+CornerNibIcon.displayName = 'CornerNibIcon';
+

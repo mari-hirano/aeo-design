@@ -39,3 +39,7 @@ export const DesktopBreakpointIcon = React.forwardRef<
 DesktopBreakpointIcon.tags = ['monitor', 'tv', 'computer', 'display', 'device'];
 
 DesktopBreakpointIcon.category = 'General Icons';
+
+
+DesktopBreakpointIcon.displayName = 'DesktopBreakpointIcon';
+

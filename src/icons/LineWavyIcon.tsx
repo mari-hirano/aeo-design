@@ -36,3 +36,7 @@ export const LineWavyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 LineWavyIcon.category = 'General Icons';
+
+
+LineWavyIcon.displayName = 'LineWavyIcon';
+

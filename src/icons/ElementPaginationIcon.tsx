@@ -39,3 +39,7 @@ export const ElementPaginationIcon = React.forwardRef<
 ElementPaginationIcon.tags = ['pagination', 'paginate'];
 
 ElementPaginationIcon.category = 'Navigator';
+
+
+ElementPaginationIcon.displayName = 'ElementPaginationIcon';
+

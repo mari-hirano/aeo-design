@@ -40,3 +40,7 @@ export const MarginTopIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 MarginTopIcon.category = 'Layout';
+
+
+MarginTopIcon.displayName = 'MarginTopIcon';
+

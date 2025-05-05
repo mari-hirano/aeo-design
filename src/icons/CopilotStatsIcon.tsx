@@ -45,3 +45,7 @@ export const CopilotStatsIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 CopilotStatsIcon.tags = ['site'];
 
 CopilotStatsIcon.category = 'General Icons';
+
+
+CopilotStatsIcon.displayName = 'CopilotStatsIcon';
+

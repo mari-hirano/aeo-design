@@ -42,3 +42,7 @@ export const TaxIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 TaxIcon.category = 'Ecommerce';
+
+
+TaxIcon.displayName = 'TaxIcon';
+

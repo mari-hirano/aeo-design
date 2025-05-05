@@ -51,3 +51,7 @@ export const FieldDatetime24Icon = React.forwardRef<
 }) as IconComponent;
 
 FieldDatetime24Icon.category = '24x24 (Field illustrations)';
+
+
+FieldDatetime24Icon.displayName = 'FieldDatetime24Icon';
+

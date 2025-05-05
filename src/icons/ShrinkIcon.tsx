@@ -38,3 +38,7 @@ export const ShrinkIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ShrinkIcon.tags = ['collapse', 'contract', 'minimize'];
 
 ShrinkIcon.category = 'General Icons';
+
+
+ShrinkIcon.displayName = 'ShrinkIcon';
+

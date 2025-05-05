@@ -37,3 +37,7 @@ export const ElementTwitterIcon = React.forwardRef<
 ElementTwitterIcon.tags = ['twitter', 'x'];
 
 ElementTwitterIcon.category = 'Navigator';
+
+
+ElementTwitterIcon.displayName = 'ElementTwitterIcon';
+

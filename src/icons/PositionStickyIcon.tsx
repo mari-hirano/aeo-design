@@ -44,3 +44,7 @@ export const PositionStickyIcon = React.forwardRef<
 }) as IconComponent;
 
 PositionStickyIcon.category = 'Layout';
+
+
+PositionStickyIcon.displayName = 'PositionStickyIcon';
+

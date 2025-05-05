@@ -37,3 +37,7 @@ export const ListStyleLetterIcon = React.forwardRef<
 }) as IconComponent;
 
 ListStyleLetterIcon.category = 'Typography';
+
+
+ListStyleLetterIcon.displayName = 'ListStyleLetterIcon';
+

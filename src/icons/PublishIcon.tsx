@@ -42,3 +42,7 @@ export const PublishIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 PublishIcon.tags = ['rocket', 'ghost', 'launch', 'nose'];
 
 PublishIcon.category = 'General Icons';
+
+
+PublishIcon.displayName = 'PublishIcon';
+

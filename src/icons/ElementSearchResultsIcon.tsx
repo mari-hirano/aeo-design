@@ -39,3 +39,7 @@ export const ElementSearchResultsIcon = React.forwardRef<
 ElementSearchResultsIcon.tags = ['search', 'results', 'search results'];
 
 ElementSearchResultsIcon.category = 'Navigator';
+
+
+ElementSearchResultsIcon.displayName = 'ElementSearchResultsIcon';
+

@@ -50,3 +50,7 @@ export const EmptyError64Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 EmptyError64Icon.category = '64x64 (Figma plugin illustrations)';
+
+
+EmptyError64Icon.displayName = 'EmptyError64Icon';
+

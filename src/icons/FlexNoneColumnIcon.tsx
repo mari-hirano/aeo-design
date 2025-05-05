@@ -43,3 +43,7 @@ export const FlexNoneColumnIcon = React.forwardRef<
 }) as IconComponent;
 
 FlexNoneColumnIcon.category = 'Layout';
+
+
+FlexNoneColumnIcon.displayName = 'FlexNoneColumnIcon';
+

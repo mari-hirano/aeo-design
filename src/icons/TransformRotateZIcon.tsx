@@ -37,3 +37,7 @@ export const TransformRotateZIcon = React.forwardRef<
 }) as IconComponent;
 
 TransformRotateZIcon.category = 'Layout';
+
+
+TransformRotateZIcon.displayName = 'TransformRotateZIcon';
+

@@ -46,3 +46,7 @@ export const ElementSliderSlideIcon = React.forwardRef<
 ElementSliderSlideIcon.tags = ['slider', 'slider slide', 'slide'];
 
 ElementSliderSlideIcon.category = 'Navigator';
+
+
+ElementSliderSlideIcon.displayName = 'ElementSliderSlideIcon';
+

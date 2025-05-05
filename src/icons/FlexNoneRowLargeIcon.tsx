@@ -43,3 +43,7 @@ export const FlexNoneRowLargeIcon = React.forwardRef<
 }) as IconComponent;
 
 FlexNoneRowLargeIcon.category = 'Layout';
+
+
+FlexNoneRowLargeIcon.displayName = 'FlexNoneRowLargeIcon';
+

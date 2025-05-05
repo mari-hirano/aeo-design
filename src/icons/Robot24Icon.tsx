@@ -36,3 +36,7 @@ export const Robot24Icon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 Robot24Icon.category = 'General Icons';
+
+
+Robot24Icon.displayName = 'Robot24Icon';
+

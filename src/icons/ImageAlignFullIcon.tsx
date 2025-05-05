@@ -37,3 +37,7 @@ export const ImageAlignFullIcon = React.forwardRef<
 }) as IconComponent;
 
 ImageAlignFullIcon.category = 'Layout';
+
+
+ImageAlignFullIcon.displayName = 'ImageAlignFullIcon';
+

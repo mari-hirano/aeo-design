@@ -36,3 +36,7 @@ export const SalesforceIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 ) as IconComponent;
 
 SalesforceIcon.category = 'General Icons';
+
+
+SalesforceIcon.displayName = 'SalesforceIcon';
+

@@ -43,3 +43,7 @@ export const ElementDropdownDefaultIcon = React.forwardRef<
 ElementDropdownDefaultIcon.tags = ['dropdown'];
 
 ElementDropdownDefaultIcon.category = 'Navigator';
+
+
+ElementDropdownDefaultIcon.displayName = 'ElementDropdownDefaultIcon';
+

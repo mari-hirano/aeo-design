@@ -38,3 +38,7 @@ export const BookshelfIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BookshelfIcon.tags = ['book', 'library'];
 
 BookshelfIcon.category = 'General Icons';
+
+
+BookshelfIcon.displayName = 'BookshelfIcon';
+

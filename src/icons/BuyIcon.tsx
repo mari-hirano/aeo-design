@@ -42,3 +42,7 @@ export const BuyIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BuyIcon.tags = ['tag', 'ecommerce', 'purchase'];
 
 BuyIcon.category = 'General Icons';
+
+
+BuyIcon.displayName = 'BuyIcon';
+

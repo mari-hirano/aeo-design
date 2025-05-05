@@ -38,3 +38,7 @@ export const AISparkleIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 AISparkleIcon.tags = ['AI', 'Sparkle', 'Star', 'Diamond'];
 
 AISparkleIcon.category = 'General Icons';
+
+
+AISparkleIcon.displayName = 'AISparkleIcon';
+

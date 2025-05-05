@@ -39,3 +39,7 @@ export const CopilotNavFullScreenIcon = React.forwardRef<
 CopilotNavFullScreenIcon.tags = ['site'];
 
 CopilotNavFullScreenIcon.category = 'General Icons';
+
+
+CopilotNavFullScreenIcon.displayName = 'CopilotNavFullScreenIcon';
+

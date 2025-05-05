@@ -51,3 +51,7 @@ export const GradientRadialClosestSideIcon = React.forwardRef<
 }) as IconComponent;
 
 GradientRadialClosestSideIcon.category = 'Color & Background';
+
+
+GradientRadialClosestSideIcon.displayName = 'GradientRadialClosestSideIcon';
+

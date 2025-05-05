@@ -39,3 +39,7 @@ export const ElementSplineIcon = React.forwardRef<
 ElementSplineIcon.tags = ['spline'];
 
 ElementSplineIcon.category = 'Navigator';
+
+
+ElementSplineIcon.displayName = 'ElementSplineIcon';
+

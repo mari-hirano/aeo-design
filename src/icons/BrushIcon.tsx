@@ -40,3 +40,7 @@ export const BrushIcon = React.forwardRef<HTMLDivElement, BaseIconProps>(
 BrushIcon.tags = ['Designer', 'Style', 'paint', 'art'];
 
 BrushIcon.category = 'General Icons';
+
+
+BrushIcon.displayName = 'BrushIcon';
+
