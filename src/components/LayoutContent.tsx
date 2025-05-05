@@ -2,6 +2,8 @@
 
 import { Navbar } from "@/components/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
+import RightPanel from "@/components/RightPanel";
+import Canvas from "@/components/Canvas";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { PagesProvider } from "@/context/PagesContext";
 
@@ -15,9 +17,10 @@ function LayoutContentInner({ children }: LayoutContentProps) {
       <Navbar />
       <div className="flex flex-1 overflow-hidden">
         <LeftSidebar />
-        <main className="flex-1 overflow-auto bg-[#1E1E1E]">
-          {children}
+        <main className="flex-1 bg-[#1E1E1E] relative">
+          <Canvas />
         </main>
+        <RightPanel />
       </div>
     </div>
   );

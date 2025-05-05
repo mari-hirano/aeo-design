@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const segmentedControlContainerVariants = cva(
-  "inline-flex rounded bg-gradient-to-b from-white/13 to-white/11 shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset] p-[1px]",
+  "inline-flex rounded bg-gradient-to-b from-white/8 to-white/5 shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset] p-[1px]",
   {
     variants: {
       fullWidth: {
@@ -18,11 +18,11 @@ const segmentedControlContainerVariants = cva(
 )
 
 const segmentedControlItemVariants = cva(
-  "flex items-center justify-center rounded text-[11.5px] leading-4 tracking-[-0.01em] font-normal text-white transition-all disabled:pointer-events-none disabled:opacity-50 h-6 px-2 py-1 min-w-[24px] data-[state=active]:bg-black/50 data-[state=active]:shadow-sm",
+  "flex items-center justify-center rounded body-text text-white/50 transition-all disabled:pointer-events-none disabled:opacity-50 h-[22px] px-2 py-1 min-w-[24px] data-[state=active]:bg-black/50 data-[state=active]:shadow-sm data-[state=active]:text-white",
   {
     variants: {
       isIcon: {
-        true: "h-6 w-6 p-0",
+        true: "h-[22px] w-[22px] p-0",
         false: "",
       },
       isFullWidth: {
