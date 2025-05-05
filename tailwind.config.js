@@ -48,9 +48,9 @@ module.exports = {
         
         // Background Colors
         'bg': {
-          'primary': '#141414',
-          'secondary': '#242424',
-          'tertiary': '#525252',
+          'primary': '#292929',
+          'secondary': '#353535',
+          'tertiary': '#404040',
           'raised': 'rgba(255, 255, 255, 0.07)',
           'inactive': '#141414',
           'inverse': '#f5f5f5',
@@ -67,7 +67,7 @@ module.exports = {
         
         // Border Colors
         'border': {
-          'default': 'rgba(255, 255, 255, 0.13)',
+          'default': '#464646',
           'text-input': 'rgba(255, 255, 255, 0.16)',
           'checkbox-radio': 'rgba(255, 255, 255, 0.19)',
         },

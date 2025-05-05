@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Accordion from '@/components/Accordion';
 import {
   // Structure
   AddPanelSection64Icon,
@@ -54,11 +55,9 @@ import {
 
 const AddPanel = () => {
   // Common styles for sections and icon buttons
-  const sectionStyle = "";
-  const sectionTitleStyle = "text-white text-sm font-medium";
-  const iconsGridStyle = "grid grid-cols-3";
-  const iconButtonStyle = "flex flex-col items-center justify-center bg-[#353535] rounded hover:bg-[#404040] transition-colors cursor-pointer h-[110px] w-[80px]";
-  const iconLabelStyle = "text-secondary text-xs text-center";
+  const iconsGridStyle = "grid grid-cols-3 gap-0";
+  const iconButtonStyle = "flex flex-col items-center justify-center hover:bg-[#404040] transition-colors cursor-grab h-[92px] w-[82px]";
+  const iconLabelStyle = "body-text text-center mb-1";
 
   // Sections data structure
   const sections = [
@@ -137,20 +136,19 @@ const AddPanel = () => {
   return (
     <div className="flex flex-col">
       {sections.map((section, index) => (
-        <div key={index} className={sectionStyle}>
-          <h3 className={sectionTitleStyle}>{section.title}</h3>
+        <Accordion key={index} title={section.title}>
           <div className={iconsGridStyle}>
             {section.items.map((item, itemIndex) => {
               const IconComponent = item.icon;
               return (
                 <div key={itemIndex} className={iconButtonStyle}>
-                  <IconComponent size={36} />
+                  <IconComponent size={64} style={{ color: '#ffffff' }} />
                   <div className={iconLabelStyle}>{item.label}</div>
                 </div>
               );
             })}
           </div>
-        </div>
+        </Accordion>
       ))}
     </div>
   );

@@ -189,7 +189,7 @@ const LeftSidebar = () => {
       </div>
 
       {/* Panels */}
-      <Panel title="Add Panel" isOpen={activePanel === 'add'}>
+      <Panel title="Add" isOpen={activePanel === 'add'}>
         <AddPanel />
       </Panel>
       

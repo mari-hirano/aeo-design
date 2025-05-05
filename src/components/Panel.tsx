@@ -13,19 +13,21 @@ const Panel: React.FC<PanelProps> = ({ title, isOpen, children }) => {
   if (!isOpen) return null;
   
   return (
-    <div className="fixed left-[35px] top-[35px] h-[calc(100vh-35px)] w-[240px] bg-[#242424] border-r border-[#454545] z-10 overflow-hidden flex flex-col"
+    <div className="fixed left-[35px] top-[35px] h-[calc(100vh-35px)] w-[248px] bg-[#292929] border-r border-border z-10 overflow-hidden flex flex-col"
          style={{
            boxShadow: '0px 4px 8px 0px rgba(0, 0, 0, 0.1)',
            animation: 'panelSlideIn 0.15s ease-out forwards'
          }}>
       <PanelHeader title={title} />
-      <div className="flex-1 overflow-auto p-3">
-        {children || (
-          <div className="text-secondary text-sm flex flex-col gap-2">
-            <p>This is the {title} panel.</p>
-            <p>Content for this panel will be displayed here.</p>
-          </div>
-        )}
+      <div className="flex-1 panel-content-wrapper">
+        <div className="flex-1 w-full panel-content">
+          {children || (
+            <div className="text-secondary text-sm flex flex-col gap-2">
+              <p>This is the {title} panel.</p>
+              <p>Content for this panel will be displayed here.</p>
+            </div>
+          )}
+        </div>
       </div>
       <style jsx global>{`
         @keyframes panelSlideIn {
@@ -36,6 +38,65 @@ const Panel: React.FC<PanelProps> = ({ title, isOpen, children }) => {
           to {
             transform: translateX(0);
             opacity: 1;
+          }
+        }
+        
+        /* Custom scrollbar styles with absolute positioning */
+        .panel-content-wrapper {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .panel-content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          overflow-y: scroll;
+          overflow-x: hidden;
+        }
+        
+        /* Custom scrollbar styling */
+        .panel-content::-webkit-scrollbar {
+          width: 8px;
+          background-color: transparent;
+          position: absolute;
+          right: 0;
+        }
+        
+        .panel-content::-webkit-scrollbar-thumb {
+          background-color: transparent;
+          border-radius: 0px;
+          transition: background-color 0.2s ease;
+        }
+        
+        .panel-content:hover::-webkit-scrollbar-thumb {
+          background-color: rgba(69, 69, 69, 0.7);
+        }
+        
+        .panel-content::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+        
+        /* For Firefox */
+        .panel-content {
+          scrollbar-width: none; /* Hide the default scrollbar */
+        }
+        
+        /* Add a custom scrollbar for Firefox that doesn't affect layout */
+        @-moz-document url-prefix() {
+          .panel-content-wrapper:hover::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            background-color: rgba(69, 69, 69, 0.7);
+            z-index: 100;
+            opacity: 0.7;
+            border-radius: 0px;
+            pointer-events: none;
           }
         }
       `}</style>
