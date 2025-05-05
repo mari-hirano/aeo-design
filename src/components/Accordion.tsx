@@ -14,19 +14,19 @@ const Accordion: React.FC<AccordionProps> = ({
   title, 
   defaultOpen = true, 
   children,
-  titleClassName = "font-sans text-[13px] leading-[18px] tracking-[0px] font-semibold text-white" 
+  titleClassName = "title-semibold" 
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-b border-[#454545]">
+    <div className="border-b border-border-default">
       <div 
         className="flex justify-between items-center cursor-default h-[40px] pl-2 pr-2"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3 className={titleClassName}>{title}</h3>
+        <h5 className={titleClassName}>{title}</h5>
         <div className={`transform transition-transform ${isOpen ? '' : 'rotate-[-90deg]'}`}>
-          <ChevronSmallDownIcon style={{ color: 'rgba(255, 255, 255, 0.67)' }} size={16} />
+          <ChevronSmallDownIcon style={{ color: 'var(--text-secondary)' }} size={16} />
         </div>
       </div>
       <div 

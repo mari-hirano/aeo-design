@@ -1,30 +1,43 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { SearchDefaultIcon } from "@/icons/SearchDefaultIcon"
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
+  icon?: React.ReactNode;
+  showSearchIcon?: boolean;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, error, ...props }, ref) => {
-  return (
-    <input
-      className={cn(
-        "flex h-6 w-full rounded-[4px] border border-solid px-2 py-0",
-        "font-sans text-body leading-body tracking-body",
-        "bg-[rgba(0,0,0,0.22)] border-[rgba(255,255,255,0.16)]",
-        "focus:outline-none focus:border-[#0073E6]",
-        "hover:border-[rgba(255,255,255,0.19)]",
-        "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-[#1e1e1e]",
-        "placeholder:text-[rgba(255,255,255,0.5)]",
-        "text-white",
-        error && "border-[#cf313b]",
-        className
-      )}
-      ref={ref}
-      {...props}
-    />
-  )
-})
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, error, icon, showSearchIcon, ...props }, ref) => {
+    return (
+      <div className="relative w-full">
+        {(icon || showSearchIcon) && (
+          <div className="absolute inset-y-0 left-1 flex items-center pointer-events-none">
+            {icon || (showSearchIcon && <SearchDefaultIcon size={16} style={{ color: 'var(--text-dimmed)' }} />)}
+          </div>
+        )}
+        <input
+          className={cn(
+            "flex h-6 w-full rounded-[4px] border border-solid px-2 py-0",
+            "text-body",
+            "color-input-bg border-[var(--input-border)]",
+            "focus:outline-none focus-visible:border-[var(--input-border-focus)]",
+            "hover:border-input-border-hover",
+            "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-input-disabled-bg",
+            "placeholder:text-input-placeholder",
+            "text-text-primary",
+            (icon || showSearchIcon) && "pl-6",
+            error && "border-red-border",
+            className
+          )}
+          ref={ref}
+          {...props}
+        />
+      </div>
+    )
+  }
+)
 Input.displayName = "Input"
 
 export { Input } 

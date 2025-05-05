@@ -402,7 +402,7 @@ const NavigatorPanel: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full h-full bg-bg-primary">
+    <div className="flex flex-col w-full h-full pt-1 bg-bg-primary border-t border-border">
       <div className="flex-1 overflow-auto body-text">
         {navigationData.map((item) => (
           <NavigatorRow

@@ -18,15 +18,15 @@ module.exports = {
       },
       colors: {
         // Input component colors
-        'input-bg': 'rgba(0,0,0,0.22)',
-        'input-border': 'rgba(255,255,255,0.16)',
-        'input-border-hover': 'rgba(255,255,255,0.19)',
-        'input-border-focus': '#0073E6',
-        'input-border-error': '#cf313b',
-        'input-disabled-bg': '#1e1e1e',
-        'input-disabled-border': 'rgba(255,255,255,0.16)',
-        'input-placeholder': 'rgba(255,255,255,0.5)',
-        'input-text': '#fff',
+        'input-bg': 'var(--input-bg, rgba(0,0,0,0.22))',
+        'input-border': 'var(--input-border, rgba(255,255,255,0.16))',
+        'input-border-hover': 'var(--input-border-hover, rgba(255,255,255,0.19))',
+        'input-border-focus': 'var(--input-border-focus, #0073E6)',
+        'input-border-error': 'var(--input-border-error, #cf313b)',
+        'input-disabled-bg': 'var(--input-disabled-bg, #1e1e1e)',
+        'input-disabled-border': 'var(--input-disabled-border, rgba(255,255,255,0.16))',
+        'input-placeholder': 'var(--input-placeholder, rgba(255,255,255,0.5))',
+        'input-text': 'var(--input-text, #fff)',
         
         // Design System Color Tokens
         // Action Colors
@@ -48,28 +48,28 @@ module.exports = {
         
         // Background Colors
         'bg': {
-          'primary': '#292929',
-          'secondary': '#353535',
-          'tertiary': '#404040',
-          'raised': 'rgba(255, 255, 255, 0.07)',
-          'inactive': '#141414',
-          'inverse': '#f5f5f5',
-          'inverse-hover': '#f5f5f5',
+          'primary': 'var(--bg-primary, #292929)',
+          'secondary': 'var(--bg-secondary, #353535)',
+          'tertiary': 'var(--bg-tertiary, #404040)',
+          'raised': 'var(--bg-raised, rgba(255, 255, 255, 0.07))',
+          'inactive': 'var(--bg-inactive, #141414)',
+          'inverse': 'var(--bg-inverse, #f5f5f5)',
+          'inverse-hover': 'var(--bg-inverse-hover, #f5f5f5)',
         },
         
         // Text Colors
         'text': {
-          'primary': '#ffffff',
-          'secondary': 'rgba(255, 255, 255, 0.67)',
-          'dimmed': 'rgba(255, 255, 255, 0.50)',
-          'inverse': '#000000',
+          'primary': 'var(--text-primary, #ffffff)',
+          'secondary': 'var(--text-secondary, rgba(255, 255, 255, 0.67))',
+          'dimmed': 'var(--text-dimmed, rgba(255, 255, 255, 0.50))',
+          'inverse': 'var(--text-inverse, #000000)',
         },
         
         // Border Colors
         'border': {
-          'default': '#464646',
-          'text-input': 'rgba(255, 255, 255, 0.16)',
-          'checkbox-radio': 'rgba(255, 255, 255, 0.19)',
+          'default': 'var(--border-default, #464646)',
+          'text-input': 'var(--border-text-input, rgba(255, 255, 255, 0.16))',
+          'checkbox-radio': 'var(--border-checkbox-radio, rgba(255, 255, 255, 0.19))',
         },
         
         // Close Button
@@ -79,7 +79,7 @@ module.exports = {
         
         // Blue Colors
         'blue': {
-          'bg': '#0084FF',
+          'bg': 'var(--blue-bg, #0084FF)',
           'bg-hover': '#2496FF',
           'bg-pressed': '#0084FF',
           'border': '#0073E6',
@@ -87,7 +87,7 @@ module.exports = {
           'canvas-transparent': 'rgba(0, 115, 230, 0.1)',
           'chart': '#0073E6',
           'chart-2': '#8AC2FF',
-          'text': '#8AC2FF',
+          'text': 'var(--blue-text, #8AC2FF)',
           'transparent': 'rgba(0, 115, 230, 0.25)',
           'transparent-hover': 'rgba(0, 115, 230, 0.35)',
           // For backward compatibility with existing blue values
@@ -101,14 +101,14 @@ module.exports = {
         
         // Green Colors
         'green': {
-          'bg': '#00a457',
+          'bg': 'var(--green-bg, #00a457)',
           'bg-hover': '#2FC862',
           'bg-pressed': '#00a457',
           'border': '#008547',
           'canvas': '#008547',
           'canvas-transparent': 'rgba(0, 133, 71, 0.1)',
           'chart': '#63D489',
-          'text': '#63D489',
+          'text': 'var(--green-text, #63D489)',
           'transparent': 'rgba(0, 133, 71, 0.25)',
           'transparent-hover': 'rgba(0, 133, 71, 0.35)',
           // For backward compatibility with existing green values
@@ -120,7 +120,7 @@ module.exports = {
         
         // Red Colors
         'red': {
-          'bg': '#ED273E',
+          'bg': 'var(--red-bg, #ED273E)',
           'bg-hover': '#FF424D',
           'bg-pressed': '#ED273E',
           'border': '#CF313B',
@@ -128,7 +128,7 @@ module.exports = {
           'canvas-transparent': 'rgba(207, 49, 59, 0.1)',
           'chart': '#FF8A8A',
           'icon': '#FF8A8A',
-          'text': '#FF8A8A',
+          'text': 'var(--red-text, #FF8A8A)',
           'transparent': 'rgba(207, 49, 59, 0.25)',
           'transparent-hover': 'rgba(207, 49, 59, 0.35)',
           // For backward compatibility with existing red values
@@ -138,21 +138,21 @@ module.exports = {
         
         // Orange Colors
         'orange': {
-          'bg': '#F85900',
+          'bg': 'var(--orange-bg, #F85900)',
           'bg-hover': '#F67E28',
           'bg-pressed': '#F85900',
           'border': '#C75300',
           'canvas': '#C75300',
           'canvas-transparent': 'rgba(248, 89, 0, 0.1)',
           'chart': '#C75300',
-          'text': '#FFAB66',
+          'text': 'var(--orange-text, #FFAB66)',
           'transparent': 'rgba(248, 89, 0, 0.2)',
           'transparent-hover': 'rgba(248, 89, 0, 0.3)',
         },
         
         // Purple Colors
         'purple': {
-          'bg': '#8A61FF',
+          'bg': 'var(--purple-bg, #8A61FF)',
           'bg-hover': '#A484FF',
           'bg-pressed': '#8A61FF',
           'border': '#7F5AE9',
@@ -160,7 +160,7 @@ module.exports = {
           'canvas-transparent': 'rgba(127, 90, 233, 0.1)',
           'chart': '#7F5AE9',
           'chart-2': '#B89EFF',
-          'text': '#B89EFF',
+          'text': 'var(--purple-text, #B89EFF)',
           'transparent': 'rgba(127, 90, 233, 0.25)',
           'transparent-hover': 'rgba(127, 90, 233, 0.35)',
           // For backward compatibility with existing purple values
@@ -170,28 +170,28 @@ module.exports = {
         
         // Pink Colors
         'pink': {
-          'bg': '#E148C0',
+          'bg': 'var(--pink-bg, #E148C0)',
           'bg-hover': '#F775D3',
           'bg-pressed': '#E148C0',
           'border': '#BE4AA5',
           'canvas': '#BE4AA5',
           'canvas-transparent': 'rgba(190, 74, 165, 0.1)',
           'chart': '#BE4AA5',
-          'text': '#F7A9F9',
+          'text': 'var(--pink-text, #F7A9F9)',
           'transparent': 'rgba(190, 74, 165, 0.25)',
           'transparent-hover': 'rgba(190, 74, 165, 0.35)',
         },
         
         // Yellow Colors
         'yellow': {
-          'bg': '#EAA700',
+          'bg': 'var(--yellow-bg, #EAA700)',
           'bg-hover': '#63D489',
           'bg-pressed': '#EAA700',
           'border': '#EAA700',
           'canvas': '#EAA700',
           'canvas-transparent': 'rgba(255, 199, 0, 0.1)',
           'chart': '#EAA700',
-          'text': '#EAA700',
+          'text': 'var(--yellow-text, #EAA700)',
           'transparent': 'rgba(255, 199, 0, 0.15)',
           'transparent-hover': 'rgba(255, 199, 0, 0.25)',
         },
@@ -259,7 +259,7 @@ module.exports = {
         'body': '13px',  // 13px line height
       },
       fontWeight: {
-        'normal': '400',
+        'normal': '300',
         'medium': '500',
         'semibold': '600', 
         'bold': '700',

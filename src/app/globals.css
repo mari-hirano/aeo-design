@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../styles/colors.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -132,8 +133,8 @@
     font-size: 0.72rem;
     line-height: 16px;
     letter-spacing: -0.01em;
-    color: #ffffffab;
-    font-weight: 400;
+    color: var(--text-secondary);
+    font-weight: 300;
   }
 
   .body-semibold {
@@ -141,7 +142,7 @@
     font-size: 0.72rem;
     line-height: 16px;
     letter-spacing: -0.01em;
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 600;
   }
 
@@ -151,8 +152,8 @@
     font-size: 13px;
     line-height: 18px;
     letter-spacing: 0;
-    color: #ffffff;
-    font-weight: 400;
+    color: var(--text-primary);
+    font-weight: 300;
   }
 
   .title-semibold {
@@ -160,7 +161,7 @@
     font-size: 13px;
     line-height: 18px;
     letter-spacing: 0;
-    color: #ffffff;
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 500;
   }
 }

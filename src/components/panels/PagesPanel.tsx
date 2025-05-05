@@ -1,38 +1,131 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
+import { 
+  AddIcon, 
+  HomeIcon, 
+  PageDraftIcon, 
+  EmailIcon, 
+  Copilot404Icon, 
+  LockIcon,
+  MenuIcon,
+  PageDefaultIcon
+} from '@/icons';
+import Accordion from '@/components/Accordion';
+import { Input } from "@/components/ui/input";
+
+// Page item interface
+interface PageItem {
+  name: string;
+  path: string;
+  icon?: React.ReactNode;
+  children?: PageItem[];
+  draft?: boolean;
+}
+
+// Section interface
+interface PageSection {
+  title: string;
+  items: PageItem[];
+  expanded: boolean;
+}
 
 const PagesPanel = () => {
-  const pages = [
-    { name: 'Home', path: '/', active: true },
-    { name: 'About', path: '/about', active: false },
-    { name: 'Services', path: '/services', active: false },
-    { name: 'Contact', path: '/contact', active: false },
-    { name: 'Blog', path: '/blog', active: false },
-  ];
+  // Initialize sections with the ones visible in the image
+  const [sections] = useState<PageSection[]>([
+    {
+      title: 'Static pages',
+      expanded: true,
+      items: [
+        { name: 'Home', path: '/' },
+        { name: 'Contact Us', path: '/contact' },
+        { name: '[Draft] Styles', path: '/styles', draft: true }
+      ]
+    },
+    {
+      title: 'CMS Collection pages',
+      expanded: true,
+      items: [
+        { name: 'Testimonials Template', path: '/testimonials' }
+      ]
+    },
+    {
+      title: 'Utility pages',
+      expanded: true,
+      items: [
+        { name: 'Password', path: '/password' },
+        { name: '404', path: '/404' }
+      ]
+    },
+    {
+      title: 'Static page templates',
+      expanded: false,
+      items: []
+    },
+    {
+      title: 'Ecommerce pages',
+      expanded: false,
+      items: []
+    },
+    {
+      title: 'User pages',
+      expanded: false,
+      items: []
+    }
+  ]);
+
+  // Get icon based on page name
+  const getPageIcon = (item: PageItem) => {
+    const iconProps = { 
+      size: 16, 
+      style: { color: item.draft ? 'var(--orange-text)' : 'var(--text-secondary)' } 
+    };
+    
+    // Always use the default page icon
+    return <PageDefaultIcon {...iconProps} />;
+  };
+
+  // Render a page item
+  const renderPageItem = (item: PageItem) => {
+    return (
+      <div className="flex items-center h-6 px-2 hover:bg-bg-tertiary cursor-pointer">
+        <div className="flex items-center gap-2 w-full overflow-hidden">
+          {getPageIcon(item)}
+          <span className={`body-text truncate ${item.draft ? 'color-orange-text' : 'color-text-primary'}`}>
+            {item.name}
+          </span>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex items-center justify-between py-2">
-        <div className="text-white text-sm font-medium">Pages</div>
-        <button className="bg-[#353535] hover:bg-[#404040] transition-colors rounded-sm p-1">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4V20M4 12H20" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+    <div className="flex flex-col h-full">
+      {/* Search */}
+      <div className="px-2 pb-2 border-b border-border" >
+        <Input
+          showSearchIcon
+          placeholder="Search pages"
+        />
       </div>
       
-      <div className="mt-2">
-        {pages.map((page, index) => (
-          <div 
-            key={index}
-            className={`py-2 px-3 rounded flex items-center text-sm cursor-pointer ${page.active ? 'bg-blue-600' : 'hover:bg-[#353535]'}`}
+      {/* Sections with Accordion */}
+      <div className="flex-1 overflow-y-auto">
+        {sections.map((section, index) => (
+          <Accordion 
+            key={index} 
+            title={section.title} 
+            defaultOpen={section.expanded}
+            titleClassName="title-semibold"
           >
-            <div className={`${page.active ? 'text-white' : 'text-secondary'} flex-1`}>
-              {page.name}
+            <div className="pb-2">
+              {section.items.map((item, itemIndex) => (
+                <div key={itemIndex}>
+                  {renderPageItem(item)}
+                </div>
+              ))}
             </div>
-            <div className="text-xs text-[#666666]">{page.path}</div>
-          </div>
+          </Accordion>
         ))}
       </div>
     </div>

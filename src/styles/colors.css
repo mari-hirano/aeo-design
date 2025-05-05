@@ -1,0 +1,91 @@
+/* Design System Color Variables */
+:root {
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.67);
+  --text-dimmed: rgba(255, 255, 255, 0.5);
+  
+  /* Background Colors */
+  --bg-primary: #292929;
+  --bg-secondary: #353535;
+  --bg-tertiary: #404040;
+  --bg-raised: rgba(255, 255, 255, 0.07);
+  --bg-inactive: #141414;
+  
+  /* Border Colors */
+  --border-default: #464646;
+  
+  /* Input Component Colors */
+  --input-bg: rgba(0, 0, 0, 0.22);
+  --input-border: rgba(255, 255, 255, 0.16);
+  --input-border-hover: rgba(255, 255, 255, 0.19);
+  --input-border-focus: #0073E6;
+  --input-border-error: #cf313b;
+  --input-disabled-bg: #1e1e1e;
+  --input-disabled-border: rgba(255, 255, 255, 0.16);
+  --input-placeholder: rgba(255, 255, 255, 0.5);
+  
+  /* Semantic Colors */
+  /* Blue */
+  --blue-bg: #0084FF;
+  --blue-text: #8AC2FF;
+  --blue-border: #0073E6;
+  
+  /* Green */
+  --green-bg: #00a457;
+  --green-text: #63D489;
+  --green-border: #008547;
+  
+  /* Red */
+  --red-bg: #ED273E;
+  --red-text: #FF8A8A;
+  --red-border: #CF313B;
+  
+  /* Purple */
+  --purple-bg: #8A61FF;
+  --purple-text: #B89EFF;
+  --purple-border: #7F5AE9;
+  
+  /* Pink */
+  --pink-bg: #E148C0;
+  --pink-text: #F7A9F9;
+  --pink-border: #BE4AA5;
+  
+  /* Orange */
+  --orange-bg: #F85900;
+  --orange-text: #FFAB66;
+  --orange-border: #C75300;
+  
+  /* Yellow */
+  --yellow-bg: #EAA700;
+  --yellow-text: #EAA700;
+  --yellow-border: #CC9200;
+}
+
+/* We'll avoid using !important to prevent conflicts with Tailwind */
+/* These utility classes will be available as fallbacks */
+.color-text-primary { color: var(--text-primary); }
+.color-text-secondary { color: var(--text-secondary); }
+.color-text-dimmed { color: var(--text-dimmed); }
+
+.color-orange-text { color: var(--orange-text); }
+.color-blue-text { color: var(--blue-text); }
+.color-green-text { color: var(--green-text); }
+.color-red-text { color: var(--red-text); }
+.color-purple-text { color: var(--purple-text); }
+.color-pink-text { color: var(--pink-text); }
+.color-yellow-text { color: var(--yellow-text); }
+
+/* Background colors */
+.color-bg-primary { background-color: var(--bg-primary); }
+.color-bg-secondary { background-color: var(--bg-secondary); }
+.color-bg-tertiary { background-color: var(--bg-tertiary); }
+.color-bg-raised { background-color: var(--bg-raised); }
+.color-bg-inactive { background-color: var(--bg-inactive); }
+
+/* Input specific utility classes */
+.color-input-bg { background-color: var(--input-bg); }
+.color-input-border { border-color: var(--input-border); }
+.color-input-border-hover { border-color: var(--input-border-hover); }
+.color-input-border-focus { border-color: var(--input-border-focus); }
+.color-input-border-error { border-color: var(--input-border-error); }

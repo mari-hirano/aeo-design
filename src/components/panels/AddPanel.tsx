@@ -134,7 +134,7 @@ const AddPanel = () => {
   ];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col border-t border-border">
       {sections.map((section, index) => (
         <Accordion key={index} title={section.title}>
           <div className={iconsGridStyle}>

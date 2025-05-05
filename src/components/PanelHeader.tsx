@@ -8,8 +8,8 @@ interface PanelHeaderProps {
 
 const PanelHeader: React.FC<PanelHeaderProps> = ({ title }) => {
   return (
-    <div className="p-3 border-b border-border flex items-center justify-between">
-      <h2 className="title-text">{title}</h2>
+    <div className="px-2 py-3 flex items-center justify-between">
+      <h2 className="title-semibold">{title}</h2>
     </div>
   );
 };
