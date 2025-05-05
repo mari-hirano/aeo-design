@@ -45,7 +45,7 @@ const LeftSidebar = () => {
   const [activePanel, setActivePanel] = useState<PanelType>(null);
 
   // Common style to ensure rgba(255, 255, 255, 0.67) color
-  const iconStyle = { color: 'rgba(255, 255, 255, 0.67)' };
+  const iconStyle = { color: 'rgba(255, 255, 255, 0.68)' };
 
   // Function to toggle panels
   const togglePanel = (panel: PanelType) => {
