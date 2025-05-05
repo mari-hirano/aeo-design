@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   description: "A clean template for building web applications",
 };
 
-export default function RootLayout() {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-[#1E1E1E]`}>
         <ModeProvider>
           <NavigatorProvider>
             <PagesProvider>
-              <LayoutContent />
+              <LayoutContent>{children}</LayoutContent>
             </PagesProvider>
           </NavigatorProvider>
         </ModeProvider>

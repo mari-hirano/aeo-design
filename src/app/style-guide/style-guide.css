@@ -1,0 +1,171 @@
+/* Style guide color overrides */
+:root {
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.67);
+  --text-dimmed: rgba(255, 255, 255, 0.5);
+  
+  /* Background Colors */
+  --bg-primary: #141414;
+  --bg-secondary: #242424;
+  --bg-tertiary: #525252;
+  --bg-raised: rgba(255, 255, 255, 0.07);
+  
+  /* Border Colors */
+  --border-default: rgba(255, 255, 255, 0.13);
+  
+  /* Semantic Colors */
+  --blue-bg: #0084FF;
+  --blue-text: #8AC2FF;
+  --green-bg: #00a457;
+  --green-text: #63D489;
+  --red-bg: #ED273E;
+  --red-text: #FF8A8A;
+  --purple-bg: #8A61FF;
+  --purple-text: #B89EFF;
+  --pink-bg: #E148C0;
+  --pink-text: #F7A9F9;
+  --orange-bg: #F85900;
+  --orange-text: #FFAB66;
+  --yellow-bg: #EAA700;
+  --yellow-text: #EAA700;
+  
+  /* Action Colors */
+  --action-primary-bg: #0084FF;
+  --action-primary-bg-hover: #2496FF;
+  --action-secondary-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.11) 100%);
+  --action-secondary-selected-bg: rgba(0, 0, 0, 0.50);
+}
+
+.style-guide-root {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+/* Text Colors */
+.text-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-text-dimmed {
+  color: var(--text-dimmed) !important;
+}
+
+/* Background Colors */
+.bg-bg-primary {
+  background-color: var(--bg-primary) !important;
+}
+
+.bg-bg-secondary {
+  background-color: var(--bg-secondary) !important;
+}
+
+.bg-bg-tertiary {
+  background-color: var(--bg-tertiary) !important;
+}
+
+.bg-bg-raised {
+  background-color: var(--bg-raised) !important;
+}
+
+/* Border Colors */
+.border-border-default {
+  border-color: var(--border-default) !important;
+}
+
+/* Action Colors */
+.bg-action-primary-bg {
+  background-color: var(--action-primary-bg) !important;
+}
+
+.bg-action-primary-bg-hover {
+  background-color: var(--action-primary-bg-hover) !important;
+}
+
+.bg-action-secondary-selected-bg {
+  background-color: var(--action-secondary-selected-bg) !important;
+}
+
+/* Semantic Text Colors */
+.text-blue-text {
+  color: var(--blue-text) !important;
+}
+
+.text-green-text {
+  color: var(--green-text) !important;
+}
+
+.text-red-text {
+  color: var(--red-text) !important;
+}
+
+.text-purple-text {
+  color: var(--purple-text) !important;
+}
+
+.text-pink-text {
+  color: var(--pink-text) !important;
+}
+
+.text-orange-text {
+  color: var(--orange-text) !important;
+}
+
+.text-yellow-text {
+  color: var(--yellow-text) !important;
+}
+
+/* Semantic Background Colors */
+.bg-blue-bg {
+  background-color: var(--blue-bg) !important;
+}
+
+.bg-green-bg {
+  background-color: var(--green-bg) !important;
+}
+
+.bg-red-bg {
+  background-color: var(--red-bg) !important;
+}
+
+.bg-purple-bg {
+  background-color: var(--purple-bg) !important;
+}
+
+.bg-pink-bg {
+  background-color: var(--pink-bg) !important;
+}
+
+.bg-orange-bg {
+  background-color: var(--orange-bg) !important;
+}
+
+.bg-yellow-bg {
+  background-color: var(--yellow-bg) !important;
+}
+
+/* Fix for colored text in icons */
+.text-blue-text svg,
+.text-green-text svg,
+.text-red-text svg,
+.text-yellow-text svg,
+.text-purple-text svg,
+.text-pink-text svg,
+.text-orange-text svg {
+  color: inherit !important;
+}
+
+/* Make sure icon colors work properly */
+svg.text-blue-text,
+svg.text-green-text,
+svg.text-red-text,
+svg.text-yellow-text,
+svg.text-purple-text,
+svg.text-pink-text,
+svg.text-orange-text {
+  fill: currentColor !important;
+} 
