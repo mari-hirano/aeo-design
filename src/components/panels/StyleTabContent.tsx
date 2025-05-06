@@ -39,6 +39,7 @@ import {
 } from '@/icons';
 import { Slider } from '@/components/ui/slider';
 import { Tag } from '@/components/ui/tag';
+import { getImagePath } from '@/lib/utils';
 
 const StyleTabContent: React.FC = () => {
   const [alignValue, setAlignValue] = useState("left");
@@ -156,7 +157,7 @@ const StyleTabContent: React.FC = () => {
         <div className="px-2 pb-2">
           <div className="w-full flex justify-center">
             <img 
-              src="/orion/images/spacing-box-model.png" 
+              src={getImagePath("/images/spacing-box-model.png")}
               alt="Margin and Padding Box Model" 
               className="w-full"
               style={{ maxWidth: "100%", height: "auto" }}
