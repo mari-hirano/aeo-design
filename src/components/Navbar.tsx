@@ -1,13 +1,16 @@
 "use client"
 
-import { useState, useRef, RefObject } from "react"
+import { useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
 } from "@/components/ui/dropdown-menu"
 import { SquareMousePointer, Check } from "lucide-react"
 import { useMode } from "@/context/ModeContext"
@@ -31,42 +34,105 @@ import {
   HelpCircleIcon,
   HelpShortcutsIcon,
   SearchDefaultIcon,
-  CssPreviewIcon
+  CssPreviewIcon,
+  BrushIcon
 } from "@/icons"
 import { Button } from "@/components/ui/button"
-import Menu from "@/components/ui/menu"
-import MenuRow from "@/components/ui/menu-row"
 
 export function Navbar() {
   const { mode, setMode } = useMode();
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuTriggerRef = useRef<HTMLDivElement>(null);
   const [logoHovered, setLogoHovered] = useState(false);
+  const router = useRouter();
 
   return (
     <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-sans text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
       {/* Left side */}
       <div className="flex items-center">
-        {/* Logo/Home */}
-        <div 
-          ref={menuTriggerRef}
-          className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545] cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
-        >
-          {menuOpen || logoHovered ? (
-            <MenuIcon size={20} className="text-white" />
-          ) : (
-            <Image
-              src={getImagePath("/images/WebflowLogo.png")}
-              alt="Logo"
-              width={20}
-              height={20}
-              className="object-contain"
-            />
-          )}
-        </div>
+        {/* Logo/Home with Menu Dropdown */}
+        <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
+          <DropdownMenuTrigger asChild>
+            <div 
+              className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545] cursor-pointer"
+              onMouseEnter={() => setLogoHovered(true)}
+              onMouseLeave={() => setLogoHovered(false)}
+            >
+              {menuOpen || logoHovered ? (
+                <MenuIcon size={20} className="text-white" />
+              ) : (
+                <Image
+                  src={getImagePath("/images/WebflowLogo.png")}
+                  alt="Logo"
+                  width={20}
+                  height={20}
+                  className="object-contain"
+                />
+              )}
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="min-w-[220px]">
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <DashboardIcon size={16} className="mr-[4px]" />
+              Dashboard
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <SettingsIcon size={16} className="mr-[4px]" />
+              Site settings
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <EditIcon size={16} className="mr-[4px]" />
+              Editor
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <SearchDefaultIcon size={16} className="mr-[4px]" />
+              Quick find
+              <DropdownMenuShortcut className="ml-auto">⌘E/⌘K</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <UndoIcon size={16} className="mr-[4px]" />
+              Undo
+              <DropdownMenuShortcut className="ml-auto">⌘Z</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <RedoIcon size={16} className="mr-[4px]" />
+              Redo
+              <DropdownMenuShortcut className="ml-auto">⌘⇧Z</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <CodeIcon size={16} className="mr-[4px]" />
+              Export code
+              <DropdownMenuShortcut className="ml-auto">⇧E</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <HelpShortcutsIcon size={16} className="mr-[4px]" />
+              Keyboard shortcuts
+              <DropdownMenuShortcut className="ml-auto">⇧?</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <CssPreviewIcon size={16} className="mr-[4px]" />
+              CSS preview
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+              <HelpCircleIcon size={16} className="mr-[4px]" />
+              Help & feedback
+              <DropdownMenuShortcut className="ml-auto">⌃⇧/</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem 
+              onClick={() => {
+                setMenuOpen(false);
+                router.push("/style-guide");
+              }}
+            >
+              <BrushIcon size={16} className="mr-[4px]" />
+              Style guide
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
         
         {/* Mode Dropdown */}
         <DropdownMenu>
@@ -160,75 +226,6 @@ export function Navbar() {
           Publish
         </Button>
       </div>
-
-      {/* App Menu */}
-      <Menu
-        isOpen={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        trigger={menuTriggerRef as RefObject<HTMLElement>}
-        className="min-w-[220px]"
-      >
-        <MenuRow
-          label="Dashboard"
-          icon={<DashboardIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow
-          label="Site settings"
-          icon={<SettingsIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow
-          label="Editor"
-          icon={<EditIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow divider />
-        <MenuRow
-          label="Quick find"
-          shortcutText="⌘E/⌘K"
-          icon={<SearchDefaultIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow divider />
-        <MenuRow
-          label="Undo"
-          shortcutText="⌘Z"
-          icon={<UndoIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow
-          label="Redo"
-          shortcutText="⌘⇧Z"
-          icon={<RedoIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow divider />
-        <MenuRow
-          label="Export code"
-          shortcutText="⇧E"
-          icon={<CodeIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow divider />
-        <MenuRow
-          label="Keyboard shortcuts"
-          shortcutText="⇧?"
-          icon={<HelpShortcutsIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow
-          label="CSS preview"
-          icon={<CssPreviewIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-        <MenuRow
-          label="Help & feedback"
-          shortcutText="⌃⇧/"
-          icon={<HelpCircleIcon size={16} />}
-          onClick={() => setMenuOpen(false)}
-        />
-      </Menu>
     </nav>
   )
 } 

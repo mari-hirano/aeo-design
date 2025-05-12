@@ -10,17 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-b from-white/13 to-white/11 text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset] hover:opacity-90",
+          "bg-gradient-to-b from-white/13 to-white/11 text-[var(--text-primary)] shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset] hover:opacity-90",
         primary:
-          "bg-[#006ACC] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[#006ACC] text-[var(--text-primary)] shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
         success:
-          "bg-[#007A41] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[#007A41] text-[var(--text-primary)] shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
         destructive:
-          "bg-[#CF313B] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[#CF313B] text-[var(--text-primary)] shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
         warning:
-          "bg-[#BF4704] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[#BF4704] text-[var(--text-primary)] shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
         outline:
-          "border border-white/13 bg-transparent text-white hover:bg-white/5",
+          "border border-white/13 bg-transparent text-[var(--text-primary)] hover:bg-white/5",
         "outline-primary": 
           "border border-white/13 bg-transparent text-[#006ACC] hover:bg-white/5",
         "outline-success": 
@@ -30,7 +30,7 @@ const buttonVariants = cva(
         "outline-warning": 
           "border border-white/13 bg-transparent text-[#FFBC86] hover:bg-white/5",
         subtle:
-          "bg-transparent text-white hover:bg-white/5",
+          "bg-transparent text-[var(--text-primary)] hover:bg-white/5",
         "subtle-primary": 
           "bg-[#007DF0]/25 text-[#007DF0] hover:bg-[#007DF0]/30",
         "subtle-success": 
@@ -40,7 +40,7 @@ const buttonVariants = cva(
         "subtle-warning": 
           "bg-[#DF640C]/25 text-[#FFBC86] hover:bg-[#DF640C]/30",
         ghost:
-          "bg-transparent text-white hover:bg-white/5",
+          "bg-transparent text-[var(--text-primary)] hover:bg-white/5",
         "ghost-primary": 
           "bg-transparent text-[#006ACC] hover:bg-[#353535]",
         "ghost-success": 
@@ -53,8 +53,7 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-6 px-2 py-1 has-[>svg]:px-2",
-        sm: "h-5 rounded gap-0.5 px-2 has-[>svg]:px-2",
-        lg: "h-8 rounded px-3 has-[>svg]:px-2",
+        sm: "h-6 gap-0.5 px-2 has-[>svg]:px-2",
         icon: "h-6 w-6",
       },
     },

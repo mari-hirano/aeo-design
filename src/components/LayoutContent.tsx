@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightPanel from "@/components/RightPanel";
@@ -12,6 +13,22 @@ interface LayoutContentProps {
 }
 
 function LayoutContentInner({ children }: LayoutContentProps) {
+  const pathname = usePathname();
+  
+  // Check if the current path is a special page that should render directly
+  const isSpecialPage = pathname?.includes('/style-guide');
+  
+  if (isSpecialPage) {
+    return (
+      <div className="flex h-screen flex-col">
+        <div className="flex-1">
+          {children}
+        </div>
+      </div>
+    );
+  }
+  
+  // Regular app layout
   return (
     <div className="flex h-screen flex-col">
       <Navbar />

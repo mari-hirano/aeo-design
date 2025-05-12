@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Accordion from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
-import { Select } from '@/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { SegmentedControl, SegmentedControlItem } from '@/components/ui/segmented-control';
@@ -52,6 +52,12 @@ const StyleTabContent: React.FC = () => {
   const [eventsValue, setEventsValue] = useState("auto");
   const [displayValue, setDisplayValue] = useState("flex");
   const [selectedClass, setSelectedClass] = useState("Page wrapper");
+  const [positionValue, setPositionValue] = useState("static");
+  const [fontValue, setFontValue] = useState("satoshi");
+  const [weightValue, setWeightValue] = useState("500");
+  const [clippingValue, setClippingValue] = useState("none");
+  const [blendingValue, setBlendingValue] = useState("normal");
+  const [cursorValue, setCursorValue] = useState("auto");
 
   return (
     <div className="overflow-y-auto">
@@ -68,20 +74,19 @@ const StyleTabContent: React.FC = () => {
           <div className="flex items-center gap-2">
             <div className="flex-1 relative">
               <div className="relative">
-                <Select 
-                  defaultValue="" 
-                  variant="default" 
-                  className="h-8 w-full pl-8 bg-[#1F1F1F] border-[#333333] rounded-md"
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    if (value === "page-wrapper") setSelectedClass("");
-                    else if (value === "parent-element") setSelectedClass("Parent element");
-                    else if (value === "child-element") setSelectedClass("Child element");
-                  }}
-                >
-                  <option value="page-wrapper"></option>
-                  <option value="parent-element">Parent element</option>
-                  <option value="child-element">Child element</option>
+                <Select value="" onValueChange={(value: string) => {
+                  if (value === "page-wrapper") setSelectedClass("");
+                  else if (value === "parent-element") setSelectedClass("Parent element");
+                  else if (value === "child-element") setSelectedClass("Child element");
+                }}>
+                  <SelectTrigger className="h-8 w-full pl-8 bg-[#1F1F1F] border-[#333333] rounded-md">
+                    <SelectValue placeholder="" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="page-wrapper">Page wrapper</SelectItem>
+                    <SelectItem value="parent-element">Parent element</SelectItem>
+                    <SelectItem value="child-element">Child element</SelectItem>
+                  </SelectContent>
                 </Select>
                 
                 <div className="absolute left-1 top-1/2 transform -translate-y-1/2 z-10">
@@ -240,20 +245,25 @@ const StyleTabContent: React.FC = () => {
         <div className="px-2 pb-2 color-text-secondary">
           <div className="grid grid-cols-1 gap-2">
             <div className="flex items-center">
-            <span className="body-text w-[49px]">Position</span>
-                <Select defaultValue="static" variant="button" className="flex-1">
-                  <option value="static">Static</option>
-                  <option value="relative">Relative</option>
-                  <option value="absolute">Absolute</option>
-                  <option value="fixed">Fixed</option>
-                  <option value="sticky">Sticky</option>
-                </Select>
+              <span className="body-text w-[49px]">Position</span>
+              <Select value={positionValue} onValueChange={setPositionValue}>
+                <SelectTrigger className="flex-1">
+                  <SelectValue placeholder="Static" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="static">Static</SelectItem>
+                  <SelectItem value="relative">Relative</SelectItem>
+                  <SelectItem value="absolute">Absolute</SelectItem>
+                  <SelectItem value="fixed">Fixed</SelectItem>
+                  <SelectItem value="sticky">Sticky</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="flex flex-col">
-            <Button variant="outline" className="w-full mt-1 flex items-center justify-center gap-1 color-text-secondary">
-            <ChevronSmallRightIcon size={14} />
-              Float and clear
-            </Button>
+              <Button variant="outline" className="w-full mt-1 flex items-center justify-center gap-1 color-text-secondary">
+                <ChevronSmallRightIcon size={14} />
+                Float and clear
+              </Button>
             </div>
           </div>
         </div>
@@ -264,22 +274,32 @@ const StyleTabContent: React.FC = () => {
           <div className="flex flex-col gap-2 color-text-secondary">
             <div className="flex items-center">
               <span className="body-text w-[49px]">Font</span>
-              <Select defaultValue="satoshi" className="flex-1" variant="button">
-                <option value="satoshi">Satoshi</option>
-                <option value="inter">Inter</option>
-                <option value="sans-serif">Sans Serif</option>
-                <option value="monospace">Monospace</option>
+              <Select value={fontValue} onValueChange={setFontValue}>
+                <SelectTrigger className="flex-1">
+                  <SelectValue placeholder="Satoshi" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="satoshi">Satoshi</SelectItem>
+                  <SelectItem value="inter">Inter</SelectItem>
+                  <SelectItem value="sans-serif">Sans Serif</SelectItem>
+                  <SelectItem value="monospace">Monospace</SelectItem>
+                </SelectContent>
               </Select>
             </div>
             
             <div className="flex items-center">
               <span className="body-text w-[49px]">Weight</span>
-              <Select defaultValue="500" className="flex-1" variant="button">
-                <option value="300">300 - Light</option>
-                <option value="400">400 - Regular</option>
-                <option value="500">500 - Medium</option>
-                <option value="600">600 - Semi-Bold</option>
-                <option value="700">700 - Bold</option>
+              <Select value={weightValue} onValueChange={setWeightValue}>
+                <SelectTrigger className="flex-1">
+                  <SelectValue placeholder="500 - Medium" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="300">300 - Light</SelectItem>
+                  <SelectItem value="400">400 - Regular</SelectItem>
+                  <SelectItem value="500">500 - Medium</SelectItem>
+                  <SelectItem value="600">600 - Semi-Bold</SelectItem>
+                  <SelectItem value="700">700 - Bold</SelectItem>
+                </SelectContent>
               </Select>
             </div>
             
@@ -380,11 +400,16 @@ const StyleTabContent: React.FC = () => {
           <div className="flex items-center gap-2 mb-2 color-text-secondary body-text">
             <span className="w-[49px]">Clipping</span>
             <div className="flex-1">
-              <Select defaultValue="none" variant="button">
-                <option value="none">None</option>
-                <option value="circle">Circle</option>
-                <option value="ellipse">Ellipse</option>
-                <option value="polygon">Polygon</option>
+              <Select value={clippingValue} onValueChange={setClippingValue}>
+                <SelectTrigger>
+                  <SelectValue placeholder="None" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="none">None</SelectItem>
+                  <SelectItem value="circle">Circle</SelectItem>
+                  <SelectItem value="ellipse">Ellipse</SelectItem>
+                  <SelectItem value="polygon">Polygon</SelectItem>
+                </SelectContent>
               </Select>
             </div>
           </div>
@@ -506,23 +531,28 @@ const StyleTabContent: React.FC = () => {
           <div className="flex items-center gap-2 mb-2 color-text-secondary body-text">
             <span className="w-[60px]">Blending</span>
             <div className="flex-1">
-              <Select defaultValue="normal" variant="button">
-                <option value="normal">Normal</option>
-                <option value="multiply">Multiply</option>
-                <option value="screen">Screen</option>
-                <option value="overlay">Overlay</option>
-                <option value="darken">Darken</option>
-                <option value="lighten">Lighten</option>
-                <option value="color-dodge">Color Dodge</option>
-                <option value="color-burn">Color Burn</option>
-                <option value="hard-light">Hard Light</option>
-                <option value="soft-light">Soft Light</option>
-                <option value="difference">Difference</option>
-                <option value="exclusion">Exclusion</option>
-                <option value="hue">Hue</option>
-                <option value="saturation">Saturation</option>
-                <option value="color">Color</option>
-                <option value="luminosity">Luminosity</option>
+              <Select value={blendingValue} onValueChange={setBlendingValue}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Normal" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="normal">Normal</SelectItem>
+                  <SelectItem value="multiply">Multiply</SelectItem>
+                  <SelectItem value="screen">Screen</SelectItem>
+                  <SelectItem value="overlay">Overlay</SelectItem>
+                  <SelectItem value="darken">Darken</SelectItem>
+                  <SelectItem value="lighten">Lighten</SelectItem>
+                  <SelectItem value="color-dodge">Color Dodge</SelectItem>
+                  <SelectItem value="color-burn">Color Burn</SelectItem>
+                  <SelectItem value="hard-light">Hard Light</SelectItem>
+                  <SelectItem value="soft-light">Soft Light</SelectItem>
+                  <SelectItem value="difference">Difference</SelectItem>
+                  <SelectItem value="exclusion">Exclusion</SelectItem>
+                  <SelectItem value="hue">Hue</SelectItem>
+                  <SelectItem value="saturation">Saturation</SelectItem>
+                  <SelectItem value="color">Color</SelectItem>
+                  <SelectItem value="luminosity">Luminosity</SelectItem>
+                </SelectContent>
               </Select>
             </div>
           </div>
@@ -607,16 +637,21 @@ const StyleTabContent: React.FC = () => {
           <div className="flex items-center gap-2 mb-2 color-text-secondary body-text">
             <span className="w-[60px]">Cursor</span>
             <div className="flex-1">
-              <Select defaultValue="auto" variant="button">
-                <option value="auto">auto</option>
-                <option value="default">default</option>
-                <option value="pointer">pointer</option>
-                <option value="text">text</option>
-                <option value="move">move</option>
-                <option value="grab">grab</option>
-                <option value="not-allowed">not-allowed</option>
-                <option value="zoom-in">zoom-in</option>
-                <option value="none">none</option>
+              <Select value={cursorValue} onValueChange={setCursorValue}>
+                <SelectTrigger>
+                  <SelectValue placeholder="auto" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="auto">auto</SelectItem>
+                  <SelectItem value="default">default</SelectItem>
+                  <SelectItem value="pointer">pointer</SelectItem>
+                  <SelectItem value="text">text</SelectItem>
+                  <SelectItem value="move">move</SelectItem>
+                  <SelectItem value="grab">grab</SelectItem>
+                  <SelectItem value="not-allowed">not-allowed</SelectItem>
+                  <SelectItem value="zoom-in">zoom-in</SelectItem>
+                  <SelectItem value="none">none</SelectItem>
+                </SelectContent>
               </Select>
             </div>
           </div>

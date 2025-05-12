@@ -110,12 +110,27 @@ export const Icon: React.FC<IconProps> = ({
     );
   }
 
+  // Get inline style for color variable if it's present
+  const getColorStyleFromClass = () => {
+    if (className && className.includes('text-[var(')) {
+      const match = className.match(/text-\[var\((--[^)]+)\)\]/);
+      if (match && match[1]) {
+        return { color: `var(${match[1]})` };
+      }
+    }
+    return {};
+  };
+
   // Render the icon
   return (
     <IconComponent
-      className={cn("inline-block text-white/67", className)} // Default color: white at 67% opacity
+      className={cn("inline-block text-white/67", className)}
       width={calculatedSize}
       height={calculatedSize}
+      style={{
+        ...props.style,
+        ...getColorStyleFromClass()
+      }}
       {...props}
     />
   );
