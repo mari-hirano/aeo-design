@@ -129,7 +129,7 @@ export function Navbar() {
               }}
             >
               <BrushIcon size={16} className="mr-[4px]" />
-              Style guide
+              Spring Design System
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
