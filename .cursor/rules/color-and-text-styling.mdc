@@ -1,0 +1,98 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Color and Text Styling Guidelines
+
+## Color Usage
+- **Single Source of Truth**: All colors must come from variables defined in [src/styles/colors.css](mdc:src/styles/colors.css)
+- **Never use hardcoded color values** (like hex codes or rgb values) anywhere in the codebase
+- **Direct CSS variable usage is now required** since tailwind color classes have been removed
+  ```tsx
+  /* Best practice - use direct CSS variables */
+  <div className="text-[var(--text-primary)] bg-[var(--bg-secondary)] border-[var(--border-default)]">Content</div>
+  
+  /* Incorrect - hardcoded values */
+  <div style={{ 
+    color: '#ffffff', 
+    backgroundColor: '#353535',
+    borderColor: '#464646'
+  }}>Content</div>
+  ```
+- **For CSS styling**, always use CSS variables:
+  ```css
+  /* Correct */
+  .custom-element {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+  }
+  
+  /* Incorrect */
+  .custom-element {
+    color: #ffffff;
+    background-color: #353535;
+  }
+  ```
+- **Choose semantic color variables** when available:
+  ```tsx
+  /* Correct */
+  <span className="text-[var(--blue-text)]">Blue text</span>
+  <button className="bg-[var(--green-bg)] text-[var(--text-primary)]">Success</button>
+  <div className="bg-[var(--red-bg-hover)]">Hover state</div>
+  
+  /* Incorrect */
+  <span className="text-[#8AC2FF]">Blue text</span>
+  <button style={{backgroundColor: '#00a457', color: '#ffffff'}}>Success</button>
+  ```
+- **For special cases** like gradients, use CSS variables from colors.css:
+  ```css
+  /* Correct */
+  .custom-element {
+    background: linear-gradient(var(--blue-bg), var(--blue-bg-hover));
+  }
+  
+  /* Incorrect */
+  .custom-element {
+    background: linear-gradient(#0084FF, #2496FF);
+  }
+  ```
+- **Utility classes** in [src/styles/colors.css](mdc:src/styles/colors.css) can also be used:
+  ```tsx
+  /* Utility classes (alternative approach) */
+  <div className="color-text-primary color-bg-secondary">Content</div>
+  <span className="color-blue-text">Blue text</span>
+  ```
+
+## Text Styling
+- Use text styling classes from [src/app/globals.css](mdc:src/app/globals.css)
+- The predominant text styles to use are:
+  - `body-text` - For standard text content
+  - `body-semibold` - For emphasized body text
+  - `title-text` - For regular titles
+  - `title-semibold` - For emphasized titles
+- Example implementation:
+  ```tsx
+  /* Correct */
+  <p className="body-text">Regular text content</p>
+  <h3 className="title-semibold">Section Title</h3>
+  
+  /* Avoid inline styles */
+  <p style={{fontSize: '0.72rem', lineHeight: '16px'}}>Text content</p>
+  ```
+- Maintain consistent typography across components by using these predefined classes
+- Only deviate from these styles when explicitly needed for special UI elements
+
+## Dark Mode Compatibility
+- All color usage should work properly in both light and dark modes
+- Test color contrast in both modes to ensure accessibility
+
+## Theme Variables
+- Theme variables defined in [src/app/globals.css](mdc:src/app/globals.css) map to the appropriate color variables depending on the current theme
+- Access these via CSS variables:
+  ```tsx
+  /* Theme-aware styling */
+  <div className="bg-[var(--card)] text-[var(--card-foreground)]">Card content</div>
+  <button className="bg-[var(--primary)] text-[var(--primary-foreground)]">Primary button</button>
+  <div style={{ borderColor: 'var(--destructive)' }}>Error container</div>
+  ```

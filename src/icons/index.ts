@@ -840,6 +840,7 @@ export {Robot24Icon} from './Robot24Icon';
 export {SalesforceIcon} from './SalesforceIcon';
 export {SearchDefaultIcon} from './SearchDefaultIcon';
 export {SearchExcludeIcon} from './SearchExcludeIcon';
+export {SettingsIcon} from './SettingsIcon';
 export {SettingsAltIcon} from './SettingsAltIcon';
 export {ShadowTextHighlightIcon} from './ShadowTextHighlightIcon';
 export {ShadowTextLetterpressIcon} from './ShadowTextLetterpressIcon';

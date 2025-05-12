@@ -9,8 +9,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -50,29 +50,29 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #292929;
-  --foreground: #ffffff;
+  
+  /* Additional theme variables that aren't in colors.css */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
-  --popover: #292929;
-  --popover-foreground: #ffffff;
+  --popover: var(--bg-primary);
+  --popover-foreground: var(--text-primary);
   --primary: #202020;
-  --primary-foreground: #ffffff;
-  --secondary: #353535;
-  --secondary-foreground: #ffffffab;
+  --primary-foreground: var(--text-primary);
+  --secondary: var(--bg-secondary);
+  --secondary-foreground: var(--text-secondary);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: #464646;
+  --destructive: var(--red-bg);
+  --border: var(--border-default);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --chart-1: var(--blue-chart);
+  --chart-2: var(--green-chart);
+  --chart-3: var(--purple-chart);
+  --chart-4: var(--orange-chart);
+  --chart-5: var(--red-chart);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -84,8 +84,6 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -133,7 +131,7 @@
     font-size: 0.72rem;
     line-height: 16px;
     letter-spacing: -0.01em;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-weight: 300;
   }
 

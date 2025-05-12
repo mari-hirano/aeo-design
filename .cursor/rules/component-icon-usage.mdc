@@ -1,0 +1,58 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Component and Icon Usage Guidelines
+
+## UI Components
+- Always use components from the `components/ui` folder when possible
+- Examples:
+  - Use `<Button>` from [src/components/ui/button.tsx](mdc:src/components/ui/button.tsx) instead of HTML `<button>`
+  - Use `<Input>` from [src/components/ui/input.tsx](mdc:src/components/ui/input.tsx) instead of HTML `<input>`
+  - Use `<IconButton>` from [src/components/ui/icon-button.tsx](mdc:src/components/ui/icon-button.tsx) for buttons with icons
+
+## Icon Usage
+- Always import and use icons from the [src/icons](mdc:src/icons) folder
+- Never use third-party icon libraries if equivalent icons exist in the project
+- Example: `import { SettingsAltIcon } from '@/icons'`
+- Icons should usually use the `--text-secondary` color variable from [src/styles/colors.css](mdc:src/styles/colors.css)
+  ```tsx
+  // Correct usage
+  <SomeIcon className="text-[var(--text-secondary)]" />
+  
+  // Alternatively, when needing to specify more styles
+  <SomeIcon className="text-[var(--text-secondary)] mr-1.5" />
+  ```
+- All icons should use a standard size of 16 by default:
+  ```tsx
+  // Correct usage
+  <SomeIcon size={16} />
+  
+  // Incorrect usage
+  <SomeIcon size={14} />
+  ```
+- Only deviate from the standard size when explicitly requested in requirements or when a specific design constraint requires a different size
+- This applies to all icon imports from `@/icons` as well as icons from external libraries like `lucide-react`
+
+### Icon Naming Conventions
+- Standard icons often include "Default" in their name (e.g., `PageDefaultIcon`, `CheckDefaultIcon`)
+- Chevrons and arrows include direction and size information (e.g., `ChevronSmallDownIcon`, `ArrowUpRightIcon`)
+- Use regex search to find the right icons when uncertain about naming
+- Special size rules:
+  - Icons with "24" in the name should be used at size 24 by default (e.g., `ToolbarHelp24Icon`)
+  - Icons with "Capability" in the name should be used at size 24 by default
+  - Icons with "64" in the name should be used at size 64 by default (e.g., `AddPanelButton64Icon`)
+
+## Component Styling
+- Use the component's built-in variant props for styling (e.g., `variant="ghost"`, `size="comfortable"`)
+- Minimize custom className additions unless absolutely necessary
+- Follow existing style patterns established in the codebase
+
+## Layout Patterns
+- Maintain consistent spacing and responsiveness
+- Follow existing layout patterns from components like [src/components/Canvas.tsx](mdc:src/components/Canvas.tsx)
+
+## State Management
+- Use React hooks for component-level state
+- Follow existing patterns for global state from [src/context](mdc:src/context)

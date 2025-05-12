@@ -12,7 +12,7 @@ type ModeContextType = {
 const ModeContext = createContext<ModeContextType | undefined>(undefined);
 
 export function ModeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = useState<Mode>('Develop');
+  const [mode, setMode] = useState<Mode>('Design');
 
   return (
     <ModeContext.Provider value={{ mode, setMode }}>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import Accordion from '@/components/Accordion';
+import Accordion from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Accordion from '@/components/Accordion';
+import Accordion from '@/components/ui/accordion';
 import {
   // Structure
   AddPanelSection64Icon,

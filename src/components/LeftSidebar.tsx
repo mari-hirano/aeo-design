@@ -19,7 +19,7 @@ import { ToolbarSettings24Icon } from '@/icons/ToolbarSettings24Icon';
 import { ToolbarSearch24Icon } from '@/icons/ToolbarSearch24Icon';
 import { VideoTutorialsPanel24Icon } from '@/icons/VideoTutorialsPanel24Icon';
 import { StyleManager24Icon } from '@/icons/StyleManager24Icon';
-import Tooltip from './Tooltip';
+import Tooltip from './ui/tooltip';
 import Panel from './Panel';
 import AddPanel from './panels/AddPanel';
 import PagesPanel from './panels/PagesPanel';

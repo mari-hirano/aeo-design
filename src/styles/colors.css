@@ -14,6 +14,8 @@
   
   /* Border Colors */
   --border-default: #464646;
+  --border-text-input: rgba(255, 255, 255, 0.16);
+  --border-checkbox-radio: rgba(255, 255, 255, 0.19);
   
   /* Input Component Colors */
   --input-bg: rgba(0, 0, 0, 0.22);
@@ -25,58 +27,131 @@
   --input-disabled-border: rgba(255, 255, 255, 0.16);
   --input-placeholder: rgba(255, 255, 255, 0.5);
   
+  /* Action Colors */
+  --action-primary-bg: #0084FF;
+  --action-primary-bg-hover: #2496FF;
+  --action-primary-text: #ffffff;
+  --action-primary-text-hover: #ffffff;
+  --action-secondary-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.11) 100%);
+  --action-secondary-bg-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0.17) 100%);
+  --action-secondary-bg-pressed: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.1) 100%);
+  --action-secondary-selected-bg: rgba(0, 0, 0, 0.50);
+  --action-secondary-selected-bg-pressed: rgba(0, 0, 0, 0.50);
+  --action-secondary-text: #ffffff;
+  --action-secondary-text-hover: #ffffff;
+  --action-secondary-border: rgba(255, 255, 255, 0.13);
+  --action-secondary-border-hover: rgba(255, 255, 255, 0.22);
+  
   /* Semantic Colors */
   /* Blue */
   --blue-bg: #0084FF;
-  --blue-text: #8AC2FF;
+  --blue-bg-hover: #2496FF;
+  --blue-bg-pressed: #0084FF;
   --blue-border: #0073E6;
+  --blue-canvas: #0073E6;
+  --blue-canvas-transparent: rgba(0, 115, 230, 0.1);
+  --blue-chart: #0073E6;
+  --blue-chart-2: #8AC2FF;
+  --blue-text: #8AC2FF;
+  --blue-transparent: rgba(0, 115, 230, 0.25);
+  --blue-transparent-hover: rgba(0, 115, 230, 0.35);
   
   /* Green */
   --green-bg: #00a457;
-  --green-text: #63D489;
+  --green-bg-hover: #2FC862;
+  --green-bg-pressed: #00a457;
   --green-border: #008547;
+  --green-canvas: #008547;
+  --green-canvas-transparent: rgba(0, 133, 71, 0.1);
+  --green-chart: #63D489;
+  --green-text: #63D489;
+  --green-transparent: rgba(0, 133, 71, 0.25);
+  --green-transparent-hover: rgba(0, 133, 71, 0.35);
   
   /* Red */
   --red-bg: #ED273E;
-  --red-text: #FF8A8A;
+  --red-bg-hover: #FF424D;
+  --red-bg-pressed: #ED273E;
   --red-border: #CF313B;
+  --red-canvas: #CF313B;
+  --red-canvas-transparent: rgba(207, 49, 59, 0.1);
+  --red-chart: #FF8A8A;
+  --red-icon: #FF8A8A;
+  --red-text: #FF8A8A;
+  --red-transparent: rgba(207, 49, 59, 0.25);
+  --red-transparent-hover: rgba(207, 49, 59, 0.35);
   
   /* Purple */
   --purple-bg: #8A61FF;
-  --purple-text: #B89EFF;
+  --purple-bg-hover: #A484FF;
+  --purple-bg-pressed: #8A61FF;
   --purple-border: #7F5AE9;
+  --purple-canvas: #7F5AE9;
+  --purple-canvas-transparent: rgba(127, 90, 233, 0.1);
+  --purple-chart: #7F5AE9;
+  --purple-chart-2: #B89EFF;
+  --purple-text: #B89EFF;
+  --purple-transparent: rgba(127, 90, 233, 0.25);
+  --purple-transparent-hover: rgba(127, 90, 233, 0.35);
   
   /* Pink */
   --pink-bg: #E148C0;
-  --pink-text: #F7A9F9;
+  --pink-bg-hover: #F775D3;
+  --pink-bg-pressed: #E148C0;
   --pink-border: #BE4AA5;
+  --pink-canvas: #BE4AA5;
+  --pink-canvas-transparent: rgba(190, 74, 165, 0.1);
+  --pink-chart: #BE4AA5;
+  --pink-text: #F7A9F9;
+  --pink-transparent: rgba(190, 74, 165, 0.25);
+  --pink-transparent-hover: rgba(190, 74, 165, 0.35);
   
   /* Orange */
   --orange-bg: #F85900;
-  --orange-text: #FFAB66;
+  --orange-bg-hover: #F67E28;
+  --orange-bg-pressed: #F85900;
   --orange-border: #C75300;
+  --orange-canvas: #C75300;
+  --orange-canvas-transparent: rgba(248, 89, 0, 0.1);
+  --orange-chart: #C75300;
+  --orange-text: #FFAB66;
+  --orange-transparent: rgba(248, 89, 0, 0.2);
+  --orange-transparent-hover: rgba(248, 89, 0, 0.3);
   
   /* Yellow */
   --yellow-bg: #EAA700;
-  --yellow-text: #EAA700;
+  --yellow-bg-hover: #EAA700;
+  --yellow-bg-pressed: #EAA700;
   --yellow-border: #CC9200;
+  --yellow-canvas: #EAA700;
+  --yellow-canvas-transparent: rgba(255, 199, 0, 0.1);
+  --yellow-chart: #EAA700;
+  --yellow-text: #EAA700;
+  --yellow-transparent: rgba(255, 199, 0, 0.15);
+  --yellow-transparent-hover: rgba(255, 199, 0, 0.25);
+
+  /* Shadow Variables */
+  --shadow-input: 0px 1px 1px -1px rgba(0,0,0,0.13) inset,0px 3px 3px -3px rgba(0,0,0,0.17) inset,0px 4px 4px -4px rgba(0,0,0,0.17) inset,0px 8px 8px -8px rgba(0,0,0,0.17) inset,0px 12px 12px -12px rgba(0,0,0,0.13) inset,0px 16px 16px -16px rgba(0,0,0,0.13) inset;
+  --shadow-menu: 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.12) inset, 0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.12) inset, 0px 4px 6px -2px rgba(0, 0, 0, 0.5);
+  --shadow-menu-elevated: 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.12) inset, 0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.12) inset, 0px 2px 6px 0px rgba(0, 0, 0, 0.08), 0px 4px 8px 2px rgba(0, 0, 0, 0.08), 0px 8px 16px 4px rgba(0, 0, 0, 0.08), 0px 12px 24px 8px rgba(0, 0, 0, 0.08);
+
 }
 
-/* We'll avoid using !important to prevent conflicts with Tailwind */
-/* These utility classes will be available as fallbacks */
+/* Utility classes using the color tokens */
 .color-text-primary { color: var(--text-primary); }
 .color-text-secondary { color: var(--text-secondary); }
 .color-text-dimmed { color: var(--text-dimmed); }
 
-.color-orange-text { color: var(--orange-text); }
+/* Semantic text color utilities */
 .color-blue-text { color: var(--blue-text); }
 .color-green-text { color: var(--green-text); }
 .color-red-text { color: var(--red-text); }
 .color-purple-text { color: var(--purple-text); }
 .color-pink-text { color: var(--pink-text); }
+.color-orange-text { color: var(--orange-text); }
 .color-yellow-text { color: var(--yellow-text); }
 
-/* Background colors */
+/* Background color utilities */
 .color-bg-primary { background-color: var(--bg-primary); }
 .color-bg-secondary { background-color: var(--bg-secondary); }
 .color-bg-tertiary { background-color: var(--bg-tertiary); }

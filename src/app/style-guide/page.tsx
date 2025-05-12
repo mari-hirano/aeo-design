@@ -5,13 +5,12 @@ import { ColorsSection } from "./colors";
 import { TypographySection } from "./typography";
 import { ComponentsSection } from "./components";
 import { IconsSection } from "./icons";
-import "./style-guide.css";
 
 export default function StyleGuide() {
   const [activeTab, setActiveTab] = useState("colors");
   
   return (
-    <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary style-guide-root">
+    <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary">
       <header className="px-6 py-4 border-b border-border-default">
         <h1 className="text-2xl font-bold">Design System</h1>
       </header>

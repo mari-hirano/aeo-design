@@ -1,5 +1,13 @@
 import React from "react";
 
+// Helper function to get computed CSS value
+const getCssVarValue = (varName: string): string => {
+  if (typeof window !== 'undefined') {
+    return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+  }
+  return '';
+};
+
 export function ColorsSection() {
   return (
     <div className="space-y-8">
@@ -13,14 +21,14 @@ export function ColorsSection() {
           <div className="space-y-4">
             <h4 className="text-md font-medium text-text-secondary">Primary Action</h4>
             <div className="flex flex-col">
-              <div className="h-16 bg-action-primary-bg rounded-md" style={{backgroundColor: "#0084FF"}}></div>
+              <div className="h-16 bg-action-primary-bg rounded-md"></div>
               <p className="text-sm mt-2 text-text-secondary">action-primary-bg</p>
-              <p className="text-xs text-text-secondary">#0084FF</p>
+              <p className="text-xs text-text-secondary">var(--action-primary-bg)</p>
             </div>
             <div className="flex flex-col">
-              <div className="h-16 bg-action-primary-bg-hover rounded-md" style={{backgroundColor: "#2496FF"}}></div>
+              <div className="h-16 bg-action-primary-bg-hover rounded-md"></div>
               <p className="text-sm mt-2 text-text-secondary">action-primary-bg-hover</p>
-              <p className="text-xs text-text-secondary">#2496FF</p>
+              <p className="text-xs text-text-secondary">var(--action-primary-bg-hover)</p>
             </div>
           </div>
           
@@ -28,14 +36,14 @@ export function ColorsSection() {
           <div className="space-y-4">
             <h4 className="text-md font-medium text-text-secondary">Secondary Action</h4>
             <div className="flex flex-col">
-              <div className="h-16 border border-action-secondary-border rounded-md" style={{background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.11) 100%)'}}></div>
+              <div className="h-16 border border-action-secondary-border bg-action-secondary-bg rounded-md"></div>
               <p className="text-sm mt-2 text-text-secondary">action-secondary-bg</p>
-              <p className="text-xs text-text-secondary">linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.11) 100%)</p>
+              <p className="text-xs text-text-secondary">var(--action-secondary-bg)</p>
             </div>
             <div className="flex flex-col">
-              <div className="h-16 bg-action-secondary-selected-bg rounded-md" style={{backgroundColor: "rgba(0, 0, 0, 0.50)"}}></div>
+              <div className="h-16 bg-action-secondary-selected-bg rounded-md"></div>
               <p className="text-sm mt-2 text-text-secondary">action-secondary-selected-bg</p>
-              <p className="text-xs text-text-secondary">rgba(0, 0, 0, 0.50)</p>
+              <p className="text-xs text-text-secondary">var(--action-secondary-selected-bg)</p>
             </div>
           </div>
         </div>
@@ -46,24 +54,24 @@ export function ColorsSection() {
         <h3 className="text-lg font-medium mb-3 text-text-secondary">Background Colors</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="flex flex-col">
-            <div className="h-16 bg-bg-primary rounded-md" style={{backgroundColor: "#141414"}}></div>
+            <div className="h-16 bg-bg-primary rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">bg-primary</p>
-            <p className="text-xs text-text-secondary">#141414</p>
+            <p className="text-xs text-text-secondary">var(--bg-primary)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-bg-secondary rounded-md" style={{backgroundColor: "#242424"}}></div>
+            <div className="h-16 bg-bg-secondary rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">bg-secondary</p>
-            <p className="text-xs text-text-secondary">#242424</p>
+            <p className="text-xs text-text-secondary">var(--bg-secondary)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-bg-tertiary rounded-md" style={{backgroundColor: "#525252"}}></div>
+            <div className="h-16 bg-bg-tertiary rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">bg-tertiary</p>
-            <p className="text-xs text-text-secondary">#525252</p>
+            <p className="text-xs text-text-secondary">var(--bg-tertiary)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-bg-raised rounded-md" style={{backgroundColor: "rgba(255, 255, 255, 0.07)"}}></div>
+            <div className="h-16 bg-bg-raised rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">bg-raised</p>
-            <p className="text-xs text-text-secondary">rgba(255, 255, 255, 0.07)</p>
+            <p className="text-xs text-text-secondary">var(--bg-raised)</p>
           </div>
         </div>
       </section>
@@ -73,19 +81,19 @@ export function ColorsSection() {
         <h3 className="text-lg font-medium mb-3 text-text-secondary">Text Colors</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="flex flex-col">
-            <div className="h-16 bg-text-primary rounded-md" style={{backgroundColor: "#ffffff"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--text-primary)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">text-primary</p>
-            <p className="text-xs text-text-secondary">#ffffff</p>
+            <p className="text-xs text-text-secondary">var(--text-primary)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-text-secondary rounded-md" style={{backgroundColor: "rgba(255, 255, 255, 0.67)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--text-secondary)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">text-secondary</p>
-            <p className="text-xs text-text-secondary">rgba(255, 255, 255, 0.67)</p>
+            <p className="text-xs text-text-secondary">var(--text-secondary)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-text-dimmed rounded-md" style={{backgroundColor: "rgba(255, 255, 255, 0.50)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--text-dimmed)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">text-dimmed</p>
-            <p className="text-xs text-text-secondary">rgba(255, 255, 255, 0.50)</p>
+            <p className="text-xs text-text-secondary">var(--text-dimmed)</p>
           </div>
         </div>
       </section>
@@ -95,19 +103,19 @@ export function ColorsSection() {
         <h3 className="text-lg font-medium mb-3 text-text-secondary">Border Colors</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="flex flex-col">
-            <div className="h-16 bg-border-default rounded-md" style={{backgroundColor: "rgba(255, 255, 255, 0.13)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--border-default)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">border-default</p>
-            <p className="text-xs text-text-secondary">rgba(255, 255, 255, 0.13)</p>
+            <p className="text-xs text-text-secondary">var(--border-default)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-border-text-input rounded-md" style={{backgroundColor: "rgba(255, 255, 255, 0.16)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--border-text-input)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">border-text-input</p>
-            <p className="text-xs text-text-secondary">rgba(255, 255, 255, 0.16)</p>
+            <p className="text-xs text-text-secondary">var(--border-text-input)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-border-checkbox-radio rounded-md" style={{backgroundColor: "rgba(255, 255, 255, 0.19)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--border-checkbox-radio)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">border-checkbox-radio</p>
-            <p className="text-xs text-text-secondary">rgba(255, 255, 255, 0.19)</p>
+            <p className="text-xs text-text-secondary">var(--border-checkbox-radio)</p>
           </div>
         </div>
       </section>
@@ -120,24 +128,24 @@ export function ColorsSection() {
         <h4 className="text-md font-medium mb-2 text-text-secondary">Blue</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex flex-col">
-            <div className="h-16 bg-blue-bg rounded-md" style={{backgroundColor: "#0084FF"}}></div>
+            <div className="h-16 bg-blue-bg rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">blue-bg</p>
-            <p className="text-xs text-text-secondary">#0084FF</p>
+            <p className="text-xs text-text-secondary">var(--blue-bg)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-blue-canvas rounded-md" style={{backgroundColor: "#0073E6"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--blue-canvas)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">blue-canvas</p>
-            <p className="text-xs text-text-secondary">#0073E6</p>
+            <p className="text-xs text-text-secondary">var(--blue-canvas)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-blue-text rounded-md" style={{backgroundColor: "#8AC2FF"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--blue-text)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">blue-text</p>
-            <p className="text-xs text-text-secondary">#8AC2FF</p>
+            <p className="text-xs text-text-dimmed text-blue-text">var(--blue-text)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-blue-transparent rounded-md" style={{backgroundColor: "rgba(0, 115, 230, 0.25)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--blue-transparent)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">blue-transparent</p>
-            <p className="text-xs text-text-secondary">rgba(0, 115, 230, 0.25)</p>
+            <p className="text-xs text-text-secondary">var(--blue-transparent)</p>
           </div>
         </div>
         
@@ -145,24 +153,24 @@ export function ColorsSection() {
         <h4 className="text-md font-medium mb-2 text-text-secondary">Green</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex flex-col">
-            <div className="h-16 bg-green-bg rounded-md" style={{backgroundColor: "#00a457"}}></div>
+            <div className="h-16 bg-green-bg rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">green-bg</p>
-            <p className="text-xs text-text-secondary">#00a457</p>
+            <p className="text-xs text-text-secondary">var(--green-bg)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-green-canvas rounded-md" style={{backgroundColor: "#008547"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--green-canvas)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">green-canvas</p>
-            <p className="text-xs text-text-secondary">#008547</p>
+            <p className="text-xs text-text-secondary">var(--green-canvas)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-green-text rounded-md" style={{backgroundColor: "#63D489"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--green-text)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">green-text</p>
-            <p className="text-xs text-text-secondary">#63D489</p>
+            <p className="text-xs text-text-dimmed text-green-text">var(--green-text)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-green-transparent rounded-md" style={{backgroundColor: "rgba(0, 133, 71, 0.25)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--green-transparent)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">green-transparent</p>
-            <p className="text-xs text-text-secondary">rgba(0, 133, 71, 0.25)</p>
+            <p className="text-xs text-text-secondary">var(--green-transparent)</p>
           </div>
         </div>
         
@@ -170,24 +178,24 @@ export function ColorsSection() {
         <h4 className="text-md font-medium mb-2 text-text-secondary">Red</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex flex-col">
-            <div className="h-16 bg-red-bg rounded-md" style={{backgroundColor: "#ED273E"}}></div>
+            <div className="h-16 bg-red-bg rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">red-bg</p>
-            <p className="text-xs text-text-secondary">#ED273E</p>
+            <p className="text-xs text-text-secondary">var(--red-bg)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-red-canvas rounded-md" style={{backgroundColor: "#CF313B"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--red-canvas)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">red-canvas</p>
-            <p className="text-xs text-text-secondary">#CF313B</p>
+            <p className="text-xs text-text-secondary">var(--red-canvas)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-red-text rounded-md" style={{backgroundColor: "#FF8A8A"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--red-text)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">red-text</p>
-            <p className="text-xs text-text-secondary">#FF8A8A</p>
+            <p className="text-xs text-text-dimmed text-red-text">var(--red-text)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-red-transparent rounded-md" style={{backgroundColor: "rgba(207, 49, 59, 0.25)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--red-transparent)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">red-transparent</p>
-            <p className="text-xs text-text-secondary">rgba(207, 49, 59, 0.25)</p>
+            <p className="text-xs text-text-secondary">var(--red-transparent)</p>
           </div>
         </div>
         
@@ -195,24 +203,24 @@ export function ColorsSection() {
         <h4 className="text-md font-medium mb-2 text-text-secondary">Orange</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex flex-col">
-            <div className="h-16 bg-orange-bg rounded-md" style={{backgroundColor: "#F85900"}}></div>
+            <div className="h-16 bg-orange-bg rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">orange-bg</p>
-            <p className="text-xs text-text-secondary">#F85900</p>
+            <p className="text-xs text-text-secondary">var(--orange-bg)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-orange-canvas rounded-md" style={{backgroundColor: "#C75300"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--orange-canvas)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">orange-canvas</p>
-            <p className="text-xs text-text-secondary">#C75300</p>
+            <p className="text-xs text-text-secondary">var(--orange-canvas)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-orange-text rounded-md" style={{backgroundColor: "#FFAB66"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--orange-text)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">orange-text</p>
-            <p className="text-xs text-text-secondary">#FFAB66</p>
+            <p className="text-xs text-text-dimmed text-orange-text">var(--orange-text)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-orange-transparent rounded-md" style={{backgroundColor: "rgba(248, 89, 0, 0.2)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--orange-transparent)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">orange-transparent</p>
-            <p className="text-xs text-text-secondary">rgba(248, 89, 0, 0.2)</p>
+            <p className="text-xs text-text-secondary">var(--orange-transparent)</p>
           </div>
         </div>
         
@@ -220,24 +228,24 @@ export function ColorsSection() {
         <h4 className="text-md font-medium mb-2 text-text-secondary">Purple</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex flex-col">
-            <div className="h-16 bg-purple-bg rounded-md" style={{backgroundColor: "#8A61FF"}}></div>
+            <div className="h-16 bg-purple-bg rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">purple-bg</p>
-            <p className="text-xs text-text-secondary">#8A61FF</p>
+            <p className="text-xs text-text-secondary">var(--purple-bg)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-purple-canvas rounded-md" style={{backgroundColor: "#7F5AE9"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--purple-canvas)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">purple-canvas</p>
-            <p className="text-xs text-text-secondary">#7F5AE9</p>
+            <p className="text-xs text-text-secondary">var(--purple-canvas)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-purple-text rounded-md" style={{backgroundColor: "#B89EFF"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--purple-text)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">purple-text</p>
-            <p className="text-xs text-text-secondary">#B89EFF</p>
+            <p className="text-xs text-text-dimmed text-purple-text">var(--purple-text)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-purple-transparent rounded-md" style={{backgroundColor: "rgba(127, 90, 233, 0.25)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--purple-transparent)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">purple-transparent</p>
-            <p className="text-xs text-text-secondary">rgba(127, 90, 233, 0.25)</p>
+            <p className="text-xs text-text-secondary">var(--purple-transparent)</p>
           </div>
         </div>
         
@@ -245,49 +253,49 @@ export function ColorsSection() {
         <h4 className="text-md font-medium mb-2 text-text-secondary">Pink</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex flex-col">
-            <div className="h-16 bg-pink-bg rounded-md" style={{backgroundColor: "#E148C0"}}></div>
+            <div className="h-16 bg-pink-bg rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">pink-bg</p>
-            <p className="text-xs text-text-secondary">#E148C0</p>
+            <p className="text-xs text-text-secondary">var(--pink-bg)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-pink-canvas rounded-md" style={{backgroundColor: "#BE4AA5"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--pink-canvas)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">pink-canvas</p>
-            <p className="text-xs text-text-secondary">#BE4AA5</p>
+            <p className="text-xs text-text-secondary">var(--pink-canvas)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-pink-text rounded-md" style={{backgroundColor: "#F7A9F9"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--pink-text)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">pink-text</p>
-            <p className="text-xs text-text-secondary">#F7A9F9</p>
+            <p className="text-xs text-text-dimmed text-pink-text">var(--pink-text)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-pink-transparent rounded-md" style={{backgroundColor: "rgba(190, 74, 165, 0.25)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--pink-transparent)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">pink-transparent</p>
-            <p className="text-xs text-text-secondary">rgba(190, 74, 165, 0.25)</p>
+            <p className="text-xs text-text-secondary">var(--pink-transparent)</p>
           </div>
         </div>
         
         {/* Yellow */}
         <h4 className="text-md font-medium mb-2 text-text-secondary">Yellow</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex flex-col">
-            <div className="h-16 bg-yellow-bg rounded-md" style={{backgroundColor: "#EAA700"}}></div>
+            <div className="h-16 bg-yellow-bg rounded-md"></div>
             <p className="text-sm mt-2 text-text-secondary">yellow-bg</p>
-            <p className="text-xs text-text-secondary">#EAA700</p>
+            <p className="text-xs text-text-secondary">var(--yellow-bg)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-yellow-canvas rounded-md" style={{backgroundColor: "#EAA700"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--yellow-canvas)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">yellow-canvas</p>
-            <p className="text-xs text-text-secondary">#EAA700</p>
+            <p className="text-xs text-text-secondary">var(--yellow-canvas)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-yellow-text rounded-md" style={{backgroundColor: "#EAA700"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--yellow-text)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">yellow-text</p>
-            <p className="text-xs text-text-secondary">#EAA700</p>
+            <p className="text-xs text-text-dimmed text-yellow-text">var(--yellow-text)</p>
           </div>
           <div className="flex flex-col">
-            <div className="h-16 bg-yellow-transparent rounded-md" style={{backgroundColor: "rgba(255, 199, 0, 0.15)"}}></div>
+            <div className="h-16 rounded-md" style={{backgroundColor: 'var(--yellow-transparent)'}}></div>
             <p className="text-sm mt-2 text-text-secondary">yellow-transparent</p>
-            <p className="text-xs text-text-secondary">rgba(255, 199, 0, 0.15)</p>
+            <p className="text-xs text-text-secondary">var(--yellow-transparent)</p>
           </div>
         </div>
       </section>

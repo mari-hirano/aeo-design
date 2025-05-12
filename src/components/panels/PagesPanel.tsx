@@ -11,7 +11,7 @@ import {
   MenuIcon,
   PageDefaultIcon
 } from '@/icons';
-import Accordion from '@/components/Accordion';
+import Accordion from '@/components/ui/accordion';
 import { Input } from "@/components/ui/input";
 
 // Page item interface

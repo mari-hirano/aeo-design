@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useRef, RefObject } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import {
@@ -8,38 +9,71 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown, Code, SquareMousePointer, Check } from "lucide-react"
+import { SquareMousePointer, Check } from "lucide-react"
 import { useMode } from "@/context/ModeContext"
 import { getImagePath } from "@/lib/utils"
+import { 
+  OptimizeIcon, 
+  LocalizationIcon, 
+  DesktopBreakpointIcon, 
+  PageDefaultIcon, 
+  CommentIcon, 
+  ChevronSmallDownIcon, 
+  CheckDefaultIcon,
+  MenuIcon,
+  UndoIcon,
+  RedoIcon,
+  SettingsIcon,
+  DashboardIcon,
+  EditIcon,
+  CMSSearchIcon,
+  CodeIcon,
+  HelpCircleIcon,
+  HelpShortcutsIcon,
+  SearchDefaultIcon,
+  CssPreviewIcon
+} from "@/icons"
+import { Button } from "@/components/ui/button"
+import Menu from "@/components/ui/menu"
+import MenuRow from "@/components/ui/menu-row"
 
 export function Navbar() {
   const { mode, setMode } = useMode();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuTriggerRef = useRef<HTMLDivElement>(null);
+  const [logoHovered, setLogoHovered] = useState(false);
 
   return (
     <nav className="flex h-[35px] items-center bg-[#292929] text-white border-b border-[#454545] font-sans text-[11.5px] leading-4 tracking-[-0.01em] pr-2">
       {/* Left side */}
       <div className="flex items-center">
         {/* Logo/Home */}
-        <Link href="/" className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545]">
-          <Image
-            src={getImagePath("/images/WebflowLogo.png")}
-            alt="Logo"
-            width={20}
-            height={20}
-            className="object-contain"
-          />
-        </Link>
+        <div 
+          ref={menuTriggerRef}
+          className="flex items-center justify-center w-[35px] h-[35px] hover:bg-[#1a1a1a] border-r border-[#454545] cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
+          onMouseEnter={() => setLogoHovered(true)}
+          onMouseLeave={() => setLogoHovered(false)}
+        >
+          {menuOpen || logoHovered ? (
+            <MenuIcon size={20} className="text-white" />
+          ) : (
+            <Image
+              src={getImagePath("/images/WebflowLogo.png")}
+              alt="Logo"
+              width={20}
+              height={20}
+              className="object-contain"
+            />
+          )}
+        </div>
         
         {/* Mode Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger className="flex items-center h-6 px-2 bg-[#3a3a3a] hover:bg-[#444444] rounded-[4px] ml-2 text-[11.5px] leading-4 focus:outline-none">
-            {mode === 'Develop' ? (
-              <Code className="w-[14px] h-[14px] mr-1.5 opacity-70" strokeWidth={2} />
-            ) : (
-              <SquareMousePointer className="w-[14px] h-[14px] mr-1.5 opacity-70" strokeWidth={2} />
-            )}
+            <SquareMousePointer className="w-[14px] h-[14px] mr-1.5 opacity-70" strokeWidth={2} />
             <span>{mode}</span>
-            <ChevronDown className="w-[14px] h-[14px] opacity-50 ml-1" strokeWidth={2} />
+            <ChevronSmallDownIcon className="opacity-50 ml-1" />
           </DropdownMenuTrigger>
           <DropdownMenuContent 
             align="start"
@@ -50,7 +84,7 @@ export function Navbar() {
               onClick={() => setMode('Design')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {mode === 'Design' && <Check className="w-[14px] h-[14px] text-white" strokeWidth={2} />}
+                {mode === 'Design' && <Check className="w-[16px] h-[16px] text-white" strokeWidth={2} />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Design</div>
@@ -62,7 +96,7 @@ export function Navbar() {
               onClick={() => setMode('Build')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {mode === 'Build' && <Check className="w-[14px] h-[14px] text-white" strokeWidth={2} />}
+                {mode === 'Build' && <Check className="w-[16px] h-[16px] text-white" strokeWidth={2} />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Build</div>
@@ -74,7 +108,7 @@ export function Navbar() {
               onClick={() => setMode('Develop')}
             >
               <div className="w-[16px] h-[16px] flex items-center justify-center shrink-0">
-                {mode === 'Develop' && <Check className="w-[14px] h-[14px] text-white" strokeWidth={2} />}
+                {mode === 'Develop' && <Check className="w-[16px] h-[16px] text-white" strokeWidth={2} />}
               </div>
               <div className="ml-[4px]">
                 <div className="text-white">Develop</div>
@@ -85,20 +119,116 @@ export function Navbar() {
         </DropdownMenu>
       </div>
 
-      {/* Center - Title */}
-      <div className="flex items-center h-6 px-2 mx-auto text-white">
-        <span>My App</span>
+      {/* Center - Controls */}
+      <div className="flex items-center mx-auto">
+        <Button variant="ghost" size="default" className="h-6">
+          <OptimizeIcon size={16} className="opacity-70" />
+          <span>Optimize</span>
+        </Button>
+        
+        <Button variant="ghost" size="default" className="h-6 ml-1">
+          <LocalizationIcon size={16} className="opacity-70" />
+          <span>English</span>
+        </Button>
+        
+        <div className="mx-2 h-4 border-r border-[#454545]"></div>
+        
+        <Button variant="ghost" size="default" className="h-6">
+          <PageDefaultIcon size={16} className="opacity-70" />
+          <span>Home</span>
+          <ChevronSmallDownIcon className="opacity-70" />
+        </Button>
+        
+        <Button variant="ghost" size="default" className="h-6 ml-1">
+          <DesktopBreakpointIcon size={16} className="opacity-70" />
+          <span>Desktop</span>
+        </Button>
       </div>
 
       {/* Right side */}
       <div className="flex items-center gap-1">
-        <button className="flex items-center h-6 px-2 border border-[#454545] text-white rounded-[4px] hover:bg-[#1a1a1a]">
+        <Button variant="ghost-success" size="icon" className="h-6 w-6">
+          <CheckDefaultIcon size={16} className="text-[#79E09C]" />
+        </Button>
+        <Button variant="ghost" size="icon" className="h-6 w-6">
+          <CommentIcon size={16} className="opacity-70" />
+        </Button>
+        <Button variant="outline" size="default" className="h-6">
           Share
-        </button>
-        <button className="flex items-center h-6 px-2 bg-[#444444] text-white rounded-[4px] hover:bg-[#4f4f4f]">
-          Deploy
-        </button>
+        </Button>
+        <Button variant="default" size="default" className="h-6">
+          Publish
+        </Button>
       </div>
+
+      {/* App Menu */}
+      <Menu
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        trigger={menuTriggerRef as RefObject<HTMLElement>}
+        className="min-w-[220px]"
+      >
+        <MenuRow
+          label="Dashboard"
+          icon={<DashboardIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow
+          label="Site settings"
+          icon={<SettingsIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow
+          label="Editor"
+          icon={<EditIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow divider />
+        <MenuRow
+          label="Quick find"
+          shortcutText="⌘E/⌘K"
+          icon={<SearchDefaultIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow divider />
+        <MenuRow
+          label="Undo"
+          shortcutText="⌘Z"
+          icon={<UndoIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow
+          label="Redo"
+          shortcutText="⌘⇧Z"
+          icon={<RedoIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow divider />
+        <MenuRow
+          label="Export code"
+          shortcutText="⇧E"
+          icon={<CodeIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow divider />
+        <MenuRow
+          label="Keyboard shortcuts"
+          shortcutText="⇧?"
+          icon={<HelpShortcutsIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow
+          label="CSS preview"
+          icon={<CssPreviewIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+        <MenuRow
+          label="Help & feedback"
+          shortcutText="⌃⇧/"
+          icon={<HelpCircleIcon size={16} />}
+          onClick={() => setMenuOpen(false)}
+        />
+      </Menu>
     </nav>
   )
 } 
