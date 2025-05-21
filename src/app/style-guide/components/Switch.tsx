@@ -7,11 +7,9 @@ export function SwitchExample() {
       <div className="bg-[var(--bg-secondary)] p-4 rounded-md">
         <div className="space-y-4 max-w-md">
           <div className="flex items-center justify-between">
-            <span className="text-[var(--text-secondary)]">Disabled</span>
             <Switch aria-label="Disabled" />
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-[var(--text-secondary)]">Enabled</span>
             <Switch aria-label="Enabled" defaultChecked />
           </div>
         </div>

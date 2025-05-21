@@ -44,7 +44,7 @@
   
   /* Semantic Colors */
   /* Blue */
-  --blue-bg: #0084FF;
+  --blue-bg: #006ACC;
   --blue-bg-hover: #2496FF;
   --blue-bg-pressed: #0084FF;
   --blue-border: #0073E6;
@@ -57,7 +57,7 @@
   --blue-transparent-hover: rgba(0, 115, 230, 0.35);
   
   /* Green */
-  --green-bg: #00a457;
+  --green-bg: #007A41;
   --green-bg-hover: #2FC862;
   --green-bg-pressed: #00a457;
   --green-border: #008547;
@@ -69,7 +69,7 @@
   --green-transparent-hover: rgba(0, 133, 71, 0.35);
   
   /* Red */
-  --red-bg: #ED273E;
+  --red-bg: #CF313B;
   --red-bg-hover: #FF424D;
   --red-bg-pressed: #ED273E;
   --red-border: #CF313B;
@@ -82,7 +82,7 @@
   --red-transparent-hover: rgba(207, 49, 59, 0.35);
   
   /* Purple */
-  --purple-bg: #8A61FF;
+  --purple-bg: #734CE0;
   --purple-bg-hover: #A484FF;
   --purple-bg-pressed: #8A61FF;
   --purple-border: #7F5AE9;
@@ -95,7 +95,7 @@
   --purple-transparent-hover: rgba(127, 90, 233, 0.35);
   
   /* Pink */
-  --pink-bg: #E148C0;
+  --pink-bg: #B53A9A;
   --pink-bg-hover: #F775D3;
   --pink-bg-pressed: #E148C0;
   --pink-border: #BE4AA5;
@@ -107,7 +107,7 @@
   --pink-transparent-hover: rgba(190, 74, 165, 0.35);
   
   /* Orange */
-  --orange-bg: #F85900;
+  --orange-bg: #BF4704;
   --orange-bg-hover: #F67E28;
   --orange-bg-pressed: #F85900;
   --orange-border: #C75300;
@@ -119,7 +119,7 @@
   --orange-transparent-hover: rgba(248, 89, 0, 0.3);
   
   /* Yellow */
-  --yellow-bg: #EAA700;
+  --yellow-bg: #FFD301;
   --yellow-bg-hover: #EAA700;
   --yellow-bg-pressed: #EAA700;
   --yellow-border: #CC9200;

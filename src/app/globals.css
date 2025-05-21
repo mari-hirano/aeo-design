@@ -50,6 +50,7 @@
 
 :root {
   --radius: 0.625rem;
+  --font-weight-normal: 300;
   
   /* Additional theme variables that aren't in colors.css */
   --card: oklch(1 0 0);
