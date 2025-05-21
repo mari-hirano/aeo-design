@@ -11,7 +11,7 @@ export function AccordionExample() {
       <div className="p-8 bg-[var(--bg-secondary)] rounded-lg space-y-12">
         {/* Basic Accordion */}
         <div>
-          <h3 className="text-md font-medium mb-4">Basic Accordion</h3>
+          <h3 className="text-md font-medium mb-4">Basic Accordions</h3>
           <div className="border border-[var(--border-default)] rounded-md overflow-hidden">
             <Accordion title="Section 1" defaultOpen={true}>
               <div className="p-4 text-sm text-[var(--text-secondary)]">
