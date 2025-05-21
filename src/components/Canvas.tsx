@@ -13,7 +13,7 @@ const Canvas: React.FC = () => {
         return (
           <div className="p-8 text-black">
             <h1 className="text-2xl font-bold mb-4">Home Page</h1>
-            <p>This is the home page content placeholder.</p>
+            <p>This is the home page placeholder.</p>
           </div>
         );
       case '/contact':
