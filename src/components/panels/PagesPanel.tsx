@@ -2,17 +2,12 @@
 
 import React, { useState } from 'react';
 import { 
-  AddIcon, 
-  HomeIcon, 
-  PageDraftIcon, 
-  EmailIcon, 
-  Copilot404Icon, 
-  LockIcon,
-  MenuIcon,
   PageDefaultIcon
 } from '@/icons';
 import Accordion from '@/components/ui/accordion';
 import { Input } from "@/components/ui/input";
+import { Row } from "@/components/ui/row";
+import { usePages } from '@/context/PagesContext';
 
 // Page item interface
 interface PageItem {
@@ -74,29 +69,23 @@ const PagesPanel = () => {
     }
   ]);
 
-  // Get icon based on page name
+  // Use the Pages context
+  const { selectedPage, setSelectedPage } = usePages();
+
+  // Get icon for page
   const getPageIcon = (item: PageItem) => {
-    const iconProps = { 
-      size: 16, 
-      style: { color: item.draft ? 'var(--orange-text)' : 'var(--text-secondary)' } 
-    };
-    
-    // Always use the default page icon
-    return <PageDefaultIcon {...iconProps} />;
+    return (
+      <PageDefaultIcon 
+        size={16} 
+        style={{ color: item.draft ? 'var(--orange-text)' : 'var(--text-secondary)' }} 
+      />
+    );
   };
 
-  // Render a page item
-  const renderPageItem = (item: PageItem) => {
-    return (
-      <div className="flex items-center h-6 px-2 hover:bg-bg-tertiary cursor-pointer">
-        <div className="flex items-center gap-2 w-full overflow-hidden">
-          {getPageIcon(item)}
-          <span className={`body-text truncate ${item.draft ? 'color-orange-text' : 'color-text-primary'}`}>
-            {item.name}
-          </span>
-        </div>
-      </div>
-    );
+  // Handle page selection
+  const handleSelectPage = (path: string) => {
+    // Note: Panel closing is handled by useEffect in LeftSidebar that detects page changes
+    setSelectedPage(path);
   };
 
   return (
@@ -120,9 +109,15 @@ const PagesPanel = () => {
           >
             <div className="pb-2">
               {section.items.map((item, itemIndex) => (
-                <div key={itemIndex}>
-                  {renderPageItem(item)}
-                </div>
+                <Row
+                  key={itemIndex}
+                  label={item.name}
+                  icon={getPageIcon(item)}
+                  selected={selectedPage === item.path}
+                  size="compact"
+                  className={item.draft ? "color-orange-text" : ""}
+                  onClick={() => handleSelectPage(item.path)}
+                />
               ))}
             </div>
           </Accordion>

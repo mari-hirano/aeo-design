@@ -5,8 +5,12 @@ import { Navbar } from "@/components/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightPanel from "@/components/RightPanel";
 import Canvas from "@/components/Canvas";
+import AppsSection from "@/components/sections/AppsSection";
+import CMSSection from "@/components/sections/CMSSection";
+import InsightsSection from "@/components/sections/InsightsSection";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { PagesProvider } from "@/context/PagesContext";
+import { useApp } from "@/context/AppContext";
 
 interface LayoutContentProps {
   children?: React.ReactNode;
@@ -14,13 +18,13 @@ interface LayoutContentProps {
 
 function LayoutContentInner({ children }: LayoutContentProps) {
   const pathname = usePathname();
+  const { currentSection, isStyleGuideOpen } = useApp();
   
-  // Check if the current path is a special page that should render directly
-  const isSpecialPage = pathname?.includes('/style-guide');
-  
-  if (isSpecialPage) {
+  // Check if the current path is the style guide
+  if (isStyleGuideOpen) {
     return (
       <div className="flex h-screen flex-col">
+        <Navbar />
         <div className="flex-1">
           {children}
         </div>
@@ -28,16 +32,38 @@ function LayoutContentInner({ children }: LayoutContentProps) {
     );
   }
   
-  // Regular app layout
+  // Render different layouts based on section
   return (
     <div className="flex h-screen flex-col">
       <Navbar />
       <div className="flex flex-1 overflow-hidden">
-        <LeftSidebar />
-        <main className="flex-1 bg-[#1E1E1E] relative">
-          <Canvas />
-        </main>
-        <RightPanel />
+        {currentSection === 'home' && (
+          <>
+            <LeftSidebar />
+            <main className="flex-1 bg-[#1E1E1E] relative">
+              <Canvas />
+            </main>
+            <RightPanel />
+          </>
+        )}
+        
+        {currentSection === 'apps' && (
+          <main className="flex-1 bg-[#1E1E1E]">
+            <AppsSection />
+          </main>
+        )}
+        
+        {currentSection === 'cms' && (
+          <main className="flex-1 bg-[#1E1E1E]">
+            <CMSSection />
+          </main>
+        )}
+        
+        {currentSection === 'insights' && (
+          <main className="flex-1 bg-[#1E1E1E]">
+            <InsightsSection />
+          </main>
+        )}
       </div>
     </div>
   );
