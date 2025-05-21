@@ -6,15 +6,15 @@ export function RadioExample() {
       <h2 className="text-xl font-semibold mb-4">Radio</h2>
       <div className="bg-[var(--bg-secondary)] p-4 rounded-md">
         <div className="flex flex-col space-y-2 max-w-md">
-          <label className="flex items-center space-x-2">
+          <label className="flex items-center gap-[4px]">
             <Radio name="radio-group" defaultChecked />
             <span className="text-[var(--text-secondary)]">Radio 1</span>
           </label>
-          <label className="flex items-center space-x-2">
+          <label className="flex items-center gap-[4px]">
             <Radio name="radio-group" />
             <span className="text-[var(--text-secondary)]">Radio 2</span>
           </label>
-          <label className="flex items-center space-x-2">
+          <label className="flex items-center gap-[4px]">
             <Radio name="radio-group" />
             <span className="text-[var(--text-secondary)]">Radio 3</span>
           </label>

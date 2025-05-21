@@ -11,11 +11,22 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "App Template",
   description: "A clean template for building web applications",
+  icons: {
+    icon: [
+      { url: '/spring/favicon.svg', type: 'image/svg+xml' }
+    ],
+    apple: [
+      { url: '/spring/favicon.svg', type: 'image/svg+xml' }
+    ]
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/spring/favicon.svg" type="image/svg+xml" />
+      </head>
       <body className={`${inter.className} bg-[#1E1E1E]`}>
         <ModeProvider>
           <NavigatorProvider>
