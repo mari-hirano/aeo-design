@@ -1,24 +1,54 @@
 "use client";
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PanelHeader from './PanelHeader';
 
 interface PanelProps {
   title: string;
   isOpen: boolean;
   children?: React.ReactNode;
+  onClose?: () => void;
 }
 
-const Panel: React.FC<PanelProps> = ({ title, isOpen, children }) => {
+const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose }) => {
+  const panelRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
+        // Check if the click was on the sidebar (we don't want to close if clicking on the sidebar)
+        const leftSidebar = document.querySelector('.left-sidebar');
+        if (leftSidebar && leftSidebar.contains(event.target as Node)) {
+          return;
+        }
+        
+        if (onClose) {
+          onClose();
+        }
+      }
+    };
+    
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+  
   if (!isOpen) return null;
   
   return (
-    <div className="fixed left-[35px] top-[35px] h-[calc(100vh-35px)] w-[248px] bg-[#292929] border-r border-border z-10 overflow-hidden flex flex-col"
-         style={{
-           boxShadow: '0px 4px 8px 0px rgba(0, 0, 0, 0.1)',
-           animation: 'panelSlideIn 0.15s ease-out forwards'
-         }}>
-      <PanelHeader title={title} />
+    <div 
+      ref={panelRef}
+      className="fixed left-[35px] top-[35px] h-[calc(100vh-35px)] w-[248px] bg-[#292929] border-r border-border z-10 overflow-hidden flex flex-col"
+      style={{
+        boxShadow: '0px 4px 8px 0px rgba(0, 0, 0, 0.1)',
+        animation: 'panelSlideIn 0.15s ease-out forwards'
+      }}
+    >
+      <PanelHeader title={title} onClose={onClose} />
       <div className="flex-1 panel-content-wrapper">
         <div className="flex-1 w-full panel-content">
           {children || (

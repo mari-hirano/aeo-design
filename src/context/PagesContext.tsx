@@ -14,7 +14,7 @@ const PagesContext = createContext<PagesContextType | undefined>(undefined);
 
 export function PagesProvider({ children }: { children: React.ReactNode }) {
   const [isPagesOpen, setIsPagesOpen] = useState(false);
-  const [selectedPage, setSelectedPage] = useState("home");
+  const [selectedPage, setSelectedPage] = useState("/");
 
   const togglePages = () => {
     setIsPagesOpen(!isPagesOpen);

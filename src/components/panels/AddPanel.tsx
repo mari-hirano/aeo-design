@@ -53,11 +53,22 @@ import {
   AddPanelLightbox64Icon,
 } from '@/icons';
 
-const AddPanel = () => {
+interface AddPanelProps {
+  onItemSelected?: () => void;
+}
+
+const AddPanel: React.FC<AddPanelProps> = ({ onItemSelected }) => {
   // Common styles for sections and icon buttons
   const iconsGridStyle = "grid grid-cols-3 gap-0";
   const iconButtonStyle = "flex flex-col items-center justify-center hover:bg-[#404040] transition-colors cursor-grab h-[92px] w-[82px]";
   const iconLabelStyle = "body-text text-center mb-1";
+
+  // Handle item selection
+  const handleItemClick = () => {
+    if (onItemSelected) {
+      onItemSelected();
+    }
+  };
 
   // Sections data structure
   const sections = [
@@ -141,7 +152,11 @@ const AddPanel = () => {
             {section.items.map((item, itemIndex) => {
               const IconComponent = item.icon;
               return (
-                <div key={itemIndex} className={iconButtonStyle}>
+                <div 
+                  key={itemIndex} 
+                  className={iconButtonStyle}
+                  onClick={handleItemClick}
+                >
                   <IconComponent size={64} style={{ color: '#ffffff' }} />
                   <div className={iconLabelStyle}>{item.label}</div>
                 </div>

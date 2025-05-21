@@ -997,6 +997,7 @@ export {YouTubeIcon} from './YouTubeIcon';
 export {YoutubeAdd64Icon} from './YoutubeAdd64Icon';
 export {ZoomInIcon} from './ZoomInIcon';
 export {ZoomOutIcon} from './ZoomOutIcon';
+export {IntersectSquareIcon} from './IntersectSquareIcon';
 
 export type {IconProps, SpringIconType} from './Icon';
 export type {IconComponent} from './types';

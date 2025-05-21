@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useNavigator } from '@/context/NavigatorContext';
 import { useMode } from '@/context/ModeContext';
+import { usePages } from '@/context/PagesContext';
 import { BASE_PATH } from '@/config/paths';
 import { ActivityLog24Icon } from '@/icons/ActivityLog24Icon';
 import { PagePanel24Icon } from '@/icons/PagePanel24Icon';
@@ -41,8 +42,10 @@ type PanelType =
 const LeftSidebar = () => {
   const { toggleNavigator } = useNavigator();
   const { mode } = useMode();
+  const { selectedPage, setSelectedPage } = usePages();
   const basePath = BASE_PATH;
   const [activePanel, setActivePanel] = useState<PanelType>(null);
+  const [prevSelectedPage, setPrevSelectedPage] = useState(selectedPage);
 
   // Common style to ensure rgba(255, 255, 255, 0.67) color
   const iconStyle = { color: 'rgba(255, 255, 255, 0.68)' };
@@ -56,10 +59,30 @@ const LeftSidebar = () => {
     }
   };
 
+  // Close panel function
+  const closePanel = () => {
+    setActivePanel(null);
+  };
+
+  // Effect to close Pages panel when a page is selected
+  useEffect(() => {
+    if (prevSelectedPage !== selectedPage && activePanel === 'pages') {
+      setActivePanel(null);
+    }
+    setPrevSelectedPage(selectedPage);
+  }, [selectedPage, activePanel, prevSelectedPage]);
+
+  // Function called when an item is selected in AddPanel
+  const handleAddPanelItemSelected = () => {
+    if (activePanel === 'add') {
+      setActivePanel(null);
+    }
+  };
+
   return (
     <>
       <div 
-        className="relative h-full w-[35px] bg-[#292929] border-r border-[#454545] flex-shrink-0"
+        className="relative h-full w-[35px] bg-[#292929] border-r border-[#454545] flex-shrink-0 left-sidebar"
       >
         {/* Top Icons */}
         <div className="flex flex-col pt-[4px]">
@@ -189,24 +212,24 @@ const LeftSidebar = () => {
       </div>
 
       {/* Panels */}
-      <Panel title="Add" isOpen={activePanel === 'add'}>
-        <AddPanel />
+      <Panel title="Add" isOpen={activePanel === 'add'} onClose={closePanel}>
+        <AddPanel onItemSelected={handleAddPanelItemSelected} />
       </Panel>
       
-      <Panel title="Pages" isOpen={activePanel === 'pages'}>
+      <Panel title="Pages" isOpen={activePanel === 'pages'} onClose={closePanel}>
         <PagesPanel />
       </Panel>
       
-      <Panel title="Navigator" isOpen={activePanel === 'navigator'}>
+      <Panel title="Navigator" isOpen={activePanel === 'navigator'} onClose={closePanel}>
         <NavigatorPanel />
       </Panel>
       
-      <Panel title="Components" isOpen={activePanel === 'components'} />
-      <Panel title="Variables" isOpen={activePanel === 'variables'} />
-      <Panel title="Styles" isOpen={activePanel === 'styles'} />
-      <Panel title="Assets" isOpen={activePanel === 'assets'} />
-      <Panel title="Apps" isOpen={activePanel === 'apps'} />
-      <Panel title="Activity Log" isOpen={activePanel === 'activityLog'} />
+      <Panel title="Components" isOpen={activePanel === 'components'} onClose={closePanel} />
+      <Panel title="Variables" isOpen={activePanel === 'variables'} onClose={closePanel} />
+      <Panel title="Styles" isOpen={activePanel === 'styles'} onClose={closePanel} />
+      <Panel title="Assets" isOpen={activePanel === 'assets'} onClose={closePanel} />
+      <Panel title="Apps" isOpen={activePanel === 'apps'} onClose={closePanel} />
+      <Panel title="Activity Log" isOpen={activePanel === 'activityLog'} onClose={closePanel} />
     </>
   );
 };

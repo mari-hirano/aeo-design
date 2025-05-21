@@ -1,5 +1,67 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
+# Asset Base Path Rule
+
+## Static Asset References
+
+This project uses a custom `basePath` configuration in [next.config.js](mdc:next.config.js). When referencing static assets from the public directory, you **must** include this base path.
+
+### Referencing Assets in Public Directory
+
+✅ **Correct approach:**
+```jsx
+// Use the base path when referencing assets in public
+<link rel="icon" href="/[basePath]/favicon.svg" type="image/svg+xml" />
+<img src="/[basePath]/images/logo.png" alt="Logo" />
+```
+
+❌ **Incorrect approach:**
+```jsx
+// Missing base path - will result in 404 errors
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<img src="/images/logo.png" alt="Logo" />
+```
+
+### Recommended Patterns
+
+1. **Next.js Metadata API with basePath:**
+   ```typescript
+   export const metadata: Metadata = {
+     icons: {
+       icon: [
+         { url: '/[basePath]/favicon.svg', type: 'image/svg+xml' }
+       ]
+     }
+   };
+   ```
+
+2. **For Next.js Image component:**
+   When using the `next/image` component, it automatically handles the base path.
+   ```jsx
+   import Image from 'next/image'
+   
+   // This works correctly with basePath
+   <Image src="/images/logo.png" width={100} height={100} alt="Logo" /> 
+   ```
+
+3. **Dynamic references:**
+   For programmatic references, consider using a helper function:
+   ```typescript
+   const getAssetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${path}`;
+   
+   // Usage
+   <img src={getAssetPath('/images/icon.png')} alt="Icon" />
+   ```
+
+### Common Places to Check
+
+- Favicon references in `layout.tsx`
+- Image tags in components
+- CSS background images
+- Meta tags and Open Graph images
+- Icon imports and references
+
+Always verify asset paths are working correctly when deployed to production, as local development may not always reflect the same path structure.

@@ -67,6 +67,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
           selected && "bg-[var(--bg-raised)]",
           "hover:bg-[var(--bg-raised)]",
           "transition-colors duration-100",
+          "cursor-default",
           topDivider && "border-t border-t-[var(--border-default)]",
           bottomDivider && "border-b border-b-[var(--border-default)]",
           className
