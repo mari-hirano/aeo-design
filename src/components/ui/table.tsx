@@ -17,6 +17,8 @@ export interface TableProps extends React.HTMLAttributes<HTMLDivElement> {
   verticalDividers?: boolean;
   /** Enable zebra striping for alternating rows */
   zebraStripes?: boolean;
+  /** Remove outer border and rounded corners */
+  noBorder?: boolean;
   /** Children components (TableHeader, TableRow, etc.) */
   children: React.ReactNode;
 }
@@ -38,11 +40,12 @@ export interface ColumnDef {
 }
 
 const Table = React.forwardRef<HTMLDivElement, TableProps>(
-  ({ className, verticalDividers = false, zebraStripes = false, children, ...props }, ref) => {
+  ({ className, verticalDividers = false, zebraStripes = false, noBorder = false, children, ...props }, ref) => {
     return (
       <div
         className={cn(
-          "w-full overflow-hidden border border-[var(--border-default)] rounded-md",
+          "w-full overflow-hidden",
+          !noBorder && "border border-[var(--border-default)] rounded-md",
           className
         )}
         ref={ref}

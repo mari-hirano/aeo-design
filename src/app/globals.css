@@ -134,6 +134,7 @@
     letter-spacing: -0.01em;
     color: var(--text-primary);
     font-weight: 300;
+    -webkit-font-smoothing: antialiased;
   }
 
   .body-text-bold {
@@ -143,6 +144,7 @@
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 600;
+    -webkit-font-smoothing: antialiased;
   }
 
   .small-text {
@@ -152,6 +154,7 @@
     letter-spacing: 0;
     color: var(--text-secondary);
     font-weight: 300;
+    -webkit-font-smoothing: antialiased;
   }
 
   .code-text {
@@ -161,6 +164,7 @@
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 300;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* Title typography classes for reuse */
@@ -171,6 +175,7 @@
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 300;
+    -webkit-font-smoothing: antialiased;
   }
 
   .title-text-bold {
@@ -180,5 +185,6 @@
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 500;
+    -webkit-font-smoothing: antialiased;
   }
 }
