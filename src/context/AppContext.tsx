@@ -44,7 +44,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const navigateTo = (section: AppSection) => {
     setCurrentSection(section);
-    router.push(`/${section === 'home' ? '' : section}`);
+    
+    // Only navigate to actual routes that exist as Next.js pages
+    // Apps, CMS, and Insights are handled by state-based routing in LayoutContent
+    if (section === 'home') {
+      router.push('/');
+    }
+    // For apps, cms, insights: only update state, no URL navigation
+    // This prevents 404 errors for non-existent pages
   };
 
   const openStyleGuide = () => {
@@ -54,7 +61,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const closeStyleGuide = () => {
     setIsStyleGuideOpen(false);
-    router.push(`/${currentSection === 'home' ? '' : currentSection}`);
+    // Only navigate to home URL, let state handle other sections
+    if (currentSection === 'home') {
+      router.push('/');
+    }
+    // For other sections, just rely on state
   };
 
   return (
