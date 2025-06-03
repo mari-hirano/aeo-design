@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import LeftSidebar from "@/components/LeftSidebar";
-import RightPanel from "@/components/RightPanel";
-import Canvas from "@/components/Canvas";
+import { Navbar } from "@/components/layout/Navbar";
+import LeftSidebar from "@/components/layout/LeftSidebar";
+import RightPanel from "@/components/layout/panels/rightpanel/RightPanel";
+import Canvas from "@/components/layout/Canvas";
 import AppsSection from "@/components/sections/AppsSection";
 import CMSSection from "@/components/sections/CMSSection";
 import InsightsSection from "@/components/sections/InsightsSection";

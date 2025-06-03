@@ -16,7 +16,7 @@ import {
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
   CMSDefaultIcon
-} from '../../icons';
+} from '@/icons';
 
 // Define the structure for navigation items
 interface NavItem {
