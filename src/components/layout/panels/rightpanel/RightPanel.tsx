@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useMode } from '@/context/ModeContext';
 import { TabBar, TabBarItem } from '@/components/ui/tab-bar';
-import StyleTabContent from '@/components/panels/StyleTabContent';
-import SettingsTabContent from '@/components/panels/SettingsTabContent';
-import InteractionsTabContent from '@/components/panels/InteractionsTabContent';
+import StyleTabContent from './StyleTabContent';
+import SettingsTabContent from './SettingsTabContent';
+import InteractionsTabContent from './InteractionsTabContent';
 import { IconButton } from '@/components/ui/icon-button';
 import { 
   MoreIcon,
