@@ -7,10 +7,16 @@ import { Input } from "@/components/ui/input";
 
 export function DashboardNav() {
   return (
-    <nav className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
+    <nav 
+      className="bg-[var(--bg-primary)] border-b border-[var(--border-default)] flex items-center justify-between"
+      style={{ 
+        height: 'var(--nav-height, 64px)',
+        padding: '0 var(--space-lg)'
+      }}
+    >
       {/* Left side - Logo/Brand */}
       <div className="flex items-center space-x-4">
-        <div className="text-xl font-bold text-gray-900">Dashboard</div>
+        <div className="text-xl font-bold text-[var(--text-primary)]">Dashboard</div>
       </div>
 
       {/* Center - Search */}
@@ -18,7 +24,7 @@ export function DashboardNav() {
         <div className="relative">
           <Icon 
             name="search" 
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" 
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--text-dimmed)] w-4 h-4" 
           />
           <Input
             placeholder="Search sites..."

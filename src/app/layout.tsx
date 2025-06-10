@@ -6,6 +6,7 @@ import { ModeProvider } from "@/context/ModeContext";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { PagesProvider } from "@/context/PagesContext";
 import { AppProvider } from "@/context/AppContext";
+import { RouteThemeProvider } from "@/context/RouteThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,15 +30,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/spring/favicon.svg" type="image/svg+xml" />
       </head>
       <body className={`${inter.className} bg-[#1E1E1E]`}>
-        <AppProvider>
-          <ModeProvider>
-            <NavigatorProvider>
-              <PagesProvider>
-                <LayoutContent>{children}</LayoutContent>
-              </PagesProvider>
-            </NavigatorProvider>
-          </ModeProvider>
-        </AppProvider>
+        <RouteThemeProvider>
+          <AppProvider>
+            <ModeProvider>
+              <NavigatorProvider>
+                <PagesProvider>
+                  <LayoutContent>{children}</LayoutContent>
+                </PagesProvider>
+              </NavigatorProvider>
+            </ModeProvider>
+          </AppProvider>
+        </RouteThemeProvider>
       </body>
     </html>
   );

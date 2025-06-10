@@ -1,8 +1,7 @@
 "use client";
-
 import { ReactNode } from "react";
-import { DashboardNav } from "./dashboard-nav";
-import { DashboardSidebar } from "./dashboard-sidebar";
+import { DashboardNav } from "@/components/dashboard/dashboard-nav";
+import { DashboardSidebar } from "@/components/dashboard/dashboard-sidebar";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -10,7 +9,7 @@ interface DashboardLayoutProps {
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
+    <div className="h-screen flex flex-col bg-[var(--bg-secondary)]">
       {/* Top Navigation */}
       <DashboardNav />
       
@@ -20,7 +19,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         <DashboardSidebar />
         
         {/* Main Content */}
-        <main className="flex-1 overflow-auto p-6">
+        <main className="flex-1 overflow-auto" style={{ padding: 'var(--space-lg)' }}>
           {children}
         </main>
       </div>

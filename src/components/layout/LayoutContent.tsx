@@ -25,7 +25,18 @@ function LayoutContentInner({ children }: LayoutContentProps) {
     return children;
   }
   
-  // Check if the current path is the style guide
+  // Check if we're on the style guide route
+  if (pathname?.startsWith('/style-guide')) {
+    return (
+      <div className="flex h-screen flex-col">
+        <div className="flex-1">
+          {children}
+        </div>
+      </div>
+    );
+  }
+  
+  // Check if the current path is the style guide (legacy check)
   if (isStyleGuideOpen) {
     return (
       <div className="flex h-screen flex-col">

@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "../styles/colors.css";
+@import "../styles/themes.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
