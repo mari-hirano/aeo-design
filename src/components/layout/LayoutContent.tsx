@@ -20,6 +20,11 @@ function LayoutContentInner({ children }: LayoutContentProps) {
   const pathname = usePathname();
   const { currentSection, isStyleGuideOpen } = useApp();
   
+  // Check if we're on the dashboard route
+  if (pathname?.startsWith('/dashboard')) {
+    return children;
+  }
+  
   // Check if the current path is the style guide
   if (isStyleGuideOpen) {
     return (

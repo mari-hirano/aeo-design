@@ -111,7 +111,10 @@ export function Navbar() {
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="min-w-[220px]">
-            <DropdownMenuItem onClick={() => setMenuOpen(false)}>
+            <DropdownMenuItem onClick={() => {
+              setMenuOpen(false);
+              router.push('/dashboard');
+            }}>
               <DashboardIcon size={16} className="mr-[4px]" />
               Dashboard
             </DropdownMenuItem>
