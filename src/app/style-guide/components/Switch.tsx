@@ -4,7 +4,7 @@ export function SwitchExample() {
   return (
     <section id="switch" className="mb-10">
       <h2 className="text-xl font-semibold mb-4">Switch</h2>
-      <div className="bg-[var(--bg-secondary)] p-4 rounded-md">
+      <div className="bg-[var(--bg-primary)] border border-[var(--border-default)] p-4 rounded-md">
         <div className="space-y-4 max-w-md">
           <div className="flex items-center justify-between">
             <Switch aria-label="Disabled" />

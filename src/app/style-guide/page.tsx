@@ -35,10 +35,10 @@ export default function StyleGuide() {
               
               <SegmentedControl 
                 value={theme.density} 
-                onValueChange={(value) => setDensity(value as "open" | "dense")}
+                onValueChange={(value) => setDensity(value as "dashboard" | "designer")}
               >
-                <SegmentedControlItem value="open">Open</SegmentedControlItem>
-                <SegmentedControlItem value="dense">Dense</SegmentedControlItem>
+                <SegmentedControlItem value="dashboard">Dashboard</SegmentedControlItem>
+                <SegmentedControlItem value="designer">Designer</SegmentedControlItem>
               </SegmentedControl>
             </div>
             

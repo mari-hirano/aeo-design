@@ -62,8 +62,12 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
     return (
       <div
         className={cn(
-          "relative w-full flex items-center px-3",
-          size === "compact" ? "py-1" : "py-2",
+          "relative w-full flex items-center",
+          "[.theme-designer_&]:px-2 [.theme-dashboard_&]:px-3",
+          {
+                          "[.theme-designer_&]:py-1 [.theme-dashboard_&]:py-1.5": size === "compact",
+              "[.theme-designer_&]:py-2 [.theme-dashboard_&]:py-3.5": size === "comfort"
+          },
           selected && "bg-[var(--bg-raised)]",
           "hover:bg-[var(--bg-raised)]",
           "transition-colors duration-100",
@@ -78,7 +82,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
         <div className="flex-1 flex min-w-0">
           {/* Checkbox */}
           {checkbox && (
-            <div className="mr-2 flex items-center">
+            <div className="flex items-center [.theme-designer_&]:mr-1 [.theme-dashboard_&]:mr-2">
               <Checkbox 
                 checked={checked} 
                 onChange={onCheckChange}
@@ -88,7 +92,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
           
           {/* Radio */}
           {radio && (
-            <div className="mr-2 flex items-center">
+            <div className="flex items-center [.theme-designer_&]:mr-1 [.theme-dashboard_&]:mr-2">
               <Radio 
                 value={radioValue}
               />
@@ -97,7 +101,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
           
           {/* Icon */}
           {icon && (
-            <div className="mr-2 flex items-center text-[var(--text-secondary)]">
+            <div className="flex items-center text-[var(--text-secondary)] [.theme-designer_&]:mr-1 [.theme-dashboard_&]:mr-2">
               {icon}
             </div>
           )}

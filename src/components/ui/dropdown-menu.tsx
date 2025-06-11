@@ -74,7 +74,7 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "hover:bg-[var(--bg-raised)] data-[variant=destructive]:text-destructive data-[variant=destructive]:hover:bg-destructive/10 dark:data-[variant=destructive]:hover:bg-destructive/20 data-[variant=destructive]:hover:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-[var(--text-secondary)] relative flex cursor-pointer items-center px-2 py-1 body-text outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "hover:bg-[var(--bg-raised)] data-[variant=destructive]:text-[var(--text-red)] data-[variant=destructive]:hover:bg-[var(--red-bg-transparent)] data-[variant=destructive]:hover:text-[var(--text-red)] data-[variant=destructive]:*:[svg]:!text-[var(--text-red)] [&_svg:not([class*='text-'])]:text-[var(--text-secondary)] relative flex cursor-pointer items-center body-text outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 data-[inset]:[.theme-designer_&]:pl-6 data-[inset]:[.theme-dashboard_&]:pl-8",
         className
       )}
       {...props}
@@ -92,13 +92,13 @@ function DropdownMenuCheckboxItem({
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
       className={cn(
-        "hover:bg-[var(--bg-raised)] relative flex cursor-pointer items-center py-1 pr-2 pl-8 body-text outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "hover:bg-[var(--bg-raised)] relative flex cursor-pointer items-center body-text outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:pr-1 [.theme-dashboard_&]:pr-2 [.theme-designer_&]:pl-6 [.theme-dashboard_&]:pl-8",
         className
       )}
       checked={checked}
       {...props}
     >
-      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
+      <span className="pointer-events-none absolute flex size-3.5 items-center justify-center [.theme-designer_&]:left-1 [.theme-dashboard_&]:left-2">
         <DropdownMenuPrimitive.ItemIndicator>
           <CheckIcon className="size-4 text-[var(--text-secondary)]" />
         </DropdownMenuPrimitive.ItemIndicator>
@@ -128,12 +128,12 @@ function DropdownMenuRadioItem({
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
       className={cn(
-        "hover:bg-[var(--bg-raised)] relative flex cursor-pointer items-center py-1 pr-2 pl-8 body-text outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "hover:bg-[var(--bg-raised)] relative flex cursor-pointer items-center body-text outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:pr-1 [.theme-dashboard_&]:pr-2 [.theme-designer_&]:pl-6 [.theme-dashboard_&]:pl-8",
         className
       )}
       {...props}
     >
-      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center text-[var(--text-secondary)]">
+      <span className="pointer-events-none absolute flex size-3.5 items-center justify-center text-[var(--text-secondary)] [.theme-designer_&]:left-1 [.theme-dashboard_&]:left-2">
         <DropdownMenuPrimitive.ItemIndicator>
           <CircleIcon className="size-2 fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
@@ -155,7 +155,7 @@ function DropdownMenuLabel({
       data-slot="dropdown-menu-label"
       data-inset={inset}
       className={cn(
-        "px-2 py-1 body-text font-medium data-[inset]:pl-8",
+        "body-text font-medium text-[var(--text-secondary)] [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 data-[inset]:[.theme-designer_&]:pl-6 data-[inset]:[.theme-dashboard_&]:pl-8",
         className
       )}
       {...props}
@@ -211,7 +211,7 @@ function DropdownMenuSubTrigger({
       data-slot="dropdown-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        "hover:bg-[var(--bg-raised)] data-[state=open]:bg-[var(--bg-raised)] flex cursor-pointer items-center px-2 py-1 body-text outline-hidden select-none data-[inset]:pl-8",
+        "hover:bg-[var(--bg-raised)] data-[state=open]:bg-[var(--bg-raised)] flex cursor-pointer items-center body-text outline-hidden select-none [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 data-[inset]:[.theme-designer_&]:pl-6 data-[inset]:[.theme-dashboard_&]:pl-8",
         className
       )}
       {...props}

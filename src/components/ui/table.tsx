@@ -157,7 +157,7 @@ const TableRow = React.forwardRef<HTMLDivElement, TableRowProps>(
       <div
         className={cn(
           "flex w-full border-b border-[var(--border-default)] last:border-b-0",
-          zebraStripes && isOdd && "bg-[rgba(255,255,255,0.03)]",
+          zebraStripes && isOdd && "bg-[var(--bg-raised)]",
           className
         )}
         ref={ref}
@@ -195,9 +195,9 @@ const TableCell = React.forwardRef<HTMLDivElement, TableCellProps>(
       <div
         className={cn(
           "truncate",
-          color === "green" && "text-[var(--green-text)]",
-          color === "orange" && "text-[var(--orange-text)]",
-          color === "blue" && "text-[var(--blue-text)]",
+          color === "green" && "text-[var(--text-green)]",
+          color === "orange" && "text-[var(--text-orange)]",
+          color === "blue" && "text-[var(--text-blue)]",
           color === "secondary" && "text-[var(--text-secondary)]",
           className
         )}

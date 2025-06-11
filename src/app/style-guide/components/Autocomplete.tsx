@@ -21,7 +21,7 @@ export function AutocompleteExample() {
       <h2 className="text-2xl font-medium mb-2">Autocomplete</h2>
       <p className="mb-4 text-sm text-[var(--text-secondary)]">Input with suggestions that appear as the user types</p>
       
-      <div className="p-8 bg-[var(--bg-secondary)] rounded-lg">
+      <div className="p-8 bg-[var(--bg-primary)] border border-[var(--border-default)] rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-lg font-medium mb-2">Basic</h3>
@@ -72,28 +72,6 @@ export function AutocompleteExample() {
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="mt-6">
-        <h3 className="text-lg font-medium mb-2">Usage</h3>
-        <pre className="p-4 bg-[var(--bg-raised)] rounded-md overflow-auto">
-          <code>{`// Basic autocomplete
-<Autocomplete
-  options={[
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-    // ...more options
-  ]}
-  value={value}
-  onChange={setValue}
-  placeholder="Select fruits..."
-  allowCreate={true} // Allow creating new options
-/>
-
-// Multiple selection is enabled by default
-// Selected items display as tags in the input
-// Type to search or add custom entries`}</code>
-        </pre>
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     return (
       <div
         className={cn(
-          "relative flex shrink-0 overflow-hidden rounded-full bg-[var(--purple-bg)] border-0",
+          "relative flex shrink-0 overflow-hidden rounded-full bg-[var(--bg-accent)] border-0",
           sizeClasses[size],
           className
         )}
@@ -36,7 +36,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
             className="aspect-square h-full w-full object-cover"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center rounded-full bg-[rgba(0,0,0,0.1)] text-text-secondary">
+          <div className="flex h-full w-full items-center justify-center rounded-full bg-[var(--bg-accent)] text-white">
             {fallback ? fallback.substring(0, 2).toUpperCase() : "?"}
           </div>
         )}
@@ -99,7 +99,7 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
           >
             <Avatar 
               size={size}
-              className="border-0 text-[var(--text-secondary)]"
+              className="border-0"
               fallback={`+${remainingCount}`}
             />
           </div>

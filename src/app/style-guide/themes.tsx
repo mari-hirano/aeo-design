@@ -12,24 +12,24 @@ import { Icon } from "@/components/ui/icon";
 
 const themeOptions: { label: string; config: ThemeConfig; description: string }[] = [
   {
-    label: "Light + Open",
-    config: { mode: "light", density: "open" },
+    label: "Light + Dashboard",
+    config: { mode: "light", density: "dashboard" },
     description: "Spacious light theme for dashboard and general use"
   },
   {
-    label: "Dark + Dense",
-    config: { mode: "dark", density: "dense" },
+    label: "Dark + Designer",
+    config: { mode: "dark", density: "designer" },
     description: "Compact dark theme for designer and power users"
   },
   {
-    label: "Light + Dense",
-    config: { mode: "light", density: "dense" },
-    description: "Compact light theme (future implementation)"
+    label: "Light + Designer",
+    config: { mode: "light", density: "designer" },
+    description: "Compact light theme"
   },
   {
-    label: "Dark + Open",
-    config: { mode: "dark", density: "open" },
-    description: "Spacious dark theme for alternative use cases"
+    label: "Dark + Dashboard",
+    config: { mode: "dark", density: "dashboard" },
+    description: "Spacious dark theme"
   }
 ];
 
@@ -124,7 +124,7 @@ export function ThemesSection() {
       <div>
         <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Theme System</h2>
         <p className="text-[var(--text-secondary)]">
-          Our design system supports 4 theme combinations: Light/Dark modes combined with Open/Dense densities.
+          Our design system supports 4 theme combinations: Light/Dark modes combined with Dashboard/Designer densities.
           Switch between themes to see how all components adapt.
         </p>
       </div>

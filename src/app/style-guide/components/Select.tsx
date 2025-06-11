@@ -14,7 +14,7 @@ export function SelectExample() {
   return (
     <section id="select" className="mb-10">
       <h2 className="text-xl font-semibold mb-4">Select</h2>
-      <div className="bg-[var(--bg-secondary)] p-4 rounded-md">
+      <div className="bg-[var(--bg-primary)] border border-[var(--border-default)] p-4 rounded-md">
         <p className="mb-4 text-sm text-[var(--text-secondary)]">Dropdown selection control for choosing from a list of options</p>
         
         <h3 className="text-lg font-medium mb-3">Select Variants</h3>

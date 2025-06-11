@@ -124,7 +124,7 @@ export const Icon: React.FC<IconProps> = ({
   // Render the icon
   return (
     <IconComponent
-      className={cn("inline-block text-white/67", className)}
+      className={cn("inline-block text-[var(--text-secondary)]", className)}
       width={calculatedSize}
       height={calculatedSize}
       style={{

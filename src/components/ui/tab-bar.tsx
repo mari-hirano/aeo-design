@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const tabBarContainerVariants = cva(
-  "inline-flex border-b border-white/13 w-full",
+  "inline-flex gap-4 border-b border-[var(--border-default)] w-full",
   {
     variants: {
       fullWidth: {
@@ -18,11 +18,11 @@ const tabBarContainerVariants = cva(
 )
 
 const tabBarItemVariants = cva(
-  "flex items-center justify-center text-[11.5px] leading-4 tracking-[-0.01em] font-normal text-white/67 transition-all disabled:pointer-events-none disabled:opacity-50 h-8 px-3 py-1 relative data-[state=active]:text-white hover:text-white",
+  "flex items-center justify-center text-[11.5px] leading-4 tracking-[-0.01em] font-normal text-[var(--text-secondary)] transition-all disabled:pointer-events-none disabled:opacity-50 relative data-[state=active]:text-[var(--text-primary)] hover:text-[var(--text-primary)] [.theme-designer_&]:h-10 [.theme-dashboard_&]:h-12 p-0",
   {
     variants: {
       isIcon: {
-        true: "w-8 p-0",
+        true: "[.theme-designer_&]:w-10 [.theme-dashboard_&]:w-12",
         false: "",
       },
       isFullWidth: {
@@ -87,7 +87,7 @@ const TabBarItem = React.forwardRef<HTMLButtonElement, TabBarItemProps>(
       >
         {children}
         {isActive && (
-          <div className="absolute bottom-0 left-0 w-full h-0.5 bg-white" />
+          <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[var(--text-primary)]" />
         )}
       </button>
     )

@@ -13,22 +13,24 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="relative w-full">
         {(icon || showSearchIcon) && (
-          <div className="absolute inset-y-0 left-1 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 flex items-center pointer-events-none [.theme-designer_&]:left-1 [.theme-dashboard_&]:left-2">
             {icon || (showSearchIcon && <SearchDefaultIcon size={16} style={{ color: 'var(--text-dimmed)' }} />)}
           </div>
         )}
         <input
           className={cn(
-            "flex h-6 w-full rounded-[4px] border border-solid px-1 py-0",
-            "text-body",
-            "color-input-bg border-[var(--input-border)]",
+            "flex w-full rounded-[4px] border border-solid py-0",
+            "body-text",
+            "bg-[var(--input-bg)] border-[var(--input-border)]",
             "focus:outline-none focus-visible:border-[var(--input-border-focus)]",
-            "hover:border-input-border-hover",
-            "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-input-disabled-bg",
-            "placeholder:text-input-placeholder",
-            "text-text-primary",
-            (icon || showSearchIcon) && "pl-6",
-            error && "border-red-border",
+            "hover:border-[var(--input-border-hover)]",
+            "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-[var(--input-disabled-bg)]",
+            "placeholder:text-[var(--input-placeholder)]",
+            "text-[var(--text-primary)]",
+            "[.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8",
+            "[.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2",
+            (icon || showSearchIcon) && "[.theme-designer_&]:pl-6 [.theme-dashboard_&]:pl-8",
+            error && "border-[var(--input-border-error)]",
             className
           )}
           ref={ref}

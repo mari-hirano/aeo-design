@@ -67,16 +67,16 @@ const ModalContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[50%] z-50 w-[480px] translate-x-[-50%] translate-y-[-50%] bg-[var(--bg-primary)] p-0 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 rounded-[4px]",
+        "fixed left-[50%] top-[50%] z-50 w-[480px] translate-x-[-50%] translate-y-[-50%] bg-[var(--bg-primary)] p-0 shadow-[var(--shadow-menu-elevated)] duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 rounded-[4px]",
         className
       )}
       {...props}
     >
       {/* Modal Header */}
-      <div className="flex items-center justify-between px-2 py-2 border-b border-[var(--border-default)]">
-        <h5 className="title-text-bold">{title}</h5>
+      <div className="flex items-center justify-between border-b border-[var(--border-default)] [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-1 [.theme-dashboard_&]:py-2">
+        <DialogPrimitive.Title className="title-text-bold text-[var(--text-primary)]">{title}</DialogPrimitive.Title>
         {!hideClose && (
-          <DialogPrimitive.Close className="flex items-center justify-center h-6 w-6 rounded hover:bg-[var(--bg-tertiary-hover)] text-[var(--text-secondary)] transition-colors">
+          <DialogPrimitive.Close className="flex items-center justify-center rounded hover:bg-[var(--bg-raised)] text-[var(--text-secondary)] transition-colors [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:w-6 [.theme-dashboard_&]:w-8">
             <CloseDefaultIcon size={16} />
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>
@@ -84,12 +84,12 @@ const ModalContent = React.forwardRef<
       </div>
 
       {/* Modal Body */}
-      <div className="p-2 body-text">
+      <div className="body-text text-[var(--text-primary)] [.theme-designer_&]:p-1 [.theme-dashboard_&]:p-2">
         {children}
       </div>
 
       {/* Modal Footer */}
-      <div className="flex items-center justify-between px-2 py-2 border-t border-[var(--border-default)]">
+      <div className="flex items-center justify-between border-t border-[var(--border-default)] [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-1 [.theme-dashboard_&]:py-2 [.theme-designer_&]:gap-1 [.theme-dashboard_&]:gap-2">
         <div>
           {leftAction && (
             <Button 
@@ -101,7 +101,7 @@ const ModalContent = React.forwardRef<
             </Button>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center [.theme-designer_&]:gap-1 [.theme-dashboard_&]:gap-2">
           {secondaryAction && (
             <Button 
               size="sm" 

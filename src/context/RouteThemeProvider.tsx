@@ -17,14 +17,14 @@ function RouteThemeHandler({ children }: RouteThemeProviderProps) {
 
     // Determine target theme based on route
     if (pathname?.startsWith('/dashboard')) {
-      targetTheme = { mode: "light", density: "open" };
+      targetTheme = { mode: "light", density: "dashboard" };
     } else if (pathname?.startsWith('/style-guide')) {
       // Keep whatever theme is currently selected for style guide
       // Don't change the theme when on style guide to allow theme testing
       return;
     } else {
-      // Default to dark + dense for the main designer app
-      targetTheme = { mode: "dark", density: "dense" };
+      // Default to dark + designer for the main designer app
+      targetTheme = { mode: "dark", density: "designer" };
     }
 
     // Only update theme if it's different from current theme
@@ -38,7 +38,7 @@ function RouteThemeHandler({ children }: RouteThemeProviderProps) {
 
 export function RouteThemeProvider({ children }: RouteThemeProviderProps) {
   return (
-    <ThemeProvider defaultTheme={{ mode: "dark", density: "dense" }}>
+    <ThemeProvider defaultTheme={{ mode: "dark", density: "designer" }}>
       <RouteThemeHandler>
         {children}
       </RouteThemeHandler>

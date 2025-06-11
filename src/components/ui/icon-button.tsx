@@ -8,49 +8,49 @@ const iconButtonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-b from-white/13 to-white/11 text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset] hover:opacity-90",
+          "bg-gradient-to-b from-white/13 to-white/11 text-[var(--text-primary)] shadow-[var(--shadow-button-default)] hover:bg-[var(--bg-raised)]",
         primary:
-          "bg-[#006ACC] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[var(--action-primary-bg)] text-[var(--white)] shadow-[var(--shadow-button-color)] hover:bg-[var(--action-primary-bg-hover)]",
         success:
-          "bg-[#007A41] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[var(--green-bg)] text-[var(--white)] shadow-[var(--shadow-button-color)] hover:bg-[var(--green-bg-hover)]",
         destructive:
-          "bg-[#CF313B] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[var(--red-bg)] text-[var(--white)] shadow-[var(--shadow-button-color)] hover:bg-[var(--red-bg-hover)]",
         warning:
-          "bg-[#BF4704] text-white shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.20)_inset] hover:opacity-90",
+          "bg-[var(--orange-bg)] text-[var(--white)] shadow-[var(--shadow-button-color)] hover:bg-[var(--orange-bg-hover)]",
         outline:
-          "border border-white/13 bg-transparent text-white hover:bg-white/5",
+          "border border-[var(--border-default)] bg-transparent text-[var(--text-primary)] hover:bg-[var(--bg-raised)]",
         "outline-primary": 
-          "border border-white/13 bg-transparent text-[#006ACC] hover:bg-white/5",
+          "border border-[var(--border-default)] bg-transparent text-[var(--text-blue)] hover:bg-[var(--bg-raised)]",
         "outline-success": 
-          "border border-white/13 bg-transparent text-[#79E09C] hover:bg-white/5",
+          "border border-[var(--border-default)] bg-transparent text-[var(--text-green)] hover:bg-[var(--bg-raised)]",
         "outline-destructive": 
-          "border border-white/13 bg-transparent text-[#FF9C9C] hover:bg-white/5",
+          "border border-[var(--border-default)] bg-transparent text-[var(--text-red)] hover:bg-[var(--bg-raised)]",
         "outline-warning": 
-          "border border-white/13 bg-transparent text-[#FFBC86] hover:bg-white/5",
+          "border border-[var(--border-default)] bg-transparent text-[var(--text-orange)] hover:bg-[var(--bg-raised)]",
         subtle:
-          "bg-transparent text-white hover:bg-white/5",
+          "bg-transparent text-[var(--text-primary)] hover:bg-[var(--bg-raised)]",
         "subtle-primary": 
-          "bg-[#007DF0]/25 text-[#007DF0] hover:bg-[#007DF0]/30",
+          "bg-[var(--blue-bg-transparent)] text-[var(--text-blue)] hover:bg-[var(--blue-bg-transparent-hover)]",
         "subtle-success": 
-          "bg-[#259D4D]/25 text-[#79E09C] hover:bg-[#259D4D]/30",
+          "bg-[var(--green-bg-transparent)] text-[var(--text-green)] hover:bg-[var(--green-bg-transparent-hover)]",
         "subtle-destructive": 
-          "bg-[#E42F3A]/25 text-[#FF9C9C] hover:bg-[#E42F3A]/30",
+          "bg-[var(--red-bg-transparent)] text-[var(--text-red)] hover:bg-[var(--red-bg-transparent-hover)]",
         "subtle-warning": 
-          "bg-[#DF640C]/25 text-[#FFBC86] hover:bg-[#DF640C]/30",
+          "bg-[var(--orange-bg-transparent)] text-[var(--text-orange)] hover:bg-[var(--orange-bg-transparent-hover)]",
         ghost:
-          "bg-transparent text-white hover:bg-white/5",
+          "bg-transparent text-[var(--text-primary)] hover:bg-[var(--bg-raised)]",
         "ghost-primary": 
-          "bg-transparent text-[#006ACC] hover:bg-[#353535]",
+          "bg-transparent text-[var(--text-blue)] hover:bg-[var(--bg-raised)]",
         "ghost-success": 
-          "bg-transparent text-[#79E09C] hover:bg-[#353535]",
+          "bg-transparent text-[var(--text-green)] hover:bg-[var(--bg-raised)]",
         "ghost-destructive": 
-          "bg-transparent text-[#FF9C9C] hover:bg-[#353535]",
+          "bg-transparent text-[var(--text-red)] hover:bg-[var(--bg-raised)]",
         "ghost-warning": 
-          "bg-transparent text-[#FFBC86] hover:bg-[#353535]",
+          "bg-transparent text-[var(--text-orange)] hover:bg-[var(--bg-raised)]",
       },
       size: {
-        compact: "h-4 w-4 p-0",
-        comfortable: "h-6 w-6 p-0",
+        compact: "[.theme-designer_&]:h-4 [.theme-designer_&]:w-4 [.theme-dashboard_&]:h-5 [.theme-dashboard_&]:w-5 p-0",
+        comfortable: "[.theme-designer_&]:h-6 [.theme-designer_&]:w-6 [.theme-dashboard_&]:h-8 [.theme-dashboard_&]:w-8 p-0",
       },
     },
     defaultVariants: {

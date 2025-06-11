@@ -8,7 +8,7 @@ export function TabBarExample() {
     <section id="tab-bar" className="mb-10">
       <h2 className="text-xl font-semibold mb-4">Tab Bar</h2>
       
-      <div className="bg-[var(--bg-secondary)] p-4 rounded-md">
+      <div className="bg-[var(--bg-primary)] border border-[var(--border-default)] p-4 rounded-md">
         <p className="mb-4 text-sm text-[var(--text-secondary)]">Horizontal navigation component for switching between related content sections</p>
         
         <div className="space-y-6">

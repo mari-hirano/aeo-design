@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
-import { Separator } from "@/components/ui/separator";
 
 const navigationItems = [
   { name: "Overview", icon: "home", active: true },
@@ -36,7 +35,7 @@ export function DashboardSidebar() {
           ))}
         </div>
 
-        <Separator className="my-4" />
+        <div className="my-4 h-px bg-[var(--border-default)]" />
 
         {/* Quick Actions */}
         <div className="space-y-1">

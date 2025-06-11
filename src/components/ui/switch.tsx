@@ -2,7 +2,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  sizeVariant?: "compact" | "comfort";
+  sizeVariant?: "compact" | "comfortable";
   hideLabel?: boolean;
 }
 
@@ -21,18 +21,17 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
         />
         <div 
           className={cn(
-            "relative bg-[rgba(255,255,255,0.13)] border border-[rgba(255,255,255,0.19)] rounded-full peer",
-            "peer-checked:bg-blue-500 peer-checked:border-transparent transition-all duration-200",
+            "relative bg-[var(--bg-tertiary)] border border-[var(--border-default)] rounded-full transition-all duration-200",
+            "peer-checked:bg-[var(--action-primary-bg)] peer-checked:border-[var(--action-primary-bg)]",
             "peer-focus:outline-none peer-focus:ring-0",
+            "before:content-[''] before:absolute before:bg-white before:rounded-full before:transition-all before:duration-200 before:shadow-sm",
             {
-              "w-[24px] h-[16px]": sizeVariant === "compact",
-              "w-[32px] h-[20px]": sizeVariant === "comfort"
+              "w-6 h-4": sizeVariant === "compact",
+              "w-8 h-5": sizeVariant === "comfortable"
             },
-            "after:content-[''] after:absolute after:bg-white after:rounded-full after:transition-all",
-            "after:h-[12px] after:w-[12px]",
             {
-              "after:left-[1px] after:top-[1px] peer-checked:after:translate-x-[8px]": sizeVariant === "compact",
-              "after:left-[3px] after:top-[3px] peer-checked:after:translate-x-[14px]": sizeVariant === "comfort"
+              "before:h-3 before:w-3 before:left-0.25 before:top-0.25 peer-checked:before:translate-x-2": sizeVariant === "compact",
+              "before:h-3.5 before:w-3.5 before:left-0.25 before:top-0.25 peer-checked:before:translate-x-3": sizeVariant === "comfortable"
             }
           )}
         ></div>

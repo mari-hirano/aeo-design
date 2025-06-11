@@ -3,7 +3,7 @@ import { Icon } from "@/components/ui/icon";
 
 export function IconsSection() {
   return (
-    <div className="space-y-8 text-text-primary">
+    <div className="space-y-8 text-[var(--text-primary)]">
       
       {/* Common icons */}
       <section>

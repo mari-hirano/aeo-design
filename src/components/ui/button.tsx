@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded body-text transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive [.theme-dense_&]:gap-0.5 [.theme-open_&]:gap-2",
+  "inline-flex items-center justify-center whitespace-nowrap rounded body-text transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive [.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-2",
   {
     variants: {
       variant: {
@@ -52,9 +52,9 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "[.theme-dense_&]:h-6 [.theme-open_&]:h-8 [.theme-dense_&]:px-2 [.theme-open_&]:px-3 [.theme-dense_&]:py-1 [.theme-open_&]:py-1.5 has-[>svg]:[.theme-dense_&]:px-2 has-[>svg]:[.theme-open_&]:px-3",
-        sm: "[.theme-dense_&]:h-6 [.theme-open_&]:h-8 [.theme-dense_&]:gap-0.5 [.theme-open_&]:gap-2 [.theme-dense_&]:px-2 [.theme-open_&]:px-3 has-[>svg]:[.theme-dense_&]:px-2 has-[>svg]:[.theme-open_&]:px-3",
-        icon: "[.theme-dense_&]:h-6 [.theme-dense_&]:w-6 [.theme-open_&]:h-8 [.theme-open_&]:w-8",
+        default: "[.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2",
+        sm: "[.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:px-2 [.theme-dashboard_&]:px-3",
+        icon: "[.theme-designer_&]:h-6 [.theme-designer_&]:w-6 [.theme-dashboard_&]:h-8 [.theme-dashboard_&]:w-8",
       },
     },
     defaultVariants: {

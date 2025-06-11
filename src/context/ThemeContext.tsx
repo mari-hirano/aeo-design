@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from "react";
 
 export type ThemeMode = "light" | "dark";
-export type ThemeDensity = "open" | "dense";
+export type ThemeDensity = "dashboard" | "designer";
 
 export interface ThemeConfig {
   mode: ThemeMode;
@@ -34,7 +34,7 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ 
   children, 
-  defaultTheme = { mode: "dark", density: "dense" } 
+  defaultTheme = { mode: "dark", density: "designer" } 
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<ThemeConfig>(defaultTheme);
 
@@ -55,17 +55,17 @@ export function ThemeProvider({
     const root = document.documentElement;
     
     // Remove existing theme classes
-    root.classList.remove("theme-light", "theme-dark", "theme-open", "theme-dense");
+    root.classList.remove("theme-light", "theme-dark", "theme-dashboard", "theme-designer");
     
     // Add current theme classes
     root.classList.add(`theme-${theme.mode}`);
     root.classList.add(`theme-${theme.density}`);
     
     // Set base rem unit based on density
-    if (theme.density === "open") {
-      root.style.fontSize = "20px";
+    if (theme.density === "dashboard") {
+      root.style.fontSize = "16px";
     } else {
-      root.style.fontSize = "16px"; // Default for dense
+      root.style.fontSize = "16px"; // Default for designer
     }
     
     // Also maintain the existing dark class for backwards compatibility

@@ -8,20 +8,31 @@ interface AccordionProps {
   defaultOpen?: boolean;
   children: React.ReactNode;
   titleClassName?: string;
+  variant?: 'compact' | 'comfortable';
 }
 
 const Accordion: React.FC<AccordionProps> = ({ 
   title, 
   defaultOpen = true, 
   children,
-  titleClassName = "title-semibold" 
+  titleClassName = "title-semibold",
+  variant = 'comfortable'
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
+  // Theme-aware height and padding classes
+  const getVariantClasses = () => {
+    if (variant === 'compact') {
+          return "[.theme-designer_&]:h-8 [.theme-dashboard_&]:h-10 [.theme-designer_&]:pl-2 [.theme-designer_&]:pr-1 [.theme-dashboard_&]:pl-3 [.theme-dashboard_&]:pr-2";
+  } else {
+    return "[.theme-designer_&]:h-10 [.theme-dashboard_&]:h-12 [.theme-designer_&]:pl-2 [.theme-designer_&]:pr-1 [.theme-dashboard_&]:pl-3 [.theme-dashboard_&]:pr-2";
+    }
+  };
+
   return (
-    <div className="border-b border-border-default">
+    <div className="border-b border-[var(--border-default)]">
       <div 
-        className="flex justify-between items-center cursor-default h-[40px] pl-2 pr-2"
+        className={`flex justify-between items-center cursor-default ${getVariantClasses()}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <h5 className={titleClassName}>{title}</h5>

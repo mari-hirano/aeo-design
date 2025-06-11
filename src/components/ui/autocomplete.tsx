@@ -97,12 +97,15 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
       <Popover.Root open={open} onOpenChange={setOpen}>
         <div className={cn("relative w-full", className)}>
           <div className={cn(
-            "flex flex-wrap gap-1 items-center min-h-6 w-full rounded-[4px] border border-solid px-1 py-0",
-            "text-body",
-            "color-input-bg border-[var(--input-border)]",
+            "flex flex-wrap items-center w-full rounded-[4px] border border-solid py-0",
+            "body-text",
+            "bg-[var(--input-bg)] border-[var(--input-border)]",
             "focus-within:outline-none focus-within:border-[var(--input-border-focus)]",
-            "hover:border-input-border-hover",
-            "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-input-disabled-bg",
+            "hover:border-[var(--input-border-hover)]",
+            "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-[var(--input-disabled-bg)]",
+            "[.theme-designer_&]:min-h-6 [.theme-dashboard_&]:min-h-8",
+            "[.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2",
+            "[.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-1",
           )}>
             {value.map(val => {
               const option = options.find(opt => opt.value === val) || { label: val, value: val };
@@ -124,9 +127,9 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
               <input
                 ref={inputRef}
                 className={cn(
-                  "flex-1 min-w-[80px] bg-transparent border-none outline-none text-body py-0 px-0",
-                  "placeholder:text-input-placeholder",
-                  "text-text-primary",
+                  "flex-1 min-w-[80px] bg-transparent border-none outline-none body-text py-0 px-0",
+                  "placeholder:text-[var(--input-placeholder)]",
+                  "text-[var(--text-primary)]",
                 )}
                 value={inputValue}
                 onChange={handleInputChange}
@@ -157,7 +160,7 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
             >
               <div className="p-1 flex flex-col gap-1">
                 {filteredOptions.length === 0 && !createOption && (
-                  <div className="px-2 py-1 text-sm text-[var(--text-secondary)]">
+                  <div className="text-sm text-[var(--text-secondary)] [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1">
                     No options found
                   </div>
                 )}
@@ -166,8 +169,10 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
                   <button
                     key={option.value}
                     className={cn(
-                      "flex items-center justify-between w-full text-left px-2 py-1 rounded text-sm",
+                      "flex items-center justify-between w-full text-left rounded text-sm",
                       "hover:bg-[var(--bg-raised)] focus:bg-[var(--bg-raised)] outline-none",
+                      "[.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2",
+                      "[.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1",
                     )}
                     onClick={() => handleSelectOption(option.value)}
                   >
@@ -181,8 +186,11 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
                 {createOption && (
                   <button
                     className={cn(
-                      "flex items-center gap-1 w-full text-left px-2 py-1 rounded text-sm",
+                      "flex items-center w-full text-left rounded text-sm",
                       "hover:bg-[var(--bg-raised)] focus:bg-[var(--bg-raised)] outline-none",
+                      "[.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2",
+                      "[.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1",
+                      "[.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-1",
                     )}
                     onClick={() => handleSelectOption(createOption.value)}
                   >

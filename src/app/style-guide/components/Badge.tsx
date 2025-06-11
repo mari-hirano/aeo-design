@@ -8,7 +8,7 @@ export function BadgeExample() {
       <h2 className="text-2xl font-medium mb-2">Badge & Tag</h2>
       <p className="mb-4 text-sm text-[var(--text-secondary)]">Small visual indicators for statuses, categories, or counts</p>
       
-      <div className="p-8 bg-[var(--bg-secondary)] rounded-lg">
+      <div className="p-8 bg-[var(--bg-primary)] border border-[var(--border-default)] rounded-lg">
         <div className="mb-8">
           <h3 className="text-md font-medium mb-4">Badge Shapes</h3>
           <div className="flex flex-wrap gap-3 items-center">

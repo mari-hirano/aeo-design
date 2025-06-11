@@ -14,7 +14,7 @@ export function SplitButtonExample() {
     <section id="split-button" className="mb-10">
       <h2 className="text-xl font-semibold mb-4">Split Button</h2>
       
-      <div className="bg-[var(--bg-secondary)] p-4 rounded-md">
+      <div className="bg-[var(--bg-primary)] border border-[var(--border-default)] p-4 rounded-md">
         <p className="mb-4 text-sm text-[var(--text-secondary)]">A button that combines a primary action with a dropdown menu for related actions</p>
         
         <h3 className="text-lg font-medium mb-3">Split Button Variants</h3>

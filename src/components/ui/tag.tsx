@@ -16,29 +16,29 @@ const Tag = React.forwardRef<HTMLDivElement, TagProps>(
     // Color variants for tinted style
     const tintedVariantClasses = {
       default: "bg-[var(--bg-tertiary)] text-[var(--text-secondary)]",
-      blue: "bg-[var(--blue-transparent)] text-[var(--blue-text)]",
-      green: "bg-[var(--green-transparent)] text-[var(--green-text)]",
-      pink: "bg-[var(--pink-transparent)] text-[var(--pink-text)]",
-      purple: "bg-[var(--purple-transparent)] text-[var(--purple-text)]",
-      orange: "bg-[var(--orange-transparent)] text-[var(--orange-text)]",
-      yellow: "bg-[var(--yellow-transparent)] text-[var(--yellow-text)]",
+      blue: "bg-[var(--blue-bg-transparent)] text-[var(--text-blue)]",
+      green: "bg-[var(--green-bg-transparent)] text-[var(--text-green)]",
+      pink: "bg-[var(--pink-bg-transparent)] text-[var(--text-pink)]",
+      purple: "bg-[var(--purple-bg-transparent)] text-[var(--text-purple)]",
+      orange: "bg-[var(--orange-bg-transparent)] text-[var(--text-orange)]",
+      yellow: "bg-[var(--yellow-bg-transparent)] text-[var(--text-yellow)]",
     }
 
     // Color variants for solid style
     const solidVariantClasses = {
-      default: "bg-[rgba(0,0,0,0.22)] text-white",
-      blue: "bg-[var(--blue-bg)] text-white",
-      green: "bg-[var(--green-bg)] text-white",
-      pink: "bg-[var(--pink-bg)] text-white",
-      purple: "bg-[var(--purple-bg)] text-white",
-      orange: "bg-[var(--orange-bg)] text-white",
-      yellow: "bg-[var(--yellow-bg)] text-black",
+      default: "bg-[var(--bg-raised)] text-[var(--text-primary)]",
+      blue: "bg-[var(--blue-bg)] text-[var(--white)]",
+      green: "bg-[var(--green-bg)] text-[var(--white)]",
+      pink: "bg-[var(--pink-bg)] text-[var(--white)]",
+      purple: "bg-[var(--purple-bg)] text-[var(--white)]",
+      orange: "bg-[var(--orange-bg)] text-[var(--white)]",
+      yellow: "bg-[var(--yellow-bg)] text-[var(--black)]",
     }
 
-    // Size variants
+    // Size variants with theme support
     const sizeClasses = {
-      compact: "h-4 body-text py-0 px-1.5",
-      comfort: "h-6 body-text py-0 px-2",
+              compact: "body-text py-0 [.theme-designer_&]:h-4 [.theme-dashboard_&]:h-5 [.theme-designer_&]:px-1.5 [.theme-dashboard_&]:px-2",
+        comfort: "body-text py-0 [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-7 [.theme-designer_&]:px-2 [.theme-dashboard_&]:px-2.5",
     }
 
     // Shape variants
@@ -71,17 +71,17 @@ const Tag = React.forwardRef<HTMLDivElement, TagProps>(
           <>
             <span className={cn(
               "ml-1 mr-1 h-full w-px", 
-              styleType === "tinted" ? "bg-current opacity-20" : "bg-white/20"
+              styleType === "tinted" ? "bg-current opacity-20" : "bg-[var(--white)]/20"
             )} />
             <button
               type="button"
               className={cn(
                 "flex items-center justify-center hover:opacity-80",
-                size === "compact" ? "h-3 w-3" : "h-3.5 w-3.5"
+                "[.theme-dense_&]:h-3 [.theme-dense_&]:w-3 [.theme-open_&]:h-3.5 [.theme-open_&]:w-3.5"
               )}
               onClick={onRemove}
             >
-              <CloseDefaultIcon size={size === "compact" ? 16 : 16} />
+              <CloseDefaultIcon size={16} />
             </button>
           </>
         )}

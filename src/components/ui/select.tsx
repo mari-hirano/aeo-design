@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils"
 import { ChevronSmallDownIcon, CheckboxIcon } from "@/icons"
 
 const selectTriggerVariants = cva(
-  "flex h-6 w-full items-center justify-between rounded-[4px] border border-solid px-2 py-0 text-body focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed gap-2 data-[placeholder]:text-neutral-400",
+  "flex w-full items-center justify-between rounded-[4px] border border-solid py-0 body-text focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed data-[placeholder]:text-[var(--input-placeholder)] [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-2",
   {
     variants: {
       variant: {
-        default: "border-[var(--border-default)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:border-[var(--border-accent)] hover:border-[var(--border-hover)] disabled:bg-[var(--bg-disabled)]",
-        button: "bg-gradient-to-b from-white/13 to-white/11 text-[var(--text-primary)] shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset] hover:opacity-90 border-none",
+        default: "bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--text-primary)] focus:border-[var(--input-border-focus)] hover:border-[var(--input-border-hover)] disabled:bg-[var(--input-disabled-bg)]",
+        button: "bg-gradient-to-b from-white/13 to-white/11 text-[var(--text-primary)] shadow-[var(--shadow-button-default)] hover:bg-[var(--bg-raised)] border-none",
       },
     },
     defaultVariants: {
@@ -79,7 +79,7 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn("body-semibold py-1 px-2 text-[var(--text-secondary)]", className)}
+    className={cn("body-semibold text-[var(--text-secondary)] [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2", className)}
     {...props}
   />
 ))
@@ -92,12 +92,12 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-pointer select-none items-center py-1 pl-2 pr-0 body-text outline-hidden focus:bg-[var(--bg-raised)] hover:bg-[var(--bg-raised)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex w-full cursor-pointer select-none items-center outline-hidden focus:bg-[var(--bg-raised)] hover:bg-[var(--bg-raised)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 body-text [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:pl-1 [.theme-dashboard_&]:pl-2 pr-0",
       className
     )}
     {...props}
   >
-    <span className="pointer-events-none absolute left-2 flex h-full items-center justify-center">
+    <span className="pointer-events-none absolute flex h-full items-center justify-center [.theme-designer_&]:left-1 [.theme-dashboard_&]:left-2">
       <SelectPrimitive.ItemIndicator>
         <CheckboxIcon className="h-4 w-4 text-[var(--text-secondary)]" />
       </SelectPrimitive.ItemIndicator>

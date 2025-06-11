@@ -56,7 +56,7 @@ export function SplitButton({
       
       {/* Divider line - visible only for outline variants */}
       {variant.toString().startsWith('outline') && (
-        <div className="h-full w-[1px] bg-white/13 -mx-px relative z-10"></div>
+        <div className="h-full w-[1px] bg-[var(--border-default)] -mx-px relative z-10"></div>
       )}
       
       {/* Dropdown trigger */}
@@ -67,16 +67,11 @@ export function SplitButton({
             size={
               size === "default" ? "comfortable" : 
               size === "sm" ? "compact" : 
-              size === "lg" ? "comfortable" : "comfortable"
+              size === "icon" ? "comfortable" : "comfortable"
             }
             aria-label="More options"
             className={cn(
-              "rounded-l-none",
-              {
-                "h-6": size === "default",
-                "h-5": size === "sm",
-                "h-8": size === "lg",
-              }
+              "rounded-l-none [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8"
             )}
           >
             <ChevronSmallDownIcon />

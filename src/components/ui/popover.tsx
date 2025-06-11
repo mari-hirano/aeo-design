@@ -48,23 +48,23 @@ const PopoverContent = React.forwardRef<
     <PopoverPrimitive.Content
       ref={ref}
       className={cn(
-        "z-50 w-[240px] rounded-[4px] bg-[var(--bg-primary)] p-0 shadow-lg outline-none animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        "z-50 w-[240px] rounded-[4px] bg-[var(--bg-primary)] p-0 shadow-[var(--shadow-menu-elevated)] outline-none animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         className
       )}
       {...props}
     >
       {/* Popover Header (Optional) */}
       {title && (
-        <div className="flex items-center justify-between px-2 py-1 border-b border-[var(--border-default)]">
-          <h5 className="title-text-bold">{title}</h5>
-          <div className="flex items-center gap-1">
+        <div className="flex items-center justify-between border-b border-[var(--border-default)] [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1">
+          <h5 className="title-text-bold text-[var(--text-primary)]">{title}</h5>
+          <div className="flex items-center [.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-1">
             {headerIcons && headerIcons.length > 0 && headerIcons.map((icon, index) => (
-              <div key={index} className="flex items-center justify-center h-6 w-6 rounded hover:bg-[var(--bg-tertiary-hover)] text-[var(--text-secondary)] transition-colors">
+              <div key={index} className="flex items-center justify-center rounded hover:bg-[var(--bg-raised)] text-[var(--text-secondary)] transition-colors [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:w-6 [.theme-dashboard_&]:w-8">
                 {icon}
               </div>
             ))}
             {!hideClose && (
-              <PopoverPrimitive.Close className="flex items-center justify-center h-6 w-6 rounded hover:bg-[var(--bg-tertiary-hover)] text-[var(--text-secondary)] transition-colors">
+              <PopoverPrimitive.Close className="flex items-center justify-center rounded hover:bg-[var(--bg-raised)] text-[var(--text-secondary)] transition-colors [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:w-6 [.theme-dashboard_&]:w-8">
                 <CloseDefaultIcon size={16} />
                 <span className="sr-only">Close</span>
               </PopoverPrimitive.Close>
@@ -74,13 +74,13 @@ const PopoverContent = React.forwardRef<
       )}
 
       {/* Popover Body */}
-      <div className="p-2 body-text">
+      <div className="body-text text-[var(--text-primary)] [.theme-designer_&]:p-1 [.theme-dashboard_&]:p-2">
         {children}
       </div>
 
       {/* Popover Footer (Optional) */}
       {(primaryAction || secondaryAction || leftAction) && (
-        <div className="flex items-center justify-between px-2 py-2 border-t border-[var(--border-default)]">
+        <div className="flex items-center justify-between border-t border-[var(--border-default)] [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:py-1 [.theme-dashboard_&]:py-2 [.theme-designer_&]:gap-1 [.theme-dashboard_&]:gap-2">
           <div>
             {leftAction && (
               <Button 
@@ -92,7 +92,7 @@ const PopoverContent = React.forwardRef<
               </Button>
             )}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center [.theme-designer_&]:gap-1 [.theme-dashboard_&]:gap-2">
             {secondaryAction && (
               <Button 
                 size="sm" 

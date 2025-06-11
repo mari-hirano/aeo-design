@@ -192,6 +192,7 @@
   --shadow-menu-elevated: 0px 4px 8px 3px rgba(60, 64, 67, 0.15), 0px 1px 3px 0px rgba(60, 64, 67, 0.3);
   --shadow-button-default: 0px 0.5px 1px 0px rgba(60, 64, 67, 0.3), 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.25) inset;
   --shadow-button-color: 0px 0.5px 1px 0px rgba(60, 64, 67, 0.4), 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.35) inset;
+  --shadow-tooltip: 0px 0px 1px 0px rgba(0, 0, 0, 0.25), 0px 2px 6px 0px rgba(0, 0, 0, 0.04), 0px 4px 8px 2px rgba(0, 0, 0, 0.04), 0px 8px 16px 4px rgba(0, 0, 0, 0.04), 0px 12px 24px 8px rgba(0, 0, 0, 0.04), 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.12) inset;
 }
 
 /* ===== DARK THEMES ===== */
@@ -385,13 +386,14 @@
   --shadow-menu: 0px 2px 6px 2px rgba(0,0,0,0.5), 0px 0.5px 0.5px 0px rgba(255,255,255,0.05) inset;
   --shadow-menu-elevated: 0px 4px 8px 3px rgba(0,0,0,0.6), 0px 1px 3px 0px rgba(0,0,0,0.4), 0px 0.5px 0.5px 0px rgba(255,255,255,0.05) inset;
   --shadow-button-default: 0px 0.5px 1px 0px rgba(0,0,0,0.8), 0px 0.5px 0.5px 0px rgba(255,255,255,0.12) inset;
-  --shadow-button-primary: 0px 0.5px 1px 0px rgba(0,0,0,0.8), 0px 0.5px 0.5px 0px rgba(255,255,255,0.20) inset;
+  --shadow-button-color: 0px 0.5px 1px 0px rgba(0,0,0,0.8), 0px 0.5px 0.5px 0px rgba(255,255,255,0.20) inset;
+  --shadow-tooltip: 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.12) inset, 0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.12) inset, 0px 2px 6px 0px rgba(0, 0, 0, 0.08), 0px 4px 8px 2px rgba(0, 0, 0, 0.08), 0px 8px 16px 4px rgba(0, 0, 0, 0.08), 0px 12px 24px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== DENSITY THEMES ===== */
 
-/* OPEN (Spacious) - Larger spacing, padding, and sizes */
-.theme-open {
+/* DASHBOARD (Spacious) - Larger spacing, padding, and sizes */
+.theme-dashboard {
   /* Spacing Scale */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -427,8 +429,8 @@
   --icon-size-lg: 24px;
 }
 
-/* DENSE (Compact) - Smaller spacing, padding, and sizes */
-.theme-dense {
+/* DESIGNER (Compact) - Smaller spacing, padding, and sizes */
+.theme-designer {
   /* Spacing Scale */
   --space-xs: 2px;
   --space-sm: 4px;
@@ -466,26 +468,26 @@
 
 /* ===== THEME COMBINATIONS ===== */
 
-/* Light + Open (Dashboard) */
-.theme-light.theme-open {
+/* Light + Dashboard */
+.theme-light.theme-dashboard {
   /* Dashboard-specific overrides */
   --nav-height: 64px;
   --sidebar-width: 280px;
 }
 
-/* Dark + Dense (Designer) */
-.theme-dark.theme-dense {
+/* Dark + Designer */
+.theme-dark.theme-designer {
   /* Designer-specific overrides */
   --nav-height: 35px;
   --sidebar-width: 240px;
 }
 
-/* Light + Dense (Future) */
-.theme-light.theme-dense {
-  /* Future light dense theme */
+/* Light + Designer */
+.theme-light.theme-designer {
+  /* Light designer theme */
 }
 
-/* Dark + Open (Alternative) */
-.theme-dark.theme-open {
-  /* Alternative dark open theme */
+/* Dark + Dashboard */
+.theme-dark.theme-dashboard {
+  /* Dark dashboard theme */
 } 
