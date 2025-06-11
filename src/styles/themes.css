@@ -3,101 +3,389 @@
 /* ===== LIGHT THEMES ===== */
 .theme-light {
   /* Text Colors */
-  --text-primary: #0F0F0F;
-  --text-secondary: rgba(15, 15, 15, 0.67);
-  --text-dimmed: rgba(15, 15, 15, 0.5);
+  --text-primary: var(--black);
+  --text-secondary: var(--black-a60);
+  --text-dimmed: var(--black-a50);
+  --text-inverse: var(--white);
+  --text-error: var(--red-300);
+  --text-link: var(--brand-blue-200);
   
-  /* Background Colors */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F8F9FA;
-  --bg-tertiary: #F1F3F4;
-  --bg-raised: rgba(0, 0, 0, 0.04);
-  --bg-inactive: #E8EAED;
+  /* Text Colored */
+  --text-blue: var(--brand-blue-200);
+  --text-green: var(--green-300);
+  --text-yellow: var(--yellow-300);
+  --text-red: var(--red-300);
+  --text-orange: var(--orange-300);
+  --text-purple: var(--purple-300);
+  --text-pink: var(--pink-300);
+  
+  /* Background Main */
+  --bg-primary: var(--white);
+  --bg-secondary: var(--gray-0);
+  --bg-tertiary: var(--gray-100);
+  --bg-raised: var(--black-a7);
+  --bg-inactive: var(--gray-100);
   
   /* Border Colors */
-  --border-default: #DADCE0;
-  --border-text-input: rgba(15, 15, 15, 0.16);
-  --border-checkbox-radio: rgba(15, 15, 15, 0.19);
+  --border-default: var(--gray-200);
   
   /* Input Component Colors */
-  --input-bg: rgba(0, 0, 0, 0.04);
-  --input-border: rgba(15, 15, 15, 0.16);
-  --input-border-hover: rgba(15, 15, 15, 0.19);
-  --input-border-focus: #0073E6;
-  --input-border-error: #cf313b;
-  --input-disabled-bg: #F8F9FA;
-  --input-disabled-border: rgba(15, 15, 15, 0.12);
-  --input-placeholder: rgba(15, 15, 15, 0.5);
+  --input-bg: var(--white);
+  --input-border: var(--gray-200);
+  --input-border-hover: var(--gray-300);
+  --input-border-focus: var(--brand-blue-200);
+  --input-border-error: var(--red-300);
+  --input-disabled-bg: var(--gray-0);
+  --input-disabled-border: var(--gray-200);
+  --input-placeholder: var(--black-a50);
   
-  /* Action Colors */
-  --action-primary-bg: #0084FF;
-  --action-primary-bg-hover: #2496FF;
-  --action-primary-text: #ffffff;
-  --action-primary-text-hover: #ffffff;
-  --action-secondary-bg: #F1F3F4;
-  --action-secondary-bg-hover: #E8EAED;
-  --action-secondary-bg-pressed: #DADCE0;
-  --action-secondary-selected-bg: #E8F4FD;
-  --action-secondary-selected-bg-pressed: #D2E9FC;
-  --action-secondary-text: #0F0F0F;
-  --action-secondary-text-hover: #0F0F0F;
-  --action-secondary-border: #DADCE0;
-  --action-secondary-border-hover: #BDC1C6;
+  /* Action Primary */
+  --action-primary-bg: var(--brand-blue-200);
+  --action-primary-bg-hover: var(--brand-blue-100);
+  --action-primary-text: var(--white);
+  --action-primary-text-hover: var(--white);
   
-  /* Shadow Variables */
-  --shadow-input: 0px 1px 1px -1px rgba(0,0,0,0.04) inset,0px 3px 3px -3px rgba(0,0,0,0.06) inset,0px 4px 4px -4px rgba(0,0,0,0.06) inset,0px 8px 8px -8px rgba(0,0,0,0.06) inset,0px 12px 12px -12px rgba(0,0,0,0.04) inset,0px 16px 16px -16px rgba(0,0,0,0.04) inset;
-  --shadow-menu: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.04) inset, 0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.04) inset, 0px 4px 6px -2px rgba(0, 0, 0, 0.1);
-  --shadow-menu-elevated: 0px 0.5px 0.5px 0px rgba(0, 0, 0, 0.04) inset, 0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.04) inset, 0px 2px 6px 0px rgba(0, 0, 0, 0.06), 0px 4px 8px 2px rgba(0, 0, 0, 0.04), 0px 8px 16px 4px rgba(0, 0, 0, 0.04), 0px 12px 24px 8px rgba(0, 0, 0, 0.04);
+  /* Action Secondary */
+  --action-secondary-bg: var(--gray-100);
+  --action-secondary-bg-hover: var(--gray-200);
+  --action-secondary-bg-pressed: var(--gray-300);
+  --action-secondary-text: var(--black);
+  --action-secondary-text-hover: var(--black);
+  --action-secondary-border: var(--gray-200);
+  --action-secondary-border-hover: var(--gray-300);
+  
+  /* Action Ghost */
+  --action-ghost-border: var(--black-a10);
+  --action-ghost-border-hover: var(--black-a16);
+  
+  /* Action White Outline */
+  --action-white-outline-bg-selected: var(--white-a10);
+  --action-white-outline-border: var(--white-a13);
+  --action-white-outline-border-hover: var(--white-a22);
+  
+  /* Action White Solid */
+  --action-white-solid-bg-hover: var(--gray-300);
+  
+  /* Action White Ghost */
+  --action-white-ghost-bg-hover: var(--white-a7);
+  --action-white-ghost-bg-selected: var(--white-a10);
+  
+  /* Focus Outline */
+  --focus-outline-default: var(--brand-blue-200);
+  --focus-outline-white: var(--white);
+  
+  /* Component Colors */
+  --component-input-border: var(--gray-300);
+  --component-checkbox-border: var(--gray-300);
+  --component-modal-backdrop: var(--black-a50);
+  --component-popover-backdrop: var(--black-a25);
+  --component-input-background: var(--white);
+  --component-button-group-active: var(--white);
+  --component-border-solid: var(--gray-200);
+  --component-background-active: var(--gray-100);
+  --component-canvas-background: var(--white);
+  --component-skeleton: var(--black-a7);
+  --component-scrollbar-thumb: #D0D0D0;
+  
+  /* Color Semantic Variables */
+  --purple-bg: var(--purple-300);
+  --purple-bg-hover: var(--purple-200);
+  --purple-bg-pressed: var(--purple-300);
+  --purple-border: var(--purple-400);
+  --purple-chart: var(--purple-400);
+  --purple-chart2: var(--purple-100);
+  --purple-canvas: var(--purple-400);
+  --purple-canvas-hover: var(--purple-300);
+  --purple-canvas-transparent: var(--purple-400-a10);
+  --purple-bg-transparent: var(--purple-400-a10);
+  --purple-bg-transparent-hover: var(--purple-400-a20);
+  
+  --red-bg: var(--red-300);
+  --red-bg-hover: var(--red-200);
+  --red-bg-pressed: var(--red-300);
+  --red-border: var(--red-400);
+  --red-chart: var(--red-400);
+  --red-canvas: var(--red-400);
+  --red-canvas-hover: var(--red-300);
+  --red-canvas-transparent: var(--red-400-a10);
+  --red-bg-transparent: var(--red-400-a10);
+  --red-bg-transparent-hover: var(--red-400-a20);
+  
+  --pink-bg: var(--pink-300);
+  --pink-bg-hover: var(--pink-200);
+  --pink-bg-pressed: var(--pink-300);
+  --pink-border: var(--pink-400);
+  --pink-chart: var(--pink-400);
+  --pink-canvas: var(--pink-400);
+  --pink-canvas-hover: var(--pink-300);
+  --pink-canvas-transparent: var(--pink-400-a10);
+  --pink-bg-transparent: var(--pink-400-a10);
+  --pink-bg-transparent-hover: var(--pink-400-a20);
+  
+  --orange-bg: var(--orange-300);
+  --orange-bg-hover: var(--orange-200);
+  --orange-bg-pressed: var(--orange-300);
+  --orange-border: var(--orange-400);
+  --orange-chart: var(--orange-400);
+  --orange-canvas: var(--orange-400);
+  --orange-canvas-hover: var(--orange-300);
+  --orange-canvas-transparent: var(--orange-400-a10);
+  --orange-bg-transparent: var(--orange-400-a10);
+  --orange-bg-transparent-hover: var(--orange-400-a20);
+  
+  --yellow-bg: var(--yellow-400);
+  --yellow-bg-hover: var(--yellow-100);
+  --yellow-bg-pressed: var(--yellow-400);
+  --yellow-border: var(--yellow-400);
+  --yellow-chart: var(--yellow-400);
+  --yellow-canvas: var(--yellow-400);
+  --yellow-canvas-hover: var(--yellow-100);
+  --yellow-canvas-transparent: var(--yellow-400-a10);
+  --yellow-bg-transparent: var(--yellow-400-a25);
+  --yellow-bg-transparent-hover: var(--yellow-400-a35);
+  
+  --green-bg: var(--green-300);
+  --green-bg-hover: var(--green-200);
+  --green-bg-pressed: var(--green-300);
+  --green-border: var(--green-400);
+  --green-chart: var(--green-400);
+  --green-canvas: var(--green-400);
+  --green-canvas-hover: var(--green-300);
+  --green-canvas-transparent: var(--green-400-a10);
+  --green-bg-transparent: var(--green-400-a10);
+  --green-bg-transparent-hover: var(--green-400-a20);
+  
+  --blue-bg: var(--brand-blue-200);
+  --blue-bg-hover: var(--brand-blue-100);
+  --blue-bg-pressed: var(--brand-blue-200);
+  --blue-border: var(--brand-blue-200);
+  --blue-chart: var(--blue-400);
+  --blue-chart2: var(--blue-100);
+  --blue-canvas: var(--brand-blue-200);
+  --blue-canvas-hover: var(--brand-blue-400);
+  --blue-canvas-transparent: var(--brand-blue-400-a10);
+  --blue-bg-transparent: var(--brand-blue-400-a10);
+  --blue-bg-transparent-hover: var(--brand-blue-400-a20);
+  
+  /* White/Black Color Variables */
+  --white-color: var(--white);
+  --white-a25-color: var(--white-a25);
+  --white-a22-color: var(--white-a22);
+  --white-a19-color: var(--white-a19);
+  --white-a16-color: var(--white-a16);
+  --white-a13-color: var(--white-a13);
+  --white-a10-color: var(--white-a10);
+  --white-a7-color: var(--white-a7);
+  
+  --black-color: var(--black);
+  --black-a25-color: var(--black-a25);
+  --black-a22-color: var(--black-a22);
+  --black-a19-color: var(--black-a19);
+  --black-a16-color: var(--black-a16);
+  --black-a13-color: var(--black-a13);
+  --black-a10-color: var(--black-a10);
+  --black-a7-color: var(--black-a7);
+  
+  /* Shadow Variables - Light theme shadows */
+  --shadow-input: 0px 1px 2px 0px rgba(60, 64, 67, 0.1), 0px 1px 3px 1px rgba(60, 64, 67, 0.05);
+  --shadow-menu: 0px 2px 6px 2px rgba(60, 64, 67, 0.15);
+  --shadow-menu-elevated: 0px 4px 8px 3px rgba(60, 64, 67, 0.15), 0px 1px 3px 0px rgba(60, 64, 67, 0.3);
+  --shadow-button-default: 0px 0.5px 1px 0px rgba(60, 64, 67, 0.3), 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.25) inset;
+  --shadow-button-color: 0px 0.5px 1px 0px rgba(60, 64, 67, 0.4), 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.35) inset;
 }
 
 /* ===== DARK THEMES ===== */
 .theme-dark {
   /* Text Colors */
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.67);
-  --text-dimmed: rgba(255, 255, 255, 0.5);
+  --text-primary: var(--white);
+  --text-secondary: var(--white-a67);
+  --text-dimmed: var(--white-a50);
+  --text-inverse: var(--black);
+  --text-error: var(--red-100);
+  --text-link: var(--blue-100);
   
-  /* Background Colors */
-  --bg-primary: #292929;
-  --bg-secondary: #353535;
-  --bg-tertiary: #404040;
-  --bg-raised: rgba(255, 255, 255, 0.07);
-  --bg-inactive: #141414;
+  /* Text Colored */
+  --text-blue: var(--blue-100);
+  --text-green: var(--green-100);
+  --text-yellow: var(--yellow-400);
+  --text-red: var(--red-100);
+  --text-orange: var(--orange-100);
+  --text-purple: var(--purple-100);
+  --text-pink: var(--pink-100);
+  
+  /* Background Main */
+  --bg-primary: var(--gray-1100);
+  --bg-secondary: var(--gray-1000);
+  --bg-tertiary: var(--gray-800);
+  --bg-raised: var(--white-a7);
+  --bg-inactive: var(--gray-1200);
   
   /* Border Colors */
-  --border-default: #464646;
-  --border-text-input: rgba(255, 255, 255, 0.16);
-  --border-checkbox-radio: rgba(255, 255, 255, 0.19);
+  --border-default: var(--white-a13);
   
   /* Input Component Colors */
-  --input-bg: rgba(0, 0, 0, 0.22);
-  --input-border: rgba(255, 255, 255, 0.16);
-  --input-border-hover: rgba(255, 255, 255, 0.19);
-  --input-border-focus: #0073E6;
-  --input-border-error: #cf313b;
-  --input-disabled-bg: #1e1e1e;
-  --input-disabled-border: rgba(255, 255, 255, 0.16);
-  --input-placeholder: rgba(255, 255, 255, 0.5);
+  --input-bg: var(--black-a22);
+  --input-border: var(--white-a16);
+  --input-border-hover: var(--white-a19);
+  --input-border-focus: var(--blue-100);
+  --input-border-error: var(--red-100);
+  --input-disabled-bg: var(--black-a50);
+  --input-disabled-border: var(--white-a13);
+  --input-placeholder: var(--white-a50);
   
-  /* Action Colors */
-  --action-primary-bg: #0084FF;
-  --action-primary-bg-hover: #2496FF;
-  --action-primary-text: #ffffff;
-  --action-primary-text-hover: #ffffff;
-  --action-secondary-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.11) 100%);
-  --action-secondary-bg-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0.17) 100%);
-  --action-secondary-bg-pressed: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.1) 100%);
-  --action-secondary-selected-bg: rgba(0, 0, 0, 0.50);
-  --action-secondary-selected-bg-pressed: rgba(0, 0, 0, 0.50);
-  --action-secondary-text: #ffffff;
-  --action-secondary-text-hover: #ffffff;
-  --action-secondary-border: rgba(255, 255, 255, 0.13);
-  --action-secondary-border-hover: rgba(255, 255, 255, 0.22);
+  /* Action Primary */
+  --action-primary-bg: var(--blue-300);
+  --action-primary-bg-hover: var(--blue-200);
+  --action-primary-text: var(--white);
+  --action-primary-text-hover: var(--white);
   
-  /* Shadow Variables */
-  --shadow-input: 0px 1px 1px -1px rgba(0,0,0,0.13) inset,0px 3px 3px -3px rgba(0,0,0,0.17) inset,0px 4px 4px -4px rgba(0,0,0,0.17) inset,0px 8px 8px -8px rgba(0,0,0,0.17) inset,0px 12px 12px -12px rgba(0,0,0,0.13) inset,0px 16px 16px -16px rgba(0,0,0,0.13) inset;
-  --shadow-menu: 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.12) inset, 0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.12) inset, 0px 4px 6px -2px rgba(0, 0, 0, 0.5);
-  --shadow-menu-elevated: 0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.12) inset, 0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.12) inset, 0px 2px 6px 0px rgba(0, 0, 0, 0.08), 0px 4px 8px 2px rgba(0, 0, 0, 0.08), 0px 8px 16px 4px rgba(0, 0, 0, 0.08), 0px 12px 24px 8px rgba(0, 0, 0, 0.08);
+  /* Action Secondary */
+  --action-secondary-bg: var(--white-a13);
+  --action-secondary-bg-hover: var(--white-a19);
+  --action-secondary-bg-pressed: var(--white-a25);
+  --action-secondary-text: var(--white);
+  --action-secondary-text-hover: var(--white);
+  --action-secondary-border: var(--white-a13);
+  --action-secondary-border-hover: var(--white-a19);
+  
+  /* Action Ghost */
+  --action-ghost-border: var(--white-a13);
+  --action-ghost-border-hover: var(--white-a22);
+  
+  /* Action White Outline */
+  --action-white-outline-bg-selected: var(--white-a10);
+  --action-white-outline-border: var(--white-a13);
+  --action-white-outline-border-hover: var(--white-a22);
+  
+  /* Action White Solid */
+  --action-white-solid-bg-hover: var(--gray-300);
+  
+  /* Action White Ghost */
+  --action-white-ghost-bg-hover: var(--white-a7);
+  --action-white-ghost-bg-selected: var(--white-a10);
+  
+  /* Focus Outline */
+  --focus-outline-default: var(--blue-300);
+  --focus-outline-white: var(--white);
+  
+  /* Component Colors */
+  --component-input-border: var(--white-a16);
+  --component-checkbox-border: var(--white-a19);
+  --component-modal-backdrop: var(--black-a70);
+  --component-popover-backdrop: var(--black-a50);
+  --component-input-background: var(--black-a22);
+  --component-button-group-active: var(--black-a50);
+  --component-border-solid: #464646;
+  --component-background-active: var(--white-a10);
+  --component-canvas-background: var(--gray-800);
+  --component-skeleton: var(--white-a7);
+  --component-scrollbar-thumb: #5E5E5E;
+  
+  /* Color Semantic Variables */
+  --purple-bg: var(--purple-300);
+  --purple-bg-hover: var(--purple-200);
+  --purple-bg-pressed: var(--purple-300);
+  --purple-border: var(--purple-400);
+  --purple-chart: var(--purple-400);
+  --purple-chart2: var(--purple-100);
+  --purple-canvas: var(--purple-400);
+  --purple-canvas-hover: var(--purple-300);
+  --purple-canvas-transparent: var(--purple-400-a10);
+  --purple-bg-transparent: var(--purple-400-a25);
+  --purple-bg-transparent-hover: var(--purple-400-a35);
+  
+  --red-bg: var(--red-300);
+  --red-bg-hover: var(--red-200);
+  --red-bg-pressed: var(--red-300);
+  --red-border: var(--red-400);
+  --red-chart: var(--red-400);
+  --red-canvas: var(--red-400);
+  --red-canvas-hover: var(--red-300);
+  --red-canvas-transparent: var(--red-400-a10);
+  --red-bg-transparent: var(--red-400-a25);
+  --red-bg-transparent-hover: var(--red-400-a35);
+  
+  --pink-bg: var(--pink-300);
+  --pink-bg-hover: var(--pink-200);
+  --pink-bg-pressed: var(--pink-300);
+  --pink-border: var(--pink-400);
+  --pink-chart: var(--pink-400);
+  --pink-canvas: var(--pink-400);
+  --pink-canvas-hover: var(--pink-300);
+  --pink-canvas-transparent: var(--pink-400-a10);
+  --pink-bg-transparent: var(--pink-400-a25);
+  --pink-bg-transparent-hover: var(--pink-400-a35);
+  
+  --orange-bg: var(--orange-300);
+  --orange-bg-hover: var(--orange-200);
+  --orange-bg-pressed: var(--orange-300);
+  --orange-border: var(--orange-400);
+  --orange-chart: var(--orange-400);
+  --orange-canvas: var(--orange-400);
+  --orange-canvas-hover: var(--orange-300);
+  --orange-canvas-transparent: var(--orange-400-a10);
+  --orange-bg-transparent: var(--orange-400-a20);
+  --orange-bg-transparent-hover: var(--orange-400-a30);
+  
+  --yellow-bg: var(--yellow-400);
+  --yellow-bg-hover: var(--yellow-100);
+  --yellow-bg-pressed: var(--yellow-400);
+  --yellow-border: var(--yellow-400);
+  --yellow-chart: var(--yellow-400);
+  --yellow-canvas: var(--yellow-400);
+  --yellow-canvas-hover: var(--yellow-100);
+  --yellow-canvas-transparent: var(--yellow-400-a10);
+  --yellow-bg-transparent: var(--yellow-400-a15);
+  --yellow-bg-transparent-hover: var(--yellow-400-a25);
+  
+  --green-bg: var(--green-300);
+  --green-bg-hover: var(--green-200);
+  --green-bg-pressed: var(--green-300);
+  --green-border: var(--green-400);
+  --green-chart: var(--green-400);
+  --green-canvas: var(--green-400);
+  --green-canvas-hover: var(--green-300);
+  --green-canvas-transparent: var(--green-400-a10);
+  --green-bg-transparent: var(--green-400-a25);
+  --green-bg-transparent-hover: var(--green-400-a35);
+  
+  --blue-bg: var(--blue-300);
+  --blue-bg-hover: var(--blue-200);
+  --blue-bg-pressed: var(--blue-300);
+  --blue-border: var(--blue-400);
+  --blue-chart: var(--blue-400);
+  --blue-chart2: var(--blue-100);
+  --blue-canvas: var(--blue-400);
+  --blue-canvas-hover: var(--blue-300);
+  --blue-canvas-transparent: var(--blue-400-a10);
+  --blue-bg-transparent: var(--blue-400-a25);
+  --blue-bg-transparent-hover: var(--blue-400-a35);
+  
+  /* White/Black Color Variables */
+  --white-color: var(--white);
+  --white-a25-color: var(--white-a25);
+  --white-a22-color: var(--white-a22);
+  --white-a19-color: var(--white-a19);
+  --white-a16-color: var(--white-a16);
+  --white-a13-color: var(--white-a13);
+  --white-a10-color: var(--white-a10);
+  --white-a7-color: var(--white-a7);
+  
+  --black-color: var(--black);
+  --black-a25-color: var(--black-a25);
+  --black-a22-color: var(--black-a22);
+  --black-a19-color: var(--black-a19);
+  --black-a16-color: var(--black-a16);
+  --black-a13-color: var(--black-a13);
+  --black-a10-color: var(--black-a10);
+  --black-a7-color: var(--black-a7);
+  
+  /* Shadow Variables - Dark theme shadows */
+  --shadow-input: 0px 1px 1px -1px rgba(0,0,0,0.2) inset, 0px 3px 3px -3px rgba(0,0,0,0.3) inset;
+  --shadow-menu: 0px 2px 6px 2px rgba(0,0,0,0.5), 0px 0.5px 0.5px 0px rgba(255,255,255,0.05) inset;
+  --shadow-menu-elevated: 0px 4px 8px 3px rgba(0,0,0,0.6), 0px 1px 3px 0px rgba(0,0,0,0.4), 0px 0.5px 0.5px 0px rgba(255,255,255,0.05) inset;
+  --shadow-button-default: 0px 0.5px 1px 0px rgba(0,0,0,0.8), 0px 0.5px 0.5px 0px rgba(255,255,255,0.12) inset;
+  --shadow-button-primary: 0px 0.5px 1px 0px rgba(0,0,0,0.8), 0px 0.5px 0.5px 0px rgba(255,255,255,0.20) inset;
 }
 
 /* ===== DENSITY THEMES ===== */
@@ -113,20 +401,20 @@
   --space-2xl: 48px;
   
   /* Component Sizing */
-  --component-height-sm: 32px;
-  --component-height-md: 40px;
-  --component-height-lg: 48px;
+  --component-height-sm: 24px;
+  --component-height-md: 32px;
+  --component-height-lg: 40px;
   
   /* Typography Scale */
   --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-base: 1rem; /* 16px */
+  --font-size-sm: 0.8125rem; /* 13px */
+  --font-size-base: 0.9375rem; /* 15px */
   --font-size-lg: 1.125rem; /* 18px */
   --font-size-xl: 1.25rem; /* 20px */
   
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
+  --line-height-tight: 1.13;
+  --line-height-normal: 1.333;
+  --line-height-relaxed: 1.5;
   
   /* Border Radius */
   --radius-sm: 6px;

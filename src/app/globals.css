@@ -130,8 +130,8 @@
   /* Body typography classes for reuse */
   .body-text {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.72rem;
-    line-height: 16px;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-tight);
     letter-spacing: -0.01em;
     color: var(--text-primary);
     font-weight: 300;
@@ -140,8 +140,8 @@
 
   .body-text-bold {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.72rem;
-    line-height: 16px;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-tight);
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 600;
@@ -150,8 +150,8 @@
 
   .small-text {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.625rem;
-    line-height: 14px;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-tight);
     letter-spacing: 0;
     color: var(--text-secondary);
     font-weight: 300;
@@ -160,8 +160,8 @@
 
   .code-text {
     font-family: 'Roboto Mono', ui-monospace, monospace;
-    font-size: 0.72rem;
-    line-height: 16px;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 300;
@@ -171,8 +171,8 @@
   /* Title typography classes for reuse */
   .title-text {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 300;
@@ -181,8 +181,8 @@
 
   .title-text-bold {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
     letter-spacing: 0;
     color: var(--text-primary);
     font-weight: 500;
