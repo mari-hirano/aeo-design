@@ -2,47 +2,103 @@
 
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/icon";
-import { Input } from "@/components/ui/input";
+import { NotificationsIcon, ChevronSmallDownIcon } from "@/icons";
+import { useState } from "react";
+
+const navTabs = [
+  { id: "dashboard", label: "Dashboard", hasChevron: false },
+  { id: "marketplace", label: "Marketplace", hasChevron: true },
+  { id: "learn", label: "Learn", hasChevron: false },
+  { id: "resources", label: "Resources", hasChevron: true },
+];
+
+// Custom 32px Webflow Icon
+const WebflowIcon32 = () => (
+  <div 
+    className="flex items-center justify-center text-[var(--text-primary)]"
+    style={{ width: '32px', height: '32px' }}
+  >
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ width: '100%', height: '100%' }}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.3333 4L11.2915 12H7.49516L9.18663 8.68446H9.11074C7.71528 10.5186 5.63323 11.726 2.66663 12V8.73034C2.66663 8.73034 4.56444 8.61685 5.6801 7.42922H2.66663V4.00006H6.05345V6.8205L6.12947 6.82018L7.51344 4.00006H10.0748V6.80261L10.1508 6.80249L11.5867 4H15.3333Z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+);
 
 export function DashboardNav() {
+  const [activeTab, setActiveTab] = useState("dashboard");
+
   return (
     <nav 
-      className="bg-[var(--bg-primary)] border-b border-[var(--border-default)] flex items-center justify-between"
-      style={{ 
-        height: 'var(--nav-height, 64px)',
-        padding: '0 var(--space-lg)'
-      }}
+      className="bg-[var(--bg-primary)] border-b border-[var(--border-default)] w-full"
+      style={{ height: '58px' }}
     >
-      {/* Left side - Logo/Brand */}
-      <div className="flex items-center space-x-4">
-        <div className="text-xl font-bold text-[var(--text-primary)]">Dashboard</div>
-      </div>
-
-      {/* Center - Search */}
-      <div className="flex-1 max-w-md mx-8">
-        <div className="relative">
-          <Icon 
-            name="search" 
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--text-dimmed)] w-4 h-4" 
-          />
-          <Input
-            placeholder="Search sites..."
-            className="pl-10 w-full"
-          />
-        </div>
-      </div>
-
-      {/* Right side - User menu */}
-      <div className="flex items-center space-x-4">
-        <Button variant="ghost" size="sm">
-          <Icon name="bell" className="w-4 h-4" />
-        </Button>
-        <Avatar>
-          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
-            U
+      <div 
+        className="flex items-center justify-between h-full"
+        style={{ 
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 var(--space-lg)'
+        }}
+      >
+        {/* Left side - Logo and Tabs */}
+        <div className="flex items-center space-x-6">
+          {/* Webflow Logo */}
+          <WebflowIcon32 />
+          
+          {/* Navigation Tabs */}
+          <div className="flex items-center space-x-1">
+            {navTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`
+                  flex items-center px-3 py-2 transition-colors
+                  ${activeTab === tab.id 
+                    ? 'text-[var(--text-primary)] body-text-bold border-b-2 border-[var(--text-primary)]' 
+                    : 'text-[var(--text-secondary)] body-text border-b-2 border-transparent hover:text-[var(--text-primary)]'
+                  }
+                `}
+                style={{ height: '58px' }}
+              >
+                {tab.label}
+                {tab.hasChevron && <ChevronSmallDownIcon size={12} />}
+              </button>
+            ))}
           </div>
-        </Avatar>
+        </div>
+
+        {/* Right side - Notifications, Avatar, Account */}
+        <div className="flex items-center space-x-3">
+          {/* Notification Button */}
+          <Button variant="ghost" size="icon" className="w-8 h-8">
+            <NotificationsIcon size={16} />
+          </Button>
+          
+          {/* Avatar */}
+          <Avatar size="sm">
+            <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
+              U
+            </div>
+          </Avatar>
+          
+          {/* Account Button */}
+          <Button variant="ghost" size="sm" className="flex items-center gap-1">
+            Account
+            <ChevronSmallDownIcon size={12} />
+          </Button>
+        </div>
       </div>
     </nav>
   );

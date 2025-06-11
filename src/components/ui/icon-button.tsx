@@ -49,7 +49,7 @@ const iconButtonVariants = cva(
           "bg-transparent text-[var(--text-orange)] hover:bg-[var(--bg-raised)]",
       },
       size: {
-        compact: "[.theme-designer_&]:h-4 [.theme-designer_&]:w-4 [.theme-dashboard_&]:h-5 [.theme-dashboard_&]:w-5 p-0",
+        compact: "[.theme-designer_&]:h-4 [.theme-designer_&]:w-4 [.theme-dashboard_&]:h-6 [.theme-dashboard_&]:w-6 p-0",
         comfortable: "[.theme-designer_&]:h-6 [.theme-designer_&]:w-6 [.theme-dashboard_&]:h-8 [.theme-dashboard_&]:w-8 p-0",
       },
     },

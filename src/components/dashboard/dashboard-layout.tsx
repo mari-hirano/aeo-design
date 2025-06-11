@@ -9,19 +9,27 @@ interface DashboardLayoutProps {
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="h-screen flex flex-col bg-[var(--bg-secondary)]">
+    <div className="min-h-screen flex flex-col bg-[var(--bg-primary)]">
       {/* Top Navigation */}
       <DashboardNav />
       
       {/* Main Content Area */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 justify-center">
         {/* Sidebar */}
         <DashboardSidebar />
         
-        {/* Main Content */}
-        <main className="flex-1 overflow-auto" style={{ padding: 'var(--space-lg)' }}>
-          {children}
-        </main>
+        {/* Main Content with max-width constraint */}
+        <div 
+          className="bg-[var(--bg-primary)] overflow-auto"
+          style={{ 
+            maxWidth: '1040px',
+            width: '100%'
+          }}
+        >
+          <main>
+            {children}
+          </main>
+        </div>
       </div>
     </div>
   );
