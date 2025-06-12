@@ -7,35 +7,52 @@ alwaysApply: false
 
 ## Static Asset References
 
-This project uses a custom `basePath` configuration in [next.config.js](mdc:next.config.js). When referencing static assets from the public directory, you **must** include this base path.
+This project uses a custom `basePath` configured in [next.config.js](mdc:next.config.js). When referencing static assets from the public directory, you **must** include this base path.
 
-### Referencing Assets in Public Directory
+### CRITICAL: Always Use getImagePath Utility
 
-✅ **Correct approach:**
+✅ **CORRECT approach - Use getImagePath utility:**
 ```jsx
-// Use the base path when referencing assets in public
-<link rel="icon" href="/[basePath]/favicon.svg" type="image/svg+xml" />
-<img src="/[basePath]/images/logo.png" alt="Logo" />
+import { getImagePath } from '@/lib/utils';
+
+// For regular img tags
+<img src={getImagePath("/images/logo.png")} alt="Logo" />
+
+// For data/object properties
+const mockData = {
+  thumbnail: getImagePath("/images/site1.png"),
+  // ...
+};
 ```
 
-❌ **Incorrect approach:**
+❌ **INCORRECT approaches:**
 ```jsx
-// Missing base path - will result in 404 errors
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+// Never hardcode the base path - will break if BASE_PATH changes
+<img src="/orion/images/logo.png" alt="Logo" />
+
+// Never omit base path - will result in 404 errors
 <img src="/images/logo.png" alt="Logo" />
+```
+
+### The getImagePath Utility
+
+Located in `src/lib/utils.ts`, this utility automatically handles the base path:
+
+```typescript
+import { BASE_PATH } from '@/config/paths'
+
+export function getImagePath(path: string) {
+  return `${BASE_PATH}${path}`
+}
 ```
 
 ### Recommended Patterns
 
-1. **Next.js Metadata API with basePath:**
-   ```typescript
-   export const metadata: Metadata = {
-     icons: {
-       icon: [
-         { url: '/[basePath]/favicon.svg', type: 'image/svg+xml' }
-       ]
-     }
-   };
+1. **For regular img elements:**
+   ```jsx
+   import { getImagePath } from '@/lib/utils';
+   
+   <img src={getImagePath("/images/logo.png")} alt="Logo" />
    ```
 
 2. **For Next.js Image component:**
@@ -47,13 +64,24 @@ This project uses a custom `basePath` configuration in [next.config.js](mdc:next
    <Image src="/images/logo.png" width={100} height={100} alt="Logo" /> 
    ```
 
-3. **Dynamic references:**
-   For programmatic references, consider using a helper function:
-   ```typescript
-   const getAssetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${path}`;
+3. **For data objects and arrays:**
+   ```jsx
+   import { getImagePath } from '@/lib/utils';
    
-   // Usage
-   <img src={getAssetPath('/images/icon.png')} alt="Icon" />
+   const sites = [
+     {
+       id: "1",
+       name: "Site Name",
+       thumbnail: getImagePath("/images/site1.png"), // ✅ Correct
+     }
+   ];
+   ```
+
+4. **For CSS background images in JSX:**
+   ```jsx
+   import { getImagePath } from '@/lib/utils';
+   
+   <div style={{ backgroundImage: `url(${getImagePath("/images/bg.jpg")})` }} />
    ```
 
 ### Common Places to Check

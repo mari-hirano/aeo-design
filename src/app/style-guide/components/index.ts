@@ -1,4 +1,5 @@
 export { ButtonExample } from './Button';
+export { SegmentedControlExample } from './SegmentedControl';
 export { SplitButtonExample } from './SplitButton';
 export { TabBarExample } from './TabBar';
 export { DropdownMenuExample } from './DropdownMenu';
@@ -23,6 +24,7 @@ export { AccordionExample } from './Accordion';
 // List of components for the sidebar
 export const components = [
   { id: "button", name: "Button" },
+  { id: "segmented-control", name: "Segmented Control" },
   { id: "split-button", name: "Split Button" },
   { id: "tab-bar", name: "Tab Bar" },
   { id: "dropdown-menu", name: "Dropdown Menu" },

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/spring-ui/button";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -13,7 +13,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/spring-ui/dropdown-menu";
 import { 
   DashboardIcon, 
   SettingsIcon, 
@@ -32,7 +32,7 @@ export function DropdownMenuExample() {
     <section id="dropdown-menu" className="mb-10">
       <h2 className="text-xl font-semibold mb-4">Dropdown Menu</h2>
       
-      <div className="bg-[var(--bg-secondary)] p-4 rounded-md">
+      <div className="bg-[var(--bg-primary)] border border-[var(--border-default)] p-4 rounded-md">
         <p className="mb-4 text-sm text-[var(--text-secondary)]">Dropdown menu that appears anchored to a trigger element</p>
         
         <div className="space-y-6">
@@ -44,7 +44,7 @@ export function DropdownMenuExample() {
                 <div className="mb-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="default">
+                      <Button variant="outline" size="comfortable">
                         Options
                         <ChevronSmallDownIcon className="ml-1 opacity-70" />
                       </Button>
@@ -78,7 +78,7 @@ export function DropdownMenuExample() {
                 <div className="mb-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="default">
+                      <Button variant="outline" size="comfortable">
                         Advanced Options
                         <ChevronSmallDownIcon className="ml-1 opacity-70" />
                       </Button>
@@ -130,8 +130,8 @@ export function DropdownMenuExample() {
                 <div className="mb-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <div className="flex items-center justify-center w-[35px] h-[35px] bg-[#292929] hover:bg-[#1a1a1a] border border-[#454545] rounded-sm cursor-pointer">
-                        <MenuIcon size={20} className="text-white" />
+                      <div className="flex items-center justify-center w-[35px] h-[35px] bg-[var(--bg-secondary)] hover:bg-[var(--bg-raised)] border border-[var(--border-default)] rounded-sm cursor-pointer">
+                        <MenuIcon size={20} className="text-[var(--text-primary)]" />
                       </div>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="min-w-[220px]">

@@ -97,18 +97,18 @@ Most imports use absolute paths from the `@/components` alias:
 
 ```typescript
 // Layout components
-import { Navbar } from "@/components/layout/Navbar";
-import LeftSidebar from "@/components/layout/LeftSidebar";
+import { Navbar } from "@/components/designer/layout/Navbar";
+import LeftSidebar from "@/components/designer/layout/LeftSidebar";
 
 // Panel components
-import RightPanel from "@/components/layout/panels/rightpanel/RightPanel";
-import NavigatorPanel from "@/components/layout/panels/leftpanel/NavigatorPanel";
+import RightPanel from "@/components/designer/layout/panels/rightpanel/RightPanel";
+import NavigatorPanel from "@/components/designer/layout/panels/leftpanel/NavigatorPanel";
 
 // Section components
-import CMSSection from "@/components/sections/CMSSection";
+import CMSSection from "@/components/designer/sections/CMSSection";
 
 // UI components
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/spring-ui/button";
 ```
 
 ### Relative Imports

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { components } from './components/index';
 import { ButtonExample } from './components/Button';
+import { SegmentedControlExample } from './components/SegmentedControl';
 import { SplitButtonExample } from './components/SplitButton';
 import { TabBarExample } from './components/TabBar';
 import { DropdownMenuExample } from './components/DropdownMenu';
@@ -79,7 +80,7 @@ export function ComponentsSection() {
                   <li key={component.id}>
                     <Link
                       href={`?component=${component.id}`}
-                      className="block py-1 px-3 rounded hover:bg-[var(--bg-tertiary-hover)] title-text transition-colors"
+                      className="block py-1 px-3 rounded hover:bg-[var(--bg-raised)] title-text transition-colors"
                       onClick={(e) => {
                         e.preventDefault();
                         scrollToSection(component.id);
@@ -99,6 +100,10 @@ export function ComponentsSection() {
           {/* Component Sections */}
           <div ref={componentRefs["button"]}>
             <ButtonExample />
+          </div>
+          
+          <div ref={componentRefs["segmented-control"]}>
+            <SegmentedControlExample />
           </div>
           
           <div ref={componentRefs["split-button"]}>

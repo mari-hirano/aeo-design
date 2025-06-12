@@ -1,8 +1,9 @@
 import React from 'react';
-import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/spring-ui/popover';
+import { Button } from '@/components/spring-ui/button';
+import { Input } from '@/components/spring-ui/input';
+import { Badge } from '@/components/spring-ui/badge';
+import { Switch } from '@/components/spring-ui/switch';
 import { InfoIcon } from '@/icons/InfoIcon';
 import { SettingsIcon } from '@/icons/SettingsIcon';
 import { EditIcon } from '@/icons/EditIcon';
@@ -17,14 +18,14 @@ export function PopoverExample() {
       <h2 className="text-2xl font-medium mb-2">Popover</h2>
       <p className="mb-4 text-sm text-[var(--text-secondary)]">Small contextual overlay that displays when users interact with a trigger element</p>
       
-      <div className="p-8 bg-[var(--bg-secondary)] rounded-lg space-y-12">
+      <div className="p-8 bg-[var(--bg-primary)] border border-[var(--border-default)] rounded-lg space-y-12">
         {/* Basic Popover */}
         <div>
           <h3 className="text-md font-medium mb-4">Basic Popover</h3>
           <div className="flex gap-6">
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="default" size="sm">Open Popover</Button>
+                <Button variant="default" size="comfortable">Open Popover</Button>
               </PopoverTrigger>
               <PopoverContent>
                 <div className="flex flex-col gap-2">
@@ -42,7 +43,7 @@ export function PopoverExample() {
           <div className="flex gap-6">
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="comfortable">
                   <SettingsIcon size={14} className="mr-1.5" />
                   Settings
                 </Button>
@@ -58,15 +59,11 @@ export function PopoverExample() {
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center justify-between">
                     <span className="body-text">Dark mode</span>
-                    <div className="w-8 h-4 bg-[var(--accent-blue)] rounded-full relative">
-                      <div className="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full"></div>
-                    </div>
+                    <Switch defaultChecked hideLabel aria-label="Dark mode" sizeVariant="compact" />
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="body-text">Notifications</span>
-                    <div className="w-8 h-4 bg-[rgba(255,255,255,0.1)] rounded-full relative">
-                      <div className="absolute left-0.5 top-0.5 w-3 h-3 bg-white rounded-full"></div>
-                    </div>
+                    <Switch hideLabel aria-label="Notifications" sizeVariant="compact" />
                   </div>
                 </div>
               </PopoverContent>
@@ -80,7 +77,7 @@ export function PopoverExample() {
           <div className="flex gap-6">
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="comfortable">
                   <EditIcon size={14} className="mr-1.5" />
                   Edit Profile
                 </Button>
@@ -116,7 +113,7 @@ export function PopoverExample() {
           <div className="flex gap-6">
             <Popover>
               <PopoverTrigger asChild>
-                <div className="p-2 rounded border border-[var(--border-default)] hover:bg-[var(--bg-tertiary-hover)] cursor-pointer">
+                <div className="p-2 rounded border border-[var(--border-default)] hover:bg-[var(--bg-raised)] cursor-pointer">
                   <UserIcon size={18} />
                 </div>
               </PopoverTrigger>
@@ -137,7 +134,7 @@ export function PopoverExample() {
                 ]}
               >
                 <div className="flex flex-col items-center text-center gap-2">
-                  <div className="w-12 h-12 rounded-full bg-[var(--accent-blue)] flex items-center justify-center text-white">
+                  <div className="w-12 h-12 rounded-full bg-[var(--action-primary-bg)] flex items-center justify-center text-white">
                     AJ
                   </div>
                   <span className="font-medium">Alex Johnson</span>

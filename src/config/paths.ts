@@ -1,1 +1,1 @@
-export const BASE_PATH = '/orion'; 
+export const BASE_PATH = '/spring'; 

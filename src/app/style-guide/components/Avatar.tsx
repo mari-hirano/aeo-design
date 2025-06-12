@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, AvatarGroup } from '@/components/ui/avatar';
+import { Avatar, AvatarGroup } from '@/components/spring-ui/avatar';
 
 export function AvatarExample() {
   return (
@@ -7,7 +7,7 @@ export function AvatarExample() {
       <h2 className="text-2xl font-medium mb-2">Avatar & Avatar Group</h2>
       <p className="mb-4 text-sm text-[var(--text-secondary)]">Display user or entity pictures in various sizes and group arrangements</p>
       
-      <div className="p-8 bg-[var(--bg-secondary)] rounded-lg">
+      <div className="p-8 bg-[var(--bg-primary)] border border-[var(--border-default)] rounded-lg">
         <div className="mb-8">
           <h3 className="text-md font-medium mb-4">Avatar Sizes</h3>
           <div className="flex items-center gap-4">

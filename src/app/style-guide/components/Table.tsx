@@ -6,8 +6,8 @@ import {
   TableCell, 
   ColumnDef,
   SortState
-} from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
+} from '@/components/spring-ui/table';
+import { Badge } from '@/components/spring-ui/badge';
 import { InfoIcon } from '@/icons/InfoIcon';
 import { CheckCircleIcon } from '@/icons/CheckCircleIcon';
 import { WarningCircleIcon } from '@/icons/WarningCircleIcon';
@@ -177,7 +177,7 @@ export function TableExample() {
       <h2 className="text-2xl font-medium mb-2">Table</h2>
       <p className="mb-4 text-sm text-[var(--text-secondary)]">Flexible table component for displaying structured data</p>
       
-      <div className="p-8 bg-[var(--bg-secondary)] rounded-lg space-y-12">
+      <div className="p-8 bg-[var(--bg-primary)] border border-[var(--border-default)] rounded-lg space-y-12">
         {/* Basic Table */}
         <div>
           <h3 className="text-md font-medium mb-4">Basic Table</h3>
