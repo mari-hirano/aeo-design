@@ -156,13 +156,13 @@
 .color-text-dimmed { color: var(--text-dimmed); }
 
 /* Semantic text color utilities */
-.color-blue-text { color: var(--blue-text); }
-.color-green-text { color: var(--green-text); }
-.color-red-text { color: var(--red-text); }
-.color-purple-text { color: var(--purple-text); }
-.color-pink-text { color: var(--pink-text); }
-.color-orange-text { color: var(--orange-text); }
-.color-yellow-text { color: var(--yellow-text); }
+.color-blue-text { color: var(--text-blue); }
+.color-green-text { color: var(--text-green); }
+.color-red-text { color: var(--text-red); }
+.color-purple-text { color: var(--text-purple); }
+.color-pink-text { color: var(--text-pink); }
+.color-orange-text { color: var(--text-orange); }
+.color-yellow-text { color: var(--text-yellow); }
 
 /* Background color utilities */
 .color-bg-primary { background-color: var(--bg-primary); }

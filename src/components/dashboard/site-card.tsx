@@ -1,15 +1,15 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { IconButton } from "@/components/ui/icon-button";
+import { Badge } from "@/components/spring-ui/badge";
+import { Button } from "@/components/spring-ui/button";
+import { IconButton } from "@/components/spring-ui/icon-button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/spring-ui/dropdown-menu";
 import {
   MoreIcon,
   SettingsIcon,
@@ -22,6 +22,7 @@ import {
   UnpublishIcon,
 } from "@/icons";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface Site {
   id: string;
@@ -41,13 +42,18 @@ interface SiteCardProps {
 
 export function SiteCard({ site }: SiteCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
 
   const handleNavigateToSite = () => {
-    console.log(`Navigating to site: ${site.id}`);
+    router.push('/');
   };
 
   const handleMenuAction = (action: string) => {
-    console.log(`${action} action for site: ${site.id}`);
+    if (action === 'settings') {
+      router.push('/dashboard/site/settings');
+    } else {
+      console.log(`${action} action for site: ${site.id}`);
+    }
   };
 
   return (
@@ -59,19 +65,19 @@ export function SiteCard({ site }: SiteCardProps) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Background placeholder for image */}
-        <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-          <div className="text-[var(--text-secondary)] text-6xl font-thin">
-            {site.name.charAt(0)}
-          </div>
-        </div>
+        {/* Site thumbnail image */}
+        <img 
+          src={site.thumbnail}
+          alt={site.name}
+          className="w-full h-full object-cover"
+        />
         
         {/* Hover Overlay */}
         {isHovered && (
           <div className="absolute inset-0 bg-[var(--black-a50)] flex items-center justify-center">
             <Button 
               variant="primary"
-              size="default"
+              size="comfortable"
               onClick={handleNavigateToSite}
             >
               Open in Webflow
@@ -156,12 +162,12 @@ export function SiteCard({ site }: SiteCardProps) {
             {site.isPublished ? (
               <PublishIcon 
                 size={16} 
-                className="text-[var(--text-green)]" 
+                style={{ color: 'var(--text-green)' }}
               />
             ) : (
               <UnpublishIcon 
                 size={16} 
-                className="text-[var(--text-secondary)]" 
+                style={{ color: 'var(--text-secondary)' }}
               />
             )}
 

@@ -6,10 +6,10 @@ import { TypographySection } from "./typography";
 import { ComponentsSection } from "./components";
 import { IconsSection } from "./icons";
 
-import { TabBar, TabBarItem } from "@/components/ui/tab-bar";
-import { Button } from "@/components/ui/button";
+import { TabBar, TabBarItem } from "@/components/spring-ui/tab-bar";
+import { Button } from "@/components/spring-ui/button";
 import { ArrowLeftIcon } from "@/icons/ArrowLeftIcon";
-import { SegmentedControl, SegmentedControlItem } from "@/components/ui/segmented-control";
+import { SegmentedControl, SegmentedControlItem } from "@/components/spring-ui/segmented-control";
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
 
@@ -42,7 +42,7 @@ export default function StyleGuide() {
               </SegmentedControl>
             </div>
             
-            <Button variant="outline" size="default" asChild>
+            <Button variant="outline" size="comfortable" asChild>
               <Link href="/">
                 <ArrowLeftIcon className="mr-1" />
                 Back to App

@@ -1,4 +1,4 @@
-import { Radio } from "@/components/ui/radio";
+import { Radio } from "@/components/spring-ui/radio";
 
 export function RadioExample() {
   return (

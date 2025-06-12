@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TabBar, TabBarItem } from "@/components/ui/tab-bar";
+import { TabBar, TabBarItem } from "@/components/spring-ui/tab-bar";
 
 export function TabBarExample() {
   const [activeTab, setActiveTab] = useState("dashboard");

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge } from '@/components/ui/badge';
-import { Tag } from '@/components/ui/tag';
+import { Badge } from '@/components/spring-ui/badge';
+import { Tag } from '@/components/spring-ui/tag';
 
 export function BadgeExample() {
   return (

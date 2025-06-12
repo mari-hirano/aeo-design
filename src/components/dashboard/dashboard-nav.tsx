@@ -1,9 +1,11 @@
 "use client";
 
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { NotificationsIcon, ChevronSmallDownIcon } from "@/icons";
+import { Avatar } from "@/components/spring-ui/avatar";
+import { Button } from "@/components/spring-ui/button";
+import { NotificationsIcon, ChevronSmallDownIcon, SunMoonIcon } from "@/icons";
 import { useState } from "react";
+import { useDashboardTheme } from "@/context/DashboardThemeContext";
+import { useTheme } from "@/context/ThemeContext";
 
 const navTabs = [
   { id: "dashboard", label: "Dashboard", hasChevron: false },
@@ -38,6 +40,13 @@ const WebflowIcon32 = () => (
 
 export function DashboardNav() {
   const [activeTab, setActiveTab] = useState("dashboard");
+  const { theme } = useTheme();
+  const { setDashboardMode } = useDashboardTheme();
+
+  const toggleTheme = () => {
+    const newMode = theme.mode === "light" ? "dark" : "light";
+    setDashboardMode(newMode);
+  };
 
   return (
     <nav 
@@ -79,22 +88,32 @@ export function DashboardNav() {
           </div>
         </div>
 
-        {/* Right side - Notifications, Avatar, Account */}
+        {/* Right side - Theme Switcher, Notifications, Avatar, Account */}
         <div className="flex items-center space-x-3">
+          {/* Theme Switcher Button */}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="w-8 h-8"
+            onClick={toggleTheme}
+            title={`Switch to ${theme.mode === "light" ? "dark" : "light"} theme`}
+          >
+            <SunMoonIcon size={16} />
+          </Button>
+          
           {/* Notification Button */}
           <Button variant="ghost" size="icon" className="w-8 h-8">
             <NotificationsIcon size={16} />
           </Button>
           
           {/* Avatar */}
-          <Avatar size="sm">
-            <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
-              U
-            </div>
-          </Avatar>
+          <Avatar 
+            size="md" 
+            fallback="JD"
+          />
           
           {/* Account Button */}
-          <Button variant="ghost" size="sm" className="flex items-center gap-1">
+          <Button variant="ghost" size="compact" className="flex items-center gap-1">
             Account
             <ChevronSmallDownIcon size={12} />
           </Button>

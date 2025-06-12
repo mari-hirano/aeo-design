@@ -1,17 +1,17 @@
 "use client";
 
 import { SiteCard } from "./site-card";
-import { Button } from "@/components/ui/button";
-import { IconButton } from "@/components/ui/icon-button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { SegmentedControl, SegmentedControlItem } from "@/components/ui/segmented-control";
+import { Button } from "@/components/spring-ui/button";
+import { IconButton } from "@/components/spring-ui/icon-button";
+import { Badge } from "@/components/spring-ui/badge";
+import { Input } from "@/components/spring-ui/input";
+import { SegmentedControl, SegmentedControlItem } from "@/components/spring-ui/segmented-control";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/spring-ui/dropdown-menu";
 import {
   AddIcon,
   UsersIcon,
@@ -23,74 +23,97 @@ import {
   SearchDefaultIcon,
 } from "@/icons";
 import { useState } from "react";
+import { getImagePath } from "@/lib/utils";
 
 // Mock data for demonstration
 const mockSites = [
   {
     id: "1",
-    name: "E-commerce Store",
-    description: "Modern online store with payment integration",
-    thumbnail: "/api/placeholder/300/200",
+    name: "Design Resources Hub",
+    description: "A curated resource list to kickstart your design education",
+    thumbnail: getImagePath("/images/site1.png"),
     status: "live" as const,
     lastModified: "2 hours ago",
-    domain: "store.example.com",
+    domain: "resources.example.com",
     plan: "E-commerce Site",
     isPublished: true,
   },
   {
     id: "2",
-    name: "Portfolio Website",
-    description: "Creative portfolio for design showcase",
-    thumbnail: "/api/placeholder/300/200",
+    name: "PlayReplay Tennis",
+    description: "No more doubts - Professional tennis coaching platform",
+    thumbnail: getImagePath("/images/site2.png"),
     status: "draft" as const,
     lastModified: "1 day ago",
-    domain: "portfolio.example.com",
+    domain: "tennis.example.com",
     plan: "Basic Site",
     isPublished: false,
   },
   {
     id: "3",
-    name: "Corporate Landing",
-    description: "Professional landing page for business",
-    thumbnail: "/api/placeholder/300/200",
+    name: "Blackbird Agency",
+    description: "Enter the world of Blackbird - Creative digital agency",
+    thumbnail: getImagePath("/images/site3.png"),
     status: "live" as const,
     lastModified: "3 days ago",
-    domain: "business.example.com",
+    domain: "blackbird.example.com",
     plan: "Business Site",
     isPublished: true,
   },
   {
     id: "4",
-    name: "Blog Platform",
-    description: "Content-rich blog with CMS integration",
-    thumbnail: "/api/placeholder/300/200",
+    name: "Egglife Wraps",
+    description: "The Perfect Wrap for eating better - Healthy food products",
+    thumbnail: getImagePath("/images/site4.png"),
     status: "live" as const,
     lastModified: "1 week ago",
-    domain: "blog.example.com",
+    domain: "egglife.example.com",
     plan: "CMS Site",
     isPublished: true,
   },
   {
     id: "5",
-    name: "Restaurant Menu",
-    description: "Interactive menu with online ordering",
-    thumbnail: "/api/placeholder/300/200",
+    name: "Radiant Search",
+    description: "We are Radiant, the leading search to search firm globally",
+    thumbnail: getImagePath("/images/site5.png"),
     status: "draft" as const,
     lastModified: "2 weeks ago",
-    domain: "restaurant.example.com",
+    domain: "radiant.example.com",
     plan: "Starter Site",
     isPublished: false,
   },
   {
     id: "6",
-    name: "Event Website",
-    description: "Event management and ticketing platform",
-    thumbnail: "/api/placeholder/300/200",
+    name: "Pepperclip Studio",
+    description: "Creative studio & digital agency based in Paris",
+    thumbnail: getImagePath("/images/site6.png"),
     status: "live" as const,
     lastModified: "1 month ago",
-    domain: "events.example.com",
+    domain: "pepperclip.example.com",
     plan: "Business Site",
     isPublished: true,
+  },
+  {
+    id: "7",
+    name: "OpenPhone Teams",
+    description: "The all-in-one phone system for teams",
+    thumbnail: getImagePath("/images/site7.png"),
+    status: "live" as const,
+    lastModified: "2 days ago",
+    domain: "openphone.example.com",
+    plan: "Business Site",
+    isPublished: true,
+  },
+  {
+    id: "8",
+    name: "Atomus Focus",
+    description: "Get your focus back on the experience - Design tool platform",
+    thumbnail: getImagePath("/images/site8.png"),
+    status: "draft" as const,
+    lastModified: "5 days ago",
+    domain: "atomus.example.com",
+    plan: "Pro Site",
+    isPublished: false,
   },
 ];
 
@@ -139,7 +162,7 @@ export function SiteGrid() {
             {/* Sort Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="flex items-center">
+                <Button variant="outline" size="comfortable" className="flex items-center">
                   <DateIcon size={16} />
                   <span>Date created</span>
                   <ChevronSmallDownIcon size={16} />
@@ -177,13 +200,13 @@ export function SiteGrid() {
             </IconButton>
 
             {/* Invite Button */}
-            <Button variant="default" size="default" className="flex items-center">
+            <Button variant="default" size="comfortable" className="flex items-center">
               <UsersIcon size={16} />
               <span>Invite</span>
             </Button>
 
             {/* New Site Button */}
-            <Button variant="primary" size="default" className="flex items-center">
+            <Button variant="primary" size="comfortable" className="flex items-center">
               <AddIcon size={16} />
               <span>New site</span>
             </Button>

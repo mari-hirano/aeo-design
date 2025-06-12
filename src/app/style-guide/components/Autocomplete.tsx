@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Autocomplete } from '@/components/ui/autocomplete';
+import { Autocomplete } from '@/components/spring-ui/autocomplete';
 
 export function AutocompleteExample() {
   const [value1, setValue1] = useState<string[]>([]);

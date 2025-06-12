@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "@/components/ui/icon";
+import { Icon } from "@/components/spring-ui/icon";
 
 export function IconsSection() {
   return (
@@ -45,32 +45,32 @@ export function IconsSection() {
             <span className="body-text mt-1">Default (white @ 67%)</span>
           </div>
           <div className="flex flex-col items-center">
-            <Icon name="AccountIcon" className="text-[var(--blue-text)]" />
-            <span className="body-text text-[var(--blue-text)] mt-1">Blue (blue-text)</span>
+            <Icon name="AccountIcon" className="text-[var(--text-blue)]" />
+            <span className="body-text text-[var(--text-blue)] mt-1">Blue (blue-text)</span>
           </div>
           <div className="flex flex-col items-center">
-            <Icon name="AccountIcon" className="text-[var(--green-text)]" />
-            <span className="body-text text-[var(--green-text)] mt-1">Green (green-text)</span>
+            <Icon name="AccountIcon" className="text-[var(--text-green)]" />
+            <span className="body-text text-[var(--text-green)] mt-1">Green (green-text)</span>
           </div>
           <div className="flex flex-col items-center">
-            <Icon name="AccountIcon" className="text-[var(--purple-text)]" />
-            <span className="body-text text-[var(--purple-text)] mt-1">Purple (purple-text)</span>
+            <Icon name="AccountIcon" className="text-[var(--text-purple)]" />
+            <span className="body-text text-[var(--text-purple)] mt-1">Purple (purple-text)</span>
           </div>
           <div className="flex flex-col items-center">
-            <Icon name="AccountIcon" className="text-[var(--pink-text)]" />
-            <span className="body-text text-[var(--pink-text)] mt-1">Pink (pink-text)</span>
+            <Icon name="AccountIcon" className="text-[var(--text-pink)]" />
+            <span className="body-text text-[var(--text-pink)] mt-1">Pink (pink-text)</span>
           </div>
           <div className="flex flex-col items-center">
-            <Icon name="AccountIcon" className="text-[var(--orange-text)]" />
-            <span className="body-text text-[var(--orange-text)] mt-1">Orange (orange-text)</span>
+            <Icon name="AccountIcon" className="text-[var(--text-orange)]" />
+            <span className="body-text text-[var(--text-orange)] mt-1">Orange (orange-text)</span>
           </div>
           <div className="flex flex-col items-center">
-            <Icon name="AccountIcon" className="text-[var(--red-text)]" />
-            <span className="body-text text-[var(--red-text)] mt-1">Red (red-text)</span>
+            <Icon name="AccountIcon" className="text-[var(--text-red)]" />
+            <span className="body-text text-[var(--text-red)] mt-1">Red (red-text)</span>
           </div>
           <div className="flex flex-col items-center">
-            <Icon name="AccountIcon" className="text-[var(--yellow-text)]" />
-            <span className="body-text text-[var(--yellow-text)] mt-1">Yellow (yellow-text)</span>
+            <Icon name="AccountIcon" className="text-[var(--text-yellow)]" />
+            <span className="body-text text-[var(--text-yellow)] mt-1">Yellow (yellow-text)</span>
           </div>
         </div>
       </section>

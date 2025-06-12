@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/spring-ui/button";
 import { 
   SettingsIcon,
   ChevronSmallDownIcon,
@@ -31,35 +31,35 @@ export function ButtonExample() {
             <tbody>
               <tr className="border-b border-[var(--border-default)]">
                 <td className="py-3 px-4 font-medium text-[var(--text-secondary)]">Default</td>
-                <td className="py-3 px-4"><Button variant="default" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="primary" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="success" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="destructive" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="warning" size="sm">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="default" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="primary" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="success" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="destructive" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="warning" size="compact">Button</Button></td>
               </tr>
               <tr className="border-b border-[var(--border-default)]">
                 <td className="py-3 px-4 font-medium text-[var(--text-secondary)]">Outline</td>
-                <td className="py-3 px-4"><Button variant="outline" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="outline-primary" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="outline-success" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="outline-destructive" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="outline-warning" size="sm">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="outline" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="outline-primary" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="outline-success" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="outline-destructive" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="outline-warning" size="compact">Button</Button></td>
               </tr>
               <tr className="border-b border-[var(--border-default)]">
                 <td className="py-3 px-4 font-medium text-[var(--text-secondary)]">Subtle</td>
-                <td className="py-3 px-4"><Button variant="subtle" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="subtle-primary" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="subtle-success" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="subtle-destructive" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="subtle-warning" size="sm">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="subtle" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="subtle-primary" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="subtle-success" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="subtle-destructive" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="subtle-warning" size="compact">Button</Button></td>
               </tr>
               <tr>
                 <td className="py-3 px-4 font-medium text-[var(--text-secondary)]">Ghost</td>
-                <td className="py-3 px-4"><Button variant="ghost" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="ghost-primary" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="ghost-success" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="ghost-destructive" size="sm">Button</Button></td>
-                <td className="py-3 px-4"><Button variant="ghost-warning" size="sm">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="ghost" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="ghost-primary" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="ghost-success" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="ghost-destructive" size="compact">Button</Button></td>
+                <td className="py-3 px-4"><Button variant="ghost-warning" size="compact">Button</Button></td>
               </tr>
             </tbody>
           </table>
@@ -68,12 +68,12 @@ export function ButtonExample() {
         <h3 className="text-lg font-medium mb-3">Button Sizes</h3>
         <div className="flex flex-wrap gap-2 mb-4 items-center">
           <div className="flex flex-col items-center gap-2">
-            <Button variant="primary" size="sm">Compact</Button>
-            <span className="text-xs text-[var(--text-secondary)]">size="sm"</span>
+            <Button variant="primary" size="compact">Compact</Button>
+            <span className="text-xs text-[var(--text-secondary)]">size="compact"</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Button variant="primary" size="default">Comfortable</Button>
-            <span className="text-xs text-[var(--text-secondary)]">size="default"</span>
+            <Button variant="primary" size="comfortable">Comfortable</Button>
+            <span className="text-xs text-[var(--text-secondary)]">size="comfortable"</span>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Button variant="primary" size="icon">

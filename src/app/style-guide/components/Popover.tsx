@@ -1,9 +1,9 @@
 import React from 'react';
-import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { Switch } from '@/components/ui/switch';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/spring-ui/popover';
+import { Button } from '@/components/spring-ui/button';
+import { Input } from '@/components/spring-ui/input';
+import { Badge } from '@/components/spring-ui/badge';
+import { Switch } from '@/components/spring-ui/switch';
 import { InfoIcon } from '@/icons/InfoIcon';
 import { SettingsIcon } from '@/icons/SettingsIcon';
 import { EditIcon } from '@/icons/EditIcon';
@@ -25,7 +25,7 @@ export function PopoverExample() {
           <div className="flex gap-6">
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="default" size="sm">Open Popover</Button>
+                <Button variant="default" size="comfortable">Open Popover</Button>
               </PopoverTrigger>
               <PopoverContent>
                 <div className="flex flex-col gap-2">
@@ -43,7 +43,7 @@ export function PopoverExample() {
           <div className="flex gap-6">
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="comfortable">
                   <SettingsIcon size={14} className="mr-1.5" />
                   Settings
                 </Button>
@@ -77,7 +77,7 @@ export function PopoverExample() {
           <div className="flex gap-6">
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="comfortable">
                   <EditIcon size={14} className="mr-1.5" />
                   Edit Profile
                 </Button>

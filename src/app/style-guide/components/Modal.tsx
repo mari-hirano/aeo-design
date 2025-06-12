@@ -4,17 +4,17 @@ import {
   ModalTrigger, 
   ModalContent,
   ModalClose
-} from '@/components/ui/modal';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+} from '@/components/spring-ui/modal';
+import { Button } from '@/components/spring-ui/button';
+import { Input } from '@/components/spring-ui/input';
+import { Textarea } from '@/components/spring-ui/textarea';
 import { 
   Select,
   SelectTrigger, 
   SelectValue, 
   SelectContent, 
   SelectItem 
-} from '@/components/ui/select';
+} from '@/components/spring-ui/select';
 import { InfoIcon } from '@/icons/InfoIcon';
 import { UploadIcon } from '@/icons/UploadIcon';
 import { WarningCircleIcon } from '@/icons/WarningCircleIcon';
@@ -34,7 +34,7 @@ export function ModalExample() {
           <div className="flex gap-6">
             <Modal>
               <ModalTrigger asChild>
-                <Button variant="primary" size="sm">Open modal</Button>
+                <Button variant="primary" size="comfortable">Open modal</Button>
               </ModalTrigger>
               <ModalContent
                 title="Welcome to the Design System"
@@ -62,7 +62,7 @@ export function ModalExample() {
           <div className="flex gap-6">
             <Modal>
               <ModalTrigger asChild>
-                <Button variant="outline" size="sm">Create item</Button>
+                <Button variant="outline" size="comfortable">Create item</Button>
               </ModalTrigger>
               <ModalContent
                 title="Add New Project"
@@ -115,7 +115,7 @@ export function ModalExample() {
           <div className="flex gap-6">
             <Button 
               variant="destructive" 
-              size="sm"
+              size="comfortable"
               onClick={() => setIsDeleteModalOpen(true)}
             >
               Delete item
@@ -160,7 +160,7 @@ export function ModalExample() {
           <div className="flex gap-6">
             <Modal>
               <ModalTrigger asChild>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="comfortable">
                   <UploadIcon size={14} className="mr-1.5" />
                   Upload Files
                 </Button>
@@ -181,14 +181,14 @@ export function ModalExample() {
                     <UploadIcon size={24} className="text-[var(--text-secondary)]" />
                     <p className="text-sm font-medium mt-2">Drag & drop files here</p>
                     <p className="text-xs text-[var(--text-secondary)]">or</p>
-                    <Button variant="outline" size="sm">Browse Files</Button>
+                    <Button variant="outline" size="comfortable">Browse Files</Button>
                     <p className="text-xs text-[var(--text-secondary)] mt-2">Maximum file size: 10MB</p>
                   </div>
                   
                   <div className="bg-[var(--bg-tertiary)] rounded p-3 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded bg-[var(--blue-transparent)] flex items-center justify-center">
-                        <InfoIcon size={16} className="text-[var(--blue-text)]" />
+                        <InfoIcon size={16} className="text-[var(--text-blue)]" />
                       </div>
                       <div>
                         <p className="text-sm font-medium">document.pdf</p>

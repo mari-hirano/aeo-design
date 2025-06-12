@@ -1,4 +1,4 @@
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/components/spring-ui/textarea";
 
 export function TextareaExample() {
   return (

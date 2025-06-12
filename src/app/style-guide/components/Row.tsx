@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row } from '@/components/ui/row';
+import { Row } from '@/components/spring-ui/row';
 import { InfoIcon } from '@/icons/InfoIcon';
 import { SettingsIcon } from '@/icons/SettingsIcon';
 import { EditIcon } from '@/icons/EditIcon';

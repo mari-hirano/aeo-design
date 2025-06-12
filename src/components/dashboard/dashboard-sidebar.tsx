@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Avatar } from "@/components/ui/avatar";
+import { Button } from "@/components/spring-ui/button";
+import { Avatar } from "@/components/spring-ui/avatar";
+import { Row } from "@/components/spring-ui/row";
 import { 
   SettingsAltIcon, 
   UsersIcon, 
@@ -17,17 +18,17 @@ import {
 import { useState } from "react";
 
 const mainNavItems = [
-  { name: "All sites", active: true, icon: SitesStackIcon },
-  { name: "Tutorials", active: false, icon: VideoTutorialsIcon },
+  { name: "All sites", id: "all-sites", icon: SitesStackIcon },
+  { name: "Tutorials", id: "tutorials", icon: VideoTutorialsIcon },
 ];
 
 const settingsItems = [
-  { name: "General", icon: SettingsAltIcon },
-  { name: "Team", icon: UsersIcon },
-  { name: "Plans", icon: UpgradeIcon },
-  { name: "Billing", icon: PaymentIcon },
-  { name: "Apps & integrations", icon: AppsIcon },
-  { name: "Libraries & templates", icon: TemplatesIcon },
+  { name: "General", id: "general", icon: SettingsAltIcon },
+  { name: "Team", id: "team", icon: UsersIcon },
+  { name: "Plans", id: "plans", icon: UpgradeIcon },
+  { name: "Billing", id: "billing", icon: PaymentIcon },
+  { name: "Apps & integrations", id: "apps-integrations", icon: AppsIcon },
+  { name: "Libraries & templates", id: "libraries-templates", icon: TemplatesIcon },
 ];
 
 const workspaces = [
@@ -37,7 +38,12 @@ const workspaces = [
   { name: "Personal", current: false },
 ];
 
-export function DashboardSidebar() {
+interface DashboardSidebarProps {
+  selectedSection?: string;
+  onSectionChange?: (section: string) => void;
+}
+
+export function DashboardSidebar({ selectedSection = "all-sites", onSectionChange }: DashboardSidebarProps) {
   const [showWorkspaceMenu, setShowWorkspaceMenu] = useState(false);
   const currentWorkspace = workspaces.find(w => w.current) || workspaces[0];
 
@@ -55,11 +61,10 @@ export function DashboardSidebar() {
             onClick={() => setShowWorkspaceMenu(!showWorkspaceMenu)}
           >
             <div className="flex items-center space-x-3">
-              <Avatar size="sm">
-                <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
-                  {currentWorkspace.name.charAt(0)}
-                </div>
-              </Avatar>
+              <Avatar 
+                size="lg" 
+                fallback={currentWorkspace.name.substring(0, 2).toUpperCase()}
+              />
               <span className="text-sm font-medium text-[var(--text-primary)]">
                 {currentWorkspace.name}
               </span>
@@ -74,13 +79,12 @@ export function DashboardSidebar() {
                 {workspaces.map((workspace) => (
                   <button
                     key={workspace.name}
-                    className="w-full flex items-center space-x-3 px-3 py-2 text-sm hover:bg-[var(--bg-accent)] text-left"
+                                          className="w-full flex items-center space-x-3 px-3 py-2 text-sm hover:bg-[var(--bg-raised)] text-left"
                   >
-                    <Avatar size="sm">
-                      <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
-                        {workspace.name.charAt(0)}
-                      </div>
-                    </Avatar>
+                    <Avatar 
+                      size="lg" 
+                      fallback={workspace.name.substring(0, 2).toUpperCase()}
+                    />
                     <span className="text-[var(--text-primary)]">
                       {workspace.name}
                     </span>
@@ -92,17 +96,17 @@ export function DashboardSidebar() {
         </div>
 
         {/* Main Navigation */}
-        <div className="space-y-1">
+        <div>
           {mainNavItems.map((item) => (
-            <Button
+            <Row
               key={item.name}
-              variant={item.active ? "subtle" : "ghost"}
-              className="w-full justify-start body-text"
-              size="sm"
-            >
-              <item.icon size={16} />
-              {item.name}
-            </Button>
+              label={item.name}
+              icon={<item.icon size={16} />}
+              selected={selectedSection === item.id}
+              size="compact"
+              className="cursor-pointer mb-1"
+              onClick={() => onSectionChange?.(item.id)}
+            />
           ))}
         </div>
 
@@ -115,15 +119,15 @@ export function DashboardSidebar() {
           </div>
           <div>
             {settingsItems.map((item) => (
-              <Button
+              <Row
                 key={item.name}
-                variant="ghost"
-                className="w-full justify-start body-text"
-                size="sm"
-              >
-                <item.icon size={16} />
-                {item.name}
-              </Button>
+                label={item.name}
+                icon={<item.icon size={16} />}
+                selected={selectedSection === item.id}
+                size="compact"
+                className="cursor-pointer mb-1"
+                onClick={() => onSectionChange?.(item.id)}
+              />
             ))}
           </div>
         </div>

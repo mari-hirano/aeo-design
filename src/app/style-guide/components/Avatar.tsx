@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, AvatarGroup } from '@/components/ui/avatar';
+import { Avatar, AvatarGroup } from '@/components/spring-ui/avatar';
 
 export function AvatarExample() {
   return (

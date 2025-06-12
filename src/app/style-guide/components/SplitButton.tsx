@@ -1,8 +1,8 @@
-import { SplitButton } from "@/components/ui/split-button";
+import { SplitButton } from "@/components/spring-ui/split-button";
 import {
   DropdownMenuItem,
   DropdownMenuSeparator
-} from "@/components/ui/dropdown-menu";
+} from "@/components/spring-ui/dropdown-menu";
 import { 
   EditIcon, 
   CssPreviewIcon, 

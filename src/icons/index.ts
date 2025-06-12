@@ -904,6 +904,8 @@ export {TextTransformLowercaseIcon} from './TextTransformLowercaseIcon';
 export {TextTransformSentenceIcon} from './TextTransformSentenceIcon';
 export {TextWordSpacingIcon} from './TextWordSpacingIcon';
 export {ThemePanel24Icon} from './ThemePanel24Icon';
+
+export {SunMoonIcon} from './SunMoonIcon';
 export {ThumbDownFillIcon} from './ThumbDownFillIcon';
 export {ThumbDownIcon} from './ThumbDownIcon';
 export {ThumbUpFillIcon} from './ThumbUpFillIcon';

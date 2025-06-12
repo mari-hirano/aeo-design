@@ -2,13 +2,13 @@
 
 import React from "react";
 import { useTheme, ThemeConfig } from "@/context/ThemeContext";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Switch } from "@/components/ui/switch";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Select } from "@/components/ui/select";
-import { Icon } from "@/components/ui/icon";
+import { Button } from "@/components/spring-ui/button";
+import { Input } from "@/components/spring-ui/input";
+import { Badge } from "@/components/spring-ui/badge";
+import { Switch } from "@/components/spring-ui/switch";
+import { Checkbox } from "@/components/spring-ui/checkbox";
+import { Select } from "@/components/spring-ui/select";
+import { Icon } from "@/components/spring-ui/icon";
 
 const themeOptions: { label: string; config: ThemeConfig; description: string }[] = [
   {
@@ -47,10 +47,10 @@ function ThemePreview() {
       <div className="space-y-3">
         <h4 className="font-medium text-[var(--text-primary)]">Buttons</h4>
         <div className="flex flex-wrap gap-2">
-          <Button variant="default" size="sm">Primary</Button>
-          <Button variant="outline" size="sm">Outline</Button>
-          <Button variant="ghost" size="sm">Ghost</Button>
-          <Button variant="destructive" size="sm">Destructive</Button>
+          <Button variant="default" size="compact">Primary</Button>
+          <Button variant="outline" size="compact">Outline</Button>
+          <Button variant="ghost" size="compact">Ghost</Button>
+          <Button variant="destructive" size="compact">Destructive</Button>
         </div>
       </div>
 

@@ -6,8 +6,8 @@ import {
   TableCell, 
   ColumnDef,
   SortState
-} from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
+} from '@/components/spring-ui/table';
+import { Badge } from '@/components/spring-ui/badge';
 import { InfoIcon } from '@/icons/InfoIcon';
 import { CheckCircleIcon } from '@/icons/CheckCircleIcon';
 import { WarningCircleIcon } from '@/icons/WarningCircleIcon';

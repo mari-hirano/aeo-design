@@ -5,9 +5,11 @@ import { DashboardSidebar } from "@/components/dashboard/dashboard-sidebar";
 
 interface DashboardLayoutProps {
   children: ReactNode;
+  selectedSection?: string;
+  onSectionChange?: (section: string) => void;
 }
 
-export function DashboardLayout({ children }: DashboardLayoutProps) {
+export function DashboardLayout({ children, selectedSection, onSectionChange }: DashboardLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-primary)]">
       {/* Top Navigation */}
@@ -16,7 +18,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       {/* Main Content Area */}
       <div className="flex flex-1 justify-center">
         {/* Sidebar */}
-        <DashboardSidebar />
+        <DashboardSidebar selectedSection={selectedSection} onSectionChange={onSectionChange} />
         
         {/* Main Content with max-width constraint */}
         <div 

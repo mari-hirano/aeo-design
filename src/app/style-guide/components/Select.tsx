@@ -7,7 +7,7 @@ import {
   SelectLabel,
   SelectValue,
   SelectSeparator
-} from "@/components/ui/select";
+} from "@/components/spring-ui/select";
 import { useState } from "react";
 
 export function SelectExample() {

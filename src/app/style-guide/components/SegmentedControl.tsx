@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SegmentedControl, SegmentedControlItem } from "@/components/ui/segmented-control";
+import { SegmentedControl, SegmentedControlItem } from "@/components/spring-ui/segmented-control";
 import { 
   ListIcon,
   GridIcon,

@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion from '@/components/ui/accordion';
+import Accordion from '@/components/spring-ui/accordion';
 import { InfoIcon } from '@/icons/InfoIcon';
 
 export function AccordionExample() {
@@ -85,8 +85,8 @@ export function AccordionExample() {
                 </div>
                 
                 <div className="flex gap-2 mt-4">
-                  <div className="bg-[var(--blue-transparent)] text-[var(--blue-text)] text-xs px-2 py-0.5 rounded-full">Design</div>
-                  <div className="bg-[var(--green-transparent)] text-[var(--green-text)] text-xs px-2 py-0.5 rounded-full">Development</div>
+                  <div className="bg-[var(--blue-transparent)] text-[var(--text-blue)] text-xs px-2 py-0.5 rounded-full">Design</div>
+                  <div className="bg-[var(--green-transparent)] text-[var(--text-green)] text-xs px-2 py-0.5 rounded-full">Development</div>
                 </div>
               </div>
             </Accordion>

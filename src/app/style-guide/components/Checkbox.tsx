@@ -1,4 +1,4 @@
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/spring-ui/checkbox";
 
 export function CheckboxExample() {
   return (

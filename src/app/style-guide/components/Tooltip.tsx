@@ -1,6 +1,6 @@
 import React from 'react';
-import Tooltip from '@/components/ui/tooltip';
-import { Button } from '@/components/ui/button';
+import Tooltip from '@/components/spring-ui/tooltip';
+import { Button } from '@/components/spring-ui/button';
 import { HelpCircleIcon } from '@/icons/HelpCircleIcon';
 import { InfoIcon } from '@/icons/InfoIcon';
 import { SettingsIcon } from '@/icons/SettingsIcon';
@@ -41,11 +41,11 @@ export function TooltipExample() {
           <h3 className="text-md font-medium mb-4">Tooltip with Button</h3>
           <div className="flex items-center gap-6">
             <Tooltip text="Click to save your changes">
-              <Button size="sm" variant="primary">Save</Button>
+              <Button size="comfortable" variant="primary">Save</Button>
             </Tooltip>
             
             <Tooltip text="Cancel and return to previous screen">
-              <Button size="sm" variant="outline">Cancel</Button>
+              <Button size="comfortable" variant="outline">Cancel</Button>
             </Tooltip>
           </div>
         </div>

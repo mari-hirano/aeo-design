@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { LayoutContent } from "@/components/layout/LayoutContent";
+import { LayoutContent } from "@/components/designer/layout/LayoutContent";
 import { ModeProvider } from "@/context/ModeContext";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { PagesProvider } from "@/context/PagesContext";

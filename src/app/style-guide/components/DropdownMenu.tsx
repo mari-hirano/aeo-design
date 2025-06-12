@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/spring-ui/button";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -13,7 +13,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/spring-ui/dropdown-menu";
 import { 
   DashboardIcon, 
   SettingsIcon, 
@@ -44,7 +44,7 @@ export function DropdownMenuExample() {
                 <div className="mb-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="default">
+                      <Button variant="outline" size="comfortable">
                         Options
                         <ChevronSmallDownIcon className="ml-1 opacity-70" />
                       </Button>
@@ -78,7 +78,7 @@ export function DropdownMenuExample() {
                 <div className="mb-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="default">
+                      <Button variant="outline" size="comfortable">
                         Advanced Options
                         <ChevronSmallDownIcon className="ml-1 opacity-70" />
                       </Button>
