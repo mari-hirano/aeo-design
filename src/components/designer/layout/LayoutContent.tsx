@@ -5,11 +5,13 @@ import { Navbar } from "@/components/designer/layout/Navbar";
 import LeftSidebar from "@/components/designer/layout/LeftSidebar";
 import RightPanel from "@/components/designer/layout/panels/rightpanel/RightPanel";
 import Canvas from "@/components/designer/layout/Canvas";
+import CanvasBar from "@/components/designer/layout/CanvasBar";
 import AppsSection from "@/components/designer/sections/AppsSection";
 import CMSSection from "@/components/designer/sections/CMSSection";
 import InsightsSection from "@/components/designer/sections/InsightsSection";
 import { NavigatorProvider } from "@/context/NavigatorContext";
 import { PagesProvider } from "@/context/PagesContext";
+import { CanvasSelectionProvider } from "@/context/CanvasSelectionContext";
 import { useApp } from "@/context/AppContext";
 
 interface LayoutContentProps {
@@ -56,9 +58,12 @@ function LayoutContentInner({ children }: LayoutContentProps) {
         {currentSection === 'home' && (
           <>
             <LeftSidebar />
-            <main className="flex-1 bg-[var(--bg-primary)] relative">
-              <Canvas />
-            </main>
+            <div className="flex-1 flex flex-col bg-[var(--bg-primary)]">
+              <CanvasBar />
+              <main className="flex-1 relative">
+                <Canvas />
+              </main>
+            </div>
             <RightPanel />
           </>
         )}
@@ -89,7 +94,9 @@ export function LayoutContent(props: LayoutContentProps) {
   return (
     <NavigatorProvider>
       <PagesProvider>
-        <LayoutContentInner {...props} />
+        <CanvasSelectionProvider>
+          <LayoutContentInner {...props} />
+        </CanvasSelectionProvider>
       </PagesProvider>
     </NavigatorProvider>
   );
