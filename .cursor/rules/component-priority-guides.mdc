@@ -1,0 +1,437 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Spring UI Component Priority Guidelines
+
+## Core Principle
+**ALWAYS prioritize using components from `@/components/spring-ui/` over custom building solutions.** When building sections and layouts, start with Spring UI components and extend them when needed rather than creating custom implementations.
+
+## Component Hierarchy Priority
+
+### 1. **Layout & Structure Components**
+**Use these first for any layout structure:**
+
+#### `Row` Component - Primary Layout Building Block
+```tsx
+// ✅ ALWAYS use Row for list items, navigation items, settings rows
+import { Row } from "@/components/spring-ui/row"
+
+// Navigation items
+<Row 
+  label="Settings" 
+  icon={<SettingsIcon size={16} />} 
+  selected={isSelected}
+  onClick={handleClick}
+/>
+
+// Settings rows with descriptions
+<Row 
+  label="Email Notifications" 
+  description="Receive updates about your account"
+  icon={<EmailIcon size={16} />}
+  suffixButtons={[<Switch key="toggle" />]}
+/>
+
+// List items with checkboxes
+<Row 
+  label="Item Name" 
+  checkbox 
+  checked={isChecked}
+  onCheckChange={handleCheck}
+/>
+```
+
+#### `Table` Component - Data Display
+```tsx
+// ✅ Use Table for any tabular data
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/spring-ui/table"
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Project Name</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+### 2. **Interactive Components**
+**Use these for user interactions:**
+
+#### `Button` & `IconButton` - All Clickable Elements
+```tsx
+// ✅ Use Button for all clickable elements
+import { Button, IconButton } from "@/components/spring-ui/button"
+
+// Primary actions
+<Button variant="primary" size="comfortable">
+  Save Changes
+</Button>
+
+// Secondary actions
+<Button variant="ghost" size="compact">
+  Cancel
+</Button>
+
+// Icon-only buttons
+<IconButton variant="ghost" size="comfortable">
+  <SettingsIcon size={16} />
+</IconButton>
+
+// With icons
+<Button variant="outline" size="comfortable">
+  <AddIcon size={16} />
+  Add Item
+</Button>
+```
+
+#### `DropdownMenu` - All Dropdown/Select Patterns
+```tsx
+// ✅ Use DropdownMenu for any dropdown functionality
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger,
+  DropdownMenuSeparator 
+} from "@/components/spring-ui/dropdown-menu"
+
+// User menus
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="ghost">Profile</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Settings</DropdownMenuItem>
+    <DropdownMenuItem>Logout</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+
+// Action menus
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <IconButton variant="ghost">
+      <MoreIcon size={16} />
+    </IconButton>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Edit</DropdownMenuItem>
+    <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+### 3. **Form Components**
+**Use these for all input/selection needs:**
+
+#### `Input` - Text Inputs
+```tsx
+// ✅ Use Input for all text inputs
+import { Input } from "@/components/spring-ui/input"
+
+// Search inputs
+<Input placeholder="Search..." showSearchIcon />
+
+// Form inputs
+<Input placeholder="Enter name" />
+
+// With labels
+<div>
+  <label>Email</label>
+  <Input type="email" placeholder="Enter email" />
+</div>
+```
+
+#### `Select` - Dropdown Selections
+```tsx
+// ✅ Use Select for dropdown selections
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/spring-ui/select"
+
+<Select value={value} onValueChange={setValue}>
+  <SelectTrigger>
+    <SelectValue placeholder="Select option" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="option1">Option 1</SelectItem>
+    <SelectItem value="option2">Option 2</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+#### `Checkbox`, `Switch`, `Radio` - Toggle Controls
+```tsx
+// ✅ Use these for all toggle/selection controls
+import { Checkbox } from "@/components/spring-ui/checkbox"
+import { Switch } from "@/components/spring-ui/switch"
+import { Radio, RadioGroup } from "@/components/spring-ui/radio"
+
+// Checkboxes
+<Checkbox checked={checked} onChange={setChecked} />
+
+// Switches
+<Switch checked={enabled} onChange={setEnabled} />
+
+// Radio groups
+<RadioGroup value={selected} onChange={setSelected}>
+  <Radio value="option1">Option 1</Radio>
+  <Radio value="option2">Option 2</Radio>
+</RadioGroup>
+```
+
+### 4. **Display Components**
+**Use these for visual elements:**
+
+#### `Badge` & `Tag` - Status Indicators
+```tsx
+// ✅ Use Badge for status indicators
+import { Badge } from "@/components/spring-ui/badge"
+import { Tag } from "@/components/spring-ui/tag"
+
+// Status badges
+<Badge variant="green">Active</Badge>
+<Badge variant="orange">Pending</Badge>
+
+// Tags
+<Tag>Feature</Tag>
+<Tag variant="outline">Beta</Tag>
+```
+
+#### `Avatar` - User/Entity Images
+```tsx
+// ✅ Use Avatar for user images
+import { Avatar } from "@/components/spring-ui/avatar"
+
+<Avatar size="sm" fallback="JS" />
+<Avatar size="lg" src="/user-image.jpg" fallback="JS" />
+```
+
+## Extension Patterns
+
+### When to Extend vs Create Custom
+
+#### ✅ **Extend Spring UI Components When:**
+- You need to add specific functionality to an existing component
+- You want to create a specialized version of a component
+- You need to combine multiple Spring UI components
+
+```tsx
+// ✅ Good: Extending Button for specific use case
+import { Button, buttonVariants } from "@/components/spring-ui/button"
+import { cn } from "@/lib/utils"
+
+interface ActionButtonProps extends React.ComponentProps<typeof Button> {
+  loading?: boolean
+}
+
+export function ActionButton({ loading, children, ...props }: ActionButtonProps) {
+  return (
+    <Button 
+      {...props} 
+      disabled={loading}
+      className={cn(loading && "opacity-50", props.className)}
+    >
+      {loading ? "Loading..." : children}
+    </Button>
+  )
+}
+```
+
+#### ❌ **Avoid Creating Custom When:**
+- A Spring UI component already exists for the use case
+- You're building something that could be composed from existing components
+- You're duplicating functionality that already exists
+
+```tsx
+// ❌ Bad: Custom button when Button component exists
+export function CustomButton({ children, onClick }) {
+  return (
+    <button 
+      onClick={onClick}
+      className="bg-blue-500 text-white px-4 py-2 rounded"
+    >
+      {children}
+    </button>
+  )
+}
+
+// ✅ Good: Use existing Button component
+<Button variant="primary" onClick={onClick}>
+  {children}
+</Button>
+```
+
+## Composition Patterns
+
+### Building Complex Layouts with Spring UI
+
+#### Navigation Sections
+```tsx
+// ✅ Use Row components for navigation
+<div className="space-y-1">
+  <Row 
+    label="Dashboard" 
+    icon={<HomeIcon size={16} />} 
+    selected={currentSection === 'dashboard'}
+    onClick={() => setCurrentSection('dashboard')}
+  />
+  <Row 
+    label="Settings" 
+    icon={<SettingsIcon size={16} />} 
+    selected={currentSection === 'settings'}
+    onClick={() => setCurrentSection('settings')}
+  />
+</div>
+```
+
+#### Settings Forms
+```tsx
+// ✅ Use Row + form components for settings
+<div className="space-y-4">
+  <Row 
+    label="Email Notifications" 
+    description="Receive updates about your account"
+    suffixButtons={[<Switch key="email" checked={emailEnabled} onChange={setEmailEnabled} />]}
+  />
+  <Row 
+    label="Push Notifications" 
+    description="Get notified on your device"
+    suffixButtons={[<Switch key="push" checked={pushEnabled} onChange={setPushEnabled} />]}
+  />
+</div>
+```
+
+#### Data Tables
+```tsx
+// ✅ Use Table for data display
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead>Actions</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {items.map(item => (
+      <TableRow key={item.id}>
+        <TableCell>{item.name}</TableCell>
+        <TableCell>
+          <Badge variant={item.status === 'active' ? 'green' : 'orange'}>
+            {item.status}
+          </Badge>
+        </TableCell>
+        <TableCell>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <IconButton variant="ghost" size="comfortable">
+                <MoreIcon size={16} />
+              </IconButton>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Edit</DropdownMenuItem>
+              <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
+```
+
+## Import Organization
+
+### Standard Import Pattern
+```tsx
+// ✅ Organized imports prioritizing Spring UI
+import { Button, IconButton } from "@/components/spring-ui/button"
+import { Input } from "@/components/spring-ui/input"
+import { Row } from "@/components/spring-ui/row"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/spring-ui/dropdown-menu"
+import { Badge } from "@/components/spring-ui/badge"
+import { SettingsIcon, MoreIcon } from "@/icons"
+import { cn } from "@/lib/utils"
+```
+
+## Theme Integration
+
+### Using Theme Variables
+```tsx
+// ✅ Use theme variables for consistent styling
+<div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+  <Row 
+    label="Theme-aware component"
+    className="border-[var(--border-default)]"
+  />
+</div>
+```
+
+## Common Anti-Patterns to Avoid
+
+### ❌ **Don't Create Custom Layout Components**
+```tsx
+// ❌ Bad: Custom navigation item
+export function NavItem({ label, icon, selected }) {
+  return (
+    <div className={`flex items-center p-3 ${selected ? 'bg-blue-100' : ''}`}>
+      {icon}
+      <span>{label}</span>
+    </div>
+  )
+}
+
+// ✅ Good: Use Row component
+<Row 
+  label={label} 
+  icon={icon} 
+  selected={selected}
+/>
+```
+
+### ❌ **Don't Duplicate Form Logic**
+```tsx
+// ❌ Bad: Custom input with validation
+export function CustomInput({ value, onChange, error }) {
+  return (
+    <div>
+      <input 
+        value={value} 
+        onChange={onChange}
+        className={`border ${error ? 'border-red-500' : 'border-gray-300'}`}
+      />
+      {error && <span className="text-red-500">{error}</span>}
+    </div>
+  )
+}
+
+// ✅ Good: Use Input component
+<Input 
+  value={value} 
+  onChange={onChange}
+  className={cn(error && "border-[var(--input-border-error)]")}
+/>
+```
+
+## Summary Checklist
+
+Before creating any custom component, ask:
+
+1. **Is there a Spring UI component for this?** → Use it
+2. **Can I compose this from existing Spring UI components?** → Compose them
+3. **Do I need to extend an existing component?** → Extend it
+4. **Is this truly unique functionality?** → Only then create custom
+
+**Remember: Spring UI components are designed to be flexible and extensible. Always start with them and extend when needed.**
+description:
+globs:
+alwaysApply: false
+---
