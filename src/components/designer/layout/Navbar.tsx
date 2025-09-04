@@ -93,7 +93,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="flex h-[35px] items-center bg-[var(--bg-primary)] text-[var(--text-primary)] border-b border-[var(--border-default)] body-text pr-2">
+    <nav className="flex h-[40px] items-center bg-[var(--bg-primary)] text-[var(--text-primary)] border-b border-[var(--border-default)] body-text pr-2">
       {/* Logo/Home with Menu Dropdown */}
       <div className="flex items-center justify-center w-[35px] h-[35px] border-r border-[var(--border-default)]">
         <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>

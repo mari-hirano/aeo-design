@@ -64,7 +64,7 @@ const CanvasBar: React.FC = () => {
   };
 
   return (
-    <div className="h-9 bg-[var(--bg-secondary)] border-b border-[var(--border-default)] flex items-center justify-between px-2">
+    <div className="h-[40px] bg-[var(--bg-secondary)] border-b border-[var(--border-default)] flex items-center justify-between px-2">
       {/* Left side - Undo/Redo and Breadcrumbs */}
       <div className="flex items-center gap-2">
         {/* Undo/Redo buttons */}
@@ -72,24 +72,21 @@ const CanvasBar: React.FC = () => {
           <IconButton
             variant="ghost"
             size="comfortable"
-            className="h-6 w-6"
+            className="h-6 w-6 text-[var(--text-secondary)]"
             onClick={onUndo}
             aria-label="Undo"
           >
-            <UndoIcon size={16} className="text-[var(--text-secondary)]" />
+            <UndoIcon size={16} />
           </IconButton>
           <IconButton
             variant="ghost"
             size="comfortable"
-            className="h-6 w-6"
+            className={`h-6 w-6 ${isRedoDisabled ? 'opacity-40' : 'text-[var(--text-secondary)]'}`}
             onClick={onRedo}
             disabled={isRedoDisabled}
             aria-label="Redo"
           >
-            <RedoIcon 
-              size={16} 
-              className={`text-[var(--text-secondary)] ${isRedoDisabled ? 'opacity-40' : ''}`} 
-            />
+            <RedoIcon size={16} />
           </IconButton>
         </div>
 
@@ -151,7 +148,7 @@ const CanvasBar: React.FC = () => {
               className={`h-6 w-6 ${
                 currentBreakpoint === breakpoint.type 
                   ? 'bg-[var(--bg-tertiary)]' 
-                  : ''
+                  : 'text-[var(--text-secondary)]'
               }`}
               onClick={() => setCurrentBreakpoint(breakpoint.type)}
               aria-label={breakpoint.label}
