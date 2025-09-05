@@ -40,9 +40,14 @@ import {
   AnalyzeIcon,
   IntersectSquareIcon,
   SunMoonIcon,
-  WebflowIcon
+  WebflowIcon,
+  LogicPreviewIcon,
+  AnalyzePageIcon,
+  AISparkleIcon
 } from "@/icons"
 import { Button } from "@/components/spring-ui/button"
+import { IconButton } from "@/components/spring-ui/icon-button"
+import { AvatarGroup } from "@/components/spring-ui/avatar"
 import { usePages } from "@/context/PagesContext"
 
 // Type for navigation items
@@ -70,8 +75,8 @@ export function Navbar() {
   const navItems: NavItem[] = [
     {
       value: 'apps',
-      label: 'Apps',
-      icon: <IntersectSquareIcon size={16} className="opacity-70" />
+      label: 'App gen',
+      icon: <CodeIcon size={16} className="opacity-70" />
     },
     {
       value: 'cms',
@@ -93,7 +98,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="flex h-[35px] items-center bg-[var(--bg-primary)] text-[var(--text-primary)] border-b border-[var(--border-default)] body-text pr-2">
+    <nav className="flex h-[40px] items-center bg-[var(--bg-primary)] text-[var(--text-primary)] border-b border-[var(--border-default)] body-text pr-2">
       {/* Logo/Home with Menu Dropdown */}
       <div className="flex items-center justify-center w-[35px] h-[35px] border-r border-[var(--border-default)]">
         <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
@@ -263,28 +268,25 @@ export function Navbar() {
           <div className="flex items-center">
             <Button variant="ghost" size="comfortable" className="h-6">
               <OptimizeIcon size={16} className="opacity-70" />
-              <span>Optimize</span>
+              <span>Base site</span>
+              <ChevronSmallDownIcon size={16} className="opacity-70 ml-1" />
             </Button>
             
             <Button variant="ghost" size="comfortable" className="h-6 ml-1">
               <LocalizationIcon size={16} className="opacity-70" />
-              <span>English</span>
+              <span>EN</span>
+              <ChevronSmallDownIcon size={16} className="opacity-70 ml-1" />
             </Button>
             
             <div className="mx-2 h-4 border-r border-[var(--border-default)]"></div>
             
             <PageSelector />
-            
-            <Button variant="ghost" size="comfortable" className="h-6 ml-1">
-              <DesktopBreakpointIcon size={16} className="opacity-70" />
-              <span>Desktop</span>
-            </Button>
           </div>
         )}
       </div>
 
-      {/* Right side - Theme Switcher, Action buttons */}
-      <div className="flex items-center gap-1">
+      {/* Right side - Theme Switcher, Group Avatar, Action buttons */}
+      <div className="flex items-center gap-2">
         {/* Theme Switcher Button */}
         <Button 
           variant="ghost" 
@@ -299,14 +301,40 @@ export function Navbar() {
         <Button variant="ghost-success" size="icon" className="h-6 w-6">
           <CheckDefaultIcon size={16} className="text-[var(--text-green)]" />
         </Button>
-        <Button variant="ghost" size="icon" className="h-6 w-6">
-          <CommentIcon size={16} className="opacity-70" />
-        </Button>
+        
+        {/* Group Avatar - Show collaborators */}
+        <AvatarGroup 
+          avatars={[
+            { fallback: "JD" },
+            { fallback: "SM" },
+            { fallback: "AL" },
+            { fallback: "KR" }
+          ]}
+          max={2}
+          size="sm"
+          className="ml-1"
+        />
+        
+        <div className="flex items-center" style={{ gap: 'var(--space-xs)' }}>
+          <IconButton variant="ghost" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
+            <AISparkleIcon size={16} />
+          </IconButton>
+          <IconButton variant="ghost" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
+            <AnalyzePageIcon size={16} />
+          </IconButton>
+          <Button variant="ghost" size="icon" className="h-6 w-6">
+            <CommentIcon size={16} className="opacity-70" />
+          </Button>
+        </div>
+        <IconButton variant="outline" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
+          <LogicPreviewIcon size={16} />
+        </IconButton>
         <Button variant="outline" size="comfortable" className="h-6">
           Share
         </Button>
         <Button variant="default" size="comfortable" className="h-6">
           Publish
+          <ChevronSmallDownIcon size={16} className="ml-1" />
         </Button>
       </div>
     </nav>

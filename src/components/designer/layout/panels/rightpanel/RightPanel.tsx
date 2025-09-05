@@ -9,7 +9,6 @@ import InteractionsTabContent from './InteractionsTabContent';
 import { IconButton } from '@/components/spring-ui/icon-button';
 import { 
   MoreIcon,
-  AISparkleIcon,
   ElementDivIcon,
   ElementPlusComponentIcon
 } from '@/icons';
@@ -48,14 +47,6 @@ const RightPanel: React.FC = () => {
             className="h-6 w-6 text-[var(--text-secondary)]"
           >
             <ElementPlusComponentIcon size={16} />
-          </IconButton>
-          <IconButton 
-            variant="ghost" 
-            size="comfortable" 
-            aria-label="Element properties"
-            className="h-6 w-6 bg-[var(--purple-bg)]"
-          >
-            <AISparkleIcon size={16} style={{ color: 'var(--white)' }}/>
           </IconButton>
         </div>
       </div>
