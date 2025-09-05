@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import InsightsLeftSidebar from './InsightsLeftSidebar';
-import AnalyzeSiteOverview from './AnalyzeSiteOverview';
+import InsightsLeftSidebar from './insights/InsightsLeftSidebar';
+import AnalyzeSiteOverview from './insights/AnalyzeSiteOverview';
 
 export default function InsightsSection() {
   const [selectedSection, setSelectedSection] = useState("site-overview");
