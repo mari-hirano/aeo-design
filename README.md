@@ -19,9 +19,11 @@ src/
 │   ├── layout.tsx       # Root layout with providers
 │   └── globals.css      # Global styles
 ├── components/
-│   ├── LayoutContent.tsx    # Main layout wrapper
-│   ├── Navbar.tsx          # Top navigation bar
-│   └── LeftSidebar.tsx     # Left sidebar navigation
+│   ├── spring-ui/           # Spring Design System components
+│   ├── designer/            # Designer interface components
+│   │   ├── layout/          # Designer layout components
+│   │   └── sections/        # Layouts for App Gen, CMS, Insights...
+│   └── dashboard/           # Dashboard interface components
 ├── context/
 │   ├── ModeContext.tsx     # Mode switching context
 │   ├── NavigatorContext.tsx # Navigation state context
