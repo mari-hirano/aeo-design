@@ -315,15 +315,17 @@ export function Navbar() {
           className="ml-1"
         />
         
-        <IconButton variant="ghost" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
-          <AISparkleIcon size={16} />
-        </IconButton>
-        <IconButton variant="ghost" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
-          <AnalyzePageIcon size={16} />
-        </IconButton>
-        <Button variant="ghost" size="icon" className="h-6 w-6">
-          <CommentIcon size={16} className="opacity-70" />
-        </Button>
+        <div className="flex items-center" style={{ gap: 'var(--space-xs)' }}>
+          <IconButton variant="ghost" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
+            <AISparkleIcon size={16} />
+          </IconButton>
+          <IconButton variant="ghost" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
+            <AnalyzePageIcon size={16} />
+          </IconButton>
+          <Button variant="ghost" size="icon" className="h-6 w-6">
+            <CommentIcon size={16} className="opacity-70" />
+          </Button>
+        </div>
         <IconButton variant="outline" size="comfortable" className="h-6 w-6 text-[var(--text-secondary)]">
           <LogicPreviewIcon size={16} />
         </IconButton>
