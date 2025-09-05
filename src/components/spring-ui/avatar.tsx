@@ -114,7 +114,7 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
               fallback={avatar.fallback}
               size={size}
               className={cn(
-                "border-0",
+                "border-0 h-6 w-6",
                 index !== 0 && "relative"
               )}
             />
@@ -129,11 +129,12 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
               zIndex: 0 // Lowest z-index for the +N avatar
             }}
           >
-            <Avatar 
-              size={size}
-              className="border-0"
-              fallback={`+${remainingCount}`}
-            />
+            <div 
+              className="flex h-6 w-6 items-center justify-center rounded-full text-[var(--text-secondary)] body-text"
+              style={{ backgroundColor: 'var(--bg-tertiary)' }}
+            >
+              +{remainingCount}
+            </div>
           </div>
         )}
       </div>
