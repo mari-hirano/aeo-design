@@ -6,8 +6,6 @@ import { Input } from '@/components/spring-ui/input';
 import { Button } from '@/components/spring-ui/button';
 import { CMSCollection, CMSItem } from '../CMSSection';
 import { CheckboxIcon, CsvExportIcon, CsvImportIcon, FilterIcon, SettingsIcon } from '@/icons';
-import { CheckSquare } from 'lucide-react';
-import { Checkbox } from '@/components/spring-ui/checkbox';
 
 interface CMSTableProps {
   collection: CMSCollection | null;
@@ -65,7 +63,7 @@ export default function CMSTable({
           header: 'Name', 
           width: '100%',
           renderCell: (value, rowData) => (
-            <div className="font-medium text-[var(--text-primary)] truncate">
+            <div className="body-text text-[var(--text-primary)] truncate">
               {rowData.name}
             </div>
           )
@@ -135,7 +133,7 @@ export default function CMSTable({
         </div>
         
         {!isCompact && (
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-1 flex-shrink-0">
             <Input
               placeholder="Search items..."
               value={searchQuery}
@@ -181,7 +179,7 @@ export default function CMSTable({
               onClick={() => onItemSelect(item)}
               className={`
                 cursor-pointer transition-colors duration-200
-                ${selectedItem?.id === item.id ? 'bg-[var(--bg-accent)]' : 'hover:bg-[var(--bg-hover)]'}
+                ${selectedItem?.id === item.id ? 'bg-[var(--bg-raised)]' : 'hover:bg-[var(--bg-raised)]'}
               `}
             />
           ))}

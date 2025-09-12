@@ -95,7 +95,7 @@ const TableHeader = React.forwardRef<HTMLDivElement, TableHeaderProps>(
     return (
       <div
         className={cn(
-          "flex w-full bg-[var(--bg-secondary)] body-text-bold border-b border-[var(--border-default)]",
+          "flex w-full body-text-bold border-b border-[var(--border-default)] min-h-8",
           className
         )}
         ref={ref}
@@ -156,7 +156,7 @@ const TableRow = React.forwardRef<HTMLDivElement, TableRowProps>(
     return (
       <div
         className={cn(
-          "flex w-full border-b border-[var(--border-default)] last:border-b-0",
+          "flex w-full border-b border-[var(--border-default)] last:border-b-0 min-h-8",
           zebraStripes && isOdd && "bg-[var(--bg-raised)]",
           className
         )}

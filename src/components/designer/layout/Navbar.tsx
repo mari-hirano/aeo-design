@@ -251,7 +251,7 @@ export function Navbar() {
         {navItems.map((item) => (
           <Button 
             key={item.value}
-            variant={currentSection === item.value ? "default" : "ghost"}
+            variant={currentSection === item.value ? "subtle" : "ghost"}
             size="comfortable" 
             className={`h-6 ${currentSection === item.value ? 'bg-[var(--bg-raised)]' : ''}`}
             onClick={() => navigateTo(item.value)}
