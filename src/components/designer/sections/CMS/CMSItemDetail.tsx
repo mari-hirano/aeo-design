@@ -12,7 +12,7 @@ import {
   SelectValue 
 } from '@/components/spring-ui/select';
 import { IconButton } from '@/components/spring-ui/icon-button';
-import { XIcon } from '@/icons/XIcon';
+import { CloseDefaultIcon } from '@/icons';
 import { CMSCollection, CMSItem } from '../CMSSection';
 
 interface CMSItemDetailProps {
@@ -91,7 +91,7 @@ export default function CMSItemDetail({
           size="compact"
           variant="ghost"
         >
-          <XIcon size={16} />
+          <CloseDefaultIcon size={16} />
         </IconButton>
       </div>
 
@@ -101,7 +101,7 @@ export default function CMSItemDetail({
         <div className="space-y-4">
           <h4 className="text-sm font-medium text-[var(--text-primary)]">Basic Information</h4>
           
-          <div className="space-y-2">
+          <div className="space-y-2 flex flex-col">
             <label className="text-xs text-[var(--text-secondary)]">Name</label>
             <Input
               value={editedItem.name}
@@ -110,7 +110,7 @@ export default function CMSItemDetail({
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2 flex flex-col">
             <label className="text-xs text-[var(--text-secondary)]">Status</label>
             <Select
               value={editedItem.status}
@@ -119,7 +119,7 @@ export default function CMSItemDetail({
               <SelectTrigger>
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="px-4">
                 <SelectItem value="draft">Draft</SelectItem>
                 <SelectItem value="published">Published</SelectItem>
                 <SelectItem value="archived">Archived</SelectItem>
@@ -130,11 +130,11 @@ export default function CMSItemDetail({
 
         {/* Content Fields */}
         {editedItem.content && (
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col">
             <h4 className="text-sm font-medium text-[var(--text-primary)]">Content</h4>
             
             {Object.entries(editedItem.content).map(([key, value]) => (
-              <div key={key} className="space-y-2">
+              <div key={key} className="space-y-2 flex flex-col">
                 <label className="text-xs text-[var(--text-secondary)] capitalize">
                   {key.replace(/([A-Z])/g, ' $1').trim()}
                 </label>
@@ -162,19 +162,19 @@ export default function CMSItemDetail({
           <h4 className="text-sm font-medium text-[var(--text-primary)]">Metadata</h4>
           
           <div className="grid grid-cols-2 gap-4 text-xs">
-            <div>
+            <div className="flex flex-col gap-0.5">
               <span className="text-[var(--text-secondary)]">Created</span>
               <div className="text-[var(--text-primary)]">
                 {formatDate(editedItem.createdDate)}
               </div>
             </div>
-            <div>
+            <div className="flex flex-col gap-0.5">
               <span className="text-[var(--text-secondary)]">Modified</span>
               <div className="text-[var(--text-primary)]">
                 {formatDate(editedItem.modifiedDate)}
               </div>
             </div>
-            <div className="col-span-2">
+            <div className="col-span-2 flex flex-col gap-0.5">
               <span className="text-[var(--text-secondary)]">Published</span>
               <div className="text-[var(--text-primary)]">
                 {formatDate(editedItem.publishedDate)}

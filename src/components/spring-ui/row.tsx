@@ -65,16 +65,18 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
     return (
       <div
         className={cn(
-          "relative w-full flex items-center",
+          "relative w-full flex items-center min-h-8",
           "[.theme-designer_&]:px-2 [.theme-dashboard_&]:px-3",
           {
                           "[.theme-designer_&]:py-1 [.theme-dashboard_&]:py-2": size === "compact",
               "[.theme-designer_&]:py-2 [.theme-dashboard_&]:py-3.5": size === "comfort"
           },
-          selected && "bg-[var(--bg-raised)] rounded",
-          "hover:bg-[var(--bg-raised)] hover:rounded",
+          "rounded",
+          selected && "bg-[var(--bg-raised)]",
+          "hover:bg-[var(--bg-raised)]",
           "transition-colors duration-100",
           "cursor-default",
+          "will-change-auto",
           topDivider && "border-t border-t-[var(--border-default)]",
           bottomDivider && "border-b border-b-[var(--border-default)]",
           className
@@ -102,7 +104,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
             </div>
           )}
           
-          {/* Icon */}
+          {/* Icon */} 
           {icon && (
             <div className="flex items-center text-[var(--text-secondary)] [.theme-designer_&]:mr-1 [.theme-dashboard_&]:mr-2">
               {icon}
@@ -110,12 +112,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>(
           )}
           
           {/* Content */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center">
-              <span className={cn(
-                "text-[var(--text-primary)] truncate",
-                variant === "header" ? "body-text-bold" : "body-text"
-              )}>{label}</span>
+          <div className="flex-1 min-w-0 ">
+            <div className="flex items-baseline">
+              {label}
               {meta && (
                 <span className="ml-1 text-[var(--text-secondary)] truncate body-text">{meta}</span>
               )}

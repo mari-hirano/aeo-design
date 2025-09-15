@@ -26,7 +26,7 @@ export default function InsightsLeftSidebar({ selectedSection, onSectionChange }
       </div>
 
       {/* Navigation Items */}
-      <div className="flex flex-col pb-2">
+      <div className="flex flex-col pb-2 gap-0.5">
         <Row 
           label="Site overview" 
           icon={<TemplatesIcon size={16} />}

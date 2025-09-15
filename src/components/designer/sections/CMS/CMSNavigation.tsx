@@ -29,7 +29,7 @@ export default function CMSNavigation({
     <div className="w-[248px] h-full bg-[var(--bg-primary)] border-r border-[var(--border-default)] flex flex-col">
       {/* Header */}
       <div className="h-10 px-2 flex items-center">
-        <h2 className="title-text-bold text-[var(--text-primary)]">CMS Collections</h2>
+        <h2 className="title-text-bold text-[var(--text-primary)] px-2">CMS Collections</h2>
       </div>
       
       <div className="flex-1 overflow-y-auto">
@@ -44,7 +44,7 @@ export default function CMSNavigation({
               onMouseEnter={() => setHoveredCollection(collection.id)}
               onMouseLeave={() => setHoveredCollection(null)}
               className={`
-                cursor-pointer transition-colors duration-200 group
+                cursor-pointer transition-colors duration-200 group px-2 py-0.5
                 ${isSelected ? 'bg-[var(--bg-accent)]' : 'hover:bg-[var(--bg-hover)]'}
               `}
             >
