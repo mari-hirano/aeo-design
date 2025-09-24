@@ -6,7 +6,14 @@ import { Tag } from '@/components/spring-ui/tag';
 import { IconButton } from '@/components/spring-ui/icon-button';
 import { Textarea } from '@/components/spring-ui/textarea';
 import { Link } from '@/components/spring-ui/link';
-import { AddIcon, ArrowRightIcon, TabNewIcon } from '@/icons';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger,
+  DropdownMenuSeparator 
+} from '@/components/spring-ui/dropdown-menu';
+import { AddIcon, ArrowRightIcon, TabNewIcon, CMSDefaultIcon, ElementComponentIcon, VariableIcon } from '@/icons';
 
 export default function AppsEmptyState() {
   return (
@@ -39,9 +46,27 @@ export default function AppsEmptyState() {
                   className="h-[140px] pl-10 pr-20"
                 />
                 <div className="absolute bottom-2 left-2">
-                  <IconButton variant="ghost" size="comfortable" className="bg-[var(--bg-raised)]">
-                    <AddIcon size={16} />
-                  </IconButton>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <IconButton variant="ghost" size="comfortable" className="bg-[var(--bg-raised)]">
+                        <AddIcon size={16} />
+                      </IconButton>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="w-48">
+                      <DropdownMenuItem>
+                        <CMSDefaultIcon size={16} className="mr-2" />
+                        CMS
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <ElementComponentIcon size={16} className="mr-2" />
+                        Components
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <VariableIcon size={16} className="mr-2" />
+                        Variables
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
                 <div className="absolute bottom-2 right-2">
                   <IconButton 
