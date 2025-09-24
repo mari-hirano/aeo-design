@@ -5,7 +5,8 @@ import { Button } from '@/components/spring-ui/button';
 import { Tag } from '@/components/spring-ui/tag';
 import { IconButton } from '@/components/spring-ui/icon-button';
 import { Textarea } from '@/components/spring-ui/textarea';
-import { AddIcon, ArrowRightIcon } from '@/icons';
+import { Link } from '@/components/spring-ui/link';
+import { AddIcon, ArrowRightIcon, TabNewIcon } from '@/icons';
 
 export default function AppsEmptyState() {
   return (
@@ -53,10 +54,10 @@ export default function AppsEmptyState() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify">
-              <Button variant="ghost" className="text-[var(--blue-text)]">
+            <div className="flex">
+              <Link variant="primary" href="#" suffixIcon={<TabNewIcon size={16} />}>
                 Learn more about App gen
-              </Button>
+              </Link>
             </div>
           </div>
         </div>
