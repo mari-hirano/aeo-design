@@ -1,31 +1,35 @@
 "use client";
 
 import React from 'react';
-import { Button } from '@/components/spring-ui/button';
 import { IconButton } from '@/components/spring-ui/icon-button';
 import { Row } from '@/components/spring-ui/row';
-import { AddIcon, ChevronLargeRightIcon } from '@/icons';
+import { AddIcon } from '@/icons';
 
-export default function AppExpandedLeftPanel() {
+interface AppExpandedLeftPanelProps {
+  onRowClick?: (rowLabel: string) => void;
+}
+
+export default function AppExpandedLeftPanel({ onRowClick }: AppExpandedLeftPanelProps) {
   return (
-    <div className="bg-[var(--bg-primary)] w-[280px] h-full border-r border-[var(--border-default)]">
+    <div className="bg-[var(--bg-primary)] w-[280px] h-full border-r border-[var(--border-default)] p-1">
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-2 h-10 border-b border-[var(--border-default)]">
+        <div className="flex items-center justify-between px-3 py-2 h-10 rounded-[var(--radius-md)]">
           <h2 className="title-text-bold text-[var(--text-primary)]">Apps</h2>
-          <IconButton variant="ghost" size="comfortable">
+          <IconButton variant="ghost" size="icon" className="rounded-[var(--radius-md)]">
             <AddIcon size={16} />
           </IconButton>
         </div>
 
         {/* Content */}
-        <div className="flex flex-col p-2 flex-1">
+        <div className="mt-1 flex flex-col flex-1 space-y-1">
           {/* Selected App Item */}
           <Row
             label="New app"
             selected={true}
             showChevron={true}
             size="comfort"
+            className="rounded-[var(--radius-md)] shadow-none hover:shadow-none"
           />
 
           {/* Other App Items */}
@@ -33,11 +37,15 @@ export default function AppExpandedLeftPanel() {
             label="Checklist"
             meta="/todo"
             size="comfort"
+            className="rounded-[var(--radius-md)] shadow-none hover:shadow-none"
+            onClick={() => onRowClick?.('Checklist')}
           />
           <Row
             label="Beta signup"
             meta="/beta-signup"
             size="comfort"
+            className="rounded-[var(--radius-md)] shadow-none hover:shadow-none"
+            onClick={() => onRowClick?.('Beta signup')}
           />
         </div>
       </div>

@@ -15,7 +15,11 @@ import {
 } from '@/components/spring-ui/dropdown-menu';
 import { AddIcon, ArrowRightIcon, TabNewIcon, CMSDefaultIcon, ElementComponentIcon, VariableIcon } from '@/icons';
 
-export default function AppsEmptyState() {
+interface AppsEmptyStateProps {
+  onSubmit?: () => void;
+}
+
+export default function AppsEmptyState({ onSubmit }: AppsEmptyStateProps) {
   return (
     <div className="flex-1 bg-[var(--bg-primary)] flex items-center justify-center px-18">
       <div className="max-w-[540px] w-full">
@@ -68,15 +72,16 @@ export default function AppsEmptyState() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
-                <div className="absolute bottom-2 right-2">
-                  <IconButton 
-                    variant="ghost" 
-                    size="comfortable" 
-                    className="bg-[rgba(0,125,240,0.25)]"
-                  >
-                    <ArrowRightIcon size={16} />
-                  </IconButton>
-                </div>
+                        <div className="absolute bottom-2 right-2">
+                          <IconButton 
+                            variant="ghost" 
+                            size="comfortable" 
+                            className="bg-[rgba(0,125,240,0.25)]"
+                            onClick={onSubmit}
+                          >
+                            <ArrowRightIcon size={16} />
+                          </IconButton>
+                        </div>
               </div>
             </div>
             <div className="flex">
