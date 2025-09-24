@@ -1,0 +1,66 @@
+"use client";
+
+import React from 'react';
+import { Button } from '@/components/spring-ui/button';
+import { Tag } from '@/components/spring-ui/tag';
+import { IconButton } from '@/components/spring-ui/icon-button';
+import { Textarea } from '@/components/spring-ui/textarea';
+import { AddIcon, ArrowRightIcon } from '@/icons';
+
+export default function AppsEmptyState() {
+  return (
+    <div className="flex-1 bg-[var(--bg-primary)] flex items-center justify-center px-18">
+      <div className="max-w-[540px] w-full">
+        <div className="flex flex-col gap-8">
+          {/* Header Section */}
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
+                <h1 className="text-[60px] font-semibold text-[var(--text-primary)] leading-[1.04] tracking-[0.6px]">
+                  App gen
+                </h1>
+              </div>
+              <p className="text-[14px] text-[var(--text-secondary)] leading-[1.65]">
+                Generate, customize, and publish an app — all in Webflow.
+              </p>
+            </div>
+          </div>
+
+          {/* Input Section */}
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
+              <p className="body-text text-[var(--text-primary)]">
+                What would you like to create?
+              </p>
+              <div className="relative">
+                <Textarea
+                  placeholder="Build an interactive pricing estimator. Let users choose a plan, add-ons, and billing cycle and show real-time cost updates."
+                  className="h-[140px] pl-10 pr-20"
+                />
+                <div className="absolute bottom-2 left-2">
+                  <IconButton variant="ghost" size="comfortable" className="bg-[var(--bg-raised)]">
+                    <AddIcon size={16} />
+                  </IconButton>
+                </div>
+                <div className="absolute bottom-2 right-2">
+                  <IconButton 
+                    variant="ghost" 
+                    size="comfortable" 
+                    className="bg-[rgba(0,125,240,0.25)]"
+                  >
+                    <ArrowRightIcon size={16} />
+                  </IconButton>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify">
+              <Button variant="ghost" className="text-[var(--blue-text)]">
+                Learn more about App gen
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

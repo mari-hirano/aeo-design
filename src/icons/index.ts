@@ -145,6 +145,7 @@ export {ArrowDownLeftIcon} from './ArrowDownLeftIcon';
 export {ArrowDownRightIcon} from './ArrowDownRightIcon';
 export {ArrowLeftIcon} from './ArrowLeftIcon';
 export {ArrowReverseIcon} from './ArrowReverseIcon';
+export {ArrowRightIcon} from './ArrowRightIcon';
 export {ArrowSolidDownIcon} from './ArrowSolidDownIcon';
 export {ArrowSolidLeftIcon} from './ArrowSolidLeftIcon';
 export {ArrowSolidRightIcon} from './ArrowSolidRightIcon';
