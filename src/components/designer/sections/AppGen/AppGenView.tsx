@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import LeftPanel from './LeftPanel';
+import LeftSidebar from './LeftSidebar';
 import CanvasBar from './CanvasBar';
 import CodeSection from './CodeSection';
 import RightPanel from './RightPanel';
@@ -12,7 +12,7 @@ export default function AppGenView() {
   return (
     <div className="flex h-full bg-[var(--bg-primary)]">
       {/* Left Panel */}
-      <LeftPanel />
+      <LeftSidebar />
       
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">

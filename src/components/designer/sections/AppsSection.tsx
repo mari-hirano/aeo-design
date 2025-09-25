@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import AppsEmptyState from './AppGen/AppsEmptyState';
-import AppExpandedLeftPanel from './AppGen/AppExpandedLeftPanel';
+import AppsEmptyState from './AppGen/empty-state/AppsEmptyState';
+import AppExpandedLeftPanel from './AppGen/empty-state/AppExpandedLeftPanel';
 import AppGenView from './AppGen/AppGenView';
 
 export default function AppsSection() {

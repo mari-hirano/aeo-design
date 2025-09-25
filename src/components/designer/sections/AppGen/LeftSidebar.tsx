@@ -42,7 +42,7 @@ const footerItems: ToolbarItem[] = [
 const BUTTON_BASE_STYLES =
   'group w-8 h-8 flex items-center justify-center rounded transition-colors duration-150 text-[var(--text-secondary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)]';
 
-export default function LeftPanel() {
+export default function LeftSidebar() {
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
   const renderToolbarButton = (item: ToolbarItem) => {

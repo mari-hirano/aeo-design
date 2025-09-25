@@ -5,11 +5,11 @@ import { IconButton } from '@/components/spring-ui/iconButton';
 import { Row } from '@/components/spring-ui/row';
 import { AddIcon } from '@/icons';
 
-interface AppExpandedLeftPanelProps {
+interface AppExpandedLeftSidebarProps {
   onRowClick?: (rowLabel: string) => void;
 }
 
-export default function AppExpandedLeftPanel({ onRowClick }: AppExpandedLeftPanelProps) {
+export default function AppExpandedLeftSidebar({ onRowClick }: AppExpandedLeftSidebarProps) {
   return (
     <div className="bg-[var(--bg-primary)] w-[280px] h-full border-r border-[var(--border-default)] px-2 pb-2">
       <div className="flex flex-col h-full">
