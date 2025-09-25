@@ -74,9 +74,8 @@ export default function AppsEmptyState({ onSubmit }: AppsEmptyStateProps) {
                 </div>
                         <div className="absolute bottom-2 right-2">
                           <IconButton 
-                            variant="ghost" 
+                            variant="subtle-primary" 
                             size="comfortable" 
-                            className="bg-[rgba(0,125,240,0.25)]"
                             onClick={onSubmit}
                           >
                             <ArrowRightIcon size={16} />
