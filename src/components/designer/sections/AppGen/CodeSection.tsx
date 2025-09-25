@@ -1,20 +1,89 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Button } from '@/components/spring-ui/button';
 import { IconButton } from '@/components/spring-ui/iconButton';
-import { 
+import { TabBar, TabBarItem } from '@/components/spring-ui/tab-bar';
+import {
   ChevronSmallRightIcon,
   ChevronSmallDownIcon,
   CodeIcon,
   PreviewIcon,
   ArrowRightIcon,
-  SettingsIcon
+  SettingsIcon,
+  ChevronSmallUpIcon,
+  EasingPlayIcon,
+  EasingPauseIcon,
+  DownloadIcon,
+  CopyIcon
 } from '@/icons';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 
-export default function CodeSection() {
+const FOOTER_COLLAPSED_HEIGHT = 48;
+const FOOTER_EXPANDED_HEIGHT = 240;
+
+interface FooterBarProps {
+  rightOffset: number;
+}
+
+function FooterBar({ rightOffset }: FooterBarProps) {
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState<'dev-server' | 'terminal' | 'deployment'>('dev-server');
+  const logs = useMemo(
+    () => Array.from({ length: 18 }, (_, index) => `> Log entry ${index + 1}: Code generation output...`),
+    []
+  );
+
+  return (
+    <div
+      className="fixed bottom-0 border-t border-[var(--border-default)] bg-[var(--bg-primary)] transition-[height] duration-300 ease-out"
+      style={{
+        height: expanded ? FOOTER_EXPANDED_HEIGHT : FOOTER_COLLAPSED_HEIGHT,
+        left: '40px',
+        right: `${rightOffset}px`
+      }}
+    >
+      <div className="h-12 px-4 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4 flex-1 min-w-0">
+          <TabBar
+            value={activeTab}
+            onValueChange={(value) => setActiveTab(value as typeof activeTab)}
+            fullWidth={false}
+            className="w-fit border-b-0"
+          >
+            <TabBarItem value="dev-server">Dev Server</TabBarItem>
+            <TabBarItem value="terminal">Terminal</TabBarItem>
+            <TabBarItem value="deployment">Deployment</TabBarItem>
+          </TabBar>
+        </div>
+
+        <IconButton
+          variant="ghost"
+          size="comfortable"
+          aria-label={expanded ? 'Collapse footer bar' : 'Expand footer bar'}
+          onClick={() => setExpanded((prev) => !prev)}
+        >
+          {expanded ? <ChevronSmallDownIcon size={16} /> : <ChevronSmallUpIcon size={16} />}
+        </IconButton>
+      </div>
+
+      {expanded && (
+        <div className="px-4 pb-3">
+          <div className="bg-[var(--bg-tertiary)] border border-[var(--border-default)] rounded-[var(--radius-md)] overflow-hidden font-mono text-xs leading-relaxed text-[var(--text-secondary)]">
+            <div className="max-h-[168px] overflow-auto px-3 py-2 space-y-1">
+              {logs.map((entry, index) => (
+                <div key={index}>{entry}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function CodeSection({ rightPanelOpen = true, rightPanelWidth = 320 }: { rightPanelOpen?: boolean; rightPanelWidth?: number }) {
   const [activeTab, setActiveTab] = useState('code');
   const [isExpanded, setIsExpanded] = useState(true);
 
@@ -39,7 +108,7 @@ const PricingCalculator = () => {
 
   const calculateTotal = () => {
     const basePrice = plans[selectedPlan][billingCycle];
-    const addOnPrice = addOns.length * 10;
+    const addOnPrice = addOns length * 10;
     return basePrice + addOnPrice;
   };
 
@@ -78,6 +147,7 @@ export default PricingCalculator;`;
           )}
         </Highlight>
       </div>
+      <FooterBar rightOffset={rightPanelOpen ? rightPanelWidth : 0} />
     </div>
   );
 }

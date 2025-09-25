@@ -23,7 +23,10 @@ export default function AppGenView() {
         />
         
         {/* Code Section */}
-        <CodeSection />
+        <CodeSection
+          rightPanelOpen={isAssistantOpen}
+          rightPanelWidth={320}
+        />
       </div>
       
       {/* Right Panel */}
