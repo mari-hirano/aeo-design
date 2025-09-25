@@ -3,7 +3,7 @@
 import React from 'react';
 import { Button } from '@/components/spring-ui/button';
 import { Tag } from '@/components/spring-ui/tag';
-import { IconButton } from '@/components/spring-ui/icon-button';
+import { IconButton } from '@/components/spring-ui/iconButton';
 import { Textarea } from '@/components/spring-ui/textarea';
 import { Link } from '@/components/spring-ui/link';
 import { 

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { IconButton } from '@/components/spring-ui/icon-button';
+import { IconButton } from '@/components/spring-ui/iconButton';
 import { Row } from '@/components/spring-ui/row';
 import { AddIcon } from '@/icons';
 

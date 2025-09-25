@@ -46,7 +46,7 @@ import {
   AISparkleIcon
 } from "@/icons"
 import { Button } from "@/components/spring-ui/button"
-import { IconButton } from "@/components/spring-ui/icon-button"
+import { IconButton } from "@/components/spring-ui/iconButton"
 import { AvatarGroup } from "@/components/spring-ui/avatar"
 import { usePages } from "@/context/PagesContext"
 

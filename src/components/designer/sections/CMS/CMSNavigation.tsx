@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Row } from '@/components/spring-ui/row';
 import { SettingsIcon } from '@/icons/SettingsIcon';
-import { IconButton } from '@/components/spring-ui/icon-button';
+import { IconButton } from '@/components/spring-ui/iconButton';
 import { CMSCollection } from '../CMSSection';
 
 interface CMSNavigationProps {

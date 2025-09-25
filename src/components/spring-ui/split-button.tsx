@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button, buttonVariants } from "@/components/spring-ui/button";
-import { IconButton } from "@/components/spring-ui/icon-button";
+import { IconButton } from "@/components/spring-ui/iconButton";
 import { 
   DropdownMenu,
   DropdownMenuTrigger,
