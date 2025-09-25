@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Row } from '@/components/spring-ui/row';
-import { IconButton } from '@/components/spring-ui/icon-button';
+import { IconButton } from '@/components/spring-ui/iconButton';
 import { 
   CloseDefaultIcon,
   TemplatesIcon,

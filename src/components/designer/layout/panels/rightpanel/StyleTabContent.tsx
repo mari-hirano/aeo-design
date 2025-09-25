@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/spring-ui/button';
 import { Checkbox } from '@/components/spring-ui/checkbox';
 import { SegmentedControl, SegmentedControlItem } from '@/components/spring-ui/segmented-control';
-import { IconButton } from '@/components/spring-ui/icon-button';
+import { IconButton } from '@/components/spring-ui/iconButton';
 import { 
   TextAlignLeftIcon, 
   TextAlignCenterIcon, 

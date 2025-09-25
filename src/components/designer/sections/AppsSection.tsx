@@ -1,12 +1,29 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
+import AppsEmptyState from './AppGen/empty-state/AppsEmptyState';
+import AppExpandedLeftPanel from './AppGen/empty-state/AppExpandedLeftPanel';
+import AppGenView from './AppGen/AppGenView';
 
 export default function AppsSection() {
+  const [currentView, setCurrentView] = useState<'empty' | 'app-gen'>('empty');
+
+  const handleRowClick = (rowLabel: string) => {
+    setCurrentView('app-gen');
+  };
+
+  const handleSubmit = () => {
+    setCurrentView('app-gen');
+  };
+
+  if (currentView === 'app-gen') {
+    return <AppGenView />;
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center h-full text-white p-4">
-      <h1 className="text-2xl font-bold mb-4">Apps</h1>
-      <p className="text-gray-400">Manage your application integrations here</p>
+    <div className="flex h-full">
+      <AppExpandedLeftPanel onRowClick={handleRowClick} />
+      <AppsEmptyState onSubmit={handleSubmit} />
     </div>
   );
 } 

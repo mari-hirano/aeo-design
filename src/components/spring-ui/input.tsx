@@ -23,7 +23,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "body-text",
             "bg-[var(--input-bg)] border-[var(--input-border)]",
             "shadow-[0px_0px_0px_0.5px_rgba(0,0,0,0.05),0px_16px_16px_-16px_rgba(0,0,0,0.01)_inset,0px_12px_12px_-12px_rgba(0,0,0,0.01)_inset,0px_8px_8px_-8px_rgba(0,0,0,0.02)_inset,0px_4px_4px_-4px_rgba(0,0,0,0.03)_inset,0px_3px_3px_-3px_rgba(0,0,0,0.06)_inset,0px_1px_1px_-1px_rgba(0,0,0,0.25)_inset] dark:shadow-[0px_1px_1px_-1px_rgba(0,0,0,0.2)_inset,0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset]",
-            "focus:outline-none focus-visible:border-[var(--input-border-focus)]",
+            "focus:outline-none focus-visible:border-[var(--focus-outline-default)]",
             "hover:border-[var(--input-border-hover)]",
             "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-[var(--input-disabled-bg)]",
             "placeholder:text-[var(--input-placeholder)]",

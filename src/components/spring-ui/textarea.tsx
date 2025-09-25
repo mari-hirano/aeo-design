@@ -13,7 +13,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           "flex w-full rounded-[4px] border border-solid",
           "body-text",
           "bg-[var(--input-bg)] border-[var(--input-border)]",
-          "focus:outline-none focus-visible:border-[var(--input-border-focus)]",
+          "focus:outline-none focus-visible:border-[var(--focus-outline-default)]",
           "hover:border-[var(--input-border-hover)]",
           "disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-[var(--input-disabled-bg)]",
           "placeholder:text-[var(--input-placeholder)]",

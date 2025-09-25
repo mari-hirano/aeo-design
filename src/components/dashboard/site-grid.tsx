@@ -2,7 +2,7 @@
 
 import { SiteCard } from "./site-card";
 import { Button } from "@/components/spring-ui/button";
-import { IconButton } from "@/components/spring-ui/icon-button";
+import { IconButton } from "@/components/spring-ui/iconButton";
 import { Badge } from "@/components/spring-ui/badge";
 import { Input } from "@/components/spring-ui/input";
 import { SegmentedControl, SegmentedControlItem } from "@/components/spring-ui/segmented-control";

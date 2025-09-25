@@ -11,7 +11,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '@/components/spring-ui/select';
-import { IconButton } from '@/components/spring-ui/icon-button';
+import { IconButton } from '@/components/spring-ui/iconButton';
 import { CloseDefaultIcon } from '@/icons';
 import { CMSCollection, CMSItem } from '../CMSSection';
 

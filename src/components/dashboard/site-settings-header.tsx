@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/spring-ui/badge";
 import { Button } from "@/components/spring-ui/button";
-import { IconButton } from "@/components/spring-ui/icon-button";
+import { IconButton } from "@/components/spring-ui/iconButton";
 import { Input } from "@/components/spring-ui/input";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/spring-ui/dropdown-menu";
 import { SegmentedControl, SegmentedControlItem } from "@/components/spring-ui/segmented-control";

@@ -133,7 +133,7 @@
     font-size: var(--font-size-sm);
     line-height: var(--line-height-tight);
     letter-spacing: -0.01em;
-    color: var(--text-primary);
+    color: inherit;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
@@ -143,7 +143,7 @@
     font-size: var(--font-size-sm);
     line-height: var(--line-height-tight);
     letter-spacing: 0;
-    color: var(--text-primary);
+    color: inherit;
     font-weight: 600;
     -webkit-font-smoothing: antialiased;
   }

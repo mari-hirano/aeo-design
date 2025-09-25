@@ -6,7 +6,7 @@ import { TabBar, TabBarItem } from '@/components/spring-ui/tab-bar';
 import StyleTabContent from './StyleTabContent';
 import SettingsTabContent from './SettingsTabContent';
 import InteractionsTabContent from './InteractionsTabContent';
-import { IconButton } from '@/components/spring-ui/icon-button';
+import { IconButton } from '@/components/spring-ui/iconButton';
 import { 
   MoreIcon,
   ElementDivIcon,
