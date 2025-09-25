@@ -100,7 +100,7 @@ export function Navbar() {
   return (
     <nav className="flex h-[40px] items-center bg-[var(--bg-primary)] text-[var(--text-primary)] border-b border-[var(--border-default)] body-text pr-2">
       {/* Logo/Home with Menu Dropdown */}
-      <div className="flex items-center justify-center w-[35px] h-[35px] border-r border-[var(--border-default)]">
+      <div className="flex items-center justify-center w-10 h-[40px]">
         <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
           <DropdownMenuTrigger asChild>
             <div 
@@ -184,7 +184,7 @@ export function Navbar() {
       </div>
       
       {/* Left side - Top level navigation */}
-      <div className="flex items-center ml-2 space-x-1">
+      <div className="flex items-center ml-1 space-x-1">
         {/* Design button/dropdown - behaves differently based on current section */}
         {currentSection === 'home' ? (
           <DropdownMenu>

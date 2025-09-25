@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { CodeIcon, Navigator24Icon, CapabilityVariable24Icon, SettingsIcon } from '@/icons';
+import { WebApp24Icon, Navigator24Icon, CapabilityVariable24Icon, SettingsIcon } from '@/icons';
 import Tooltip from '@/components/spring-ui/tooltip';
 
 type ToolbarItem = {
@@ -14,7 +14,7 @@ const primaryItems: ToolbarItem[] = [
   {
     id: 'code',
     label: 'Code',
-    icon: CodeIcon
+    icon: WebApp24Icon
   },
   {
     id: 'structure',
@@ -77,7 +77,7 @@ export default function LeftPanel() {
   };
 
   return (
-    <div className="relative h-full w-[40px] bg-[var(--bg-primary)] border-r border-[var(--border-default)] flex-shrink-0 left-sidebar">
+    <div className="relative h-full w-10 bg-[var(--bg-primary)] border-r border-[var(--border-default)] flex-shrink-0 left-sidebar">
       <div className="flex h-full flex-col items-center py-1 px-1">
         <div className="flex flex-col items-center gap-2">
           {primaryItems.map(renderToolbarButton)}

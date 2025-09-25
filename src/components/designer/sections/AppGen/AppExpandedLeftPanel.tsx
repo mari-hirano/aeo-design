@@ -11,10 +11,10 @@ interface AppExpandedLeftPanelProps {
 
 export default function AppExpandedLeftPanel({ onRowClick }: AppExpandedLeftPanelProps) {
   return (
-    <div className="bg-[var(--bg-primary)] w-[280px] h-full border-r border-[var(--border-default)] p-1">
+    <div className="bg-[var(--bg-primary)] w-[280px] h-full border-r border-[var(--border-default)] px-2 pb-2">
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="flex items-center justify-between px-3 py-2 h-10 rounded-[var(--radius-md)]">
+        <div className="flex items-center justify-between h-10 px-2 py-2 border-[var(--border-default)]">
           <h2 className="title-text-bold text-[var(--text-primary)]">Apps</h2>
           <IconButton variant="ghost" size="icon" className="rounded-[var(--radius-md)]">
             <AddIcon size={16} />

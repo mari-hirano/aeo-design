@@ -171,10 +171,9 @@ export default function RightPanel({ onClose }: RightPanelProps) {
                   </IconButton>
 
                   <IconButton
-                    variant="primary"
+                    variant="subtle-primary"
                     size="comfortable"
                     aria-label="Send message"
-                    className="bg-[var(--action-primary-bg)] hover:bg-[var(--action-primary-bg-hover)] disabled:opacity-60"
                     onClick={handleSendMessage}
                     disabled={!draftMessage.trim()}
                   >

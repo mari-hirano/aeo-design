@@ -997,6 +997,7 @@ export {WebflowLogoFullIcon} from './WebflowLogoFullIcon';
 export {WebhooksIcon} from './WebhooksIcon';
 export {XIcon} from './XIcon';
 export {YouTubeIcon} from './YouTubeIcon';
+export {WebApp24Icon} from './WebApp24Icon';
 export {YoutubeAdd64Icon} from './YoutubeAdd64Icon';
 export {ZoomInIcon} from './ZoomInIcon';
 export {ZoomOutIcon} from './ZoomOutIcon';
