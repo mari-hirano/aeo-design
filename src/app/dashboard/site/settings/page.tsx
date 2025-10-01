@@ -210,7 +210,9 @@ export default function SiteSettingsPage() {
       renderHeader: () => (
         <div className="flex items-center gap-1">
           <span>CMS edit access</span>
-          <InfoIcon className="text-[var(--text-secondary)]" size={16} />
+          <div className="text-[var(--text-secondary)]">
+            <InfoIcon size={16} />
+          </div>
         </div>
       ),
       renderCell: (value: any, rowData: UserData) => {
@@ -222,10 +224,9 @@ export default function SiteSettingsPage() {
             variant="default"
             className={isDisabled ? "opacity-50" : ""}
             prefixIcon={
-              <CMSDefaultIcon 
-                className="text-[var(--text-secondary)]" 
-                size={16} 
-              />
+              <div className="text-[var(--text-secondary)]">
+                <CMSDefaultIcon size={16} />
+              </div>
             }
           >
             {rowData.cmsAccess === "all" ? "All" : 
@@ -240,9 +241,9 @@ export default function SiteSettingsPage() {
       header: "",
       width: "64px",
       renderCell: (value: any, rowData: UserData) => (
-        <div className="flex justify-end">
-          <IconButton variant="ghost" size="comfortable">
-            <MoreIcon className="text-[var(--text-secondary)]" size={16} />
+        <div className="flex justify-end items-center h-full">
+          <IconButton variant="ghost" size="comfortable" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+            <MoreIcon size={16} />
           </IconButton>
         </div>
       )
@@ -269,13 +270,17 @@ export default function SiteSettingsPage() {
                   <SelectContent>
                     <SelectItem value="admins-only">
                       <div className="flex items-center gap-2">
-                        <LockIcon className="text-[var(--text-secondary)]" size={16} />
+                        <div className="text-[var(--text-secondary)]">
+                          <LockIcon size={16} />
+                        </div>
                         <span>Only admins and added users can view</span>
                       </div>
                     </SelectItem>
                     <SelectItem value="everyone">
                       <div className="flex items-center gap-2">
-                        <UsersIcon className="text-[var(--text-secondary)]" size={16} />
+                        <div className="text-[var(--text-secondary)]">
+                          <UsersIcon size={16} />
+                        </div>
                         <span>Everyone in the workspace can view</span>
                       </div>
                     </SelectItem>
