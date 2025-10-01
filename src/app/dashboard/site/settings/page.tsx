@@ -11,6 +11,7 @@ import { Tag } from "@/components/spring-ui/tag";
 import { IconButton } from "@/components/spring-ui/iconButton";
 import { MoreIcon } from "@/icons/MoreIcon";
 import { InfoIcon } from "@/icons/InfoIcon";
+import { CMSDefaultIcon } from "@/icons/CMSDefaultIcon";
 
 // User data type
 interface UserData {
@@ -189,6 +190,12 @@ export default function SiteSettingsPage() {
             shape="rounded"
             variant="default"
             className={isDisabled ? "opacity-50" : ""}
+            prefixIcon={
+              <CMSDefaultIcon 
+                className="text-[var(--text-secondary)]" 
+                size={16} 
+              />
+            }
           >
             {rowData.cmsAccess === "all" ? "All" : 
              rowData.cmsAccess === "none" ? "None" : 
