@@ -6,12 +6,13 @@ import { SiteSettingsHeader } from "@/components/dashboard/site-settings-header"
 import { useState } from "react";
 import { Table, TableHeader, TableRow, ColumnDef } from "@/components/spring-ui/table";
 import { Avatar } from "@/components/spring-ui/avatar";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/spring-ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectLabel, SelectGroup } from "@/components/spring-ui/select";
 import { Tag } from "@/components/spring-ui/tag";
 import { IconButton } from "@/components/spring-ui/iconButton";
 import { MoreIcon } from "@/icons/MoreIcon";
 import { InfoIcon } from "@/icons/InfoIcon";
 import { CMSDefaultIcon } from "@/icons/CMSDefaultIcon";
+import { CheckDefaultIcon } from "@/icons/CheckDefaultIcon";
 
 // User data type
 interface UserData {
@@ -50,7 +51,7 @@ export default function SiteSettingsPage() {
       name: "Ruben Herwitz",
       email: "ruben.herwitz@gymflow.com",
       fallback: "RH",
-      role: "designer",
+      role: "marketer",
       cmsAccess: "all"
     },
     {
@@ -125,15 +126,27 @@ export default function SiteSettingsPage() {
     }
   };
 
-  // Role display names
+  // Role display names and descriptions
   const getRoleDisplayName = (role: string) => {
     const roleMap: Record<string, string> = {
       "site-manager": "Site manager",
       "designer": "Designer",
+      "marketer": "Marketer",
       "content-editor": "Content editor",
       "reviewer": "Reviewer"
     };
     return roleMap[role] || role;
+  };
+
+  const getRoleDescription = (role: string) => {
+    const descriptionMap: Record<string, string> = {
+      "site-manager": "Can manage site settings and billing",
+      "designer": "Design using all features",
+      "marketer": "Build pages with components",
+      "content-editor": "Only edit content",
+      "reviewer": "View and comment on sites"
+    };
+    return descriptionMap[role] || "";
   };
 
   // Table column definitions
@@ -164,10 +177,24 @@ export default function SiteSettingsPage() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="site-manager">Site manager</SelectItem>
-            <SelectItem value="designer">Designer</SelectItem>
-            <SelectItem value="content-editor">Content editor</SelectItem>
-            <SelectItem value="reviewer">Reviewer</SelectItem>
+            <SelectGroup>
+              <SelectLabel>Default</SelectLabel>
+              <SelectItem value="site-manager" description="Can manage site settings and billing">
+                Site manager
+              </SelectItem>
+              <SelectItem value="designer" description="Design using all features">
+                Designer
+              </SelectItem>
+              <SelectItem value="marketer" description="Build pages with components">
+                Marketer
+              </SelectItem>
+              <SelectItem value="content-editor" description="Only edit content">
+                Content editor
+              </SelectItem>
+              <SelectItem value="reviewer" description="View and comment on sites">
+                Reviewer
+              </SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       )

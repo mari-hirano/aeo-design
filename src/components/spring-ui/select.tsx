@@ -2,7 +2,8 @@ import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { ChevronSmallDownIcon, CheckboxIcon } from "@/icons"
+import { ChevronSmallDownIcon } from "@/icons"
+import { CheckDefaultIcon } from "@/icons/CheckDefaultIcon"
 
 const selectTriggerVariants = cva(
   "flex w-full items-center justify-between rounded-[4px] border border-solid py-0 body-text focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed data-[placeholder]:text-[var(--input-placeholder)] [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-2",
@@ -79,30 +80,39 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn("body-semibold text-[var(--text-secondary)] [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2", className)}
+    className={cn("body-text-bold text-[var(--text-primary)] [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2", className)}
     {...props}
   />
 ))
 SelectLabel.displayName = SelectPrimitive.Label.displayName
 
+interface SelectItemProps extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {
+  description?: string;
+}
+
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(({ className, children, ...props }, ref) => (
+  SelectItemProps
+>(({ className, children, description, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-pointer select-none items-center outline-hidden focus:bg-[var(--bg-raised)] hover:bg-[var(--bg-raised)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 body-text [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:pl-1 [.theme-dashboard_&]:pl-2 pr-0",
+      "relative flex w-full cursor-pointer select-none items-center outline-hidden focus:bg-[var(--bg-raised)] hover:bg-[var(--bg-raised)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 body-text [.theme-designer_&]:py-0.5 [.theme-dashboard_&]:py-1 [.theme-designer_&]:pl-6 [.theme-dashboard_&]:pl-7 pr-0",
       className
     )}
     {...props}
   >
     <span className="pointer-events-none absolute flex h-full items-center justify-center [.theme-designer_&]:left-1 [.theme-dashboard_&]:left-2">
       <SelectPrimitive.ItemIndicator>
-        <CheckboxIcon className="h-4 w-4 text-[var(--text-secondary)]" />
+        <CheckDefaultIcon className="h-4 w-4 text-[var(--text-secondary)]" />
       </SelectPrimitive.ItemIndicator>
     </span>
-    <SelectPrimitive.ItemText className="flex items-center">{children}</SelectPrimitive.ItemText>
+    <div className="flex flex-col">
+      <SelectPrimitive.ItemText className="flex items-center">{children}</SelectPrimitive.ItemText>
+      {description && (
+        <span className="body-text text-[var(--text-secondary)]">{description}</span>
+      )}
+    </div>
   </SelectPrimitive.Item>
 ))
 SelectItem.displayName = SelectPrimitive.Item.displayName
