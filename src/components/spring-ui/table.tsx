@@ -105,7 +105,7 @@ const TableHeader = React.forwardRef<HTMLDivElement, TableHeaderProps>(
           <div
             key={column.id}
             className={cn(
-              "py-2 px-3 flex items-center",
+              "py-2 px-3 flex items-center bg-[var(--bg-secondary)]",
               column.sortable && "cursor-pointer select-none",
               column.width ? "" : "flex-1",
               verticalDividers && index < columns.length - 1 && "border-r border-r-[var(--border-default)]"
