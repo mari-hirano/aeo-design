@@ -9,10 +9,13 @@ import { Avatar } from "@/components/spring-ui/avatar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectLabel, SelectGroup } from "@/components/spring-ui/select";
 import { Tag } from "@/components/spring-ui/tag";
 import { IconButton } from "@/components/spring-ui/iconButton";
+import { Button } from "@/components/spring-ui/button";
 import { MoreIcon } from "@/icons/MoreIcon";
 import { InfoIcon } from "@/icons/InfoIcon";
 import { CMSDefaultIcon } from "@/icons/CMSDefaultIcon";
 import { CheckDefaultIcon } from "@/icons/CheckDefaultIcon";
+import { LockIcon } from "@/icons/LockIcon";
+import { UsersIcon } from "@/icons/UsersIcon";
 
 // User data type
 interface UserData {
@@ -27,6 +30,7 @@ interface UserData {
 
 export default function SiteSettingsPage() {
   const [selectedSection, setSelectedSection] = useState("general");
+  const [siteAccessLevel, setSiteAccessLevel] = useState("admins-only");
 
   // Sample user data
   const users: UserData[] = [
@@ -253,7 +257,36 @@ export default function SiteSettingsPage() {
         />
         <div className="mt-6">
           <h1 className="title-text-bold mb-4 text-[var(--text-primary)]">{getSectionTitle(selectedSection)}</h1>
-          <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
+          
+          {selectedSection === "site-access" ? (
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <p className="body-text text-[var(--text-secondary)]">{getSectionDescription(selectedSection)}</p>
+              <div className="flex items-center gap-2 shrink-0">
+                <Select value={siteAccessLevel} onValueChange={setSiteAccessLevel}>
+                  <SelectTrigger className="w-[389px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="admins-only">
+                      <div className="flex items-center gap-2">
+                        <LockIcon className="text-[var(--text-secondary)]" size={16} />
+                        <span>Only admins and added users can view</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="everyone">
+                      <div className="flex items-center gap-2">
+                        <UsersIcon className="text-[var(--text-secondary)]" size={16} />
+                        <span>Everyone in the workspace can view</span>
+                      </div>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+                <Button variant="primary">Add users</Button>
+              </div>
+            </div>
+          ) : (
+            <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
+          )}
           
           {selectedSection === "site-access" && (
             <Table>

@@ -6,11 +6,11 @@ import { ChevronSmallDownIcon } from "@/icons"
 import { CheckDefaultIcon } from "@/icons/CheckDefaultIcon"
 
 const selectTriggerVariants = cva(
-  "flex w-full items-center justify-between rounded-[4px] border border-solid py-0 body-text focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed data-[placeholder]:text-[var(--input-placeholder)] [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-2",
+  "flex w-full items-center justify-between rounded-[4px] border border-solid py-0 body-text outline-none disabled:opacity-40 disabled:cursor-not-allowed data-[placeholder]:text-[var(--input-placeholder)] [.theme-designer_&]:h-6 [.theme-dashboard_&]:h-8 [.theme-designer_&]:px-1 [.theme-dashboard_&]:px-2 [.theme-designer_&]:gap-0.5 [.theme-dashboard_&]:gap-2",
   {
     variants: {
       variant: {
-        default: "bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--text-primary)] focus:border-[var(--input-border-focus)] hover:border-[var(--input-border-hover)] disabled:bg-[var(--input-disabled-bg)]",
+        default: "bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--text-primary)] data-[state=open]:border-[var(--input-border-focus)] hover:border-[var(--input-border-hover)] disabled:bg-[var(--input-disabled-bg)]",
         button: "bg-gradient-to-b from-white/13 to-white/11 text-[var(--text-primary)] shadow-[var(--shadow-button-default)] hover:bg-[var(--bg-raised)] border-none",
       },
     },
