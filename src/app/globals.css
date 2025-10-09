@@ -7,6 +7,23 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Custom Font Face Declarations */
+@font-face {
+  font-family: 'WF Visual Sans';
+  src: url('/spring/fonts/WFVisualSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WF Visual Sans';
+  src: url('/spring/fonts/WFVisualSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -188,4 +205,130 @@
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
   }
+
+  /* ===== CUSTOM FONT TYPOGRAPHY SYSTEM ===== */
+  /* Based on the typography structure from the screenshot */
+  
+  /* BRANDED CATEGORY */
+  /* Help Styles */
+  .branded-help-normal {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.75rem; /* 12px */
+    line-height: 133.33%;
+    font-weight: 400;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-help-semibold {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.75rem; /* 12px */
+    line-height: 133.33%;
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* BODY CATEGORY */
+  .branded-body-normal {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.875rem; /* 14px */
+    line-height: 171.43%;
+    font-weight: 400;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-body-semibold {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.875rem; /* 14px */
+    line-height: 171.43%; 
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADING CATEGORY */
+  .branded-heading-normal {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem; /* 16px */
+    line-height: 160%; 
+    font-weight: 400;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-heading-semibold {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem; /* 16px */
+    line-height: 160%;
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* DISPLAY CATEGORY */
+  .branded-display-1 {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 5.25rem; /* 84px */
+    line-height: 1.14;
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-display-2 {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 3.75rem; /* 60px */
+    line-height: 1.73; 
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-display-3 {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 2rem; /* 32px */
+    line-height: 104%;
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-display-4 {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.5rem; /* 24px */
+    line-height: 130%;
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-display-5 {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.125rem; /* 18px */
+    line-height: 130%;
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-display-6 {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem; /* 16px */
+    line-height: 130%; 
+    font-weight: 600;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .branded-display-subtitle {
+    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.125rem; /* 18px */
+    line-height: 160%;
+    font-weight: 400;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
 }
