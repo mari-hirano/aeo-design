@@ -10,7 +10,7 @@
 /* Custom Font Face Declarations */
 @font-face {
   font-family: 'WF Visual Sans';
-  src: url('/spring/fonts/WFVisualSans-Regular.woff') format('woff');
+  src: url('/spring/fonts/WFVisualSans-RegularText.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -18,6 +18,14 @@
 
 @font-face {
   font-family: 'WF Visual Sans';
+  src: url('/spring/fonts/WFVisualSans-SemiBoldText.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WF Visual Sans Display';
   src: url('/spring/fonts/WFVisualSans-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
@@ -269,7 +277,7 @@
 
   /* DISPLAY CATEGORY */
   .branded-display-1 {
-    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'WF Visual Sans Display', ui-sans-serif, system-ui, sans-serif;
     font-size: 5.25rem; /* 84px */
     line-height: 1.14;
     font-weight: 600;
@@ -278,7 +286,7 @@
   }
 
   .branded-display-2 {
-    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'WF Visual Sans Display', ui-sans-serif, system-ui, sans-serif;
     font-size: 3.75rem; /* 60px */
     line-height: 1.73; 
     font-weight: 600;
@@ -287,7 +295,7 @@
   }
 
   .branded-display-3 {
-    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'WF Visual Sans Display', ui-sans-serif, system-ui, sans-serif;
     font-size: 2rem; /* 32px */
     line-height: 104%;
     font-weight: 600;
@@ -296,7 +304,7 @@
   }
 
   .branded-display-4 {
-    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'WF Visual Sans Display', ui-sans-serif, system-ui, sans-serif;
     font-size: 1.5rem; /* 24px */
     line-height: 130%;
     font-weight: 600;
@@ -305,7 +313,7 @@
   }
 
   .branded-display-5 {
-    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'WF Visual Sans Display', ui-sans-serif, system-ui, sans-serif;
     font-size: 1.125rem; /* 18px */
     line-height: 130%;
     font-weight: 600;
@@ -314,7 +322,7 @@
   }
 
   .branded-display-6 {
-    font-family: 'WF Visual Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'WF Visual Sans Display', ui-sans-serif, system-ui, sans-serif;
     font-size: 1rem; /* 16px */
     line-height: 130%; 
     font-weight: 600;
