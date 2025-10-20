@@ -4,9 +4,93 @@ import { DashboardNav } from "@/components/dashboard/dashboard-nav";
 import { SiteSettingsSidebar } from "@/components/dashboard/site-settings-sidebar";
 import { SiteSettingsHeader } from "@/components/dashboard/site-settings-header";
 import { useState } from "react";
+import { Table, TableHeader, TableRow, ColumnDef } from "@/components/spring-ui/table";
+import { Avatar } from "@/components/spring-ui/avatar";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectLabel, SelectGroup } from "@/components/spring-ui/select";
+import { Tag } from "@/components/spring-ui/tag";
+import { IconButton } from "@/components/spring-ui/iconButton";
+import { Button } from "@/components/spring-ui/button";
+import { MoreIcon } from "@/icons/MoreIcon";
+import { InfoIcon } from "@/icons/InfoIcon";
+import { CMSDefaultIcon } from "@/icons/CMSDefaultIcon";
+import { CheckDefaultIcon } from "@/icons/CheckDefaultIcon";
+import { LockIcon } from "@/icons/LockIcon";
+import { UsersIcon } from "@/icons/UsersIcon";
+
+// User data type
+interface UserData {
+  id: string;
+  name: string;
+  email: string;
+  avatar?: string;
+  fallback: string;
+  role: string;
+  cmsAccess: string;
+}
 
 export default function SiteSettingsPage() {
   const [selectedSection, setSelectedSection] = useState("general");
+  const [siteAccessLevel, setSiteAccessLevel] = useState("admins-only");
+
+  // Sample user data
+  const users: UserData[] = [
+    {
+      id: "1",
+      name: "Marlene Foote",
+      email: "marlene.foote@gymflow.com",
+      fallback: "MF",
+      role: "site-manager",
+      cmsAccess: "all"
+    },
+    {
+      id: "2",
+      name: "Laurie Briggs",
+      email: "laurie.briggs@gymflow.com",
+      fallback: "LB",
+      role: "designer",
+      cmsAccess: "all"
+    },
+    {
+      id: "3",
+      name: "Ruben Herwitz",
+      email: "ruben.herwitz@gymflow.com",
+      fallback: "RH",
+      role: "marketer",
+      cmsAccess: "all"
+    },
+    {
+      id: "4",
+      name: "Marley Dias",
+      email: "marley.dias@gymflow.com",
+      fallback: "MD",
+      role: "content-editor",
+      cmsAccess: "4"
+    },
+    {
+      id: "5",
+      name: "Maren Dokidis",
+      email: "maren.dokidis@gymflow.com",
+      fallback: "M",
+      role: "reviewer",
+      cmsAccess: "none"
+    },
+    {
+      id: "6",
+      name: "Mackenzie Childs",
+      email: "mackenzi.childs@gymflow.com",
+      fallback: "MC",
+      role: "content-editor",
+      cmsAccess: "all"
+    },
+    {
+      id: "7",
+      name: "Mattie Rogers",
+      email: "mattie.rogers@gymflow.com",
+      fallback: "MR",
+      role: "content-editor",
+      cmsAccess: "2"
+    }
+  ];
 
   const getSectionTitle = (section: string) => {
     switch (section) {
@@ -46,6 +130,126 @@ export default function SiteSettingsPage() {
     }
   };
 
+  // Role display names and descriptions
+  const getRoleDisplayName = (role: string) => {
+    const roleMap: Record<string, string> = {
+      "site-manager": "Site manager",
+      "designer": "Designer",
+      "marketer": "Marketer",
+      "content-editor": "Content editor",
+      "reviewer": "Reviewer"
+    };
+    return roleMap[role] || role;
+  };
+
+  const getRoleDescription = (role: string) => {
+    const descriptionMap: Record<string, string> = {
+      "site-manager": "Can manage site settings and billing",
+      "designer": "Design using all features",
+      "marketer": "Build pages with components",
+      "content-editor": "Only edit content",
+      "reviewer": "View and comment on sites"
+    };
+    return descriptionMap[role] || "";
+  };
+
+  // Table column definitions
+  const columns: ColumnDef[] = [
+    {
+      id: "name",
+      header: "Name",
+      renderCell: (value: any, rowData: UserData) => (
+        <div className="flex items-center gap-2">
+          <Avatar 
+            fallback={rowData.fallback}
+            size="md"
+          />
+          <div className="flex flex-col">
+            <span className="body-text-bold text-[var(--text-primary)]">{rowData.name}</span>
+            <span className="body-text text-[var(--text-secondary)]">{rowData.email}</span>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "role",
+      header: "Role",
+      width: "300px",
+      renderCell: (value: any, rowData: UserData) => (
+        <Select defaultValue={rowData.role}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Default</SelectLabel>
+              <SelectItem value="site-manager" description="Can manage site settings and billing">
+                Site manager
+              </SelectItem>
+              <SelectItem value="designer" description="Design using all features">
+                Designer
+              </SelectItem>
+              <SelectItem value="marketer" description="Build pages with components">
+                Marketer
+              </SelectItem>
+              <SelectItem value="content-editor" description="Only edit content">
+                Content editor
+              </SelectItem>
+              <SelectItem value="reviewer" description="View and comment on sites">
+                Reviewer
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      )
+    },
+    {
+      id: "cmsAccess",
+      header: "CMS edit access",
+      width: "240px",
+      renderHeader: () => (
+        <div className="flex items-center gap-1">
+          <span>CMS edit access</span>
+          <div className="text-[var(--text-secondary)]">
+            <InfoIcon size={16} />
+          </div>
+        </div>
+      ),
+      renderCell: (value: any, rowData: UserData) => {
+        const isDisabled = rowData.role === "reviewer";
+        return (
+          <Tag 
+            size="compact" 
+            shape="rounded"
+            variant="default"
+            className={isDisabled ? "opacity-50" : ""}
+            prefixIcon={
+              <div className="text-[var(--text-secondary)]">
+                <CMSDefaultIcon size={16} />
+              </div>
+            }
+          >
+            {rowData.cmsAccess === "all" ? "All" : 
+             rowData.cmsAccess === "none" ? "None" : 
+             rowData.cmsAccess}
+          </Tag>
+        );
+      }
+    },
+    {
+      id: "actions",
+      header: "",
+      width: "64px",
+      renderCell: (value: any, rowData: UserData) => (
+        <div className="flex justify-end items-center h-full">
+          <IconButton variant="ghost" size="comfortable" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+            <MoreIcon size={16} />
+          </IconButton>
+        </div>
+      )
+    }
+  ];
+
   const renderContent = () => {
     return (
       <div className="p-4">
@@ -54,7 +258,53 @@ export default function SiteSettingsPage() {
         />
         <div className="mt-6">
           <h1 className="title-text-bold mb-4 text-[var(--text-primary)]">{getSectionTitle(selectedSection)}</h1>
-          <p className="text-[var(--text-secondary)]">{getSectionDescription(selectedSection)}</p>
+          
+          {selectedSection === "site-access" ? (
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <p className="body-text text-[var(--text-secondary)]">{getSectionDescription(selectedSection)}</p>
+              <div className="flex items-center gap-2 shrink-0">
+                <Select value={siteAccessLevel} onValueChange={setSiteAccessLevel}>
+                  <SelectTrigger className="w-[389px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="admins-only">
+                      <div className="flex items-center gap-2">
+                        <div className="text-[var(--text-secondary)]">
+                          <LockIcon size={16} />
+                        </div>
+                        <span>Only admins and added users can view</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="everyone">
+                      <div className="flex items-center gap-2">
+                        <div className="text-[var(--text-secondary)]">
+                          <UsersIcon size={16} />
+                        </div>
+                        <span>Everyone in the workspace can view</span>
+                      </div>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+                <Button variant="primary">Add users</Button>
+              </div>
+            </div>
+          ) : (
+            <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
+          )}
+          
+          {selectedSection === "site-access" && (
+            <Table>
+              <TableHeader columns={columns} />
+              {users.map((user, index) => (
+                <TableRow 
+                  key={user.id}
+                  data={user}
+                  columns={columns}
+                />
+              ))}
+            </Table>
+          )}
         </div>
       </div>
     );
