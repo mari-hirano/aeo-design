@@ -18,6 +18,17 @@ interface AuditItem {
 
 const AuditsPanelHeader: React.FC = () => {
   const [selectedScope, setSelectedScope] = useState("this-page");
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+
+  // Store the open state globally so Panel can check it
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window as any).__auditsPanelSelectOpen = isSelectOpen;
+      return () => {
+        delete (window as any).__auditsPanelSelectOpen;
+      };
+    }
+  }, [isSelectOpen]);
 
   return (
     <div 
@@ -27,14 +38,28 @@ const AuditsPanelHeader: React.FC = () => {
     >
       <h2 className="title-text-bold">Audits</h2>
       <div className="flex items-center gap-2">
-        <div onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
-          <Select value={selectedScope} onValueChange={setSelectedScope}>
-            <SelectTrigger variant="default" className="w-auto min-w-[80px]">
+        <div 
+          onClick={(e) => e.stopPropagation()} 
+          onMouseDown={(e) => e.stopPropagation()}
+          onPointerDown={(e) => e.stopPropagation()}
+          data-select-wrapper="true"
+        >
+          <Select 
+            value={selectedScope} 
+            onValueChange={setSelectedScope}
+            onOpenChange={setIsSelectOpen}
+          >
+            <SelectTrigger 
+              variant="default" 
+              className="w-auto min-w-[80px] data-[state=open]:border-[var(--input-border)]"
+              onMouseDown={(e) => e.stopPropagation()}
+              onPointerDown={(e) => e.stopPropagation()}
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="this-page">This page</SelectItem>
-              <SelectItem value="sitewide">Sitewide</SelectItem>
+              <SelectItem value="this-page" className="min-h-[24px] py-1">This page</SelectItem>
+              <SelectItem value="sitewide" className="min-h-[24px] py-1">Sitewide</SelectItem>
             </SelectContent>
           </Select>
         </div>
