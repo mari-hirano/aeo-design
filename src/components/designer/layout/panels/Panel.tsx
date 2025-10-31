@@ -8,13 +8,52 @@ interface PanelProps {
   isOpen: boolean;
   children?: React.ReactNode;
   onClose?: () => void;
+  customHeader?: React.ReactNode;
 }
 
-const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose }) => {
+const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, customHeader }) => {
   const panelRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      
+      // If click is within the panel header (where Select is), don't close
+      if (headerRef.current && headerRef.current.contains(target)) {
+        return;
+      }
+      
+      // Always check if the click is on Select-related elements
+      if (target.closest('[data-radix-select-trigger]') || 
+          target.closest('[data-radix-select-content]') ||
+          target.closest('[role="combobox"]') ||
+          target.closest('button[data-state]') ||
+          target.closest('[role="listbox"]') ||
+          target.closest('[data-radix-select-viewport]') ||
+          target.closest('[data-radix-popper-content-wrapper]')) {
+        return;
+      }
+      
+      // Check if the click was on a Radix Select portal (dropdown menu)
+      const radixPortal = document.querySelector('[data-radix-portal]');
+      const radixSelectContent = document.querySelector('[data-radix-select-content], [data-radix-popper-content-wrapper]');
+      
+      if (radixPortal && radixPortal.contains(target)) {
+        return;
+      }
+      
+      if (radixSelectContent && radixSelectContent.contains(target)) {
+        return;
+      }
+      
+      // Check if a Select dropdown is currently open
+      const selectTrigger = document.querySelector('[data-radix-select-trigger][data-state="open"]');
+      if (selectTrigger) {
+        return;
+      }
+      
+      // Now check if the click was outside the panel
       if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
         // Check if the click was on the sidebar (we don't want to close if clicking on the sidebar)
         const leftSidebar = document.querySelector('.left-sidebar');
@@ -48,7 +87,9 @@ const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose }) => {
         animation: 'panelSlideIn 0.15s ease-out forwards'
       }}
     >
-      <PanelHeader title={title} onClose={onClose} />
+      <div ref={headerRef}>
+        {customHeader || <PanelHeader title={title} onClose={onClose} />}
+      </div>
       <div className="flex-1 panel-content-wrapper">
         <div className="flex-1 w-full panel-content">
           {children || (
