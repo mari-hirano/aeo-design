@@ -23,21 +23,13 @@ const Note = React.forwardRef<HTMLDivElement, NoteProps>(
 
     // Default icon by variant
     const defaultIcon = variant === "success" ? (
-      <div className="text-[var(--text-green)]">
-        <CheckDefaultIcon size={16} />
-      </div>
+      <CheckDefaultIcon size={16} className="text-[var(--text-green)]" />
     ) : variant === "warning" ? (
-      <div className="text-[var(--text-yellow)]">
-        <InfoIcon size={16} />
-      </div>
+      <InfoIcon size={16} className="text-[var(--text-yellow)]" />
     ) : variant === "error" ? (
-      <div className="text-[var(--text-red)]">
-        <InfoIcon size={16} />
-      </div>
+      <InfoIcon size={16} className="text-[var(--text-red)]" />
     ) : (
-      <div className="text-[var(--text-secondary)]">
-        <InfoIcon size={16} />
-      </div>
+      <InfoIcon size={16} className="text-[var(--text-secondary)]" />
     )
 
     const displayIcon = icon !== undefined ? icon : defaultIcon
@@ -45,7 +37,7 @@ const Note = React.forwardRef<HTMLDivElement, NoteProps>(
     return (
       <div
         className={cn(
-          "flex items-start gap-2 p-3 rounded-md body-text",
+          "flex items-center gap-2 p-3 rounded-md body-text",
           variantStyles[variant],
           className
         )}
@@ -53,11 +45,11 @@ const Note = React.forwardRef<HTMLDivElement, NoteProps>(
         {...props}
       >
         {displayIcon && (
-          <div className="shrink-0 mt-0.5">
+          <div className="shrink-0 flex items-center">
             {displayIcon}
           </div>
         )}
-        <div className="flex-1 body-text text-[var(--text-primary)]">
+        <div className="flex-1 body-text text-[var(--text-primary)] flex items-center">
           {children}
         </div>
         {showClose && onClose && (
