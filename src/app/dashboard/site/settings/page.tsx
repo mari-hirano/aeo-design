@@ -10,12 +10,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectLa
 import { Tag } from "@/components/spring-ui/tag";
 import { IconButton } from "@/components/spring-ui/iconButton";
 import { Button } from "@/components/spring-ui/button";
+import { TabBar, TabBarItem } from "@/components/spring-ui/tab-bar";
+import { Switch } from "@/components/spring-ui/switch";
+import { Badge } from "@/components/spring-ui/badge";
 import { MoreIcon } from "@/icons/MoreIcon";
 import { InfoIcon } from "@/icons/InfoIcon";
 import { CMSDefaultIcon } from "@/icons/CMSDefaultIcon";
 import { CheckDefaultIcon } from "@/icons/CheckDefaultIcon";
 import { LockIcon } from "@/icons/LockIcon";
 import { UsersIcon } from "@/icons/UsersIcon";
+import { AddIcon } from "@/icons/AddIcon";
+import { BoxAddIcon } from "@/icons/BoxAddIcon";
+import { ChevronSmallDownIcon } from "@/icons/ChevronSmallDownIcon";
 
 // User data type
 interface UserData {
@@ -28,9 +34,123 @@ interface UserData {
   cmsAccess: string;
 }
 
+// Plan feature type
+interface PlanFeature {
+  label: string;
+  hasInfoIcon?: boolean;
+  hasPlusIcon?: boolean;
+}
+
+// Plan data type
+interface PlanData {
+  id: string;
+  name: string;
+  priceMonthly: number;
+  priceYearly: number;
+  description: string;
+  isCurrentPlan: boolean;
+  badge?: string;
+  features: PlanFeature[];
+}
+
 export default function SiteSettingsPage() {
   const [selectedSection, setSelectedSection] = useState("general");
   const [siteAccessLevel, setSiteAccessLevel] = useState("admins-only");
+  const [plansTab, setPlansTab] = useState("website");
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
+
+  // Plan data
+  const plans: PlanData[] = [
+    {
+      id: "starter",
+      name: "Starter",
+      priceMonthly: 0,
+      priceYearly: 0,
+      description: "Best for learning how to use Webflow",
+      isCurrentPlan: true,
+      features: [
+        { label: "Webflow.io domain", hasInfoIcon: true },
+        { label: "An entry-level site" },
+        { label: "2 pages", hasInfoIcon: true },
+        { label: "20 CMS collections", hasInfoIcon: true },
+        { label: "50 CMS items", hasInfoIcon: true },
+        { label: "50 form submissions (lifetime)", hasInfoIcon: true },
+        { label: "Localization free preview", hasInfoIcon: true },
+        { label: "Usage" },
+        { label: "1 GB bandwidth", hasInfoIcon: true },
+        { label: "Web app hosting", hasInfoIcon: true },
+      ]
+    },
+    {
+      id: "basic",
+      name: "Basic",
+      priceMonthly: 18,
+      priceYearly: 14,
+      description: "Best for launching a simple site",
+      isCurrentPlan: false,
+      features: [
+        { label: "Custom domain", hasInfoIcon: true },
+        { label: "A basic site" },
+        { label: "150 pages", hasInfoIcon: true },
+        { label: "0 CMS collections", hasInfoIcon: true },
+        { label: "0 CMS items", hasInfoIcon: true },
+        { label: "Unlimited form submissions", hasInfoIcon: true },
+        { label: "Localization free preview", hasInfoIcon: true },
+        { label: "Usage" },
+        { label: "10 GB bandwidth", hasInfoIcon: true },
+        { label: "Surge protection", hasInfoIcon: true },
+        { label: "Web app hosting", hasInfoIcon: true },
+      ]
+    },
+    {
+      id: "cms",
+      name: "CMS",
+      priceMonthly: 29,
+      priceYearly: 23,
+      description: "Best for launching a simple site",
+      isCurrentPlan: false,
+      badge: "Most popular",
+      features: [
+        { label: "Custom domain", hasInfoIcon: true },
+        { label: "A content-rich site" },
+        { label: "150 pages", hasInfoIcon: true },
+        { label: "20 CMS collections", hasInfoIcon: true },
+        { label: "2k CMS items", hasInfoIcon: true },
+        { label: "Unlimited form submissions", hasInfoIcon: true },
+        { label: "3 legacy Editor users", hasInfoIcon: true },
+        { label: "Site search", hasInfoIcon: true },
+        { label: "Localization free preview", hasInfoIcon: true },
+        { label: "Usage" },
+        { label: "50 GB bandwidth", hasInfoIcon: true },
+        { label: "Surge protection", hasInfoIcon: true },
+        { label: "Web app hosting", hasInfoIcon: true },
+      ]
+    },
+    {
+      id: "business",
+      name: "Business",
+      priceMonthly: 49,
+      priceYearly: 39,
+      description: "Best for a high-traffic marketing site",
+      isCurrentPlan: false,
+      features: [
+        { label: "Custom domain", hasInfoIcon: true },
+        { label: "A basic site" },
+        { label: "300 pages", hasInfoIcon: true },
+        { label: "40 CMS collections", hasInfoIcon: true },
+        { label: "10k CMS items", hasInfoIcon: true, hasPlusIcon: true },
+        { label: "Unlimited form submissions", hasInfoIcon: true },
+        { label: "10 legacy Editor users", hasInfoIcon: true },
+        { label: "Site search", hasInfoIcon: true },
+        { label: "Form file upload", hasInfoIcon: true },
+        { label: "Localization free preview", hasInfoIcon: true },
+        { label: "Usage" },
+        { label: "100 GB bandwidth", hasInfoIcon: true, hasPlusIcon: true },
+        { label: "Surge protection", hasInfoIcon: true },
+        { label: "Web app hosting", hasInfoIcon: true },
+      ]
+    }
+  ];
 
   // Sample user data
   const users: UserData[] = [
@@ -304,6 +424,149 @@ export default function SiteSettingsPage() {
                 />
               ))}
             </Table>
+          )}
+
+          {selectedSection === "plans" && (
+            <div className="flex flex-col gap-10">
+              {/* Tab Navigation and Billing Toggle */}
+              <div className="flex items-center justify-between border-b border-[var(--border-default)]">
+                <TabBar value={plansTab} onValueChange={setPlansTab} fullWidth={false} className="border-b-0">
+                  <TabBarItem value="website">Website</TabBarItem>
+                  <TabBarItem value="ecommerce">Ecommerce site</TabBarItem>
+                  <TabBarItem value="addons">Add ons</TabBarItem>
+                </TabBar>
+                
+                <div className="flex flex-col items-end gap-0.5">
+                  <div className="flex items-center gap-2">
+                    <span className="body-text text-[var(--text-secondary)]">Billed monthly</span>
+                    <Switch
+                      checked={billingPeriod === "yearly"}
+                      onChange={(e) => setBillingPeriod(e.target.checked ? "yearly" : "monthly")}
+                      hideLabel
+                      aria-label="Billing period"
+                      sizeVariant="compact"
+                    />
+                    <span className="body-text text-[var(--text-secondary)]">Billed yearly</span>
+                  </div>
+                  <p className="body-text text-[11.5px] text-[var(--text-blue)] tracking-[-0.115px]">
+                    Save up to 22% with yearly billing
+                  </p>
+                </div>
+              </div>
+
+              {/* Plan Cards Grid */}
+              <div className="grid grid-cols-4 gap-6">
+                {plans.map((plan) => {
+                  const price = billingPeriod === "yearly" ? plan.priceYearly : plan.priceMonthly;
+                  const currentPrice = price === 0 ? "$0" : `$${price}`;
+                  
+                  return (
+                    <div
+                      key={plan.id}
+                      className={`relative flex flex-col gap-6 p-4 rounded-lg border ${
+                        plan.isCurrentPlan
+                          ? "border-[var(--action-primary-bg)]"
+                          : "border-[var(--border-default)]"
+                      } ${
+                        plan.id === "cms"
+                          ? "bg-[var(--blue-bg-transparent)]"
+                          : ""
+                      }`}
+                    >
+                      {/* Badge positioned at top border */}
+                      {plan.badge && (
+                        <Badge 
+                          variant="blue" 
+                          styleType="solid"
+                          size="comfort" 
+                          className="absolute -top-[14px] left-1/2 -translate-x-1/2 py-0.5"
+                        >
+                          {plan.badge}
+                        </Badge>
+                      )}
+                      
+                      {/* Plan Header */}
+                      <div className="flex flex-col gap-1 items-center text-center h-[72px]">
+                        <h3 className="body-text-bold text-[11.5px] text-[var(--text-primary)]">
+                          {plan.name}
+                        </h3>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-2xl font-semibold leading-normal text-[var(--text-primary)]">
+                            {currentPrice}
+                          </span>
+                          <span className="body-text-bold text-[13px] leading-[18px] text-[var(--text-primary)]">
+                            /mo
+                          </span>
+                        </div>
+                        {price > 0 && (
+                          <p className="body-text text-[11.5px] text-[var(--text-primary)] tracking-[-0.115px]">
+                            billed {billingPeriod === "yearly" ? "yearly" : "monthly"}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Description */}
+                      <p className="body-text text-[11.5px] text-center text-[var(--text-primary)] tracking-[-0.115px] h-8">
+                        {plan.description}
+                      </p>
+
+                      {/* Action Button */}
+                      {plan.isCurrentPlan ? (
+                        <Button variant="default" size="compact" className="w-full" disabled>
+                          <CheckDefaultIcon size={16} />
+                          You're on {plan.name}
+                        </Button>
+                      ) : (
+                        <Button variant="primary" size="compact" className="w-full">
+                          Upgrade to {plan.name}
+                          <ChevronSmallDownIcon size={16} />
+                        </Button>
+                      )}
+
+                      {/* Features List */}
+                      <div className="flex flex-col gap-2">
+                        {plan.features.map((feature, index) => {
+                          // Check if this is a section header (no icon, just text)
+                          const isSectionHeader = !feature.hasInfoIcon && 
+                            (feature.label === "Usage" || 
+                             feature.label === "An entry-level site" || 
+                             feature.label === "A basic site" || 
+                             feature.label === "A content-rich site");
+                          
+                          if (isSectionHeader) {
+                            return (
+                              <div key={index} className="flex items-center gap-2 mt-2">
+                                <p className="body-text text-[11.5px] text-[var(--text-primary)] tracking-[-0.115px]">
+                                  {feature.label}
+                                </p>
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <div key={index} className="flex items-center justify-between">
+                              <div className="flex items-center gap-2 flex-1">
+                                <p className="body-text text-[11.5px] text-[var(--text-primary)] tracking-[-0.115px]">
+                                  {feature.label}
+                                </p>
+                                {feature.hasPlusIcon && (
+                                  <BoxAddIcon size={16} className="text-[var(--text-secondary)]" />
+                                )}
+                              </div>
+                              {feature.hasInfoIcon && (
+                                <div className="text-[var(--text-secondary)]">
+                                  <InfoIcon size={16} />
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           )}
         </div>
       </div>
