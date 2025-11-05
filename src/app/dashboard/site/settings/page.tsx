@@ -4,6 +4,7 @@ import { DashboardNav } from "@/components/dashboard/dashboard-nav";
 import { SiteSettingsSidebar } from "@/components/dashboard/site-settings-sidebar";
 import { SiteSettingsHeader } from "@/components/dashboard/site-settings-header";
 import { useState } from "react";
+import React from "react";
 import { Table, TableHeader, TableRow, ColumnDef } from "@/components/spring-ui/table";
 import { Avatar } from "@/components/spring-ui/avatar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectLabel, SelectGroup } from "@/components/spring-ui/select";
@@ -22,6 +23,15 @@ import { UsersIcon } from "@/icons/UsersIcon";
 import { AddIcon } from "@/icons/AddIcon";
 import { BoxAddIcon } from "@/icons/BoxAddIcon";
 import { ChevronSmallDownIcon } from "@/icons/ChevronSmallDownIcon";
+import { ChevronSmallUpIcon } from "@/icons/ChevronSmallUpIcon";
+import { Note } from "@/components/spring-ui/note";
+import { Input } from "@/components/spring-ui/input";
+import { GlobeWarningIcon } from "@/icons/GlobeWarningIcon";
+import { GlobeCheckIcon } from "@/icons/GlobeCheckIcon";
+import { PublishIcon } from "@/icons/PublishIcon";
+import { RefreshIcon } from "@/icons/RefreshIcon";
+import { SearchDefaultIcon } from "@/icons/SearchDefaultIcon";
+import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
 
 // User data type
 interface UserData {
@@ -53,11 +63,35 @@ interface PlanData {
   features: PlanFeature[];
 }
 
+// Domain data type
+interface DomainData {
+  id: string;
+  domain: string;
+  status: "pending" | "required" | "connected";
+  sslStatus: "active" | "dns-update-needed";
+  isDefault: boolean;
+  lastPublished: string;
+  hasNote?: boolean;
+  noteType?: "success" | "warning";
+  noteMessage?: string;
+}
+
+// Redirect data type
+interface RedirectData {
+  id: string;
+  oldUrl: string;
+  newUrl: string;
+}
+
 export default function SiteSettingsPage() {
   const [selectedSection, setSelectedSection] = useState("general");
   const [siteAccessLevel, setSiteAccessLevel] = useState("admins-only");
   const [plansTab, setPlansTab] = useState("website");
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
+  const [redirectSearchQuery, setRedirectSearchQuery] = useState("");
+  const [redirectSort, setRedirectSort] = useState("last-modified");
+  const [redirectPage, setRedirectPage] = useState(1);
+  const [dismissedNotes, setDismissedNotes] = useState<Set<string>>(new Set());
 
   // Plan data
   const plans: PlanData[] = [
@@ -150,6 +184,61 @@ export default function SiteSettingsPage() {
         { label: "Web app hosting", hasInfoIcon: true },
       ]
     }
+  ];
+
+  // Sample domain data
+  const domains: DomainData[] = [
+    {
+      id: "1",
+      domain: "sitedomain1.com",
+      status: "pending",
+      sslStatus: "active",
+      isDefault: true,
+      lastPublished: "12 hours ago",
+      hasNote: true,
+      noteType: "success",
+      noteMessage: "DNS records of this domain have been updated. It may take up to 48 hours for the changes to take effect and appear here."
+    },
+    {
+      id: "2",
+      domain: "sitedomain2.com",
+      status: "required",
+      sslStatus: "dns-update-needed",
+      isDefault: false,
+      lastPublished: "12 hours ago"
+    },
+    {
+      id: "3",
+      domain: "sitedomain3.com",
+      status: "connected",
+      sslStatus: "active",
+      isDefault: false,
+      lastPublished: "12 hours ago"
+    }
+  ];
+
+  // Sample redirect data
+  const redirects: RedirectData[] = [
+    { id: "1", oldUrl: "/blog/article-one", newUrl: "website.com/blog/article-one" },
+    { id: "2", oldUrl: "/blog/article-two", newUrl: "website.com/blog/article-two" },
+    { id: "3", oldUrl: "/blog/article-three", newUrl: "website.com/blog/article-three" },
+    { id: "4", oldUrl: "/blog/article-four", newUrl: "website.com/blog/article-four" },
+    { id: "5", oldUrl: "/blog/article-five", newUrl: "website.com/blog/article-five" },
+    { id: "6", oldUrl: "/blog/article-six", newUrl: "website.com/blog/article-six" },
+    { id: "7", oldUrl: "/blog/article-seven", newUrl: "website.com/blog/article-seven" },
+    { id: "8", oldUrl: "/blog/article-eight", newUrl: "website.com/blog/article-eight" },
+    { id: "9", oldUrl: "/blog/article-nine", newUrl: "website.com/blog/article-nine" },
+    { id: "10", oldUrl: "/blog/article-ten", newUrl: "website.com/blog/article-ten" },
+    { id: "11", oldUrl: "/blog/article-eleven", newUrl: "website.com/blog/article-eleven" },
+    { id: "12", oldUrl: "/blog/article-twelve", newUrl: "website.com/blog/article-twelve" },
+    { id: "13", oldUrl: "/blog/article-thirteen", newUrl: "website.com/blog/article-thirteen" },
+    { id: "14", oldUrl: "/blog/article-fourteen", newUrl: "website.com/blog/article-fourteen" },
+    { id: "15", oldUrl: "/blog/article-fifteen", newUrl: "website.com/blog/article-fifteen" },
+    { id: "16", oldUrl: "/blog/article-sixteen", newUrl: "website.com/blog/article-sixteen" },
+    { id: "17", oldUrl: "/blog/article-seventeen", newUrl: "website.com/blog/article-seventeen" },
+    { id: "18", oldUrl: "/blog/article-eighteen", newUrl: "website.com/blog/article-eighteen" },
+    { id: "19", oldUrl: "/blog/article-nineteen", newUrl: "website.com/blog/article-nineteen" },
+    { id: "20", oldUrl: "/blog/article-twenty", newUrl: "website.com/blog/article-twenty" }
   ];
 
   // Sample user data
@@ -424,6 +513,317 @@ export default function SiteSettingsPage() {
                 />
               ))}
             </Table>
+          )}
+
+          {selectedSection === "publishing" && (
+            <div className="flex flex-col gap-6">
+              {/* Production Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex flex-col gap-2 flex-1">
+                    <h2 className="body-text-bold text-[15px] text-[var(--text-primary)]">Production</h2>
+                    <p className="body-text text-[12px] text-[var(--text-secondary)] max-w-[692px]">
+                      Once you have a site plan, you can add your domain(s) below or buy a new Google or GoDaddy Domain. Need help?{" "}
+                      <a href="#" className="text-[var(--text-blue)] hover:underline">Learn how to set up custom domain hosting.</a>
+                    </p>
+                  </div>
+                  <Button variant="primary" size="compact">Add a custom domain</Button>
+                </div>
+
+                {!dismissedNotes.has("dns-provider-note") && (
+                  <Note 
+                    variant="default" 
+                    showClose
+                    onClose={() => setDismissedNotes(prev => new Set(prev).add("dns-provider-note"))}
+                  >
+                    Some DNS providers don't support using SSL on the root domain (the version without www).{" "}
+                    <a href="#" className="text-[var(--text-blue)] hover:underline">Learn more</a>
+                  </Note>
+                )}
+
+                {/* Domain Table */}
+                <Table>
+                    <TableHeader
+                      columns={[
+                        {
+                          id: "domain",
+                          header: "Domain",
+                          width: "344px",
+                          renderHeader: () => (
+                            <span className="body-text-bold text-[13px] text-[var(--text-primary)]">Domain</span>
+                          )
+                        },
+                        {
+                          id: "ssl",
+                          header: "SSL certificate",
+                          renderHeader: () => (
+                            <div className="flex items-center gap-2">
+                              <span className="body-text-bold text-[13px] text-[var(--text-primary)]">SSL certificate</span>
+                              <InfoIcon size={16} className="text-[var(--text-secondary)]" />
+                            </div>
+                          )
+                        },
+                        {
+                          id: "actions",
+                          header: "",
+                          renderHeader: () => null
+                        }
+                      ]}
+                    />
+                    {domains.map((domain, index) => (
+                      <React.Fragment key={domain.id}>
+                        <TableRow
+                          data={domain}
+                          columns={[
+                            {
+                              id: "domain",
+                              header: "Domain",
+                              width: "344px",
+                              renderCell: () => (
+                                <div className="flex items-start gap-2">
+                                  {domain.status === "connected" ? (
+                                    <GlobeCheckIcon size={16} className="text-[var(--text-secondary)] mt-0.5 shrink-0" />
+                                  ) : (
+                                    <GlobeWarningIcon size={16} className="text-[var(--text-secondary)] mt-0.5 shrink-0" />
+                                  )}
+                                  <div className="flex flex-col gap-1">
+                                    <span className="body-text-bold text-[var(--text-primary)]">{domain.domain}</span>
+                                    <div className="flex items-center gap-1 body-text text-[var(--text-secondary)]">
+                                      {domain.status === "pending" && (
+                                        <>
+                                          <span>Update pending</span>
+                                          <RefreshIcon size={16} className="text-[var(--text-secondary)]" />
+                                          <span>·</span>
+                                        </>
+                                      )}
+                                      {domain.status === "required" && (
+                                        <>
+                                          <span>Update required</span>
+                                          <span>·</span>
+                                        </>
+                                      )}
+                                      {domain.status === "connected" && (
+                                        <>
+                                          <span>Connected</span>
+                                          <span>·</span>
+                                        </>
+                                      )}
+                                      <div className="flex items-center gap-1">
+                                        <PublishIcon size={16} className="text-[var(--text-secondary)]" />
+                                        <span>Published {domain.lastPublished}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              )
+                            },
+                            {
+                              id: "ssl",
+                              header: "SSL certificate",
+                              renderCell: () => (
+                                <Badge 
+                                  variant={domain.sslStatus === "active" ? "green" : "yellow"}
+                                  styleType="solid"
+                                  size="compact"
+                                  shape="rounded"
+                                >
+                                  {domain.sslStatus === "active" ? "Active" : "DNS update needed"}
+                                </Badge>
+                              )
+                            },
+                            {
+                              id: "actions",
+                              header: "",
+                              renderCell: () => (
+                                <div className="flex items-center gap-2 ml-auto">
+                                  {domain.isDefault && (
+                                    <Button variant="outline" size="compact">Remove default</Button>
+                                  )}
+                                  {domain.status === "required" && (
+                                    <>
+                                      <Button variant="primary" size="compact">Update DNS</Button>
+                                      <Button variant="outline" size="compact">Manual update</Button>
+                                    </>
+                                  )}
+                                  {domain.status === "connected" && !domain.isDefault && (
+                                    <Button variant="outline" size="compact">Make default</Button>
+                                  )}
+                                  <IconButton variant="ghost" size="comfortable">
+                                    <MoreIcon size={16} />
+                                  </IconButton>
+                                </div>
+                              )
+                            }
+                          ]}
+                        />
+                        {domain.hasNote && domain.noteMessage && !dismissedNotes.has(`domain-note-${domain.id}`) && (
+                          <div className="px-3 pb-3 border-b border-[var(--border-default)] last:border-b-0">
+                            <Note 
+                              variant={domain.noteType || "success"} 
+                              showClose
+                              onClose={() => setDismissedNotes(prev => new Set(prev).add(`domain-note-${domain.id}`))}
+                            >
+                              {domain.noteMessage}
+                            </Note>
+                          </div>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </Table>
+
+                <Note variant="default">
+                  Visit the admin console of your domain registrar (the website you bought your domain from) and create the two A & four CNAME records listed below. Note that it may take up to a few hours for DNS changes to take effect.{" "}
+                  <Button variant="outline" size="compact" className="mt-2">Check status</Button>
+                </Note>
+              </div>
+
+              {/* 301 Redirects Section */}
+              <div className="flex flex-col gap-4 pt-6 border-t border-[var(--border-default)]">
+                <div className="flex flex-col gap-2">
+                  <h2 className="body-text-bold text-[15px] text-[var(--text-primary)]">301 redirects</h2>
+                  <p className="body-text text-[12px] text-[var(--text-secondary)] max-w-[692px]">
+                    Redirect old URLs to new ones so that you don't lose precious search engine ranking. Redirect to a page, full domain, or setup wildcard rules to migrate sets of pages.{" "}
+                    <a href="#" className="text-[var(--text-blue)] hover:underline">Learn more about wildcard redirect rules</a>.
+                  </p>
+                </div>
+
+                {!dismissedNotes.has("redirects-warning-note") && (
+                  <Note 
+                    variant="warning" 
+                    showClose
+                    onClose={() => setDismissedNotes(prev => new Set(prev).add("redirects-warning-note"))}
+                  >
+                    Your changes have been saved. For the changes to take effect, you need to publish your site.
+                  </Note>
+                )}
+
+                {/* Redirects Controls */}
+                <div className="flex items-center gap-2">
+                  <Input
+                    placeholder="Search"
+                    value={redirectSearchQuery}
+                    onChange={(e) => setRedirectSearchQuery(e.target.value)}
+                    showSearchIcon
+                    className="flex-1 max-w-[467px]"
+                  />
+                  <Select value={redirectSort} onValueChange={setRedirectSort}>
+                    <SelectTrigger className="w-[148px]">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="last-modified">Last modified</SelectItem>
+                      <SelectItem value="old-url">Old URL</SelectItem>
+                      <SelectItem value="new-url">New URL</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <div className="flex items-center gap-2 ml-auto">
+                    <Button variant="default" size="compact">Delete all</Button>
+                    <Button variant="default" size="compact">Export</Button>
+                    <Button variant="default" size="compact">Import</Button>
+                    <Button variant="primary" size="compact">Add</Button>
+                  </div>
+                </div>
+
+                {/* Redirects Table */}
+                <Table>
+                    <TableHeader 
+                      columns={[
+                        { 
+                          id: "oldUrl", 
+                          header: "Old URL",
+                          width: "480px"
+                        },
+                        { 
+                          id: "arrow", 
+                          header: "",
+                          width: "48px"
+                        },
+                        { 
+                          id: "newUrl", 
+                          header: "New URL"
+                        }
+                      ]} 
+                    />
+                    {redirects
+                      .filter(redirect => 
+                        redirect.oldUrl.toLowerCase().includes(redirectSearchQuery.toLowerCase()) ||
+                        redirect.newUrl.toLowerCase().includes(redirectSearchQuery.toLowerCase())
+                      )
+                      .slice((redirectPage - 1) * 20, redirectPage * 20)
+                      .map((redirect) => (
+                        <TableRow
+                          key={redirect.id}
+                          data={redirect}
+                          columns={[
+                            { 
+                              id: "oldUrl", 
+                              header: "Old URL",
+                              width: "480px",
+                              renderCell: () => (
+                                <span className="body-text text-[var(--text-primary)]">{redirect.oldUrl}</span>
+                              )
+                            },
+                            { 
+                              id: "arrow", 
+                              header: "",
+                              width: "48px",
+                              renderCell: () => (
+                                <div className="flex items-center justify-center">
+                                  <ArrowRightIcon size={16} className="text-[var(--text-secondary)]" />
+                                </div>
+                              )
+                            },
+                            { 
+                              id: "newUrl", 
+                              header: "New URL",
+                              renderCell: () => (
+                                <div className="flex items-center justify-between w-full">
+                                  <span className="body-text text-[var(--text-primary)]">{redirect.newUrl}</span>
+                                  <IconButton variant="ghost" size="comfortable">
+                                    <MoreIcon size={16} />
+                                  </IconButton>
+                                </div>
+                              )
+                            }
+                          ]}
+                        />
+                      ))}
+                  </Table>
+
+                {/* Pagination */}
+                <div className="flex items-center justify-center gap-2">
+                  <IconButton 
+                    variant="outline" 
+                    size="icon"
+                    disabled={redirectPage === 1}
+                    onClick={() => setRedirectPage(p => Math.max(1, p - 1))}
+                  >
+                    <ChevronSmallUpIcon size={16} className="rotate-90" />
+                  </IconButton>
+                  {[1, 2, 3, 4, 5, 6, 7].map((page) => (
+                    <Button
+                      key={page}
+                      variant={redirectPage === page ? "default" : "outline"}
+                      size="compact"
+                      onClick={() => setRedirectPage(page)}
+                    >
+                      {page}
+                    </Button>
+                  ))}
+                  <IconButton 
+                    variant="outline" 
+                    size="icon"
+                    disabled={redirectPage === 7}
+                    onClick={() => setRedirectPage(p => Math.min(7, p + 1))}
+                  >
+                    <ChevronSmallDownIcon size={16} className="-rotate-90" />
+                  </IconButton>
+                  <span className="body-text text-[var(--text-secondary)] ml-4">
+                    1-20 of {redirects.length} redirects
+                  </span>
+                </div>
+              </div>
+            </div>
           )}
 
           {selectedSection === "plans" && (
