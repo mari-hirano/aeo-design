@@ -20,11 +20,13 @@ import { ToolbarSettings24Icon } from '@/icons/ToolbarSettings24Icon';
 import { ToolbarSearch24Icon } from '@/icons/ToolbarSearch24Icon';
 import { VideoTutorialsPanel24Icon } from '@/icons/VideoTutorialsPanel24Icon';
 import { StyleManager24Icon } from '@/icons/StyleManager24Icon';
+import { AddIcon } from '@/icons';
 import Tooltip from '@/components/spring-ui/tooltip';
 import Panel from './panels/Panel';
 import AddPanel from './panels/leftpanel/AddPanel';
 import PagesPanel from './panels/leftpanel/PagesPanel';
 import NavigatorPanel from './panels/leftpanel/NavigatorPanel';
+import VariablesPanel from './panels/leftpanel/VariablesPanel';
 
 // Define panel types
 type PanelType = 
@@ -269,7 +271,26 @@ const LeftSidebar = () => {
       </Panel>
       
       <Panel title="Components" isOpen={activePanel === 'components'} onClose={closePanel} />
-      <Panel title="Variables" isOpen={activePanel === 'variables'} onClose={closePanel} />
+      <Panel 
+        title="Variables" 
+        isOpen={activePanel === 'variables'} 
+        onClose={closePanel}
+        headerPaddingLeft="16px"
+        headerPaddingRight="12px"
+        headerAction={
+          <button
+            className="w-6 h-6 flex items-center justify-center hover:bg-[var(--bg-tertiary)] rounded-sm transition-colors cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              // Handle add new collection
+            }}
+          >
+            <AddIcon size={16} className="text-[var(--text-secondary)]" />
+          </button>
+        }
+      >
+        <VariablesPanel />
+      </Panel>
       <Panel title="Styles" isOpen={activePanel === 'styles'} onClose={closePanel} />
       <Panel title="Assets" isOpen={activePanel === 'assets'} onClose={closePanel} />
       <Panel title="Apps" isOpen={activePanel === 'apps'} onClose={closePanel} />
