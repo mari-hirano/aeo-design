@@ -86,28 +86,6 @@ interface RedirectData {
   newUrl: string;
 }
 
-// Team member data type
-interface TeamMemberData {
-  id: string;
-  name: string;
-  email: string;
-  avatar?: string;
-  fallback: string;
-  workspaceRole: string;
-  isOwner?: boolean;
-}
-
-// Guest data type
-interface GuestData {
-  id: string;
-  name: string;
-  email: string;
-  avatar?: string;
-  fallback: string;
-  workspaceRole: string;
-  lastActive: string;
-}
-
 export default function SiteSettingsPage() {
   const [selectedSection, setSelectedSection] = useState("general");
   const [siteAccessLevel, setSiteAccessLevel] = useState("admins-only");
@@ -282,108 +260,6 @@ export default function SiteSettingsPage() {
     { id: "10", oldUrl: "/blog/article-ten", newUrl: "website.com/blog/article-ten" }
   ];
 
-  // Sample team member data
-  const teamMembers: TeamMemberData[] = [
-    {
-      id: "1",
-      name: "Kathryn Murphy",
-      email: "kathryn.murphy@gymflow.com",
-      fallback: "KM",
-      workspaceRole: "Admin",
-      isOwner: true
-    },
-    {
-      id: "2",
-      name: "Dianne Russell",
-      email: "dianne.russell@gymflow.com",
-      fallback: "DR",
-      workspaceRole: "Member"
-    },
-    {
-      id: "3",
-      name: "Savannah Nguyen",
-      email: "savannah.nguyen@gymflow.com",
-      fallback: "SN",
-      workspaceRole: "Admin"
-    },
-    {
-      id: "4",
-      name: "Jane Cooper",
-      email: "jane.cooper@gymflow.com",
-      fallback: "JC",
-      workspaceRole: "Admin"
-    },
-    {
-      id: "5",
-      name: "Cody Fisher",
-      email: "cody.fisher@gymflow.com",
-      fallback: "CF",
-      workspaceRole: "Admin"
-    },
-    {
-      id: "6",
-      name: "Eleanor Pena",
-      email: "eleanor.pena@gymflow.com",
-      fallback: "EP",
-      workspaceRole: "Admin"
-    },
-    {
-      id: "7",
-      name: "Jacob Jones",
-      email: "jacob.jones@gymflow.com",
-      fallback: "JJ",
-      workspaceRole: "Admin"
-    },
-    {
-      id: "8",
-      name: "Jenny Wilson",
-      email: "jenny.wilson@gymflow.com",
-      fallback: "JW",
-      workspaceRole: "Admin"
-    },
-    {
-      id: "9",
-      name: "Robert Fox",
-      email: "robert.fox@gymflow.com",
-      fallback: "RF",
-      workspaceRole: "Member"
-    },
-    {
-      id: "10",
-      name: "Floyd Miles",
-      email: "floyd.miles@gymflow.com",
-      fallback: "FM",
-      workspaceRole: "Admin"
-    },
-    {
-      id: "11",
-      name: "Theresa Webb",
-      email: "theresa.webb@gymflow.com",
-      fallback: "TW",
-      workspaceRole: "Owner"
-    }
-  ];
-
-  // Sample guest data
-  const guests: GuestData[] = [
-    {
-      id: "1",
-      name: "Guy Hawkins",
-      email: "guy.hawkins@gymflow.com",
-      fallback: "GH",
-      workspaceRole: "Site manager",
-      lastActive: "Just now"
-    },
-    {
-      id: "2",
-      name: "Esther Howard",
-      email: "esther.howard@gymflow.com",
-      fallback: "EH",
-      workspaceRole: "Site manager",
-      lastActive: "Just now"
-    }
-  ];
-
   // Sample user data
   const users: UserData[] = [
     {
@@ -447,7 +323,7 @@ export default function SiteSettingsPage() {
   const getSectionTitle = (section: string) => {
     switch (section) {
       case "general": return "General Settings";
-      case "site-access": return "Team Management";
+      case "site-access": return "Site Access";
       case "publishing": return "Publishing";
       case "plans": return "Plans";
       case "site-usage": return "Site Usage";
@@ -466,7 +342,7 @@ export default function SiteSettingsPage() {
   const getSectionDescription = (section: string) => {
     switch (section) {
       case "general": return "Configure your site's basic settings and information.";
-      case "site-access": return "Invite team members, manage permissions, and collaborate on your projects.";
+      case "site-access": return "Manage who can access and edit your site.";
       case "publishing": return "Configure publishing settings and domain connections.";
       case "plans": return "Manage your site plan and billing settings.";
       case "site-usage": return "View analytics and usage statistics for your site.";
@@ -1042,248 +918,51 @@ export default function SiteSettingsPage() {
             </div>
           )}
           
-          {selectedSection === "site-access" && (
-            <div className="flex flex-col gap-8">
-              {/* Members Section */}
-              <div className="flex flex-col gap-4">
-                {/* Header */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex flex-col gap-1">
-                    <h2 className="title-text-bold text-[var(--text-primary)]">Members</h2>
-                    <p className="body-text text-[var(--text-secondary)]">
-                      Invite your team to collaborate in your Workspace, and assign roles to set their Workspace-level permissions. Each member needs a paid seat.{" "}
-                      <a href="#" className="text-[var(--text-blue)] hover:underline">Learn how to manage seats</a>
-                      {" "}and{" "}
-                      <a href="#" className="text-[var(--text-blue)] hover:underline">assign roles</a>
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <div className="flex items-center gap-1">
-                      <span className="body-text text-[var(--text-secondary)]">5 available</span>
-                      <InfoIcon size={16} className="text-[var(--text-secondary)]" />
-                    </div>
-                    <Button variant="primary" size="compact">Invite member</Button>
-                  </div>
-                </div>
-
-                {/* Members Table */}
-                <Table>
-                  <TableHeader 
-                    columns={[
-                      {
-                        id: "name",
-                        header: "Name",
-                        width: "50%"
-                      },
-                      {
-                        id: "workspaceRole",
-                        header: "Workspace role",
-                        width: "40%"
-                      },
-                      {
-                        id: "actions",
-                        header: "",
-                        width: "10%"
-                      }
-                    ]}
-                  />
-                  {teamMembers.slice(0, 10).map((member) => (
-                    <TableRow
-                      key={member.id}
-                      data={member}
-                      columns={[
-                        {
-                          id: "name",
-                          header: "Name",
-                          width: "50%",
-                          renderCell: () => (
-                            <div className="flex items-center gap-2">
-                              <Avatar 
-                                fallback={member.fallback}
-                                size="md"
-                              />
-                              <div className="flex flex-col">
-                                <div className="flex items-center gap-2">
-                                  <span className="body-text-bold text-[var(--text-primary)]">{member.name}</span>
-                                  {member.isOwner && (
-                                    <Tag 
-                                      size="compact" 
-                                      shape="rounded"
-                                      variant="default"
-                                    >
-                                      Owner
-                                    </Tag>
-                                  )}
-                                </div>
-                                <span className="body-text text-[var(--text-secondary)]">{member.email}</span>
-                              </div>
-                            </div>
-                          )
-                        },
-                        {
-                          id: "workspaceRole",
-                          header: "Workspace role",
-                          width: "40%",
-                          renderCell: () => (
-                            <Select defaultValue={member.workspaceRole.toLowerCase()}>
-                              <SelectTrigger>
-                                <SelectValue />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="owner">Owner</SelectItem>
-                                <SelectItem value="admin">Admin</SelectItem>
-                                <SelectItem value="member">Member</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          )
-                        },
-                        {
-                          id: "actions",
-                          header: "",
-                          width: "10%",
-                          renderCell: () => (
-                            <div className="flex justify-end items-center h-full">
-                              <IconButton variant="ghost" size="comfortable" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
-                                <MoreIcon size={16} />
-                              </IconButton>
-                            </div>
-                          )
-                        }
-                      ]}
-                    />
-                  ))}
-                </Table>
-
-                {/* Pagination */}
-                <div className="flex items-center justify-center gap-2">
-                  <IconButton 
-                    variant="outline" 
-                    size="icon"
-                  >
-                    <ChevronSmallLeftIcon size={16} />
-                  </IconButton>
-                  <Button variant="default" size="compact">1</Button>
-                  <Button variant="outline" size="compact">2</Button>
-                  <IconButton 
-                    variant="outline" 
-                    size="icon"
-                  >
-                    <ChevronSmallRightIcon size={16} />
-                  </IconButton>
-                </div>
-              </div>
-
-              {/* Guests Section */}
-              <div className="flex flex-col gap-4">
-                {/* Header */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex flex-col gap-1">
-                    <h2 className="title-text-bold text-[var(--text-primary)]">Agency or Freelancer Guests</h2>
-                    <p className="body-text text-[var(--text-secondary)]">
-                      Invite guests to collaborate on your Workspace sites for free. To accept an invite, guests need to be on an Agency or Freelancer Workspace plan.{" "}
-                      <a href="#" className="text-[var(--text-blue)] hover:underline">Learn more about guest permissions</a>
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <div className="flex items-center gap-1">
-                      <span className="body-text text-[var(--text-secondary)]">1 available</span>
-                      <InfoIcon size={16} className="text-[var(--text-secondary)]" />
-                    </div>
-                    <Button variant="primary" size="compact">Invite guest</Button>
-                  </div>
-                </div>
-
-                {/* Guests Table */}
-                <Table>
-                  <TableHeader 
-                    columns={[
-                      {
-                        id: "name",
-                        header: "Name",
-                        width: "40%"
-                      },
-                      {
-                        id: "workspaceRole",
-                        header: "Workspace role",
-                        width: "30%"
-                      },
-                      {
-                        id: "lastActive",
-                        header: "Last active",
-                        width: "20%"
-                      },
-                      {
-                        id: "actions",
-                        header: "",
-                        width: "10%"
-                      }
-                    ]}
-                  />
-                  {guests.map((guest) => (
-                    <TableRow
-                      key={guest.id}
-                      data={guest}
-                      columns={[
-                        {
-                          id: "name",
-                          header: "Name",
-                          width: "40%",
-                          renderCell: () => (
-                            <div className="flex items-center gap-2">
-                              <Avatar 
-                                fallback={guest.fallback}
-                                size="md"
-                              />
-                              <div className="flex flex-col">
-                                <span className="body-text-bold text-[var(--text-primary)]">{guest.name}</span>
-                                <span className="body-text text-[var(--text-secondary)]">{guest.email}</span>
-                              </div>
-                            </div>
-                          )
-                        },
-                        {
-                          id: "workspaceRole",
-                          header: "Workspace role",
-                          width: "30%",
-                          renderCell: () => (
-                            <Select defaultValue={guest.workspaceRole.toLowerCase().replace(" ", "-")}>
-                              <SelectTrigger>
-                                <SelectValue />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="site-manager">Site manager</SelectItem>
-                                <SelectItem value="designer">Designer</SelectItem>
-                                <SelectItem value="content-editor">Content editor</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          )
-                        },
-                        {
-                          id: "lastActive",
-                          header: "Last active",
-                          width: "20%",
-                          renderCell: () => (
-                            <span className="body-text text-[var(--text-primary)]">{guest.lastActive}</span>
-                          )
-                        },
-                        {
-                          id: "actions",
-                          header: "",
-                          width: "10%",
-                          renderCell: () => (
-                            <div className="flex justify-end items-center h-full">
-                              <IconButton variant="ghost" size="comfortable" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
-                                <MoreIcon size={16} />
-                              </IconButton>
-                            </div>
-                          )
-                        }
-                      ]}
-                    />
-                  ))}
-                </Table>
+          {selectedSection === "site-access" ? (
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <p className="body-text text-[var(--text-secondary)]">{getSectionDescription(selectedSection)}</p>
+              <div className="flex items-center gap-2 shrink-0">
+                <Select value={siteAccessLevel} onValueChange={setSiteAccessLevel}>
+                  <SelectTrigger className="w-[389px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="admins-only">
+                      <div className="flex items-center gap-2">
+                        <div className="text-[var(--text-secondary)]">
+                          <LockIcon size={16} />
+                        </div>
+                        <span>Only admins and added users can view</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="everyone">
+                      <div className="flex items-center gap-2">
+                        <div className="text-[var(--text-secondary)]">
+                          <UsersIcon size={16} />
+                        </div>
+                        <span>Everyone in the workspace can view</span>
+                      </div>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+                <Button variant="primary">Add users</Button>
               </div>
             </div>
+          ) : (
+            <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
+          )}
+          
+          {selectedSection === "site-access" && (
+            <Table>
+              <TableHeader columns={columns} />
+              {users.map((user, index) => (
+                <TableRow 
+                  key={user.id}
+                  data={user}
+                  columns={columns}
+                />
+              ))}
+            </Table>
           )}
 
           {selectedSection === "publishing" && (
