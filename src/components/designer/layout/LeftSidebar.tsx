@@ -26,6 +26,7 @@ import Panel from './panels/Panel';
 import AddPanel from './panels/leftpanel/AddPanel';
 import PagesPanel from './panels/leftpanel/PagesPanel';
 import NavigatorPanel from './panels/leftpanel/NavigatorPanel';
+import AuditsPanel from './panels/leftpanel/AuditsPanel';
 import VariablesPanel from './panels/leftpanel/VariablesPanel';
 
 // Define panel types
@@ -39,6 +40,7 @@ type PanelType =
   | 'assets' 
   | 'apps' 
   | 'activityLog' 
+  | 'audits'
   | null;
 
 const LeftSidebar = () => {
@@ -228,10 +230,13 @@ const LeftSidebar = () => {
             </div>
           </Tooltip>
           
-          <Tooltip text="Auditor">
-            <div className="w-[35px] h-[35px] flex items-center justify-center cursor-pointer hover:bg-[var(--bg-tertiary)] group">
+          <Tooltip text="Audits">
+            <div 
+              className={`w-8 h-8 flex items-center justify-center rounded transition-colors duration-150 cursor-pointer hover:bg-[var(--bg-tertiary)] group ${activePanel === 'audits' ? 'bg-[var(--bg-tertiary)]' : ''}`}
+              onClick={() => togglePanel('audits')}
+            >
               <Audit24Icon 
-                style={{ color: 'var(--text-secondary)' }} 
+                style={getIconStyle(activePanel === 'audits')} 
                 className="group-hover:!text-[var(--text-primary)] transition-colors duration-150" 
               />
             </div>
@@ -295,6 +300,14 @@ const LeftSidebar = () => {
       <Panel title="Assets" isOpen={activePanel === 'assets'} onClose={closePanel} />
       <Panel title="Apps" isOpen={activePanel === 'apps'} onClose={closePanel} />
       <Panel title="Activity Log" isOpen={activePanel === 'activityLog'} onClose={closePanel} />
+      <Panel 
+        title="Audits" 
+        isOpen={activePanel === 'audits'} 
+        onClose={closePanel}
+        customHeader={<AuditsPanel.Header onClose={closePanel} />}
+      >
+        <AuditsPanel.Content />
+      </Panel>
     </>
   );
 };
