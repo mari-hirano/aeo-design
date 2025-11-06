@@ -9,15 +9,12 @@ interface PanelProps {
   children?: React.ReactNode;
   onClose?: () => void;
   customHeader?: React.ReactNode;
-}
-
-const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, customHeader }) => {
   headerAction?: React.ReactNode;
   headerPaddingLeft?: string;
   headerPaddingRight?: string;
 }
 
-const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, headerAction, headerPaddingLeft, headerPaddingRight }) => {
+const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, customHeader, headerAction, headerPaddingLeft, headerPaddingRight }) => {
   const panelRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const selectInteractionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
