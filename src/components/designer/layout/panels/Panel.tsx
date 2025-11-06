@@ -12,6 +12,12 @@ interface PanelProps {
 }
 
 const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, customHeader }) => {
+  headerAction?: React.ReactNode;
+  headerPaddingLeft?: string;
+  headerPaddingRight?: string;
+}
+
+const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, headerAction, headerPaddingLeft, headerPaddingRight }) => {
   const panelRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const selectInteractionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -203,8 +209,16 @@ const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, customH
         animation: 'panelSlideIn 0.15s ease-out forwards'
       }}
     >
+
       <div ref={headerRef}>
-        {customHeader || <PanelHeader title={title} onClose={onClose} />}
+        {customHeader ||  
+      <PanelHeader 
+        title={title} 
+        onClose={onClose} 
+        headerAction={headerAction}
+        paddingLeft={headerPaddingLeft}
+        paddingRight={headerPaddingRight}
+      />}
       </div>
       <div className="flex-1 panel-content-wrapper">
         <div className="flex-1 w-full panel-content">
@@ -238,6 +252,7 @@ const Panel: React.FC<PanelProps> = ({ title, isOpen, children, onClose, customH
           position: absolute;
           top: 0;
           left: 0;
+          right: 0;
           bottom: 0;
           overflow-y: scroll;
           overflow-x: hidden;
