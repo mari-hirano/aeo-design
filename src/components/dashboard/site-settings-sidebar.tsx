@@ -19,7 +19,6 @@ import {
   CodeIcon,
   CloudCodeIcon,
   ArrowLeftIcon,
-  TeamIcon,
 } from "@/icons";
 
 interface SiteSettingsSidebarProps {
@@ -36,7 +35,6 @@ interface SidebarItem {
 
 const sidebarItems: SidebarItem[] = [
   { id: "general", label: "General", icon: HomeIcon },
-  { id: "team", label: "Team", icon: TeamIcon },
   { id: "site-access", label: "Site Access", icon: KeyIcon },
   { id: "publishing", label: "Publishing", icon: PublishIcon },
   { id: "plans", label: "Plans", icon: UpgradeIcon },
