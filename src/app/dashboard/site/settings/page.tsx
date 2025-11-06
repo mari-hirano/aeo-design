@@ -1185,7 +1185,10 @@ export default function SiteSettingsPage() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3 flex-shrink-0">
-                    <span className="body-text text-[var(--text-secondary)]">1 available</span>
+                    <div className="flex items-center gap-1">
+                      <span className="body-text text-[var(--text-secondary)]">1 available</span>
+                      <InfoIcon size={16} className="text-[var(--text-secondary)]" />
+                    </div>
                     <Button variant="primary" size="compact">Invite guest</Button>
                   </div>
                 </div>
