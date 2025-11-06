@@ -134,7 +134,7 @@ const AssetsPanelContent: React.FC = () => {
         >
           <SelectTrigger 
             variant="default" 
-            className="w-full h-6"
+            className="w-full h-6 data-[state=open]:border-[var(--input-border)]"
           >
             <SelectValue />
           </SelectTrigger>
