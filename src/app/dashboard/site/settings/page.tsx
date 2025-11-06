@@ -33,6 +33,8 @@ import { RefreshIcon } from "@/icons/RefreshIcon";
 import { SearchDefaultIcon } from "@/icons/SearchDefaultIcon";
 import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
 import { HomeIcon } from "@/icons/HomeIcon";
+import { CheckCircleIcon } from "@/icons/CheckCircleIcon";
+import { WebflowBadgeIcon } from "@/icons/WebflowBadgeIcon";
 
 // User data type
 interface UserData {
@@ -107,6 +109,18 @@ export default function SiteSettingsPage() {
   // Staging state
   const [stagingDomain, setStagingDomain] = useState("sitename");
   const [isStagingPrivate, setIsStagingPrivate] = useState(false);
+
+  // General settings state
+  const [siteName, setSiteName] = useState("Webflow Project");
+  const [subdomain, setSubdomain] = useState("webflow-project");
+  const [folder, setFolder] = useState("All sites");
+  const [timezone, setTimezone] = useState("[GMT-8:00] America/Los_Angeles");
+  const [languageCode, setLanguageCode] = useState("");
+  const [passwordProtection, setPasswordProtection] = useState(false);
+  const [showcaseSite, setShowcaseSite] = useState(false);
+  const [displayMadeInWebflow, setDisplayMadeInWebflow] = useState(false);
+  const [displayWebflowBranding, setDisplayWebflowBranding] = useState(false);
+  const [aiAssistant, setAiAssistant] = useState(false);
 
   // Plan data
   const plans: PlanData[] = [
@@ -505,6 +519,435 @@ export default function SiteSettingsPage() {
             </div>
           ) : (
             <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
+          )}
+
+          {selectedSection === "general" && (
+            <div className="flex flex-col gap-6">
+              {/* General Settings Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4">
+                  {/* Name Field */}
+                  <div className="flex gap-4 items-start">
+                    <div className="flex flex-col gap-2 flex-1 max-w-[800px]">
+                      <label className="body-text text-[var(--text-primary)]">Name</label>
+                      <Input
+                        value={siteName}
+                        onChange={(e) => setSiteName(e.target.value)}
+                      />
+                    </div>
+                    <div className="flex-1 max-w-[300px] pt-[18px]">
+                      <p className="body-text text-[var(--text-secondary)]">
+                        This is the site's title within Webflow. You can update what visitors see in search results in each page's settings in the Designer.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Subdomain Field */}
+                  <div className="flex gap-4 items-start">
+                    <div className="flex flex-col gap-2 flex-1 max-w-[800px]">
+                      <label className="body-text text-[var(--text-primary)]">Subdomain</label>
+                      <Input
+                        value={subdomain}
+                        onChange={(e) => setSubdomain(e.target.value)}
+                        suffix={
+                          <div className="flex items-center gap-1 px-2">
+                            <CheckCircleIcon size={16} className="text-[var(--text-green)]" />
+                          </div>
+                        }
+                      />
+                    </div>
+                    <div className="flex-1 max-w-[300px] pt-[18px]">
+                      <p className="body-text text-[var(--text-secondary)]">
+                        Must be alphanumeric (A-Z, 0-9) with dashes between words. Last published 15 days ago.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Folder Field */}
+                  <div className="flex gap-4 items-start">
+                    <div className="flex flex-col gap-2 flex-1 max-w-[800px]">
+                      <label className="body-text text-[var(--text-primary)]">Folder</label>
+                      <Select value={folder} onValueChange={setFolder}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="All sites">All sites</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="flex-1 max-w-[300px] pt-[18px]">
+                      <p className="body-text text-[var(--text-secondary)]">
+                        Sites can be moved into and out of folders here.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Icons Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Icons</h2>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  {/* Favicon */}
+                  <div className="flex flex-col gap-2">
+                    <label className="body-text text-[var(--text-primary)]">Favicon</label>
+                    <div className="flex gap-2 items-start">
+                      <div className="border border-[var(--border-default)] rounded-[4px] size-[90px] flex items-center justify-center">
+                        <WebflowBadgeIcon size={16} className="text-[var(--text-secondary)]" />
+                      </div>
+                      <div className="flex flex-col gap-2 flex-1 max-w-[345px]">
+                        <Button variant="default" size="compact" className="w-auto self-start">Upload</Button>
+                        <p className="body-text text-[var(--text-secondary)]">
+                          Upload a 32 x 32 pixel ICO, PNG, GIF, or JPG to display in browser tabs.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Webclip */}
+                  <div className="flex flex-col gap-2">
+                    <label className="body-text text-[var(--text-primary)]">Webclip</label>
+                    <div className="flex gap-2 items-start">
+                      <div className="border border-[var(--border-default)] rounded-[4px] size-[90px] flex items-center justify-center">
+                        <WebflowBadgeIcon size={64} className="text-[var(--text-secondary)]" />
+                      </div>
+                      <div className="flex flex-col gap-2 flex-1 max-w-[345px]">
+                        <Button variant="default" size="compact" className="w-auto self-start">Upload</Button>
+                        <p className="body-text text-[var(--text-secondary)]">
+                          Upload a 256 x 256 pixel webclip image. This icon shows up when your website link is saved to an iPhone home screen.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Localization Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Localization</h2>
+                  <Button variant="outline" size="compact" disabled>Save</Button>
+                </div>
+
+                <div className="flex flex-col gap-4 pb-4">
+                  {/* Timezone */}
+                  <div className="flex gap-4 items-start">
+                    <div className="flex flex-col gap-2 flex-1 max-w-[800px]">
+                      <label className="body-text text-[var(--text-primary)]">Choose the time zone from this list</label>
+                      <div className="flex gap-2 items-center">
+                        <Select value={timezone} onValueChange={setTimezone}>
+                          <SelectTrigger className="flex-1">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="[GMT-8:00] America/Los_Angeles">[GMT-8:00] America/Los_Angeles</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <Button variant="default" size="compact">Detect my timezone</Button>
+                      </div>
+                    </div>
+                    <div className="flex-1 max-w-[300px] pt-[18px]">
+                      <p className="body-text text-[var(--text-secondary)]">
+                        Time zone defaults to UTC, so setting it to your local time zone will improve any date/time-related features of your dynamic content, including relative date filtering. It will also update any date/time-related elements of your existing dynamic content.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Language Code */}
+                  <div className="flex gap-4 items-start">
+                    <div className="flex flex-col gap-2 flex-1 max-w-[800px]">
+                      <label className="body-text text-[var(--text-primary)]">Language code</label>
+                      <Input
+                        value={languageCode}
+                        onChange={(e) => setLanguageCode(e.target.value)}
+                        placeholder="e.g., en"
+                      />
+                    </div>
+                    <div className="flex-1 max-w-[300px] pt-[18px]">
+                      <p className="body-text text-[var(--text-secondary)]">
+                        To set a language code, add a primary locale in your site's{" "}
+                        <a href="#" className="text-[var(--text-blue)] hover:underline">Localization settings</a>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Website Password Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Website password</h2>
+                </div>
+
+                <div className="flex flex-col gap-4 pb-4">
+                  <div className="flex items-center gap-4">
+                    <Switch
+                      checked={passwordProtection}
+                      onChange={(e) => setPasswordProtection(e.target.checked)}
+                      hideLabel
+                      aria-label="Password protection"
+                    />
+                    <div className="flex items-center gap-4">
+                      <span className="body-text text-[var(--text-primary)]">Off</span>
+                      <span className="body-text text-[var(--text-primary)]">Password protection</span>
+                    </div>
+                  </div>
+                  <p className="body-text text-[var(--text-secondary)]">
+                    Protect your published site with a password.
+                  </p>
+                </div>
+              </div>
+
+              {/* Showcase Site Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Showcase site</h2>
+                  <Button variant="outline" size="compact" disabled>Save</Button>
+                </div>
+
+                <div className="flex flex-col gap-4 pb-4">
+                  <div className="flex items-center gap-4">
+                    <Switch
+                      checked={showcaseSite}
+                      onChange={(e) => setShowcaseSite(e.target.checked)}
+                      hideLabel
+                      aria-label="Showcase site"
+                    />
+                    <div className="flex items-center gap-4">
+                      <span className="body-text text-[var(--text-primary)]">Off</span>
+                      <span className="body-text text-[var(--text-primary)]">Showcase site</span>
+                    </div>
+                  </div>
+                  <p className="body-text text-[var(--text-secondary)]">
+                    Showcased sites will appear on your public profile, and in the{" "}
+                    <span className="text-[var(--text-secondary)]">Marketplace</span>
+                    <br />
+                    under Made in Webflow.
+                  </p>
+
+                  {/* Creator Credits */}
+                  <div className="flex gap-4 items-start">
+                    <div className="flex flex-col gap-2 flex-1 max-w-[800px]">
+                      <label className="body-text text-[var(--text-primary)]">Creator credits</label>
+                      <Select value="" onValueChange={() => {}}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Type a profile handle (@name)" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="placeholder">Type a profile handle (@name)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <p className="body-text text-[var(--text-secondary)] text-[12px]">
+                        You can select up to 3 profile handles. Please ensure the site owner approves of showcasing this site before tagging a creator.
+                      </p>
+                    </div>
+                    <div className="flex-1 max-w-[300px] pt-[18px]">
+                      <p className="body-text text-[var(--text-secondary)]">
+                        Add the profile handles of creators who have worked on this site. Creators tagged here will be able to display this site on their Webflow profile.{" "}
+                        <a href="#" className="text-[var(--text-blue)] hover:underline">Learn more</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Shared Workspace Template Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Shared Workspace template</h2>
+                </div>
+
+                <div className="flex flex-col gap-4 pb-4">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex flex-col gap-2 flex-1 max-w-[800px]">
+                      <p className="body-text text-[var(--text-primary)]">
+                        This site belongs to{" "}
+                        <a href="#" className="text-[var(--text-blue)] hover:underline">Alpha Arcade</a>.
+                      </p>
+                      <Button variant="default" size="comfortable" className="w-auto self-start">Make template</Button>
+                    </div>
+                    <div className="flex-1 max-w-[300px] pt-[18px]">
+                      <p className="body-text text-[var(--text-secondary)]">
+                        Templates help make it easy for others to build off this site.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Webflow Branding Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Webflow branding</h2>
+                  <Button variant="outline" size="compact" disabled>Save</Button>
+                </div>
+
+                <div className="flex flex-col gap-4 pb-4 pt-1">
+                  <div className="flex items-center gap-4">
+                    <Switch
+                      checked={displayMadeInWebflow}
+                      onChange={(e) => setDisplayMadeInWebflow(e.target.checked)}
+                      hideLabel
+                      aria-label="Display Made In Webflow badge"
+                    />
+                    <span className="body-text text-[var(--text-primary)]">Display "Made In Webflow" badge</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Switch
+                      checked={displayWebflowBranding}
+                      onChange={(e) => setDisplayWebflowBranding(e.target.checked)}
+                      hideLabel
+                      aria-label="Display Webflow branding in HTML"
+                    />
+                    <span className="body-text text-[var(--text-primary)]">Display Webflow branding in HTML</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* AI Assistant Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">AI Assistant</h2>
+                </div>
+
+                <div className="flex flex-col gap-4 pb-4">
+                  <div className="flex items-center gap-4">
+                    <Switch
+                      checked={aiAssistant}
+                      onChange={(e) => setAiAssistant(e.target.checked)}
+                      hideLabel
+                      aria-label="Add the AI Assistant to this site"
+                    />
+                    <span className="body-text text-[var(--text-primary)]">Add the AI Assistant to this site</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Overview Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Overview</h2>
+                </div>
+
+                <Table>
+                  <TableRow
+                    data={{ label: "Site ID", value: "312312312312312312312312" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Site ID</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">312312312312312312312312</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Total asset size", value: "7.587 MiB (Files, fonts, and backups)" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Total asset size</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">7.587 MiB (Files, fonts, and backups)</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Last published", value: "3 mos ago, on July 2nd 2025, 7:09:32 pm" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Last published</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">3 mos ago, on July 2nd 2025, 7:09:32 pm</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Last updated", value: "6 days ago, on October 3rd 2025, 1:46:11 pm" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Last updated</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">6 days ago, on October 3rd 2025, 1:46:11 pm</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Created", value: "May 9th 2025, 12:50:00 pm" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Created</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">May 9th 2025, 12:50:00 pm</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Pages", value: "14" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Pages</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">14</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Pages created", value: "5/300" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Pages created</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">5/300</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Form submissions", value: "0" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Form submissions</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">0</span> }
+                    ]}
+                  />
+                  <TableRow
+                    data={{ label: "Collection items", value: "19" }}
+                    columns={[
+                      { id: "label", header: "", renderCell: () => <span className="body-text-bold text-[var(--text-primary)]">Collection items</span> },
+                      { id: "value", header: "", renderCell: () => <span className="body-text text-[var(--text-primary)]">19</span> }
+                    ]}
+                  />
+                </Table>
+              </div>
+
+              {/* Site Activity Section */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center py-3 border-t border-[var(--border-default)]">
+                  <h2 className="title-text-bold text-[var(--text-primary)]">Site activity</h2>
+                </div>
+
+                <Table>
+                  <TableHeader
+                    columns={[
+                      { id: "date", header: "Date", width: "175px" },
+                      { id: "event", header: "Event", width: "361px" },
+                      { id: "user", header: "User" }
+                    ]}
+                  />
+                  {[
+                    { date: "2 mos ago", event: "locale_subdirectory_updated", user: "Dave Gahan" },
+                    { date: "2 mos ago", event: "locale_display_name_updated", user: "Dave Gahan" },
+                    { date: "2 mos ago", event: "Locale added", user: "Dave Gahan" },
+                    { date: "3 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "3 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "3 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "3 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "3 mos ago", event: "Create share link", user: "Dave Gahan" },
+                    { date: "4 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "4 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "4 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "4 mos ago", event: "CMS database created", user: "Dave Gahan" },
+                    { date: "5 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "5 mos ago", event: "Site published", user: "Dave Gahan" },
+                    { date: "5 mos ago", event: "Site created", user: "Dave Gahan" }
+                  ].map((activity, index) => (
+                    <TableRow
+                      key={index}
+                      data={activity}
+                      columns={[
+                        { id: "date", header: "Date", width: "175px", renderCell: () => <span className="body-text text-[var(--text-primary)]">{activity.date}</span> },
+                        { id: "event", header: "Event", width: "361px", renderCell: () => <span className="body-text text-[var(--text-primary)]">{activity.event}</span> },
+                        { id: "user", header: "User", renderCell: () => <span className="body-text text-[var(--text-primary)]">{activity.user}</span> }
+                      ]}
+                    />
+                  ))}
+                </Table>
+
+                <div className="flex justify-start">
+                  <Button variant="outline" size="compact">Show more</Button>
+                </div>
+              </div>
+            </div>
           )}
           
           {selectedSection === "site-access" && (
