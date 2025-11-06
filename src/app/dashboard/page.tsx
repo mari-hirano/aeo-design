@@ -2,6 +2,7 @@
 
 import { DashboardLayout } from "@/components/dashboard/dashboard-layout";
 import { SiteGrid } from "@/components/dashboard/site-grid";
+import { TeamPage } from "@/components/dashboard/team-page";
 import { useState } from "react";
 
 export default function Dashboard() {
@@ -26,12 +27,7 @@ export default function Dashboard() {
           </div>
         );
       case "team":
-        return (
-          <div className="p-6">
-            <h1 className="title-text-bold mb-4 text-[var(--text-primary)]">Team Management</h1>
-            <p className="body-text text-[var(--text-secondary)]">Invite team members, manage permissions, and collaborate on your projects.</p>
-          </div>
-        );
+        return <TeamPage />;
       case "plans":
         return (
           <div className="p-6">
