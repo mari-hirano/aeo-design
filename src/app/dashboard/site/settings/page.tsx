@@ -487,7 +487,39 @@ export default function SiteSettingsPage() {
         <div className="mt-6">
           <h1 className="title-text-bold mb-4 text-[var(--text-primary)]">{getSectionTitle(selectedSection)}</h1>
           
-          <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
+          {selectedSection === "site-access" ? (
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <p className="body-text text-[var(--text-secondary)]">{getSectionDescription(selectedSection)}</p>
+              <div className="flex items-center gap-2 shrink-0">
+                <Select value={siteAccessLevel} onValueChange={setSiteAccessLevel}>
+                  <SelectTrigger className="w-[389px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="admins-only">
+                      <div className="flex items-center gap-2">
+                        <div className="text-[var(--text-secondary)]">
+                          <LockIcon size={16} />
+                        </div>
+                        <span>Only admins and added users can view</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="everyone">
+                      <div className="flex items-center gap-2">
+                        <div className="text-[var(--text-secondary)]">
+                          <UsersIcon size={16} />
+                        </div>
+                        <span>Everyone in the workspace can view</span>
+                      </div>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+                <Button variant="primary">Add users</Button>
+              </div>
+            </div>
+          ) : (
+            <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
+          )}
 
           {selectedSection === "general" && (
             <div className="flex flex-col gap-6">
@@ -916,40 +948,6 @@ export default function SiteSettingsPage() {
                 </div>
               </div>
             </div>
-          )}
-          
-          {selectedSection === "site-access" ? (
-            <div className="flex items-center justify-between gap-4 mb-6">
-              <p className="body-text text-[var(--text-secondary)]">{getSectionDescription(selectedSection)}</p>
-              <div className="flex items-center gap-2 shrink-0">
-                <Select value={siteAccessLevel} onValueChange={setSiteAccessLevel}>
-                  <SelectTrigger className="w-[389px]">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="admins-only">
-                      <div className="flex items-center gap-2">
-                        <div className="text-[var(--text-secondary)]">
-                          <LockIcon size={16} />
-                        </div>
-                        <span>Only admins and added users can view</span>
-                      </div>
-                    </SelectItem>
-                    <SelectItem value="everyone">
-                      <div className="flex items-center gap-2">
-                        <div className="text-[var(--text-secondary)]">
-                          <UsersIcon size={16} />
-                        </div>
-                        <span>Everyone in the workspace can view</span>
-                      </div>
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-                <Button variant="primary">Add users</Button>
-              </div>
-            </div>
-          ) : (
-            <p className="body-text text-[var(--text-secondary)] mb-6">{getSectionDescription(selectedSection)}</p>
           )}
           
           {selectedSection === "site-access" && (
