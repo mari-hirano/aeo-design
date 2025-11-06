@@ -28,6 +28,7 @@ import PagesPanel from './panels/leftpanel/PagesPanel';
 import NavigatorPanel from './panels/leftpanel/NavigatorPanel';
 import AuditsPanel from './panels/leftpanel/AuditsPanel';
 import VariablesPanel from './panels/leftpanel/VariablesPanel';
+import AssetsPanel from './panels/leftpanel/AssetsPanel';
 
 // Define panel types
 type PanelType = 
@@ -297,14 +298,21 @@ const LeftSidebar = () => {
         <VariablesPanel />
       </Panel>
       <Panel title="Styles" isOpen={activePanel === 'styles'} onClose={closePanel} />
-      <Panel title="Assets" isOpen={activePanel === 'assets'} onClose={closePanel} />
+      <Panel 
+        title="Assets" 
+        isOpen={activePanel === 'assets'} 
+        onClose={closePanel}
+        customHeader={<AssetsPanel.Header />}
+      >
+        <AssetsPanel.Content />
+      </Panel>
       <Panel title="Apps" isOpen={activePanel === 'apps'} onClose={closePanel} />
       <Panel title="Activity Log" isOpen={activePanel === 'activityLog'} onClose={closePanel} />
       <Panel 
         title="Audits" 
         isOpen={activePanel === 'audits'} 
         onClose={closePanel}
-        customHeader={<AuditsPanel.Header onClose={closePanel} />}
+        customHeader={<AuditsPanel.Header />}
       >
         <AuditsPanel.Content />
       </Panel>
