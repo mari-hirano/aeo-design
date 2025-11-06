@@ -405,9 +405,9 @@ export function TeamPage() {
           
           {/* Right side controls */}
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="comfortable">
+            <span className="body-text text-[var(--text-secondary)] whitespace-nowrap">
               {availableGuestSeats} available
-            </Button>
+            </span>
             <Button variant="primary" size="comfortable">
               Invite guest
             </Button>
