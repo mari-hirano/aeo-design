@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/spring-ui/select';
 import { Row } from '@/components/spring-ui/row';
-import { ChevronLargeDownIcon, ChevronLargeRightIcon, ArrowRightIcon } from '@/icons';
+import { ChevronLargeDownIcon, ChevronLargeRightIcon, ArrowRightIcon, PriorityHighIcon, PriorityLowIcon, HiddenItemIcon } from '@/icons';
 
 interface AuditSection {
   title: string;
@@ -124,53 +124,20 @@ const AuditsPanelContent: React.FC = () => {
                 <div className="flex items-center flex-1 min-w-0 gap-1">
                   {/* Priority indicator */}
                   {section.priority === 'high' ? (
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 16 16" 
-                      fill="none" 
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="shrink-0"
-                    >
-                      <path 
-                        d="M5.75 5.75H10.25V10.25H5.75V5.75Z" 
-                        fill="white" 
-                        fillOpacity="0.67"
-                      />
-                    </svg>
+                    <PriorityHighIcon 
+                      className="shrink-0 text-white"
+                      size={16}
+                    />
                   ) : section.priority === 'low' ? (
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 16 16" 
-                      fill="none" 
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="shrink-0"
-                    >
-                      <circle 
-                        cx="8" 
-                        cy="8" 
-                        r="2.5" 
-                        fill="white" 
-                        fillOpacity="0.67"
-                      />
-                    </svg>
+                    <PriorityLowIcon 
+                      className="shrink-0 text-white"
+                      size={16}
+                    />
                   ) : (
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 16 16" 
-                      fill="none" 
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="shrink-0"
-                    >
-                      <path 
-                        d="M10.4765 8H5.52344" 
-                        stroke="white" 
-                        strokeOpacity="0.67" 
-                        strokeWidth="2"
-                      />
-                    </svg>
+                    <HiddenItemIcon 
+                      className="shrink-0 text-white"
+                      size={16}
+                    />
                   )}
                   <div className="flex-1 min-w-0">
                     <p className="body-text truncate text-[var(--text-secondary)]">
