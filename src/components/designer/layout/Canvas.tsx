@@ -7,14 +7,35 @@ const Canvas: React.FC = () => {
   const { selectedPage } = usePages();
 
   // Custom design system (inline) — intentionally not using existing components or theme variables
-  const [viewportWidth, setViewportWidth] = React.useState<number>(typeof window !== 'undefined' ? window.innerWidth : 1280);
+  // Make layout responsive to the Canvas container width (not the window)
+  const containerElRef = React.useRef<HTMLDivElement | null>(null);
+  const [containerWidth, setContainerWidth] = React.useState<number>(1280);
   React.useEffect(() => {
-    const onResize = () => setViewportWidth(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    const el = containerElRef.current;
+    if (!el) return;
+    // Initialize
+    setContainerWidth(el.clientWidth);
+    // Observe container width changes (e.g., when user drags CanvasViewport)
+    let ro: any = null;
+    if (typeof window !== 'undefined' && (window as any).ResizeObserver) {
+      ro = new (window as any).ResizeObserver((entries: any[]) => {
+        for (const entry of entries) {
+          const w = entry.contentRect?.width ?? el.clientWidth;
+          setContainerWidth(w);
+        }
+      });
+      ro.observe(el);
+    }
+    // Fallback on window resize if ResizeObserver isn't available
+    const onWinResize = () => setContainerWidth(el.clientWidth);
+    window.addEventListener('resize', onWinResize);
+    return () => {
+      window.removeEventListener('resize', onWinResize);
+      if (ro) ro.disconnect();
+    };
   }, []);
-  const isMobile = viewportWidth < 640;
-  const isTablet = viewportWidth >= 640 && viewportWidth < 960;
+  const isMobile = containerWidth < 640;
+  const isTablet = containerWidth >= 640 && containerWidth < 960;
   const palette = {
     bg: '#F6F8FC',
     text: '#0B1220',
@@ -117,7 +138,7 @@ const Canvas: React.FC = () => {
               padding: '8px 12px',
               borderRadius: 0,
               cursor: 'pointer'
-            }}
+                  }}
           >
             Sign in
           </button>
@@ -400,7 +421,7 @@ const Canvas: React.FC = () => {
                 padding: '12px 16px',
                 borderRadius: 0,
                 cursor: 'pointer'
-              }}
+                }}
             >
               Create account
             </button>
@@ -412,8 +433,8 @@ const Canvas: React.FC = () => {
                 padding: '12px 16px',
                 borderRadius: 0,
                 cursor: 'pointer'
-              }}
-            >
+                }}
+              >
               Talk to sales
               </button>
           </div>
@@ -512,9 +533,9 @@ const Canvas: React.FC = () => {
           ))}
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18, marginTop: 20 }}>
-          <GlassCard style={{ height: 180, background: '#DBEAFE' }} />
-          <GlassCard style={{ height: 180, background: '#FDE68A' }} />
-          <GlassCard style={{ height: 180, background: '#FCA5A5' }} />
+          <GlassCard style={{ height: 180, background: '#DBEAFE' }}>{null}</GlassCard>
+          <GlassCard style={{ height: 180, background: '#FDE68A' }}>{null}</GlassCard>
+          <GlassCard style={{ height: 180, background: '#FCA5A5' }}>{null}</GlassCard>
         </div>
       </div>
       <Footer />
@@ -651,6 +672,7 @@ const Canvas: React.FC = () => {
 
   return (
     <div 
+      ref={containerElRef}
       className="absolute inset-0 w-full h-full overflow-auto"
       style={{ 
         backgroundColor: palette.bg,
