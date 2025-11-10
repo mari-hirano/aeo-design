@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/spring-ui/button';
 import { IconButton } from '@/components/spring-ui/iconButton';
-import { useCanvasSelection } from '@/context/CanvasSelectionContext';
+import { useCanvasSelection, BREAKPOINT_WIDTH } from '@/context/CanvasSelectionContext';
 import { 
   UndoIcon, 
   RedoIcon, 
@@ -25,7 +25,8 @@ const CanvasBar: React.FC = () => {
     setCurrentBreakpoint,
     onBreadcrumbClick,
     onUndo,
-    onRedo
+    onRedo,
+    canvasWidth,
   } = useCanvasSelection();
   
   const [isRedoDisabled] = useState(true); // Redo is disabled in the design
@@ -54,13 +55,7 @@ const CanvasBar: React.FC = () => {
   ];
 
   const getBreakpointWidth = (breakpoint: Breakpoint) => {
-    switch (breakpoint) {
-      case 'desktop': return '992px';
-      case 'tablet': return '768px';
-      case 'mobile-landscape': return '480px';
-      case 'mobile': return '320px';
-      default: return '992px';
-    }
+    return `${BREAKPOINT_WIDTH[breakpoint]}px`;
   };
 
   return (
@@ -131,7 +126,7 @@ const CanvasBar: React.FC = () => {
           size="compact"
           className="h-6 px-2 text-[11.5px] font-normal text-[var(--text-primary)]"
         >
-          <span>{getBreakpointWidth(currentBreakpoint)}</span>
+          <span>{`${Math.round(canvasWidth)}px`}</span>
           <ChevronSmallRightIcon 
             size={16} 
             className="text-[var(--text-secondary)] ml-1 rotate-90" 
