@@ -78,9 +78,7 @@ const Canvas: React.FC = () => {
   const Nav: React.FC = () => (
     <div
       style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 10,
+        position: 'relative',
         background: '#FFFFFF',
         borderBottom: `1px solid ${palette.cardStroke}`
       }}

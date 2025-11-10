@@ -6,6 +6,7 @@ import LeftSidebar from "@/components/designer/layout/LeftSidebar";
 import RightPanel from "@/components/designer/layout/panels/rightpanel/RightPanel";
 import Canvas from "@/components/designer/layout/Canvas";
 import CanvasBar from "@/components/designer/layout/CanvasBar";
+import CanvasViewport from "@/components/designer/layout/CanvasViewport";
 import AppsSection from "@/components/designer/sections/AppsSection";
 import CMSSection from "@/components/designer/sections/CMSSection";
 import InsightsSection from "@/components/designer/sections/InsightsSection";
@@ -58,10 +59,12 @@ function LayoutContentInner({ children }: LayoutContentProps) {
         {currentSection === 'home' && (
           <>
             <LeftSidebar />
-            <div className="flex-1 flex flex-col bg-[var(--bg-primary)]">
+            <div className="flex-1 flex flex-col bg-[var(--bg-secondary)]">
               <CanvasBar />
               <main className="flex-1 relative">
-                <Canvas />
+                <CanvasViewport>
+                  <Canvas />
+                </CanvasViewport>
               </main>
             </div>
             <RightPanel />

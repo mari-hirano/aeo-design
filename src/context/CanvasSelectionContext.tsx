@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 
 // Define breadcrumb item type
 export interface BreadcrumbItem {
@@ -12,13 +12,25 @@ export interface BreadcrumbItem {
 // Define breakpoint type
 export type Breakpoint = 'desktop' | 'tablet' | 'mobile-landscape' | 'mobile';
 
+export const BREAKPOINT_WIDTH: Record<Breakpoint, number> = {
+  desktop: 1280,
+  tablet: 768,
+  'mobile-landscape': 568,
+  mobile: 320,
+};
+
 interface CanvasSelectionContextType {
   breadcrumbs: BreadcrumbItem[];
   currentBreakpoint: Breakpoint;
+  canvasWidth: number;
+  isResizing: boolean;
   setBreadcrumbs: (breadcrumbs: BreadcrumbItem[]) => void;
   addBreadcrumb: (item: BreadcrumbItem) => void;
   removeBreadcrumb: (id: string) => void;
   setCurrentBreakpoint: (breakpoint: Breakpoint) => void;
+  setCanvasWidth: (width: number) => void;
+  setIsResizing: (resizing: boolean) => void;
+  resetWidthToBreakpoint: (breakpoint: Breakpoint) => void;
   onBreadcrumbClick: (item: BreadcrumbItem) => void;
   onUndo: () => void;
   onRedo: () => void;
@@ -39,6 +51,8 @@ export function CanvasSelectionProvider({ children }: CanvasSelectionProviderPro
   ]);
   
   const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>('desktop');
+  const [canvasWidth, setCanvasWidth] = useState<number>(BREAKPOINT_WIDTH['desktop']);
+  const [isResizing, setIsResizing] = useState<boolean>(false);
 
   const addBreadcrumb = (item: BreadcrumbItem) => {
     setBreadcrumbs(prev => [...prev, item]);
@@ -73,13 +87,27 @@ export function CanvasSelectionProvider({ children }: CanvasSelectionProviderPro
     console.log('Redo action triggered');
   };
 
+  const resetWidthToBreakpoint = useCallback((bp: Breakpoint) => {
+    setCanvasWidth(BREAKPOINT_WIDTH[bp]);
+  }, []);
+
+  const handleSetCurrentBreakpoint = useCallback((bp: Breakpoint) => {
+    setCurrentBreakpoint(bp);
+    setCanvasWidth(BREAKPOINT_WIDTH[bp]);
+  }, []);
+
   const value: CanvasSelectionContextType = {
     breadcrumbs,
     currentBreakpoint,
+    canvasWidth,
+    isResizing,
     setBreadcrumbs,
     addBreadcrumb,
     removeBreadcrumb,
-    setCurrentBreakpoint,
+    setCurrentBreakpoint: handleSetCurrentBreakpoint,
+    setCanvasWidth,
+    setIsResizing,
+    resetWidthToBreakpoint,
     onBreadcrumbClick,
     onUndo,
     onRedo
