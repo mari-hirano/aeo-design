@@ -1,0 +1,209 @@
+---
+description: Guidelines for using and extending Spring UI components
+globs: 
+  - "src/components/designer/layout/**/*.tsx"
+  - "src/components/designer/sections/**/*.tsx"
+  - "src/components/dashboard/**/*.tsx"
+  - "src/app/dashboard/page.tsx"
+alwaysApply: false
+---
+# Spring UI Component Usage
+
+## Purpose & Scope
+Always default to the primitives exported from `@/components/spring-ui/*` when building anything in designer, dashboard, or app surfaces. Compose those primitives (or extend them) before introducing bespoke UI so the system stays visually consistent and easier to maintain.
+
+## Component Decision Flow
+1. **Does a Spring UI primitive already exist?** Use it.
+2. **Can the layout be composed from existing primitives?** Compose it.
+3. **Can you extend an existing component instead of creating new API?** Extend it.
+4. **Is the need truly unique?** Only then introduce a custom component.
+
+## Component Selection Matrix
+Use this list to map common UI needs to the canonical Spring UI primitive. Reference the Pattern Recipes section when a layout needs additional structure.
+
+- **Navigation or list rows**
+  - Component: `Row`
+  - Key props: `label`, `description`, `icon`, `selected`, `suffixButtons`, `checkbox`
+  - Notes: Stack inside a parent with `space-y-*`; see Navigation recipe.
+- **Section headers / inline actions**
+  - Components: `Row` + `Button`
+  - Key props: use `suffixButtons`/`suffixActions` arrays for CTAs
+  - Notes: Ideal for settings blocks that need inline buttons.
+- **Data listings**
+  - Components: `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableCell`, `TableHead`
+  - Key props: standard table subcomponents
+  - Notes: Pair rows with `Badge` + `DropdownMenu` for status/actions.
+- **Primary / confirm actions**
+  - Component: `Button` (`variant="primary"`)
+  - Key props: `size`, optional leading icon, `loading` extensions
+  - Notes: Use custom `ActionButton` when async loading is required.
+- **Secondary / subtle actions**
+  - Component: `Button` (`variant="ghost"` or `"outline"`)
+  - Key props: `size`, optional icons
+  - Notes: Built-in padding keeps icon + text spacing consistent.
+- **Icon-only affordances**
+  - Component: `IconButton`
+  - Key props: `variant`, `size`, `aria-label`
+  - Notes: Always supply an accessible label; follow icon usage rules.
+- **Overflow or item menus**
+  - Component: `DropdownMenu` with `DropdownMenuTrigger`, `DropdownMenuContent`, `DropdownMenuItem`, `DropdownMenuSeparator`
+  - Key props: `asChild` for triggers, `variant="destructive"` when needed
+  - Notes: Trigger must be a `Button`/`IconButton`.
+- **Text entry / search**
+  - Component: `Input`
+  - Key props: `type`, `placeholder`, `showSearchIcon`, `prefix`/`suffix`
+  - Notes: Wrap with a label per `content-guidelines.mdc`.
+- **Option selection**
+  - Components: `Select`, `SelectTrigger`, `SelectContent`, `SelectItem`, `SelectValue`
+  - Key props: `value`, `onValueChange`, `disabled`
+  - Notes: Use for single-choice dropdowns; keep item labels short.
+- **Toggles & checks**
+  - Components: `Switch`, `Checkbox`, `RadioGroup` + `Radio`
+  - Key props: `checked`, `onCheckedChange`, `value`
+  - Notes: Pair with `Row` descriptions to explain the behavior.
+- **Status or taxonomy**
+  - Components: `Badge`, `Tag`
+  - Key props: `variant`, `size`
+  - Notes: Use brand variants (green/orange/etc.) for status; outline tags for filters.
+- **People or entity avatars**
+  - Component: `Avatar`
+  - Key props: `src`, `fallback`, `size`
+  - Notes: Fallback should be initials; size must match the surrounding density.
+
+## Pattern Recipes
+These are the three layouts that appear most often. Start here before composing anything custom.
+
+### Navigation stacks
+- Use for left rails, secondary nav, or any atomic lists.
+- Stack `Row` components inside a container with consistent spacing.
+```tsx
+<div className="space-y-1">
+  {sections.map(section => (
+    <Row
+      key={section.id}
+      label={section.label}
+      icon={<section.icon size={16} />}
+      selected={section.id === current}
+      onClick={() => setCurrent(section.id)}
+    />
+  ))}
+</div>
+```
+
+### Settings forms
+- Use `Row` for copy + description, then attach Spring UI inputs via `suffixButtons`.
+- Keep toggles inside Spring primitives (`Switch`, `Select`, etc.).
+```tsx
+<div className="space-y-4">
+  <Row
+    label="Email Notifications"
+    description="Receive product updates."
+    suffixButtons={[
+      <Switch key="email" checked={emailEnabled} onCheckedChange={setEmailEnabled} />,
+    ]}
+  />
+  <Row
+    label="Workspace visibility"
+    description="Control who can discover this site."
+    suffixButtons={[
+      <Select key="visibility" value={visibility} onValueChange={setVisibility}>
+        <SelectTrigger className="w-40">
+          <SelectValue placeholder="Choose" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="private">Private</SelectItem>
+          <SelectItem value="team">Team</SelectItem>
+          <SelectItem value="public">Public</SelectItem>
+        </SelectContent>
+      </Select>,
+    ]}
+  />
+</div>
+```
+
+### Data tables
+- Use the Spring `Table` primitives and compose cells with badges + dropdown menus for actions.
+- `Badge` conveys status; `DropdownMenu` keeps row actions compact.
+```tsx
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead className="w-[80px]">Actions</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {sites.map(site => (
+      <TableRow key={site.id}>
+        <TableCell>{site.name}</TableCell>
+        <TableCell>
+          <Badge variant={site.active ? "green" : "orange"}>
+            {site.active ? "Active" : "Draft"}
+          </Badge>
+        </TableCell>
+        <TableCell>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <IconButton variant="ghost" aria-label="Row actions">
+                <MoreIcon size={16} />
+              </IconButton>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>Edit</DropdownMenuItem>
+              <DropdownMenuItem variant="destructive">Archive</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
+```
+
+## Extension & Anti-Patterns
+### When to Extend
+- Only extend when you must inject extra behavior or wiring while keeping the Spring API intact.
+- Always pass through props and reuse Spring helpers like `cn`.
+```tsx
+import { Button } from "@/components/spring-ui/button"
+import { cn } from "@/lib/utils"
+
+export function ActionButton({ loading, children, className, ...props }) {
+  return (
+    <Button
+      {...props}
+      disabled={loading || props.disabled}
+      className={cn(loading && "opacity-50", className)}
+    >
+      {loading ? "Saving…" : children}
+    </Button>
+  )
+}
+```
+
+### Common Mistakes to Avoid
+- **Custom layout wrappers:** Don’t hand-code flex rows/columns for nav or settings; use `Row`.
+- **Native inputs with ad-hoc styling:** Use `Input`, `Select`, `Switch`, etc., so validation and spacing stay consistent.
+- **Button clones:** Avoid plain `<button>` tags for actions; Spring `Button`/`IconButton` already encode variants, spacing, and focus states.
+```tsx
+// ❌ Avoid creating bespoke nav items
+export function NavItem({ label, icon, selected }) {
+  return (
+    <div className={`flex items-center gap-2 px-3 py-2 ${selected ? "bg-blue-50" : ""}`}>
+      {icon}
+      <span>{label}</span>
+    </div>
+  )
+}
+
+// ✅ Use the Row primitive instead
+<Row label={label} icon={icon} selected={selected} />
+```
+
+## Integration Notes
+- Import order should prioritize Spring UI components, then icons (`@/icons`), then shared utilities (`@/lib/utils`); keep third-party imports last.
+- Color, typography, and spacing tokens must follow `color-and-text-styling.mdc`.
+- All icon decisions (size, alignment, interactive hit areas) must follow `component-icon-usage.mdc`.
+- Copy, capitalization, and helper text follow `content-guidelines.mdc`.
+- Any hard-coded asset paths (images, lottie files, etc.) must respect `asset-base-path.mdc`.
