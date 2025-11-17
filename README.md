@@ -1,34 +1,11 @@
-# Next.js Application Template
+# Webflow Prototype Starter Template
 
-This is a clean template for building web applications with Next.js. It provides a basic structure with essential components and styling, making it easy to start building your own application.
+This is a template for building prototypes of Webflow UIs using realistic Spring Design System components. It is not intended for production use.
 
 ## Features
 
-- Modern Next.js setup with TypeScript
-- Tailwind CSS for styling
-- Clean and minimal layout structure
-- Mode switching functionality (Design/Build/Develop)
-- Responsive navigation components
-- Theme support
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── layout.tsx       # Root layout with providers
-│   └── globals.css      # Global styles
-├── components/
-│   ├── spring-ui/           # Spring Design System components
-│   ├── designer/            # Designer interface components
-│   │   ├── layout/          # Designer layout components
-│   │   └── sections/        # Layouts for App Gen, CMS, Insights...
-│   └── dashboard/           # Dashboard interface components
-├── context/
-│   ├── ModeContext.tsx     # Mode switching context
-│   ├── NavigatorContext.tsx # Navigation state context
-│   └── PagesContext.tsx    # Pages state context
-```
+- Mock templates of both the Designer and Dashboard
+- Realistic looking Spring components (themed shadcn components)
 
 ## Getting Started
 
@@ -58,6 +35,50 @@ This template provides a minimal setup that you can easily customize:
 2. Modify the layout components in `src/components`
 3. Add your own pages and components
 4. Customize the navigation and mode switching functionality
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx           # Root layout with providers
+│   ├── page.tsx             # Root page
+│   ├── globals.css          # Global styles
+│   ├── dashboard/           # Dashboard routes
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── site/
+│   │       └── settings/
+│   ├── designer/            # Designer routes
+│   ├── plan-tool/           # Plan tool routes
+│   └── style-guide/         # Style guide routes
+│       ├── layout.tsx
+│       ├── page.tsx
+│       └── components/
+├── components/
+│   ├── spring-ui/           # Spring Design System components
+│   ├── designer/            # Designer interface components
+│   │   ├── layout/          # Designer layout components
+│   │   │   ├── Canvas.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   └── panels/      # Left/right panel components
+│   │   ├── canvas-content/  # Canvas content components
+│   │   │   └── pages/       # Page templates
+│   │   └── sections/        # Layouts for App Gen, CMS, Insights...
+│   │       ├── AppGen/
+│   │       ├── CMS/
+│   │       └── insights/
+│   └── dashboard/           # Dashboard interface components
+├── context/                 # React context providers
+│   ├── ModeContext.tsx      # Mode switching context
+│   ├── NavigatorContext.tsx # Navigation state context
+│   └── PagesContext.tsx     # Pages state context
+├── config/                  # Configuration files
+├── lib/                     # Utility libraries
+├── styles/                  # Global style files
+└── icons/                   # Icon components
+```
+
 
 ## Dependencies
 
