@@ -1,7 +1,7 @@
 ---
-globs: src/components/designer/**/*.tsx,src/components/dashboard/**/*.tsx,src/app/**/*.tsx
-alwaysApply: false
 description: Guidelines for using colors and text styling
+globs: src/components/dashboard/**/*.tsx,src/app/**/*.tsx,src/components/designer/layout/**/*.tsx,src/components/designer/sections/**/*.tsx
+alwaysApply: false
 ---
 # Color and Text Styling Guidelines
 

@@ -1,5 +1,5 @@
 ---
-globs: src/components/designer/**/*.tsx,src/components/dashboard/**/*.tsx,src/app/**/*.tsx
+globs: src/components/dashboard/**/*.tsx,src/app/**/*.tsx,src/components/designer/layout/**/*.tsx,src/components/designer/sections/**/*.tsx
 alwaysApply: false
 description: Guidelines for using Spring UI components
 ---
