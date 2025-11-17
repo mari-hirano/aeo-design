@@ -6,6 +6,7 @@ This is a template for building prototypes of Webflow UIs using realistic Spring
 
 - Mock templates of both the Designer and Dashboard
 - Realistic looking Spring components (themed shadcn components)
+- [Style guide page](http://localhost:3000/style-guide) for Spring components
 
 ## Getting Started
 
