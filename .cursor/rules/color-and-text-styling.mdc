@@ -1,14 +1,14 @@
 ---
-description: 
-globs: 
-alwaysApply: true
+globs: src/components/designer/**/*.tsx,src/components/dashboard/**/*.tsx,src/app/**/*.tsx
+alwaysApply: false
+description: Guidelines for using colors and text styling
 ---
 # Color and Text Styling Guidelines
 
 ## Color System Architecture
-- **Theme System**: All colors are defined in [src/styles/themes.css](mdc:src/styles/themes.css) with automatic light/dark mode switching
-- **Base Colors**: Raw color values are stored in [src/styles/colors.css](mdc:src/styles/colors.css) but should not be used directly
-- **Semantic Variables**: Always use theme-aware variables from themes.css that automatically adapt to light/dark modes
+- **Theme System**: All colors are defined in [themes.css](/src/styles/themes.css) with automatic light/dark mode switching
+- **Base Colors**: Raw color values are stored in [colors.css](/src/styles/colors.css) but should not be used directly
+- **Semantic Variables**: Always use theme-aware variables from [themes.css](/src/styles/themes.css) that automatically adapt to light/dark modes
 
 ## Color Usage Rules
 - **Never use hardcoded color values** (like hex codes or rgb values) anywhere in the codebase
@@ -26,7 +26,7 @@ alwaysApply: true
   ```
 
 ## Core Theme Variables
-Use these primary variables from [src/styles/themes.css](mdc:src/styles/themes.css):
+Use these primary variables from [themes.css](/src/styles/themes.css):
 
 ### Text Colors
 ```tsx
@@ -107,7 +107,7 @@ For custom CSS, always use CSS variables:
 ```
 
 ## Text Styling
-Use typography classes from [src/app/globals.css](mdc:src/app/globals.css):
+Use typography classes from [globals.css](/src/app/globals.css):
 
 ### Primary Text Classes
 - `title-text-bold` - For main headings and titles

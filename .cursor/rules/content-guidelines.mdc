@@ -1,8 +1,7 @@
 ---
 description: Guidelines for writing product copy, docs, and in-product AI responses
-alwaysApply: true
+alwaysApply: false
 ---
-
 # Content guidelines
 
 Use these rules when writing product copy, docs, and in-product AI responses.

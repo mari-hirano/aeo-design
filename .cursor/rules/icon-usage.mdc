@@ -1,17 +1,14 @@
 ---
-description: Guidelines for picking and using icons
-globs: 
-  - "src/icons/**/*.tsx"
+description: Guidelines for selecting and using icons
 alwaysApply: false
 ---
-
 # Icon Usage Guidelines
 
 ## Purpose & Scope
 This rule applies to all icons in the `src/icons` directory. It ensures that icons are used correctly and consistently across the codebase.
 
 ## Icon Usage
-- **Always import icons from [src/icons](mdc:src/icons)** - never use third-party icon libraries if equivalent icons exist
+- **Always import icons from [src/icons](/src/icons)** - never use third-party icon libraries if equivalent icons exist
 - **Standard import pattern**: `import { IconName } from '@/icons'`
 - **Default styling**: Icons should use `--text-secondary` color from our theme system
 
