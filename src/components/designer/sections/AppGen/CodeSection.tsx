@@ -17,112 +17,7 @@ import {
   DownloadIcon,
   CopyIcon
 } from '@/icons';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-
-// Custom theme based on Night Owl
-const theme = {
-  plain: {
-    color: '#d6deeb',
-    backgroundColor: '#011627',
-  },
-  styles: [
-    {
-      types: ['changed'],
-      style: {
-        color: 'rgb(162, 191, 252)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['deleted'],
-      style: {
-        color: 'rgba(239, 83, 80, 0.56)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['inserted', 'attr-name'],
-      style: {
-        color: 'rgb(173, 219, 103)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['comment'],
-      style: {
-        color: 'rgb(99, 119, 119)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['string', 'url'],
-      style: {
-        color: 'rgb(173, 219, 103)',
-      },
-    },
-    {
-      types: ['variable'],
-      style: {
-        color: 'rgb(214, 222, 235)',
-      },
-    },
-    {
-      types: ['number'],
-      style: {
-        color: 'rgb(247, 140, 108)',
-      },
-    },
-    {
-      types: ['builtin', 'char', 'constant', 'function'],
-      style: {
-        color: 'rgb(130, 170, 255)',
-      },
-    },
-    {
-      types: ['punctuation'],
-      style: {
-        color: 'rgb(199, 146, 234)',
-      },
-    },
-    {
-      types: ['selector', 'doctype'],
-      style: {
-        color: 'rgb(199, 146, 234)',
-        fontStyle: 'italic',
-      },
-    },
-    {
-      types: ['class-name'],
-      style: {
-        color: 'rgb(255, 203, 139)',
-      },
-    },
-    {
-      types: ['tag', 'operator', 'keyword'],
-      style: {
-        color: 'rgb(127, 219, 202)',
-      },
-    },
-    {
-      types: ['boolean'],
-      style: {
-        color: 'rgb(255, 88, 116)',
-      },
-    },
-    {
-      types: ['property'],
-      style: {
-        color: 'rgb(128, 203, 196)',
-      },
-    },
-    {
-      types: ['namespace'],
-      style: {
-        color: 'rgb(178, 204, 214)',
-      },
-    },
-  ],
-};
+import { Highlight, themes } from 'prism-react-renderer';
 
 const FOOTER_COLLAPSED_HEIGHT = 48;
 const FOOTER_EXPANDED_HEIGHT = 240;
@@ -233,7 +128,7 @@ export default PricingCalculator;`;
     <div className="flex-1 flex flex-col">
       {/* Code Editor */}
       <div className="flex-1">
-        <Highlight {...defaultProps} code={codeContent} language="jsx" theme={{ ...theme, plain: { ...theme.plain, backgroundColor: 'transparent' } }}>
+        <Highlight code={codeContent} language="jsx" theme={{ ...themes.nightOwl, plain: { ...themes.nightOwl.plain, backgroundColor: 'transparent' } }}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={`${className} text-sm font-mono leading-relaxed overflow-auto h-full bg-[var(--bg-primary)] p-4 rounded-md shadow-[var(--shadow-input)]`} style={{ ...style, fontFamily: 'Roboto Mono, monospace' }}>
               {tokens.map((line, index) => {
