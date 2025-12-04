@@ -17,8 +17,7 @@ import {
   DownloadIcon,
   CopyIcon
 } from '@/icons';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import { Highlight, themes } from 'prism-react-renderer';
 
 const FOOTER_COLLAPSED_HEIGHT = 48;
 const FOOTER_EXPANDED_HEIGHT = 240;
@@ -129,7 +128,7 @@ export default PricingCalculator;`;
     <div className="flex-1 flex flex-col">
       {/* Code Editor */}
       <div className="flex-1">
-        <Highlight {...defaultProps} code={codeContent} language="jsx" theme={{ ...theme, plain: { ...theme.plain, backgroundColor: 'transparent' } }}>
+        <Highlight code={codeContent} language="jsx" theme={{ ...themes.nightOwl, plain: { ...themes.nightOwl.plain, backgroundColor: 'transparent' } }}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={`${className} text-sm font-mono leading-relaxed overflow-auto h-full bg-[var(--bg-primary)] p-4 rounded-md shadow-[var(--shadow-input)]`} style={{ ...style, fontFamily: 'Roboto Mono, monospace' }}>
               {tokens.map((line, index) => {
