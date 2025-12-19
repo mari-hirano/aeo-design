@@ -1,13 +1,12 @@
 ---
-description: 
-globs: 
+description: Rule for referencing static assets from the public directory
 alwaysApply: false
 ---
 # Asset Base Path Rule
 
 ## Static Asset References
 
-This project uses a custom `basePath` configured in [next.config.js](mdc:next.config.js). When referencing static assets from the public directory, you **must** include this base path.
+This project uses a custom `basePath` configured in [next.config.js](/next.config.js). When referencing static assets from the public directory, you **must** include this base path.
 
 ### CRITICAL: Always Use getImagePath Utility
 

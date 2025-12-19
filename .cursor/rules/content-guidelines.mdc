@@ -1,13 +1,10 @@
 ---
-description: Content guidelines
-globs: []
-alwaysApply: true
+description: Guidelines for writing product copy, docs, and in-product AI responses
+alwaysApply: false
 ---
-
 # Content guidelines
 
-## Scope
-Applies to all product copy, docs, in-product AI responses.
+Use these rules when writing product copy, docs, and in-product AI responses.
 
 ## Brand voice 
 
