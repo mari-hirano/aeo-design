@@ -3,7 +3,8 @@
 import { DashboardNav } from "@/components/dashboard/dashboard-nav";
 import { SiteSettingsSidebar } from "@/components/dashboard/site-settings-sidebar";
 import { SiteSettingsHeader } from "@/components/dashboard/site-settings-header";
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import React from "react";
 import { Table, TableHeader, TableRow, ColumnDef } from "@/components/spring-ui/table";
 import { Avatar } from "@/components/spring-ui/avatar";
@@ -86,8 +87,10 @@ interface RedirectData {
   newUrl: string;
 }
 
+type SettingsSectionType = 'general' | 'hosting' | 'seo' | 'forms' | 'fonts' | 'integrations' | 'custom-code' | 'editor' | 'members' | 'plans' | 'billing';
+
 export default function SiteSettingsPage() {
-  const [selectedSection, setSelectedSection] = useState("general");
+  const [selectedSectionState, setSelectedSectionState] = useState<SettingsSectionType>("general");
   const [siteAccessLevel, setSiteAccessLevel] = useState("admins-only");
   const [plansTab, setPlansTab] = useState("website");
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
@@ -95,6 +98,55 @@ export default function SiteSettingsPage() {
   const [redirectSort, setRedirectSort] = useState("last-modified");
   const [redirectPage, setRedirectPage] = useState(1);
   const [dismissedNotes, setDismissedNotes] = useState<Set<string>>(new Set());
+  
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const hasInitializedRef = useRef(false);
+  const isUpdatingRef = useRef(false);
+
+  // Read initial section from URL on mount
+  useEffect(() => {
+    if (hasInitializedRef.current) return;
+    hasInitializedRef.current = true;
+
+    const sectionParam = searchParams?.get('settingsSection') as SettingsSectionType | null;
+    if (sectionParam) {
+      setSelectedSectionState(sectionParam);
+    }
+  }, [searchParams]);
+
+  // Update URL when section changes
+  const updateUrl = useCallback((section: SettingsSectionType) => {
+    if (isUpdatingRef.current) return;
+    
+    const params = new URLSearchParams(searchParams?.toString() || '');
+    
+    if (section === 'general') {
+      params.delete('settingsSection'); // Default section, no need to show in URL
+    } else {
+      params.set('settingsSection', section);
+    }
+
+    const queryString = params.toString();
+    const newUrl = queryString ? `${pathname}?${queryString}` : pathname || '/dashboard/site/settings';
+    
+    isUpdatingRef.current = true;
+    router.replace(newUrl, { scroll: false });
+    
+    setTimeout(() => {
+      isUpdatingRef.current = false;
+    }, 50);
+  }, [searchParams, pathname, router]);
+
+  const setSelectedSection = useCallback((section: string) => {
+    const typedSection = section as SettingsSectionType;
+    setSelectedSectionState(typedSection);
+    updateUrl(typedSection);
+  }, [updateUrl]);
+
+  // Alias for backward compatibility
+  const selectedSection = selectedSectionState;
   
   // Advanced publishing options state
   const [asyncLoadJS, setAsyncLoadJS] = useState(false);

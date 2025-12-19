@@ -1,7 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 export type AppSection = 'home' | 'apps' | 'cms' | 'insights';
 
@@ -20,53 +20,95 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [isStyleGuideOpen, setIsStyleGuideOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const hasInitializedRef = useRef(false);
+  const isUpdatingRef = useRef(false);
+
+  // Read initial section from URL on mount
+  useEffect(() => {
+    if (hasInitializedRef.current) return;
+    hasInitializedRef.current = true;
+
+    const sectionParam = searchParams?.get('section') as AppSection | null;
+    if (sectionParam && ['home', 'apps', 'cms', 'insights'].includes(sectionParam)) {
+      setCurrentSection(sectionParam);
+    }
+  }, [searchParams]);
+
+  // Update URL when section changes
+  const updateUrl = useCallback((section: AppSection) => {
+    if (isUpdatingRef.current) return;
+    
+    const params = new URLSearchParams(searchParams?.toString() || '');
+    
+    if (section === 'home') {
+      params.delete('section');
+    } else {
+      params.set('section', section);
+    }
+
+    const queryString = params.toString();
+    const newUrl = queryString ? `${pathname}?${queryString}` : pathname || '/';
+    
+    isUpdatingRef.current = true;
+    router.replace(newUrl, { scroll: false });
+    
+    setTimeout(() => {
+      isUpdatingRef.current = false;
+    }, 50);
+  }, [searchParams, pathname, router]);
 
   useEffect(() => {
-    // Sync URL path with state
+    // Sync URL path with state (for route-based navigation)
     if (pathname) {
       if (pathname.includes('/style-guide')) {
         setIsStyleGuideOpen(true);
       } else {
         setIsStyleGuideOpen(false);
         
-        if (pathname.includes('/apps')) {
-          setCurrentSection('apps');
-        } else if (pathname.includes('/cms')) {
-          setCurrentSection('cms');
-        } else if (pathname.includes('/insights')) {
-          setCurrentSection('insights');
-        } else {
-          setCurrentSection('home');
+        // Only update from pathname if no URL param is set
+        const sectionParam = searchParams?.get('section');
+        if (!sectionParam) {
+          if (pathname.includes('/apps')) {
+            setCurrentSection('apps');
+          } else if (pathname.includes('/cms')) {
+            setCurrentSection('cms');
+          } else if (pathname.includes('/insights')) {
+            setCurrentSection('insights');
+          } else if (!pathname.startsWith('/dashboard')) {
+            setCurrentSection('home');
+          }
         }
       }
     }
-  }, [pathname]);
+  }, [pathname, searchParams]);
 
-  const navigateTo = (section: AppSection) => {
+  const navigateTo = useCallback((section: AppSection) => {
     setCurrentSection(section);
+    updateUrl(section);
     
     // Only navigate to actual routes that exist as Next.js pages
     // Apps, CMS, and Insights are handled by state-based routing in LayoutContent
     if (section === 'home') {
       router.push('/');
     }
-    // For apps, cms, insights: only update state, no URL navigation
+    // For apps, cms, insights: only update state and URL param, no page navigation
     // This prevents 404 errors for non-existent pages
-  };
+  }, [router, updateUrl]);
 
-  const openStyleGuide = () => {
+  const openStyleGuide = useCallback(() => {
     setIsStyleGuideOpen(true);
     router.push('/style-guide');
-  };
+  }, [router]);
 
-  const closeStyleGuide = () => {
+  const closeStyleGuide = useCallback(() => {
     setIsStyleGuideOpen(false);
     // Only navigate to home URL, let state handle other sections
     if (currentSection === 'home') {
       router.push('/');
     }
     // For other sections, just rely on state
-  };
+  }, [currentSection, router]);
 
   return (
     <AppContext.Provider value={{ 
@@ -87,4 +129,4 @@ export function useApp() {
     throw new Error('useApp must be used within an AppProvider');
   }
   return context;
-} 
+}

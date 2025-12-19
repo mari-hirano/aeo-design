@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useNavigator } from '@/context/NavigatorContext';
 import { useMode } from '@/context/ModeContext';
 import { usePages } from '@/context/PagesContext';
+import { usePanel } from '@/context/PanelContext';
 import { BASE_PATH } from '@/config/paths';
 import { ActivityLog24Icon } from '@/icons/ActivityLog24Icon';
 import { PagePanel24Icon } from '@/icons/PagePanel24Icon';
@@ -30,54 +31,17 @@ import AuditsPanel from './panels/leftpanel/AuditsPanel';
 import VariablesPanel from './panels/leftpanel/VariablesPanel';
 import AssetsPanel from './panels/leftpanel/AssetsPanel';
 
-// Define panel types
-type PanelType = 
-  | 'add' 
-  | 'pages' 
-  | 'navigator' 
-  | 'components' 
-  | 'variables' 
-  | 'styles' 
-  | 'assets' 
-  | 'apps' 
-  | 'activityLog' 
-  | 'audits'
-  | null;
-
 const LeftSidebar = () => {
   const { toggleNavigator } = useNavigator();
   const { mode } = useMode();
   const { selectedPage, setSelectedPage } = usePages();
+  const { activePanel, togglePanel, closePanel } = usePanel();
   const basePath = BASE_PATH;
-  const [activePanel, setActivePanel] = useState<PanelType>(null);
-  const [prevSelectedPage, setPrevSelectedPage] = useState(selectedPage);
-
-  // Function to toggle panels
-  const togglePanel = (panel: PanelType) => {
-    if (activePanel === panel) {
-      setActivePanel(null);
-    } else {
-      setActivePanel(panel);
-    }
-  };
-
-  // Close panel function
-  const closePanel = () => {
-    setActivePanel(null);
-  };
-
-  // Effect to close Pages panel when a page is selected
-  useEffect(() => {
-    if (prevSelectedPage !== selectedPage && activePanel === 'pages') {
-      setActivePanel(null);
-    }
-    setPrevSelectedPage(selectedPage);
-  }, [selectedPage, activePanel, prevSelectedPage]);
 
   // Function called when an item is selected in AddPanel
   const handleAddPanelItemSelected = () => {
     if (activePanel === 'add') {
-      setActivePanel(null);
+      closePanel();
     }
   };
 
@@ -320,4 +284,4 @@ const LeftSidebar = () => {
   );
 };
 
-export default LeftSidebar; 
+export default LeftSidebar;

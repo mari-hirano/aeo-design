@@ -3,10 +3,59 @@
 import { DashboardLayout } from "@/components/dashboard/dashboard-layout";
 import { SiteGrid } from "@/components/dashboard/site-grid";
 import { TeamPage } from "@/components/dashboard/team-page";
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+
+type DashSectionType = 'all-sites' | 'tutorials' | 'general' | 'team' | 'plans' | 'billing' | 'apps-integrations' | 'libraries-templates';
 
 export default function Dashboard() {
-  const [selectedSection, setSelectedSection] = useState("all-sites");
+  const [selectedSection, setSelectedSectionState] = useState<DashSectionType>("all-sites");
+  
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const hasInitializedRef = useRef(false);
+  const isUpdatingRef = useRef(false);
+
+  // Read initial section from URL on mount
+  useEffect(() => {
+    if (hasInitializedRef.current) return;
+    hasInitializedRef.current = true;
+
+    const sectionParam = searchParams?.get('dashSection') as DashSectionType | null;
+    if (sectionParam) {
+      setSelectedSectionState(sectionParam);
+    }
+  }, [searchParams]);
+
+  // Update URL when section changes
+  const updateUrl = useCallback((section: DashSectionType) => {
+    if (isUpdatingRef.current) return;
+    
+    const params = new URLSearchParams(searchParams?.toString() || '');
+    
+    if (section === 'all-sites') {
+      params.delete('dashSection'); // Default section, no need to show in URL
+    } else {
+      params.set('dashSection', section);
+    }
+
+    const queryString = params.toString();
+    const newUrl = queryString ? `${pathname}?${queryString}` : pathname || '/dashboard';
+    
+    isUpdatingRef.current = true;
+    router.replace(newUrl, { scroll: false });
+    
+    setTimeout(() => {
+      isUpdatingRef.current = false;
+    }, 50);
+  }, [searchParams, pathname, router]);
+
+  const setSelectedSection = useCallback((section: string) => {
+    const typedSection = section as DashSectionType;
+    setSelectedSectionState(typedSection);
+    updateUrl(typedSection);
+  }, [updateUrl]);
 
   const renderContent = () => {
     switch (selectedSection) {
@@ -66,4 +115,4 @@ export default function Dashboard() {
       {renderContent()}
     </DashboardLayout>
   );
-} 
+}

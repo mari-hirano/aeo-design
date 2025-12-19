@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
 import { Row } from '@/components/spring-ui/row';
+import { usePanel } from '@/context/PanelContext';
 import ColorsPanel from './ColorsPanel';
 
 const VariablesPanel: React.FC = () => {
-  const [isColorsPanelOpen, setIsColorsPanelOpen] = useState(false);
+  const { subPanel, setSubPanel, closeSubPanel } = usePanel();
+  const isColorsPanelOpen = subPanel === 'colors';
 
   const collections = [
     { id: 'color', label: 'Color' },
@@ -16,7 +18,7 @@ const VariablesPanel: React.FC = () => {
   const handleCollectionClick = (e: React.MouseEvent, collectionId: string) => {
     e.stopPropagation();
     if (collectionId === 'color') {
-      setIsColorsPanelOpen(true);
+      setSubPanel('colors');
     }
   };
 
@@ -46,7 +48,7 @@ const VariablesPanel: React.FC = () => {
       </div>
 
       {isColorsPanelOpen && typeof window !== 'undefined' && createPortal(
-        <ColorsPanel onClose={() => setIsColorsPanelOpen(false)} />,
+        <ColorsPanel onClose={closeSubPanel} />,
         document.body
       )}
     </>
@@ -54,4 +56,3 @@ const VariablesPanel: React.FC = () => {
 };
 
 export default VariablesPanel;
-
