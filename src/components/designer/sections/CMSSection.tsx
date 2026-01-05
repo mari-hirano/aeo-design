@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import CMSNavigation from './CMS/CMSNavigation';
 import CMSTable from './CMS/CMSTable';
 import CMSItemDetail from './CMS/CMSItemDetail';
@@ -93,27 +94,89 @@ export default function CMSSection() {
     itemCount: mockItems[collection.id]?.length || 0
   }));
 
-  const [selectedCollection, setSelectedCollection] = useState<CMSCollection | null>(mockCollections[0]);
-  const [selectedItem, setSelectedItem] = useState<CMSItem | null>(null);
+  const [selectedCollection, setSelectedCollectionState] = useState<CMSCollection | null>(mockCollections[0]);
+  const [selectedItem, setSelectedItemState] = useState<CMSItem | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const hasInitializedRef = useRef(false);
+  const isUpdatingRef = useRef(false);
+
+  // Read initial state from URL on mount
+  useEffect(() => {
+    if (hasInitializedRef.current) return;
+    hasInitializedRef.current = true;
+
+    const collectionParam = searchParams?.get('cmsCollection');
+    const itemParam = searchParams?.get('cmsItem');
+
+    if (collectionParam) {
+      const collection = mockCollections.find(c => c.id === collectionParam);
+      if (collection) {
+        setSelectedCollectionState(collection);
+        
+        if (itemParam) {
+          const items = mockItems[collection.id] || [];
+          const item = items.find(i => i.id === itemParam);
+          if (item) {
+            setSelectedItemState(item);
+          }
+        }
+      }
+    }
+  }, [searchParams]);
+
+  // Update URL helper
+  const updateUrl = useCallback((collectionId: string | null, itemId: string | null) => {
+    if (isUpdatingRef.current) return;
+    
+    const params = new URLSearchParams(searchParams?.toString() || '');
+    
+    if (collectionId === null || collectionId === '1') {
+      params.delete('cmsCollection');
+    } else {
+      params.set('cmsCollection', collectionId);
+    }
+
+    if (itemId === null) {
+      params.delete('cmsItem');
+    } else {
+      params.set('cmsItem', itemId);
+    }
+
+    const queryString = params.toString();
+    const newUrl = queryString ? `${pathname}?${queryString}` : pathname || '/';
+    
+    isUpdatingRef.current = true;
+    router.replace(newUrl, { scroll: false });
+    
+    setTimeout(() => {
+      isUpdatingRef.current = false;
+    }, 50);
+  }, [searchParams, pathname, router]);
 
   const currentItems = selectedCollection ? mockItems[selectedCollection.id] || [] : [];
   const filteredItems = currentItems.filter(item => 
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleCollectionSelect = (collection: CMSCollection) => {
-    setSelectedCollection(collection);
-    setSelectedItem(null); // Clear item selection when changing collections
-  };
+  const handleCollectionSelect = useCallback((collection: CMSCollection) => {
+    setSelectedCollectionState(collection);
+    setSelectedItemState(null);
+    updateUrl(collection.id, null);
+  }, [updateUrl]);
 
-  const handleItemSelect = (item: CMSItem) => {
-    setSelectedItem(item);
-  };
+  const handleItemSelect = useCallback((item: CMSItem) => {
+    setSelectedItemState(item);
+    updateUrl(selectedCollection?.id || null, item.id);
+  }, [selectedCollection, updateUrl]);
 
-  const handleItemClose = () => {
-    setSelectedItem(null);
-  };
+  const handleItemClose = useCallback(() => {
+    setSelectedItemState(null);
+    updateUrl(selectedCollection?.id || null, null);
+  }, [selectedCollection, updateUrl]);
 
   // Keyboard navigation for items
   React.useEffect(() => {
@@ -132,11 +195,14 @@ export default function CMSSection() {
           nextIndex = currentIndex < filteredItems.length - 1 ? currentIndex + 1 : 0;
         }
         
-        setSelectedItem(filteredItems[nextIndex]);
+        const nextItem = filteredItems[nextIndex];
+        setSelectedItemState(nextItem);
+        updateUrl(selectedCollection?.id || null, nextItem.id);
       }
       
       if (e.key === 'Escape') {
-        setSelectedItem(null);
+        setSelectedItemState(null);
+        updateUrl(selectedCollection?.id || null, null);
       }
     };
 
@@ -144,7 +210,7 @@ export default function CMSSection() {
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
     }
-  }, [selectedItem, filteredItems]);
+  }, [selectedItem, filteredItems, selectedCollection, updateUrl]);
 
   return (
     <div className="flex h-full bg-[var(--bg-primary)]">
@@ -181,4 +247,4 @@ export default function CMSSection() {
       </div>
     </div>
   );
-} 
+}

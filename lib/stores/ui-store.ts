@@ -78,6 +78,29 @@ export interface UIState {
 // Generate unique IDs
 const generateId = () => Math.random().toString(36).substring(2, 15)
 
+// URL sync helper for modals
+const syncModalToUrl = (modalType: string | null) => {
+  if (typeof window === 'undefined') return
+  
+  const url = new URL(window.location.href)
+  
+  if (modalType === null) {
+    url.searchParams.delete('modal')
+  } else {
+    url.searchParams.set('modal', modalType)
+  }
+  
+  window.history.replaceState({}, '', url.toString())
+}
+
+// Get initial modal from URL
+const getInitialModalFromUrl = (): string | null => {
+  if (typeof window === 'undefined') return null
+  
+  const url = new URL(window.location.href)
+  return url.searchParams.get('modal')
+}
+
 export const useUIStore = create<UIState>()(
   devtools(
     (set, get) => ({
@@ -98,7 +121,7 @@ export const useUIStore = create<UIState>()(
       setLoading: (loading, message) =>
         set({ isLoading: loading, loadingMessage: message }, false, 'setLoading'),
 
-      // Modal actions
+      // Modal actions with URL sync
       openModal: (modal) => {
         const id = generateId()
         const newModal = { ...modal, id }
@@ -107,10 +130,15 @@ export const useUIStore = create<UIState>()(
           false,
           'openModal'
         )
+        // Sync to URL - use the most recently opened modal's type
+        syncModalToUrl(modal.type)
         return id
       },
 
-      closeModal: (id) =>
+      closeModal: (id) => {
+        const { modals } = get()
+        const modalToClose = modals.find(m => m.id === id)
+        
         set(
           (state) => ({
             modals: state.modals.filter((modal) => {
@@ -123,12 +151,22 @@ export const useUIStore = create<UIState>()(
           }),
           false,
           'closeModal'
-        ),
+        )
+        
+        // Update URL - if there are remaining modals, use the last one's type
+        const remainingModals = modals.filter(m => m.id !== id)
+        if (remainingModals.length > 0) {
+          syncModalToUrl(remainingModals[remainingModals.length - 1].type)
+        } else {
+          syncModalToUrl(null)
+        }
+      },
 
       closeAllModals: () => {
         const { modals } = get()
         modals.forEach((modal) => modal.onClose?.())
         set({ modals: [] }, false, 'closeAllModals')
+        syncModalToUrl(null)
       },
 
       // Toast actions
@@ -256,4 +294,17 @@ export const useUIActions = () => useUIStore((state) => ({
   setGlobalSearchResults: state.setGlobalSearchResults,
   clearGlobalSearch: state.clearGlobalSearch,
   setUnsavedChanges: state.setUnsavedChanges,
-})) 
+}))
+
+// Hook to initialize modal state from URL (call this in a top-level component)
+export const useInitializeModalFromUrl = (openModalByType: (type: string) => void) => {
+  if (typeof window !== 'undefined') {
+    const modalType = getInitialModalFromUrl()
+    if (modalType) {
+      // Delay to ensure components are mounted
+      setTimeout(() => {
+        openModalByType(modalType)
+      }, 100)
+    }
+  }
+}
