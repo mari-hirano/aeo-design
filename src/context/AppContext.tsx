@@ -15,8 +15,15 @@ type AppContextType = {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
+function getInitialSection(): AppSection {
+  if (typeof window === 'undefined') return 'home';
+  const params = new URLSearchParams(window.location.search);
+  const section = params.get('section') as AppSection | null;
+  return section && ['home', 'apps', 'cms', 'insights'].includes(section) ? section : 'home';
+}
+
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [currentSection, setCurrentSection] = useState<AppSection>('home');
+  const [currentSection, setCurrentSection] = useState<AppSection>(getInitialSection);
   const [isStyleGuideOpen, setIsStyleGuideOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -24,7 +31,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const hasInitializedRef = useRef(false);
   const isUpdatingRef = useRef(false);
 
-  // Read initial section from URL on mount
+  // Sync section from URL when searchParams become available (e.g. after hydration)
   useEffect(() => {
     if (hasInitializedRef.current) return;
     hasInitializedRef.current = true;

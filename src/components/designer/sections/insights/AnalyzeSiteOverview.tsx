@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/spring-ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/spring-ui/select';
 import { IconButton } from '@/components/spring-ui/iconButton';
+import { useInsightsVersion } from '@/context/InsightsVersionContext';
 import { 
   ChevronSmallDownIcon,
   ArrowLeftIcon,
@@ -15,6 +16,7 @@ import {
 } from '@/icons';
 
 export default function AnalyzeSiteOverview() {
+  const { version } = useInsightsVersion();
   const [selectedGoal, setSelectedGoal] = useState("contact-clicks");
   const [selectedMetric, setSelectedMetric] = useState("total-sessions");
 
@@ -54,11 +56,11 @@ export default function AnalyzeSiteOverview() {
       </div>
 
       {/* Content Sections */}
-      <div className="flex-1 overflow-y-auto p-3 space-y-4">
-        {/* Top Row - Three Column Layout */}
-        <div className="grid grid-cols-3 gap-3">
+      <div className="flex-1 overflow-y-auto p-4">
+        <div className="grid grid-cols-12 gap-3">
+          {/* Top Row - Three Column Layout */}
           {/* Goals Section - Left Column */}
-          <div className="space-y-2">
+          <div className="col-span-3 space-y-2">
             <div className="flex items-center justify-between">
               <h3 className="text-[var(--text-secondary)] body-text-bold">Goals</h3>
             </div>
@@ -101,7 +103,7 @@ export default function AnalyzeSiteOverview() {
           </div>
 
           {/* Total Views Section - Middle Column */}
-          <div className="space-y-2">
+          <div className="col-span-3 space-y-2">
             <div className="flex items-center justify-between">
               <h3 className="text-[var(--text-secondary)] body-text-bold">Total views</h3>
             </div>
@@ -136,7 +138,7 @@ export default function AnalyzeSiteOverview() {
           </div>
 
           {/* Highlights Section - Right Column */}
-          <div className="space-y-2">
+          <div className="col-span-3 space-y-2">
             <div className="flex items-center justify-between">
               <h3 className="text-[var(--text-secondary)] body-text-bold">Highlights</h3>
             </div>
@@ -178,10 +180,9 @@ export default function AnalyzeSiteOverview() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Top Pages Section */}
-        <div className="space-y-2">
+          {/* Top Pages Section */}
+          <div className="col-span-12 space-y-2">
           <div className="flex items-center justify-between">
             <h3 className="text-[var(--text-secondary)] body-text-bold">Top pages</h3>
             <Button variant="outline" size="compact" className="h-6">
@@ -214,17 +215,17 @@ export default function AnalyzeSiteOverview() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
-        </div>
 
-        {/* Top Events Section */}
-        <div className="space-y-2">
+          {/* Top Events Section */}
+          <div className="col-span-12 space-y-2">
           <div className="flex items-center justify-between">
             <h3 className="text-[var(--text-secondary)] body-text-bold">Top events</h3>
           </div>
           
-          <div className="grid grid-cols-5 gap-3">
-            {/* Event Cards */}
+            <div className="grid grid-cols-5 gap-3">
+              {/* Event Cards */}
             {[
               { name: "Sign up form", visits: "5,256", percentage: "35% of visits" },
               { name: "Contact form submission", visits: "3,142", percentage: "21% of visits" },
@@ -252,16 +253,16 @@ export default function AnalyzeSiteOverview() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
-        </div>
 
-        {/* Audience Section */}
-        <div className="space-y-2">
+          {/* Audience Section */}
+          <div className="col-span-12 space-y-2">
           <div className="flex items-center justify-between">
             <h3 className="text-[var(--text-secondary)] body-text-bold">Audience</h3>
           </div>
           
-          <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-4 gap-3">
             {/* Top Countries */}
             <div className="bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-lg p-4">
               <div className="flex items-center justify-between mb-4">
@@ -397,6 +398,7 @@ export default function AnalyzeSiteOverview() {
               <Button variant="outline" size="compact" className="w-full mt-3 h-6">
                 Show all
               </Button>
+            </div>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ This is a template for building prototypes of Webflow UIs using realistic Spring
 
 - Mock templates of both the Designer and Dashboard
 - Realistic looking Spring components (themed shadcn components)
-- [Style guide page](http://localhost:3000/style-guide) for Spring components
+- [Style guide page](http://localhost:3000/spring/style-guide) for Spring components
 
 ## Getting Started
 
@@ -19,7 +19,18 @@ This is a template for building prototypes of Webflow UIs using realistic Spring
    ```bash
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+4. Open [http://localhost:3000/spring](http://localhost:3000/spring) in your browser.
+
+**Note:** The app uses `basePath: '/spring'`, so the correct URL is **http://localhost:3000/spring** (not http://localhost:3000).
+
+### Cursor preview (in-editor)
+
+1. Start the dev server: **Terminal → Run Task… → Start Dev Server** (or run `npm run dev` in a terminal).
+2. Wait until you see `Ready in …` and `Local: http://localhost:3000`.
+3. Open Cursor’s Simple Browser: **Cmd+Shift+P** (Mac) or **Ctrl+Shift+P** (Windows/Linux) → run **“Simple Browser: Show”**.
+4. Enter **http://localhost:3000/spring** and press Enter.
+
+If the in-editor Simple Browser doesn’t load the app (known Cursor quirk), use your system browser at http://localhost:3000/spring instead.
 
 ## Available Scripts
 
